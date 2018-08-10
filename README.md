@@ -1,27 +1,36 @@
 # UDTheme Branding Plugin for WordPress #
 
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-[![Bitbucket issues](https://img.shields.io/bitbucket/issues/UDwebbranding/udtheme-brand.svg)](https://bitbucket.org/UDwebbranding/udtheme-brand/issues)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/LICENSE.md)
 
+[![Bitbucket issues](https://img.shields.io/bitbucket/issues/itcssdev/udtheme-brand.svg?style=for-the-badge)](https://bitbucket.org/itcssdev/udtheme-brand/issues/)
+
+[![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript.svg?style=for-the-badge)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/bitbucket-pipelines.yml)
+
+
+
+
+[![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://bitbucket.org/itcssdev/udtheme-brand/src/b604cd0921d6635d6ada4e39ddbcc673288deb14/LICENSE.md)
 
 Contributors: [Christopher Leonard](https://github.com/atsea)
 License: GPLv3
-License URI: [GPLv3 license](http://www.gnu.org/licenses/gpl.html)
+License URI: [GPLv3 license](https://bitbucket.org/itcssdev/udtheme-brand/src/master/LICENSE.md)
 Tags: UD, University, Delaware, Branding, Logo, Identity, Higher Ed
 Requires at least: 4.7
-Tested up to: 4.9.x
-Stable tag: 3.0.4
+Tested up to: 4.9.8
+Stable tag: 3.5.0
 Requires PHP: 5.6.30 (current version on CampusPress) or higher
+
+Custom plugin that applies UD branding.
 =======
 ## Latest Update ##
 
-4/18/2018
+8/11/2018
 
 ## Description ##
 
-The UDTheme Branding plugin allows a University department or college to display the official University of Delaware branded header and footer on a website.
+The UDTheme Branding plugin allows a University department or college to display the official University of Delaware branded header and footer on a WordPress website.
 
-Academic departments and the seven University colleges may choose to use a college-specific logo in addition to the official University header and footer.
+Site admins may choose to use a college or department-specific title in addition to the official University header and footer.
 
 ### Restrictions ###
 This plugin is ONLY to be used on official University of Delaware department web pages and websites in accordance with CPA guidelines.
@@ -35,7 +44,7 @@ This plugin is ONLY to be used on official University of Delaware department web
 4.
 
 ### From within your WordPress dashboard ###
-1. [Download the plugin](https://bitbucket.org/UDwebbranding/udtheme-brand/get/7f87a071f8a3.zip) to your computer.
+1. [Download the plugin](https://bitbucket.org/itcssdev/udtheme-brand/downloads/) to your computer.
 2. Log in to your WordPress site.
 3. Navigate to Plugins > Add New.
 4. On the 'Add Plugins' page, click 'Upload Plugin'.
@@ -45,10 +54,10 @@ This plugin is ONLY to be used on official University of Delaware department web
 7. Navigate to Settings > UDTheme Branding to enable and adjust your options.
 
 ### Frequently Asked Questions ###
-[See the wiki page for answers to commonly asked questions](https://bitbucket.org/UDwebbranding/udtheme-brand/wiki/Home).
+[See the wiki page for answers to commonly asked questions](https://github.com/UDelIT/udthemebrand/wiki/FAQs).
 
 ### Support ###
 For questions or concerns, contact the [IT Support Center](consult@udel.edu).
 
 ### Changelog ###
-[See the latest updates, bug fixes and features](https://bitbucket.org/UDwebbranding/udtheme-brand/src/7f87a071f8a3d48a0ae407e3c08317553c189c2b/CHANGELOG.md?at=master).
+[See the latest updates, bug fixes and features](https://bitbucket.org/itcssdev/udtheme-brand/src/7f87a071f8a3d48a0ae407e3c08317553c189c2b/CHANGELOG.md?at=master).
