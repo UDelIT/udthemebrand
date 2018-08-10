@@ -1,15 +1,17 @@
 # UDTheme Branding Plugin for WordPress #
 
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://github.com/UDelIT/udthemebrand/blob/master/LICENSE.md) [![GitHub issues](https://img.shields.io/github/issues-raw/badges/shields.svg?style=for-the-badge)](https://github.com/UDelIT/udthemebrand/issues)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://github.com/UDelIT/udthemebrand/blob/master/LICENSE.md) [![Stable release](https://img.shields.io/github/release/UDelIT/udthemebrand.svg?style=for-the-badge)](https://GitHub.com/UDelIT/udthemebrand/releases/) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript.svg?style=for-the-badge)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/bitbucket-pipelines.yml) [![GitHub issues](https://img.shields.io/github/issues/UDelIT/udthemebrand.svg?style=for-the-badge&colorB=red)](https://GitHub.com/UDelIT/udthemebrand/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/UDelIT/udthemebrand.svg?style=for-the-badge&colorB=lightgrey)](https://GitHub.com/UDelIT/udthemebrand/issues?q=is%3Aissue+is%3Aclosed)
 
-[![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript.svg?style=for-the-badge)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/bitbucket-pipelines.yml)
+[![GitHub watchers](https://img.shields.io/github/watchers/UDelIT/udthemebrand.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/UDelIT/udthemebrand/watchers/)
+[![GitHub stars](https://img.shields.io/github/stars/UDelIT/udthemebrand.svg?style=social&label=Star)](https://GitHub.com/UDelIT/udthemebrand/stars/)
 
 
-Contributors: [Christopher Leonard](https://github.com/atsea)__
-Tags: UD, University, Delaware, Branding, Logo, Identity, Higher Ed
-Requires at least: 4.7
-Tested up to: 4.9.8
-Stable tag: 3.5.0
+
+
+Contributors: [Christopher Leonard](https://github.com/atsea)<br>
+Tags: UD, University, Delaware, Branding, Logo, Identity, Higher Ed<br>
+Requires at least: 4.7<br>
+Tested up to: 4.9.8<br>
 Requires PHP: 5.6.30 (current version on CampusPress) or higher
 
 Custom plugin that applies UD branding.
