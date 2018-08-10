@@ -1,14 +1,11 @@
 # UDTheme Branding Plugin for WordPress #
 
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/LICENSE.md)
-
-[![GitHub issues](https://img.shields.io/github/issues/badges/shields.svg?style=for-the-badge)](https://github.com/UDelIT/udthemebrand/issues)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://github.com/UDelIT/udthemebrand/blob/master/LICENSE.md) [![GitHub issues](https://img.shields.io/github/issues-raw/badges/shields.svg?style=for-the-badge)](https://github.com/UDelIT/udthemebrand/issues)
 
 [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript.svg?style=for-the-badge)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/bitbucket-pipelines.yml)
 
 
 Contributors: [Christopher Leonard](https://github.com/atsea)__
-License: GPLv3: [GPLv3 license](https://bitbucket.org/itcssdev/udtheme-brand/src/master/LICENSE.md)__
 Tags: UD, University, Delaware, Branding, Logo, Identity, Higher Ed
 Requires at least: 4.7
 Tested up to: 4.9.8
