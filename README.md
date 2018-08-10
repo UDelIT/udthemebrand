@@ -33,7 +33,7 @@ The UDTheme Branding plugin allows a University department or college to display
 Site admins may choose to use a college or department-specific title in addition to the official University header and footer.
 
 ### Restrictions ###
-This plugin is ONLY to be used on official University of Delaware department web pages and websites in accordance with CPA guidelines.
+This plugin is ONLY to be used on official University of Delaware department web pages and websites in accordance with UD OCM guidelines.
 
 ## Installation ##
 
