@@ -1,21 +1,21 @@
 # UDTheme Branding Plugin for WordPress #
+
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![Bitbucket issues](https://img.shields.io/bitbucket/issues/UDwebbranding/udtheme-brand.svg)](https://bitbucket.org/UDwebbranding/udtheme-brand/issues)
 
-[![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://bitbucket.org/UDwebbranding/udtheme-brand/src/b604cd0921d6635d6ada4e39ddbcc673288deb14/LICENSE.md)
 
 Contributors: [Christopher Leonard](https://github.com/atsea)
 License: GPLv3
 License URI: [GPLv3 license](http://www.gnu.org/licenses/gpl.html)
 Tags: UD, University, Delaware, Branding, Logo, Identity, Higher Ed
 Requires at least: 4.7
-Tested up to: 4.8.2
+Tested up to: 4.9.x
 Stable tag: 3.0.4
 Requires PHP: 5.6.30 (current version on CampusPress) or higher
 =======
 ## Latest Update ##
 
-10/26/2017
+4/18/2018
 
 ## Description ##
 
