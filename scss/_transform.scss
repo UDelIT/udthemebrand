@@ -1,0 +1,46 @@
+/**
+  * SCSS TRANSFORM MIXINS
+  *
+  * movement, opacity, rotate exct. related mixins used for styling CSS in admin and public facing pages.
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/scss
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/* @TRANSFORM */
+@mixin transform($values...) {
+  -webkit-transform: $values;
+  transform: $values;
+}
+/* opacity */
+@mixin opacity($values) {
+  @include transform(opacity($values));
+}
+/* rotate */
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+/* scale */
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+/* @TRANSLATE */
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+/* origin */
+@mixin transform-origin($values...) {
+  @each $var in $values {
+    -webkit-transform-origin: #{$var};
+    transform-origin: #{$var};
+  }
+}
+/* @WILL-CHANGE */
+@mixin will-change($wc: will-change, $tz: translateZ(0)){
+  will-change: $wc;
+  transform: $tz;
+}

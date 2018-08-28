@@ -1,0 +1,113 @@
+/**
+  * UDTB NORMALIZE CSS
+  *
+  * Defines all of the reset styles used for ADMIN and PUBLIC facing pages.
+  * normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css
+  *
+  * The Table of contents conforms to W3C HTML Elements organization.
+  * <https://www.w3.org/TR/2012/WD-html-markup-20121025/elements-by-function.html>
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/public/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/**
+  * @since          1.4.2
+  * @version        2.0.0          Completely re-written to latest CSS standards.
+*/
+/*------------------------------------------------------------------------------
+[Table of contents]
+  1. @SECTIONING ROOT
+  2. @GROUPING CONTENT
+  3. @TEXT-LEVEL SEMANTICS
+  4. @EMBEDDED CONTENT
+  5. @FORMS
+  6. @TABLES
+  7. @SCREEN READERS
+  8. @MEDIA QUERIES
+------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+  1. @SECTIONING ROOT
+------------------------------------------------------------------------------*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering:auto;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+}
+
+.udtbp_body ~ p,
+.udtbp_body ~ ul,
+.udtbp_body ~ li,
+.udtbp_body ~ h1,
+.udtbp_body ~ h2,
+.udtbp_body ~ h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------------------------------------------------------------
+  3. @GROUPING CONTENT
+------------------------------------------------------------------------------*/
+.udtbp_body ~ ul {
+  list-style:none;
+  list-style-image:none;
+  list-style-position: outside;
+  margin-bottom: 10px
+}
+/*------------------------------------------------------------------------------
+  4. @TEXT-LEVEL SEMANTICS
+------------------------------------------------------------------------------*/
+a,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-text-decoration-skip: none;
+}
+.udtbp_body ~ a:active,
+.udtbp_body ~ a:hover {
+  outline-width: 0;
+  outline: 0;
+}
+::-moz-focus-inner {
+ border:0;
+ padding:0
+}
+.udtbp_body ~ a:active,
+.udtbp_body ~ a:hover,
+.udtbp_body ~ a:link,
+.udtbp_body ~ a:visited {
+  text-decoration: none;
+}
+
+b,
+strong {
+  font-weight: bolder
+}
+small {
+  font-size: 80% !important
+}
+.udtbp_body ~ a img {
+  border:none;
+}
+img {
+  max-width:100%;
+}
+.svg {
+  max-height: 100%;
+}
+svg:not (:root ) {
+  width:100%;
+  height: auto;
+}

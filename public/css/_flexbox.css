@@ -1,0 +1,260 @@
+/**
+  * UDTB FLEXBOX CSS
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/public/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/**
+  * @since          3.5.0
+  * @version        1.0.0
+*/
+/*------------------------------------------------------------------------------
+[Table of contents]
+   1. @FLEXBOX
+   2. @FLEX DIRECTION
+   3. @FLEX FLOW
+   4. @FLEX WRAP
+   5. @FLEX
+   6. @FLEX BASIS
+   7. @JUSTIFY CONTENT
+   8. @JUSTIFY ITEMS
+   9. @JUSTIFY SELF
+   10.@ALIGN CONTENT
+   11. @ALIGN ITEMS
+   12. @ALIGN SELF
+------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+  1. @FLEXBOX
+------------------------------------------------------------------------------*/
+.ud-flex--df {
+  display: -webkit-flex;
+  display: flex;
+}
+.ud-flex--dif {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+/*------------------------------------------------------------------------------
+  2. @FLEX DIRECTION
+------------------------------------------------------------------------------*/
+.ud-flex--fdc {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.ud-flex--fdr {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+/*------------------------------------------------------------------------------
+  3. @FLEX FLOW
+------------------------------------------------------------------------------*/
+.ud-flex--ffrw {
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+.ud-flex--ffcw {
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+}
+/*------------------------------------------------------------------------------
+  4. @FLEX WRAP
+------------------------------------------------------------------------------*/
+.ud-flex--nwrap {
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+.ud-flex--wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/*------------------------------------------------------------------------------
+  5. @FLEX
+     shorthand for flex-grow, flex-shrink, flex-basis.
+------------------------------------------------------------------------------*/
+.ud-flex--fit {
+  -webkit-flex: 1;
+  flex: 1;
+}
+/*------------------------------------------------------------------------------
+  6. @FLEX BASIS
+     initial length of flex item
+------------------------------------------------------------------------------*/
+.ud-flex--fbfull {
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+}
+.ud-flex--fbhalf {
+  -webkit-flex-basis: 50%;
+  flex-basis: 50%;
+}
+.ud-flex--full {
+  -webkit-flex: 0 0 100%;
+  flex: 0 0 100%
+}
+/*------------------------------------------------------------------------------
+  7. @JUSTIFY CONTENT
+     distributes space between and around content items along the main horizontal
+     axis of their container.
+------------------------------------------------------------------------------*/
+.ud-align--jcc{
+  justify-content: center;
+}
+.ud-align--jcs{
+  justify-content: start;
+}
+.ud-align--jce{
+  justify-content: end;
+}
+.ud-align--jcsa {
+  justify-content: space-around
+}
+.ud-align--jcsb {
+  justify-content: space-between
+}
+.ud-align--jcse {
+  justify-content: space-evenly
+}
+.ud-align--jcfs {
+  justify-content: flex-start
+}
+.ud-align--jcfe {
+  justify-content: flex-end
+}
+/*------------------------------------------------------------------------------
+  8. @JUSTIFY ITEMS
+     way of justifying a box inside its container along the appropriate axis.
+------------------------------------------------------------------------------*/
+.ud-align--jic{
+  justify-items: center;
+}
+.ud-align--jis {
+  justify-items: start;
+}
+.ud-align--jie {
+  justify-items: end;
+}
+.ud-align--jifs {
+  justify-items: flex-start
+}
+.ud-align--jife {
+  justify-items: flex-end
+}
+/*------------------------------------------------------------------------------
+  9. @JUSTIFY SELF
+     way of justifying a box inside its container along the appropriate axis.
+------------------------------------------------------------------------------*/
+.ud-align--jsc{
+  justify-self: center;
+}
+.ud-align--jss {
+  justify-self: start
+}
+.ud-align--jse {
+  justify-self: end
+}
+.ud-align--jsfs {
+  justify-self: flex-start
+}
+.ud-align--jsfe {
+  justify-self: flex-end
+}
+/*------------------------------------------------------------------------------
+  10. @ALIGN CONTENT
+     distributes space between and around content items along the cross-axis
+     (vertical) of their container, which is serving as a flexbox container.
+------------------------------------------------------------------------------*/
+.ud-align--acc{
+  -webkit-align-content: center;
+  align-content: center;
+}
+.ud-align--acs{
+  -webkit-align-content: start;
+  align-content: start;
+}
+.ud-align--ace{
+   -webkit-align-content: end;
+   align-content: end;
+}
+.ud-align--acsa {
+   -webkit-align-content: space-around;
+   align-content: space-around
+}
+.ud-align--acsb {
+   -webkit-align-content: space-between;
+   align-content: space-between
+}
+.ud-align--acse {
+   -webkit-align-content: space-evenly;
+   align-content: space-evenly
+}
+.ud-align--acfs {
+   -webkit-align-content: flex-start;
+   align-content: flex-start
+}
+.ud-align--acfe {
+   -webkit-align-content: flex-end;
+   align-content: flex-end
+}
+/*------------------------------------------------------------------------------
+  11. @ALIGN ITEMS
+     works like justify-conten along the cross-axis
+     (vertical) of their container.
+------------------------------------------------------------------------------*/
+.ud-align--aic{
+  -webkit-align-items: center;
+  align-items: center;
+}
+.ud-align--aistretch{
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.ud-align--ais{
+  -webkit-align-items: start;
+  align-items: start;
+}
+.ud-align--aie{
+  -webkit-align-items: end;
+  align-items: end;
+}
+.ud-align--aifs {
+   -webkit-align-items: flex-start;
+   align-items: flex-start
+}
+.ud-align--aife {
+   -webkit-align-items: flex-end;
+   align-items: flex-end
+}
+/*------------------------------------------------------------------------------
+  12. @ALIGN SELF
+     aligns flex items of the current flex line overriding the align-items value.
+------------------------------------------------------------------------------*/
+.ud-align--asc{
+  -webkit-align-self: center;
+  align-self: center;
+}
+.ud-align--asstretch{
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+.ud-align--ass{
+  -webkit-align-self: start;
+  align-self: start;
+}
+.ud-align--ase{
+  -webkit-align-self: end;
+  align-self: end;
+}
+.ud-align--asfs {
+  -webkit-align-self: flex-start;
+  align-self: flex-start
+}
+.ud-align--asfe {
+  -webkit-align-self: flex-end;
+  align-self: flex-end
+}
+

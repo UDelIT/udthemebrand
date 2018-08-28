@@ -1,0 +1,203 @@
+/**
+  * SCSS VARIABLES
+  *
+  * Variables used for styling CSS in admin and public facing pages.
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/scss
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/* @TYPOGRAPHY */
+$base-font-reg: "greycliff-light";
+$base-font-bold: "greycliff-bold";
+$base-font-title-reg: "vanguard-regular";
+$base-font-size-body: 16px;
+$base-font-root:
+                  -apple-system,
+                  BlinkMacSystemFont,
+                  "Segoe UI",
+                  Roboto,
+                  Oxygen,
+                  Ubuntu,
+                  Cantarell,
+                  "Fira Sans",
+                  "Helvetica Neue",
+                  sans-serif;
+
+/* @FONT SIZE */
+$font-size-1: .500rem;
+$font-size-2: $font-size-1 * 1.5; // .750
+$font-size-3: $font-size-1 * 1.75; // .875
+$font-size-root: 1rem;
+$font-size-root-1: $font-size-root * 1.25; // 1.25
+$font-size-root-2: $font-size-root * 1.5; // 1.5
+$font-size-root-3: $font-size-root * 1.75; // 1.75
+$font-size-root-4: $font-size-root * 2; // 2
+$font-size-root-5: $font-size-root * 2.5; // 2.5
+
+/* @FONT WEIGHT */
+$font-weight-3: 300;
+$font-weight-4: 400;
+$font-weight-5: 500;
+$font-weight-6: 600;
+$font-weight-7: 700;
+
+/* @LETTER-SPACING */
+$letter-spacing-tight:-.015em;
+$letter-spacing-1:.1em;
+$letter-spacing-2:.25em;
+
+/* @LINE_HEIGHT */
+$line-height-solid: 1;
+$line-height-title: $line-height-solid * 1.25;
+$line-height-copy: $line-height-solid * 1.5;
+$line-height-gr: $line-height-solid * 1.618;
+
+/* @SPAN */
+$span-1: span 1;
+$span-2: span 2;
+$span-3: span 3;
+$span-4: span 4;
+
+$zero: 0;
+
+/* @SPACING */
+$gap-px-sm: 5px;
+$gap-px-md: $gap-px-sm * 2;
+$gap-px-lg: $gap-px-sm * 3.2;
+$gap-em-sm: 0.313em;
+$gap-em-md: $gap-em-sm * 2;
+$gap-em-lg: $gap-em-sm * 3.2;
+
+/* @DIMENSIONS WIDTH / HEIGHT */
+$ud-dim-25: 25;
+$ud-dim-33: 33;
+$ud-dim-50: 50;
+$ud-dim-67: 67;
+$ud-dim-75: 75;
+$px25: $ud-dim-25 * 1px;
+$px33: $ud-dim-33 * 1px;
+$px50: $ud-dim-50 * 1px;
+$px67: $ud-dim-67 * 1px;
+$px75: $ud-dim-75 * 1px;
+
+/* @BREAKPONTS */
+$bp-sm: 576px;
+$bp-md: 719px;
+$bp-lg: 720px;
+$bp-xl: 992px;
+
+/* @COLORS */
+$ud-colors-blue: #00539F;
+$ud-colors-header: #00529E;
+$ud-colors-title: #2F6FA7;
+$ud-colors-social: #009EE1;
+$ud-colors-circle: #0069AA;
+$ud-colors-legal-bkgd: #EEE;
+$ud-colors-legal-links: #2F6FA7;
+$ud-colors-current:currentColor;
+$ud-colors-yellow: #FFD200;
+$ud-colors-dark-blue: darken( $ud-colors-blue, 20% );
+$ud-colors-med-blue: darken( $ud-colors-blue, 10% );
+// $ud-colors-current:currentColor;
+// $ud-colors-yellow: hsl(50, 100%, 50%);
+// $ud-colors-dark-blue: hsl(214, 100%, 21%);
+// $ud-colors-med-blue: hsl(209, 100%, 26%);
+// $ud-colors-blue: hsl(209, 100%, 31%);
+$ud-colors-light-blue: lighten( $ud-colors-blue, 10% );
+$ud-colors-form--red: hsl(348, 83%, 38%);
+
+$colors-black: #000;
+$colors-near-black: lighten( $colors-black, 7% );
+$colors-dark-gray: lighten( $colors-black, 20% ); /* 333 */
+$colors-med-gray: lighten( $colors-black, 40% ); /* 666 */
+$colors-gray: lighten( $colors-black, 60% ); /* 999 */
+$colors-light-gray: lighten( $colors-black, 80% ); /* CCC */
+$colors-med-white: lighten( $colors-black, 93% ); /* EDEDED */
+$colors-light-white: lighten( $colors-black, 96% ); /* F5F5F5 */
+$colors-white: lighten( $colors-black, 100% );
+$colors-orange: hsl(33, 100%, 62%); /* FFA83D */
+$colors-transparent:transparent;
+
+/* @BOX-SHADOW
+     MATERIAL DESIGN BOX SHADOW SPECS
+     https://codepen.io/pixelasticity/pen/WrrWmV
+*/
+$bs-rgba1: rgba(0, 0, 0, .14);
+$bs-rgba2: rgba(0, 0, 0, .12);
+$bs-rgba3: rgba(0, 0, 0, .2);
+$box-shadow-2dp: 0 2px 2px 0 $bs-rgba1, 0 3px 1px -2px $bs-rgba3, 0 1px 5px 0 $bs-rgba2;
+$box-shadow-3dp: 0 3px 4px 0 $bs-rgba1, 0 3px 3px -2px $bs-rgba3, 0 1px 8px 0 $bs-rgba2;
+$box-shadow-4dp: 0 4px 5px 0 $bs-rgba1, 0 1px 10px 0 $bs-rgba2, 0 2px 4px -1px $bs-rgba3;
+$box-shadow-6dp: 0 6px 10px 0 $bs-rgba1, 0 1px 18px 0 $bs-rgba2, 0 3px 5px -1px $bs-rgba3;
+$box-shadow-8dp: 0 8px 10px 1px $bs-rgba1, 0 3px 14px 2px $bs-rgba2, 0 5px 5px -3px $bs-rgba3;
+$box-shadow-16dp:  0 16px 24px 2px $bs-rgba1, 0 6px 30px 5px $bs-rgba2, 0 8px 10px -5px $bs-rgba3;
+// $box-shadow-2dp: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+// $box-shadow-3dp: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12);
+// $box-shadow-4dp: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+// $box-shadow-6dp: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+// $box-shadow-8dp: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
+// $box-shadow-16dp:  0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+
+$ud-box-shadow--container: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+
+/* @EASING */
+/*
+  Thanks to Robert Penner for his sterling work on easing,
+  and to Matthew Lein for converting these functions into
+  approximated cubic-bezier functions. Respect.
+  @see http://robertpenner.com/
+  @see http://matthewlein.com/ceaser/
+*/
+$cubic-bezier-fast: cubic-bezier(0.68, 1.55, 0.265, .3s);
+$cubic-bezier-med: cubic-bezier(0.68, 1.55, 0.265, .6s);
+$cubic-bezier-norm: cubic-bezier(0.68, 1.55, 0.265, 1);
+$transition-bezier-smooth: cubic-bezier(0.55, 0, 0.1, 1);
+
+$transition-all-cubic-bezier: all 0.4s cubic-bezier(0.68, 1.55, 0.265, 1);
+$transition-transform-cubic-bezier: transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1);
+
+/* Cubic */
+$easeInCubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$easeOutCubic: cubic-bezier(0.215, 0.610, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+/* Circ */
+$easeInCirc: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$easeOutCirc: cubic-bezier(0.075, 0.820, 0.165, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+/* Expo */
+$easeInExpo:  cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeOutExpo:  cubic-bezier(0.190, 1, 0.220, 1);
+$easeInOutExpo:  cubic-bezier(1, 0, 0, 1);
+
+/* Quad */
+$easeInQuad:  cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$easeOutQuad:  cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$easeInOutQuad:  cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+/* Quart */
+$easeInQuart:  cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$easeOutQuart:  cubic-bezier(0.165, 0.840, 0.440, 1);
+$easeInOutQuart:  cubic-bezier(0.770, 0, 0.175, 1);
+
+/* Quint */
+$easeInQuint:  cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$easeOutQuint:  cubic-bezier(0.230, 1, 0.320, 1);
+$easeInOutQuint:  cubic-bezier(0.860, 0, 0.070, 1);
+
+/* Sine */
+$easeInSine:  cubic-bezier(0.470, 0, 0.745, 0.715);
+$easeOutSine:  cubic-bezier(0.390, 0.575, 0.565, 1);
+$easeInOutSine:  cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+/* Back */
+$easeInBack:  cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$easeOutBack:  cubic-bezier(0.175,  0.885, 0.320, 1.275);
+$easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550);

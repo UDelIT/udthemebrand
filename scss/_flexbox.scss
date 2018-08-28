@@ -1,0 +1,55 @@
+/**
+  * SCSS FLEXBOX MIXINS
+  *
+  * Flexbox layout mixins used for styling CSS in admin and public facing pages.
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/scss
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/* @FLEXBOX */
+@mixin flexbox {
+  display: -webkit-flex;
+  display: flex;
+}
+%flexbox { @include flexbox; }
+
+/* @INLINE FLEX */
+@mixin inline-flex {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+%inline-flex { @include inline-flex; }
+
+/* @FLEX DIRECTION */
+@mixin flex-direction($value: row) {
+  -webkit-flex-direction: $value;
+  flex-direction: $value;
+}
+  // Shorter version:
+  @mixin flex-dir($value: false) { @include flex-direction($value); }
+
+/* @FLEX FLOW */
+@mixin flex-flow($values: (row nowrap)) {
+  -webkit-flex-flow: $values;
+  flex-flow: $values;
+}
+%flex-flow { @include flex-flow; }
+
+/* @FLEX BASIS */
+@mixin flex-basis($value: 100%) {
+  -webkit-flex-basis: $value;
+  flex-basis: $value;
+}
+%flex-basis { @include flex-basis; }
+
+/* @FLEX */
+@mixin flex($grow: 1, $shrink: null, $basis: null) {
+  -webkit-flex: $grow $shrink $basis;
+  flex: $grow $shrink $basis;
+}
+%flex { @include flex; }

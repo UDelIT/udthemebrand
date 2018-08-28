@@ -1,0 +1,175 @@
+/**
+  * UDTB GRID CSS
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/public/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/**
+  * @since          3.5.0
+  * @version        1.0.0
+*/
+
+/* .ud-grid--wrapper {
+  display: -webkit-grid;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  webkit-justify-items: center;
+  justify-items: center;
+  width: 100vw;
+  width: 100%;
+  height: 100%;
+  min-height: 30em;
+} */
+
+.ud-wrapper--grid {
+  display: -webkit-grid;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0 10px;
+  -ms-grid-columns: [viewport-start] minmax(1em, 1fr) [container-start] minmax(0, 992px) [container-end] minmax(1em, 1fr) [viewport-end];
+  grid-template-columns:
+    [viewport-start]
+      minmax(1em, 1fr)
+        [container-start]
+          minmax(0, 992px)
+        [container-end]
+      minmax(1em, 1fr)
+    [viewport-end];
+  width: 100%;
+  height: 100%;
+}
+.ud-norm--header {
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+.ud-header--title {
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+/** PAGE TEMPLATE CONTAINERS */
+.ud-wrapper--grid,
+.ud-norm--header
+.ud-norm--footer,
+.ud-footer--legal {
+  position: relative;
+}
+
+
+.item--contained,
+.item--full > div,
+.item--full > a,
+.item--full > p,
+.item--full > h1,
+.item--full > h2,
+.item--full > h3,
+.item--full > h4,
+.item--full > img,
+.ud-grid--6,
+.ud-grid--2 {
+  -ms-grid-column: container;
+  grid-column: container;
+}
+.item--full {
+  -ms-grid-column: viewport;
+  grid-column: viewport;
+  display: inherit;
+  -ms-grid-columns:  inherit;
+  grid-template-columns: inherit;
+}
+
+.ud-grid--6,
+.ud-grid--2 {
+  display: -webkit-grid;
+  display: -ms-grid
+  display: grid;
+  grid-gap: 10px;
+}
+.ud-grid--6 {
+  -ms-grid-columns:  10px (100px 1fr)[6];
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.ud-grid--2 {
+  -ms-grid-columns:  10px (100px 1fr)[2];
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+@media only screen and (max-width: 719px) {
+  .ud-grid--2 {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
+  }
+}
+/* .ud-grid--2 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span:2;
+  -ms-grid-columns: (1fr 10px)[2];
+  grid-template-columns: repeat(2, 1fr);
+} */
+/* .ud-grid--6 {
+   grid-template-columns: repeat(6, 1fr);
+}
+.ud-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+} */
+
+.ud-grid--6,
+.ud-grid--2 {
+  display: -webkit-grid;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.ud-display--db {
+  display: block;
+}
+.ud-display--dib {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 719px) {
+  .ud-gtr-head {
+    -ms-grid-rows: 70px 50px;
+    grid-template-rows: 70px 50px;
+  }
+  .ud-gtr-foot {
+    -ms-grid-rows: min-content 50px;
+    grid-template-rows: min-content auto;
+  }
+  .ud-norm--footer .ud-grid--2 {
+   /*  -ms-grid-rows: 100px;
+    grid-template-rows:  100px; */
+  }
+  .ud-footer--logo,
+  .ud-footer--social {
+    -ms-grid-column-span: 1;
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 720px) {
+  .ud-gtr-head {
+    -ms-grid-rows: 112px 50px;
+    grid-template-rows: 112px 50px;
+  }
+  .ud-gtr-foot {
+    -ms-grid-rows: 130px 50px;
+    grid-template-rows: 130px 50px;
+  }
+}
+
+@supports not (display: grid) {
+  body:before {
+    content: 'Your browser does not support CSS grid. A fallback has been implemented.';
+    display: block;
+    padding: 2rem 2rem 0;
+    color: black;
+    text-align: center;
+  }
+}

@@ -1,0 +1,30 @@
+/**
+  * SCSS DIMENSIONS / POSITION MIXINS
+  *
+  * length, width, height and position mixins used for styling CSS in admin and public facing pages.
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/scss
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/* @WIDTH(std, min, max), HEIGHT(std, min, max) */
+@mixin wh($w: null, $h: null, $mnw: null, $mnh: null, $mxw: null, $mxh: null) {
+  width: $w;
+  min-width: $mnw;
+  max-width: $mxw;
+  height: $h;
+  min-height: $mnh;
+  max-height: $mxh;
+}
+/* @POSITION */
+@mixin position($p: absolute, $t: null, $r: null, $b: null, $l: null) {
+  position:$p;
+  top: $t;
+  right:$r;
+  bottom:$b;
+  left: $l;
+}

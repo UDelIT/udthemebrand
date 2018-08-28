@@ -1,0 +1,28 @@
+/**
+  * SCSS FILTER MIXINS
+  *
+  * Filter mixins used for styling CSS in admin and public facing pages.
+  * @see https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/scss
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/*
+  grayscale      ex: filter: grayscale(100%);
+  sepia          ex: filter: sepia(100%);
+  saturate       ex: filter: saturate(0%);
+  hue-rotate     ex: filter: hue-rotate(45deg);
+  invert         ex: filter: invert(100%);
+  brightness     ex: filter: brightness(15%);
+  contrast       ex: filter: contrast(200%);
+  blur           ex: filter: blur(2px);
+*/
+@mixin filter($filter-type,$filter-amount) {
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
+}

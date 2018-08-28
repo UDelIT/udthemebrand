@@ -1,0 +1,94 @@
+/**
+  * SCSS TYPOGRAPHY MIXINS
+  *
+  * Font mixins used for styling CSS in admin and public facing pages.
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/scss
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+
+/* 
+  @see https://jakearchibald.com/2017/combining-fonts/
+  @see https://www.google.com/get/noto/help/guidelines/
+  @see https://www.google.com/get/noto/help/cjk/
+
+  Asian fonts: Use "Noto Sans CJK {JP, KR, SC, TC}" instead of
+               "Noto Sans {JP, KR, SC, TC}"
+
+  @example     font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+
+  Hindi/Tamil fonts:
+  @example     font-family: "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans", sans-serif;
+
+  Arabic fonts: When using an UI font for buttons and tabs that have more strict vertical space:
+  @example    font-family: "Noto Naskh Arabic UI", "Noto Sans UI", sans-serif;
+*/
+
+@mixin font-face($fam1, $path, $fam2: null, $weight: normal, $style: normal, $source: false, $unicode: false ) {
+  @font-face {
+    font-family: $fam1;
+    font-weight: $weight;
+    font-style: $style;
+    unicode-range: $unicode;
+
+    @if $source == true {
+      src: local('#{$fam1}'), local('#{$fam2}'),
+           url('#{$path}.woff2')              format('woff2'),
+           url('#{$path}.woff')               format('woff');
+      @if $unicode == true {
+        unicode-range: U+0020-007D;
+      }
+    }
+  }
+}
+
+/* @FONT FEATURE SETTINGS */
+
+// @mixin font-feature-settings($l: ("liga", 1), $k: ("kern", 1)) {
+// -webkit-font-feature-settings: $l $k;
+//   font-feature-settings: $l $k;
+// }
+
+@mixin font-feature-settings($values...) {
+  @each $var in $values {
+    -webkit-font-feature-settings: #{$var};
+    font-feature-settings: #{$var};
+  }
+}
+/* @FONT LIGATURES */
+@mixin font-ligatures() {
+  -ms-font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: common-ligatures;
+  font-variant-ligatures: common-ligatures;
+
+  @supports not ((-webkit-font-variant-ligatures: common-ligatures) or (font-variant-ligatures: common-ligatures)) {
+      -webkit-font-feature-settings: "liga", "liga", "clig";
+      font-feature-settings: "liga", "liga", "clig";
+  }
+}
+/* @FONT SMOOTHING 
+    https://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+
+    .dark-on-light {@include font-smoothing(off);}
+    .light-on-dark {@include font-smoothing(on);}
+*/
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+/* @WORD WRAP */
+@mixin word-wrap($value: break-word) {
+  -ms-word-wrap: $value;
+  word-wrap: $value;
+}

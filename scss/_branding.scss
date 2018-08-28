@@ -1,0 +1,414 @@
+/**
+  * UDTB BRANDING CSS
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/public/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+
+/*------------------------------------------------------------------------------
+[Table of contents]
+  1. @HEADER ELEMENTS
+  2. @FOOTER ELEMENTS
+  3. @MEDIA QUERIES - HEADER
+  4. @MEDIA QUERIES - FOOTER
+------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+  1. @HEADER ELEMENTS
+------------------------------------------------------------------------------*/
+
+.ud-norm--header {
+  @include align-items(stretch);
+  background-color: $ud-colors-blue;
+  border-bottom: 2px solid $ud-colors-yellow;
+  overflow: visible;
+  width:100%;
+  height:130px;
+  pointer-events: none;
+}
+/* .ud-norm--header a,
+.ud-norm--header a:hover {
+  border-bottom:none;
+} */
+
+
+/* .ud-norm--header a:hover {
+  text-decoration: none;
+  background-color: black;
+  color: green;
+} */
+.ud-norm--header a {
+  position: relative;
+  height: 100%;
+  color: white;
+  overflow:visible;
+  margin: 0;
+  @include inline-flex;
+  @include align-items(center);
+  pointer-events: auto;
+  &:hover {
+    background: black;
+  }
+}
+
+.ud-norm--header img {
+  border: 0 none;
+  padding: 0;
+  background: none;
+  color: white;
+  width: 100%;
+  height:91px;
+  -webkit-transition: transform 0.3s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
+}
+.ud-header--title {
+  background: hsl(208, 100%, 22%);
+
+}
+.ud-gtr-head,
+.ud-header--title {
+  z-index: 10;
+}
+.ud-header--title a {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  font-family: "greycliff-bold", Arial;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  border: none;
+}
+.ud-header--title a{
+  &:visited,
+  &:hover,
+  &:active {
+    color: white;
+  }
+}
+.ud-norm--header > .cell,
+.ud-header--title > .cell {
+  padding: 0;
+}
+.ud-header--title .u-span1 {
+  display: -webkit-flex !important;
+  display: flex !important;
+  @include align-items(center);
+  max-height: 50px;
+}
+/*
+  Animate max height
+  https://stackoverflow.com/questions/16028878/animating-max-height-with-css-transitions
+*/
+.ud-norm--header,
+.ud-norm--footer,
+#ud-circle--logo {
+  will-change:transform;
+  transform: translateZ(0);
+  @include transition(transform 0.24s cubic-bezier(0, 1, 0, 1));
+}
+
+/* @FOOTER ELEMENTS
+  @todo clean up hover and transitions on footer kinks and svg's
+*/
+.ud-norm--footer::before {
+  border-top: 3px solid #FFD300;
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(1vw + 11px);
+  width: 100%;
+  z-index: 0;
+}
+.ud-norm--footer {
+  @include align-items(center);
+}
+
+/*@LOCKUP ELEMENTS */
+ .ud-footer--logo a {
+  position: relative;
+  text-decoration: none;
+/*     transition: box-shadow 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1); */
+
+  @include flexbox;
+  @include flex-direction(column);
+  transform: translateZ(0);
+  width: 130px;
+  height: 130px;
+}
+.ud-footer--logo {
+  z-index: 1;
+}
+/*----------------------
+  b. @SOCIAL ELEMENTS
+-----------------------*/
+.ud-footer--social ul {
+  @include justify-content(end);
+  li {
+    position: relative; 
+     a {
+      @include flexbox;
+      @include justify-content;
+      @include align-items(center);
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+.ud-footer--social .icon {
+  color: $ud-colors-social;
+}
+.ud-footer--social .icon:hover {
+  color: white;
+  fill: currentColor;
+}
+.ud-footer--social li:hover,
+.ud-footer--social li:hover a,
+.ud-footer--social li:hover svg {
+  cursor: pointer;
+}
+.ud-footer--social li:hover a svg {
+  z-index: 20;
+  fill: white;
+}
+.ud-footer--social li::after {
+  background: black;
+}
+.ud-norm--header a:hover,
+.ud-header--title a:hover,
+.ud-footer--logo a:hover,
+.ud-footer--social li:hover,
+.ud-footer--legal a:hover {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s, -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  @include transform(translateY(-5px));
+  @include transform-origin(bottom);
+  background: black;
+}
+.ud-norm--header a::after,
+.ud-header--title a::after,
+.ud-footer--social li::after,
+.ud-footer--logo a::after,
+.ud-footer--legal a::after {
+ /*  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s $easeOutQuin;
+  transition: opacity 0.3s, -webkit-transform 0.3s $easeOutQuin;
+  transition: opacity 0.3s, transform 0.3s $easeOutQuin;
+  transition: opacity 0.3s, transform 0.3s $easeOutQuin, -webkit-transform 0.3s $easeOutQuin; */
+  @include transform-origin(bottom);
+  box-shadow: $box-shadow-4dp;
+  opacity: 0;
+}
+.ud-norm--header a:hover::after,
+.ud-header--title a:hover::after,
+.ud-footer--social li:hover::after,
+.ud-footer--logo a:hover::after,
+.ud-footer--legal a:hover::after {
+  content: '';
+  position(absolute, 0, 0, 0, 0);
+  @include transition(opacity 0.3s $easeOutQuin);
+  @include transform-origin(bottom);
+  box-shadow: $box-shadow-8dp;
+  opacity: 1;
+}
+.ud-footer--logo a:hover::after {
+  border-radius: 100%;
+}
+
+.ud-footer--logo a:hover .color-svg {
+  fill: white !important;
+  color: black;
+}
+.color-svg {
+  width: 130px;
+  height: 130px;
+  color: white;
+  fill: $ud-colors-circle; 
+}
+/* .color-svg:hover {
+  fill: #c69;
+} */
+.color-svg:active {
+  color: black;
+}
+.color-svg:hover #ltblue {
+  fill: black;
+}
+.color-svg:hover #U,
+.color-svg:hover #D,
+.color-svg:hover #T,
+.color-svg:hover #M {
+  fill: white;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  font-size: 2rem;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+/* @LEGAL ELEMENTS */
+.ud-footer--legal{
+  background-color: $ud-colors-legal-bkgd;
+  height: 50px;
+  margin-top: 15px;
+}
+.ud-footer--legal ul,
+.ud-footer--social ul {
+  @include flexbox;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ud-footer--legal ul {
+  -ms-grid-column: container;
+  grid-column: container;
+  @include align-items(stretch);
+  @include justify-content;
+}
+.ud-footer--legal a:hover {
+  cursor: pointer;
+  color: white;
+  background: black;
+  @include align-self(stretch);
+}
+.ud-footer--legal li,
+.ud-footer--legal li a  {
+  display: inherit;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: calc(12.333px + 0.133333vw);
+  letter-spacing: -1px;
+  @include align-self(stretch);
+  margin-left: 5px;
+}
+
+.ud-footer--legal li:not(:first-child) {
+  margin-left: calc(1rem - 2px);
+}
+.ud-footer--legal a {
+  color: $ud-colors-legal-links;
+  @include transition(transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s);
+  @include transform(translateY(0px));
+  @include align-self(stretch);
+}
+.ud_copyright,
+.ud_copyright.sm {
+  margin-left: 5px;
+}
+.ud-wrapper--grid {
+  p,
+  a,
+  div,
+  span:not(.ud_copyright) {
+    font-size: 16px !important
+  }
+}
+
+/* @MEDIA QUERIES */
+@media (min-width: #{$bp-sm}) {
+  .ud-wrapper--grid {
+    p,
+    a,
+    div,
+    span:not(.ud_copyright) {
+      font-size: 24px !important
+    }
+  }
+}
+@media only screen and (min-width: #{$bp-lg}) {
+  .ud-norm--header a:hover,
+  .ud-norm--header img {
+    max-width:170px;
+  }
+  .ud-norm--header:not(#ud_primary_logo),
+  .header.ud-norm--header a {
+    max-height: 112px;
+    @include transform-origin(top);
+  }
+  .ud-header--title a {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .ud_copyright {
+    display: block;
+    .sm {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-width: #{$bp-md}) {
+  .ud-norm--header:not(#ud_primary_logo) {
+    max-height: 70px;
+    @include transform-origin(top);
+    @include transition(max-height 0.3s $easeOutQuint);
+  }
+  header.ud-norm--header img#ud_primary_logo {
+    @include transform(scale(.4358, .4396));
+    @include transform-origin(left);
+    -ms-grid-column:container;
+    grid-column:container;
+  }
+  .ud-norm--header {
+    > div,
+    > a,
+    img {
+      max-height: inherit;
+    }
+  }
+  .ud-header--title a {
+    font-size: calc(2.9304029304vw + 1.9582px);
+    letter-spacing: 0.5px;
+  }
+  .ud-footer--logo a {
+    @include transform(scale(.5409));
+  }
+  .ud-footer--logo a,
+  .color-svg {
+    max-width: 65px;
+    max-height: 65px;
+  }
+  .ud-footer--logo,
+  .ud-footer--social {
+    @include grid-column(1,1);
+    @include flexbox;
+    @include justify-content;
+  }
+  .ud_copyright {
+    display: none;
+    .sm {
+      display: block;
+    }
+  }
+  .ud-footer--legal {
+    margin-top: 1rem;
+  }
+  .ud-wrapper--grid {
+    p,
+    a,
+    div,
+    span:not('.ud_copyright') {
+      font-size: calc(2.9304029304vw - 5.0695970696px) !important;
+    }
+  }
+}
+@media (min-width: #{$bp-xl}) {
+  .ud-wrapper--grid {
+    p,
+    a,
+    div,
+    span:not('.ud_copyright') {
+      font-size: 24px !important
+    }
+  }
+}

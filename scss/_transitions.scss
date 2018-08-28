@@ -1,0 +1,49 @@
+/*-------------------------------
+  @TRANSITIONS / GPU MIXINS
+-------------------------------*/
+/*-------------
+  %TRANSITION
+    cubic-bezier(0.165, 0.84, 0.44, 1)
+-------------*/
+@mixin transition ($prop: all, $dur: .4s, $time: cubic-bezier(0.68, 1.55, 0.265, 1), $lag: .3s) {
+  -webkit-transition: $prop $dur $time, $lag;
+  transition: $prop $dur $time, $lag;
+}
+/*--------
+  PROPERTY
+--------*/
+@mixin transition-property($values) {
+  -webkit-transition-property: $values;
+  transition-property: $values;
+}
+
+/*--------
+  DURATION
+--------*/
+@mixin transition-duration($values) {
+  -webkit-transition-duration: $values;
+  transition-duration: $values;
+}
+/*--------
+  TIMING
+--------*/
+@mixin transition-timing-function($values) {
+  -webkit-transition-timing-function: $values;
+  transition-timing-function: $values;
+}
+/*--------
+  DELAY
+--------*/
+@mixin transition-delay($values) {
+  -webkit-transition-delay: $values;
+  transition-delay: $values;
+}
+/*-------------
+  %GPU ACCELERATION
+-------------*/
+@mixin hardware($backface: true, $perspective: 1000) {
+  @if $backface {
+    backface-visibility: hidden;
+  }
+  perspective: $perspective;
+}

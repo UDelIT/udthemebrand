@@ -1,0 +1,39 @@
+/*-------------------------------
+  @FONTFACE MIXINS
+
+  @see https://jakearchibald.com/2017/combining-fonts/
+  @see https://www.google.com/get/noto/help/guidelines/
+  @see https://www.google.com/get/noto/help/cjk/
+
+  Asian fonts: Use "Noto Sans CJK {JP, KR, SC, TC}" instead of
+               "Noto Sans {JP, KR, SC, TC}"
+
+  @example     font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+
+  Hindi/Tamil fonts:
+  @example     font-family: "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans", sans-serif;
+
+  Arabic fonts: When using an UI font for buttons and tabs that have more strict vertical space:
+  @example    font-family: "Noto Naskh Arabic UI", "Noto Sans UI", sans-serif;
+-------------------------------*/
+/*-------------
+  %
+-------------*/
+@mixin font-face($fam1, $path, $fam2: null, $weight: normal, $style: normal, $source: false, $unicode: false ) {
+  @font-face {
+    font-family: $fam1;
+    font-weight: $weight;
+    font-style: $style;
+    unicode-range: $unicode;
+
+    @if $source == true {
+      src: local('#{$fam1}'), local('#{$fam2}'),
+           url('#{$path}.woff2')              format('woff2'),
+           url('#{$path}.woff')               format('woff');
+      @if $unicode == true {
+        unicode-range: U+0020-007D;
+      }
+    }
+  }
+}
+// @include font-face(SourceSansPro, me, true, '/fonts/Source_Sans_Pro/SourceSansPro-Italic', normal, italic, true);

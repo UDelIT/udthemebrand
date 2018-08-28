@@ -1,0 +1,46 @@
+/**
+  * SCSS ALIGNMENT MIXINS
+  *
+  * Mixins used for align styling CSS in admin and public facing pages.
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/scss
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/* %JUSTIFY */
+/* items */
+@mixin justify-items($value: center) {
+  -webkit-justify-items: $value;
+  justify-items: $value;
+}
+/** self */
+@mixin justify-self($value: center) {
+  -webkit-justify-self: $value;
+  justify-self: $value;
+}
+/** content */
+@mixin justify-content($value: center) {
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+
+/* %ALIGN */
+/* items */
+@mixin align-items($value: center) {
+  -webkit-align-items: $value;
+  align-items: $value;
+}
+/** self */
+@mixin align-self($value: center) {
+  -webkit-align-self: $value;
+  align-self: $value;
+}
+/** content */
+@mixin align-content($value: center) {
+  -webkit-align-content: $value;
+  align-content: $value;
+}

@@ -1,0 +1,491 @@
+/**
+  * UDTB BRANDING CSS
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/public/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+
+/*------------------------------------------------------------------------------
+[Table of contents]
+  1. @HEADER ELEMENTS
+  2. @FOOTER ELEMENTS
+  3. @MEDIA QUERIES - HEADER
+  4. @MEDIA QUERIES - FOOTER
+------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+  1. @HEADER ELEMENTS
+------------------------------------------------------------------------------*/
+
+.ud-norm--header {
+  /* display: -webkit-flex;
+  display: flex;
+  will-change: transform;
+  transform: translateZ(0); */ /* IE 11 - all Edge will-change hack */
+/*   -webkit-justify-content: flex-start;
+  justify-content: flex-start; */
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  background-color: hsl(209, 100%, 31%);
+  border-bottom: 2px solid hsl(50, 100%, 50%);
+  overflow: visible;
+  width:100%;
+  height:130px;
+  pointer-events: none;
+}
+/* .ud-norm--header a,
+.ud-norm--header a:hover {
+  border-bottom:none;
+} */
+
+
+/* .ud-norm--header a:hover {
+  text-decoration: none;
+  background-color: black;
+  color: green;
+} */
+.ud-norm--header a {
+  color: white;
+  overflow:visible;
+  margin: 0;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  pointer-events: auto; /* 1.b */
+  position: relative;
+  height: 100%;
+}
+.ud-norm--header a:hover {
+  background: black;
+}
+
+.ud-norm--header img {
+  border: 0 none;
+  padding: 0;
+  background: none;
+  color: white;
+  width: 100%;
+  height:91px;
+  -webkit-transition: transform 0.3s cubic-bezier(0.25, 1, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
+}
+.ud-header--title {
+  background: hsl(208, 100%, 22%);
+
+}
+.ud-gtr-head,
+.ud-header--title {
+  z-index: 10;
+}
+.ud-header--title a {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  font-family: "greycliff-bold", Arial;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  border: none;
+}
+.ud-header--title a,
+.ud-header--title a:visited,
+.ud-header--title a:hover,
+.ud-header--title a:active {
+  color: white;
+}
+.ud-norm--header > .cell,
+.ud-header--title > .cell {
+  padding: 0;
+}
+.ud-header--title .u-span1 {
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-align-items: center;
+  align-items: center;
+  max-height: 50px;
+}
+/*------------------------------------------------------------------
+  * 3. @MEDIA QUERIES - HEADER
+  *   min: 61.250em / 980px
+  *   min: 20.000em / 320px
+  *   max: 61.188em / 979px
+  *   min: 48.938em / 734px
+  *   max: 61.188em / 979px
+  *   min: 48.938em / 734px
+  *   min: 61.250em / 980px
+-------------------------------------------------------------------*/
+@media only screen and (min-width: 720px) {
+  .ud-norm--header a:hover,
+  .ud-norm--header img {
+    max-width:170px;
+  }
+  .ud-norm--header:not(#ud_primary_logo),
+  .header.ud-norm--header a {
+    max-height: 112px;
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+  .ud-header--title a {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .ud_copyright {
+    display: block;
+  }
+  .ud_copyright.sm {
+    display: none;
+  }
+}
+@media only screen and (max-width: 719px) { /* 979 */
+  .ud-norm--header:not(#ud_primary_logo) {
+    max-height: 70px;
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    -webkit-transition: max-height 0.3s cubic-bezier(0.25, 1, 0.25, 1);
+    transition: max-height 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
+  }
+  header.ud-norm--header img#ud_primary_logo {
+    -webkit-transform: scale(.4358, .4396);
+    transform: scale(.4358, .4396); /* 35 is 38.46% of 91 */
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    -ms-grid-column:container;
+    grid-column:container;
+  }
+  .ud-norm--header > div,
+  .ud-norm--header > a,
+  .ud-norm--header img {
+    max-height: inherit;
+  }
+  .ud-header--title a {
+    font-size: calc(2.9304029304vw + 1.9582px);
+    letter-spacing: 0.5px;
+  }
+  .ud-footer--logo a {
+    -webkit-transform: scale(.5409); /* .7700 */
+    transform: scale(.5409);
+  }
+  .ud-footer--logo a,
+  .color-svg {
+    max-width: 65px;
+    max-height: 65px;
+  }
+  .ud-footer--logo,
+  .ud-footer--social {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/-1;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+  }
+  .ud_copyright {
+    display: none;
+  }
+  .ud_copyright.sm {
+    display: block;
+  }
+  .ud-footer--legal {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  /* .ud-header--title a {
+    font-size: 24px;
+  } */
+}
+
+
+/*------------------------------------------------------------------
+  2. @FOOTER ELEMENTS
+  @todo clean up hover and transitions on footer kinks and svg's
+-------------------------------------------------------------------*/
+
+.ud-norm--footer::before {
+  border-top: 3px solid #FFD300;
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(1vw + 11px);
+  width: 100%;
+  z-index: 0;
+}
+.ud-norm--footer {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/*----------------------
+  a. @LOCKUP ELEMENTS
+-----------------------*/
+ .ud-footer--logo a {
+  position: relative;
+  text-decoration: none;
+/*     transition: box-shadow 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1); */
+
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  width: 130px;
+  height: 130px;
+}
+.ud-footer--logo {
+  z-index: 1;
+}
+/*----------------------
+  b. @SOCIAL ELEMENTS
+-----------------------*/
+.ud-footer--social ul {
+/*   padding: 0;
+  -webkit-align-self: center;
+  align-self: center; */
+  justify-content: end;
+}
+.ud-footer--social li {
+  position: relative;
+}
+.ud-footer--social li,
+.ud-footer--social li a {
+  width: 50px;
+  height: 50px;
+}
+.ud-footer--social li a {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.ud-footer--social .icon {
+  /* color: hsl(209, 100%, 31%); */
+  color: #009EE1;
+}
+.ud-footer--social .icon:hover {
+  color: white;
+  fill: currentColor;
+}
+.ud-footer--social li:hover,
+.ud-footer--social li:hover a,
+.ud-footer--social li:hover svg {
+  cursor: pointer;
+}
+
+
+.ud-footer--social li:hover a svg {
+  z-index: 20;
+  fill: white;
+}
+
+.ud-footer--social li::after {
+  background: black;
+}
+.ud-norm--header a:hover,
+.ud-header--title a:hover,
+.ud-footer--logo a:hover,
+.ud-footer--social li:hover,
+.ud-footer--legal a:hover {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s, -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  background: black;
+}
+.ud-norm--header a::after,
+.ud-header--title a::after,
+.ud-footer--social li::after,
+.ud-footer--logo a::after,
+.ud-footer--legal a::after {
+ /*  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1);
+transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1), -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1); */
+-webkit-transform-origin: bottom;
+transform-origin: bottom;
+box-shadow: 0 14px 28px #0000004d, 0 10px 10px #0003;
+opacity: 0;
+
+}
+.ud-norm--header a:hover::after,
+.ud-header--title a:hover::after,
+.ud-footer--social li:hover::after,
+.ud-footer--logo a:hover::after,
+.ud-footer--legal a:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: opacity 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s cubic-bezier(.25,.8,.25,1);
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  opacity: 1;
+}
+.ud-footer--logo a:hover::after {
+  border-radius: 100%;
+}
+
+.ud-footer--logo a:hover .color-svg {
+  fill: white !important;
+  color: black;
+}
+.color-svg {
+  width: 130px;
+  height: 130px;
+  color: white;
+  fill: #06A;
+}
+
+/* .color-svg:hover {
+  fill: #c69;
+} */
+
+.color-svg:active {
+  color: black;
+}
+.color-svg:hover #ltblue {
+  fill: black;
+}
+.color-svg:hover #U,
+.color-svg:hover #D,
+.color-svg:hover #T,
+.color-svg:hover #M {
+  fill: white;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  font-size: 2rem;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+/*----------------------
+  c. @LEGAL ELEMENTS
+-----------------------*/
+.ud-footer--legal{
+  background-color: hsl(0, 0%, 93%);
+  height: 50px;
+  margin-top: 15px;
+}
+.ud-footer--legal ul,
+.ud-footer--social ul {
+  display: -webkit-flex;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ud-footer--legal ul {
+  grid-column:  container;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  justify-content: center;
+}
+.ud-footer--legal a:hover {
+  cursor: pointer;
+  color: white;
+  background: black;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+
+}
+.ud-footer--legal li,
+.ud-footer--legal li a  {
+  display: inherit;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: calc(12.333px + 0.133333vw);
+  letter-spacing: -1px;
+  -webkit-align-items: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.ud-footer--legal li:not(:first-child) {
+  margin-left: calc(1rem - 2px);
+}
+.ud-footer--legal a {
+  color: hsl(208, 56%, 42%); /*  2F6FA7 */
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+   -webkit-align-self: stretch;
+  align-self: stretch;
+}
+p, a, div, span:not('.ud_copyright') {
+  font-size: 16px;
+}
+@media (min-width: 576px) {
+  p, a, div, span:not('.ud_copyright') {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media (min-width: 719px) {
+  p, a, div, span:not('.ud_copyright') {
+    font-size: calc(2.9304029304vw - 5.0695970696px);
+  }
+}
+@media (min-width: 992px) {
+  p, a, div, span:not('.ud_copyright') {
+    font-size: 24px;
+  }
+}
+
+
+
+
+.ud-norm--header a:hover,
+.ud-norm--footer a:hover,
+.ud-footer--social li:hover,
+.ud-footer--social li:hover svg,
+.ud-footer--social li:hover,
+/* .ud-norm--social a:hover */
+.ud-norm--header a:hover {
+ /*  padding: 0 !important; */
+}
+/* a:hover{
+  background: black;
+  color: white;
+} */
+
+
+/*
+  Animate max height
+  https://stackoverflow.com/questions/16028878/animating-max-height-with-css-transitions
+
+*/
+.ud-norm--header,
+.ud-norm--footer,
+#ud-circle--logo {
+  will-change:transform;
+  transform: translateZ(0);
+  -webkit-transition: transform 0.24s cubic-bezier(0, 1, 0, 1);
+  transition: transform 0.24s cubic-bezier(0, 1, 0, 1);
+}
+.ud_copyright,
+  .ud_copyright.sm {
+    margin-left: 5px;
+  }
+
+

@@ -1,0 +1,203 @@
+/**
+  * UDTB WORDPRESS OVERRIDES CSS
+  *
+  * Defines all of the styles used to prevent theme and core styles
+  * from overriding branding css.
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/assets/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+#wpcontent {
+  font-size: 16px;
+  padding-left: 0;
+}
+
+#wpcontent p {
+  font-size: 1rem;
+}
+
+#udt_panel_mainmenu {
+  background-color: #003c71;
+  display: block;
+  float: left;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 60px;
+}
+
+#udt_panel_mainmenu li a {
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  padding: 20px;
+  width: 130px;
+  height: inherit;
+  text-align: center;
+  text-decoration:none;
+}
+
+h1#icon-themes,
+#udt_panel_mainmenu li,
+#udt_panel_mainmenu li a,
+#udtbp_form .button {
+  font-family: "vanguard-regular",sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+#udt_panel_mainmenu li,
+#udt_panel_mainmenu li a {
+  display: inline-block;
+  float: left;
+  color: white;
+  font-size: 21px;
+  width: 130px;
+  height: 100%;
+  margin-bottom: 0;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+#udt_panel_mainmenu li a:active,
+#udt_panel_mainmenu li a[aria-selected="true"] {
+  background: white;
+  color:black;
+  outline: 1px dashed black;
+  outline-offset: -2px;
+}
+
+#udt_panel_mainmenu li.nav-tab-active > a[aria-selected="true"] {
+  color: black !important;
+}
+
+#udt_panel_mainmenu li.nav-tab-active,
+#udt_panel_mainmenu li.nav-tab-active:focus,
+#udt_panel_mainmenu li.nav-tab-active:focus:active {
+  background: white;
+  color:black;
+  font-weight: 700;
+  text-transform: uppercase;
+  outline: 2px dotted black;
+  outline-offset: -2px;
+  border-bottom: none;
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+  overflow: hidden;
+}
+
+#udt_panel_mainmenu li::after,
+#udt_panel_mainmenu li:hover::after,
+#udt_panel_mainmenu li.nav-tab-active:focus::after,
+#udt_panel_mainmenu li.nav-tab-active:focus:active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#udt_panel_mainmenu li.nav-tab-active:focus::after,
+#udt_panel_mainmenu li.nav-tab-active:focus:active::after {
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1), -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  opacity: 1;
+  box-shadow: 0 14px 28px #0000004d, 0 10px 10px #0003;
+}
+
+#udt_panel_mainmenu li::after {
+  transition: -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
+  box-shadow: 0 8px 10px 1px #0000001a, 0 3px 14px 2px #0000001a, 0 5px 5px -3px #0003;
+  opacity: 0;
+}
+
+#udt_panel_mainmenu li:hover::after {
+  box-shadow: 0 14px 28px #0000004d, 0 10px 10px #0003;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1), -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  opacity: 1;
+}
+
+#udt_panel_mainmenu li:hover,
+#udt_panel_mainmenu li.ui-tabs-active{
+  background-color: #0078BD;
+  border: 1px solid white;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+.form-table,
+.form-table td,
+.form-table td p,
+.form-table th {
+  font-family: "greycliff-light",sans-serif;
+  font-size: 1rem;
+}
+
+.form-table th{
+  text-align: right;
+  vertical-align: middle;
+}
+
+.wp-core-ui .button.save-button {
+  background: #090;
+  border: medium none;
+  color: #FFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  height: 45px;
+  padding: 0 15px 0 10px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.wp-core-ui .button.save-button:hover {
+  background: #00D100;
+}
+
+.wp-core-ui .button.save-button::before {
+  content: "\f148";
+  font-size: 30px;
+  float: left;
+  font-family: "dashicons";
+  line-height: 1;
+  margin-right: 10px;
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+p.dashicons-before.dashicons-warning::before {
+  font-family: "dashicons";
+  content: "\f534";
+  color: #9F6000 !important;
+  line-height: 1.2;
+  float: left;
+}
+
+.notice.notice-warning.is-dismissible p {
+  color:#9F6000 !important;
+}
+
+.notice.notice-warning.is-dismissible {
+  background: #FEEFB3;
+}

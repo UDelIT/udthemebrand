@@ -1,0 +1,56 @@
+/**
+  * UDTB FONTS CSS
+  *
+  * Defines all of the branding typefaces
+  *
+  * @package     udtheme-brand
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
+/*
+    Font:     Greycliff CF
+    Style:    Bold
+    URL:    https://www.youworkforthem.com/font/T6406/greycliff-cf
+    Foundry:  Connary Fagen
+    Foundry:  https://www.youworkforthem.com/designer/479/connary-fagen
+    Copyright:  © 2017 Connary Fagen
+    Version:  17
+    Created:  February 03, 2018
+    License:  https://www.youworkforthem.com/font-license
+    License:  The WebFont(s) listed in this document must follow the YouWorkForThem
+          WebFont license rules. All other parties are strictly restricted
+          from using the WebFonts(s) listed without a purchased license.
+          All details above must always remain unaltered and visible in your CSS.
+*/
+@font-face {
+  font-family: 'greycliff-bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('GreycliffCF-Bold'), local('greycliff-bold'),
+       url('../fonts/GreycliffCF-Bold.woff2') format('woff2'),
+       url('../fonts/GreycliffCF-Bold.woff') format('woff');
+       unicode-range: U+0020-007D;
+}
+
+@font-face {
+  font-family: 'greycliff-light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('GreycliffCF-Light'), local('greycliff-light'),
+       url('../fonts/GreycliffCF-Light.woff2') format('woff2'),
+       url('../fonts/GreycliffCF-Light.woff') format('woff');
+       unicode-range: U+0020-007D;
+}
+
+@font-face {
+  font-family: 'vanguard-regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('vanguard-regular'), local('vanguard-cf-regular'),
+       url('../fonts/vanguard-cf-regular.woff2') format('woff2'),
+       url('../fonts/vanguard-cf-regular.woff') format('woff');
+       unicode-range: U+0020-007D, U+00A9, U+00AB, U+00BB, U+00B7;
+}

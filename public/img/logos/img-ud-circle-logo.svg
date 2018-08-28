@@ -1,0 +1,14 @@
+<svg id="ud-img-circleud" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+	<defs>
+		<style>
+			.fill--current {fill: currentColor;}
+			.fill--ltblue {fill: hsl(204, 100%, 33%)} /* 0066aa */
+			.fill--white {fill: white}
+		</style>
+	</defs>
+	<circle class="fill--current fill--ltblue" id="circle" cx="100" cy="100" r="100"></circle>
+	<path id="M" class="fill--current fill--white" d="M142.7 166.9c0-.5-.1-1.1-.1-1.7-.1.6-.3 1.2-.4 1.6l-.5 1.6h-.7l-.4-1.5-.3-1.7c0 .6-.1 1.2-.1 1.7v1.6h-.8l.3-4.1h1.1l.4 1.4a7 7 0 0 1 .3 1.4h.1l.3-1.4.4-1.4h1.2l.2 4.1h-.9z"></path>
+	<path id="T" class="fill--current fill--white" d="M137 165.2h-1v-.8h2.9v.8h-1v3.3h-.9z"></path>
+	<path id="D" class="fill--current fill--white" d="M74.2 72.5h38.4c28.1 0 42.5 16.9 42.5 45s-17.1 50.4-45.8 50.4H74.2v-3.5c10.4-1.5 9.9-.9 9.9-13.5V89.5c0-12.7.5-12-9.9-13.5zm21.2 76c0 14.9 2.9 15 13.9 15 18.3 0 32.5-11.4 32.5-45.8 0-25.9-11.8-40.9-34-40.9H95.4z"></path>
+	<path id="U" class="fill--current fill--white" d="M69.6 83.4c0 16.7 3.9 29.4 19.5 29.4s21.8-11 21.8-30v-33a53.8 53.8 0 0 0-.6-6.4c-.5-4.3-4.1-5.9-9-6.5v-3.1H126v3.1c-5 .6-8.5 2.2-9 6.5a53.8 53.8 0 0 0-.6 6.4v33.5c0 25.5-14.3 35-27.8 35-22.3 0-29.2-12.8-29.2-34.3V48.6c0-11 .4-10.4-9-11.7v-3.1h28.1v3.1c-9.4 1.3-8.9.7-8.9 11.7z"></path>
+</svg>
