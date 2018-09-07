@@ -1,6 +1,6 @@
 # UDTheme Branding Plugin for WordPress #
 
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](blob/master/LICENSE.md) [![Stable release](https://img.shields.io/github/release/UDelIT/udthemebrand.svg?style=flat-square)](releases/) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript.svg?style=flat-square)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/bitbucket-pipelines.yml) [![GitHub issues](https://img.shields.io/github/issues/UDelIT/udthemebrand.svg?style=flat-square&colorB=red)](issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/UDelIT/udthemebrand.svg?style=flat-square&colorB=lightgrey)](issues?q=is%3Aissue+is%3Aclosed) [![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)](https://github.com/UDelIT/udthemebrand) [![](https://img.shields.io/badge/php-5.6.30-ff69b4.svg?style=flat-square)]()
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE.md) [![Stable release](https://img.shields.io/github/release/UDelIT/udthemebrand.svg?style=flat-square)](releases/) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript.svg?style=flat-square)](https://bitbucket.org/itcssdev/udtheme-brand/src/master/bitbucket-pipelines.yml) [![GitHub issues](https://img.shields.io/github/issues/UDelIT/udthemebrand.svg?style=flat-square&colorB=red)](issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/UDelIT/udthemebrand.svg?style=flat-square&colorB=lightgrey)](issues?q=is%3Aissue+is%3Aclosed) [![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)](https://github.com/UDelIT/udthemebrand) [![](https://img.shields.io/badge/php-5.6.30-ff69b4.svg?style=flat-square)]()
 
 [![GitHub watchers](https://img.shields.io/github/watchers/UDelIT/udthemebrand.svg?style=social&label=Watch&maxAge=2592000)](watchers/)
 
@@ -50,4 +50,4 @@ This plugin is ONLY to be used on official University of Delaware department web
 For questions or concerns, contact the [IT Support Center](consult@udel.edu).
 
 ### Changelog ###
-[See the latest updates, bug fixes and features](blob/master/CHANGELOG.md).
+[See the latest updates, bug fixes and features](CHANGELOG.md).
