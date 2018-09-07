@@ -4,9 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.1.0)  - 9/7/2018
+## [3.1.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.1.0)  - 9-7-2018
+
+### Added
+* All images replaced with svg accessible images.
+* Adjust text size and content in Legal footer when browser is resized.
+* Added hover events on all plugin links for accessibility.
+* Add new Site Title bar.
+* Performance and documentation improvements.
+
+
+### Fixed 
 * Footer accessibility compliance via attributes ([#22](https://github.com/UDelIT/udthemebrand/issues/22))
 * Header accessibility compliance via attributes ([#21](https://github.com/UDelIT/udthemebrand/issues/21))
+* Create FAQ's under Support tab ([#19](https://github.com/UDelIT/udthemebrand/issues/19))
+* Adjust loading gif duration value ([#10](https://github.com/UDelIT/udthemebrand/issues/10))
+* Fix Divi theme #main-header z-index overriding branded footer CSS ([#9](https://github.com/UDelIT/udthemebrand/issues/9))
 
 ## [3.0.4](https://github.com/UDelIT/udthemebrand/releases/tag/3.0.4)  - 10-5-2017
 
@@ -22,7 +35,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 * Adjust height of College name in header for touch devices ([#20](https://github.com/UDelIT/udthemebrand/issues/20))
 * Fix wrong css selector name for footer (from udbrand_footer to udtbp_footer) ([#15](https://github.com/UDelIT/udthemebrand/issues/15))
-* Fix Divi theme #main-header z-index overriding branded footer CSS ([#9](https://github.com/UDelIT/udthemebrand/issues/9))
+
 
 
 ---
