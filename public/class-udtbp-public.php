@@ -12,62 +12,43 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @version     3.1.0
 */
 if ( ! class_exists( 'udtbp_Public' ) ) :
   class udtbp_Public extends udtbp_Admin {
-    /**
-     * The ID of this plugin.
-     *
-     * @since    1.4.2
-     * @access   private
-     * @var      string         $udtbp           The ID of this plugin.
-    */
     private $udtbp;
-
-    /**
-     * The current active theme.
-     *
-     * @since    3.0.0
-     * @access   private
-     * @var      string    $current_theme    The active theme.
-     */
     private $current_theme;
 
     /**
     * Public image URL Constant
     *
-    * @since    3.0.0
-    * @deprecated deprecated since version 3.5.0
-    * @access   private
-    * @var      string    $const_public_image    Used in place of defined CONST limitation in heredoc
+    * @since        3.0.0
+    * @deprecated   deprecated since version 3.1.0
+    * @var          string    $const_public_image    Used in place of defined CONST limitation in heredoc
     */
 
    /**
     * Public views URL Constant
     *
-    * @since    3.0.4
-    * @deprecated deprecated since version 3.5.0
-    * @access   private
-    * @var      string    $const_public_views    Used in place of defined CONST limitation in heredoc
+    * @since        3.0.4
+    * @deprecated   deprecated since version 3.1.0
+    * @var          string    $const_public_views    Used in place of defined CONST limitation in heredoc
     */
 
     /**
     * Current Theme and Current Theme CSS Override Arrays
     *
-    * @since   3.0.0
-    * @deprecated deprecated since version 3.5.0
-    * @access   public
-    * @var      array    $issues_theme_name    Replaced by JSON_THEME_LIST
+    * @since        3.0.0
+    * @deprecated   deprecated since version 3.1.0
+    * @var          array    $issues_theme_name    Replaced by JSON_THEME_LIST
     */
 
     /**
     * Incompatible themes list array.
     *
-    * @since    3.0.1
-    * @deprecated deprecated since version 3.5.0
-    * @access   public
-    * @var      array    $json_theme_list    Replaced by JSON_THEME_LIST
+    * @since        3.0.1
+    * @deprecated   deprecated since version 3.1.0
+    * @var          array    $json_theme_list    Replaced by JSON_THEME_LIST
     */
 
     /**
@@ -106,6 +87,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
       $this->current_theme = wp_get_theme();
       $this->udtbp_public_views_url = UDTBP_PUBLIC_VIEWS_URL;
       $this->udtbp_public_img_url = UDTBP_PUBLIC_IMG_URL;
+      $this->udtbp_public_js_url = UDTBP_PUBLIC_JS_URL;
       $this->json_theme_list = JSON_THEME_LIST;
     }
 
@@ -116,8 +98,8 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
      * Removes the ability to edit the site icon by users. Instead default OCM
      * approved site icons are dynamically added when plugin is activated.
      *
-     * @since     3.5.0
-     * @link   https://stackoverflow.com/questions/37953058/how-do-i-remove-the-ability-to-change-the-site-icon-in-wordpress
+     * @since       3.1.0
+     * @link        https://stackoverflow.com/questions/37953058/how-do-i-remove-the-ability-to-change-the-site-icon-in-wordpress
     */
     function udt_remove_styles_sections( $wp_customize ) {
       $wp_customize->remove_control( 'site_icon' );
@@ -202,12 +184,23 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
      * Adds public specific javascript files.
      *
      * @since       3.0.0
+     * @version     1.5.0   added localize script functionality to use variables in public js.
      * @return      mixed   null/string   Return early if no settings page is registered.
     */
     public function enqueue_scripts() {
       wp_deregister_script( $this->udtbp . '-public-script' );
       wp_register_script( $this->udtbp . '-public-script', UDTBP_PUBLIC_JS_URL . '/udtbp-public.js', array( 'jquery' ), UDTBP_VERSION, TRUE );
       wp_enqueue_script( $this->udtbp . '-public-script' );
+
+      $args_localize_script = [
+        'ascss' => UDTBP_ASSETS_CSS_URL,
+        'asjs' => UDTBP_ASSETS_JS_URL,
+        'adcss' => UDTBP_ADMIN_CSS_URL,
+        'adjs' => UDTBP_ADMIN_JS_URL,
+        'pucss' => UDTBP_PUBLIC_CSS_URL,
+        'pujs' => UDTBP_PUBLIC_JS_URL
+      ];
+      wp_localize_script( $this->udtbp . '-public-script', 'udtheme_public_js_vars', $args_localize_script );
     } // end enqueue_scripts()
     /**
      * ENQUEUE PUBLIC CSS
@@ -237,32 +230,37 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
     * Applies CSS Overrides for public facing admin bar.
     *
     * @since     3.0.0
+    * @version   2.0.0            Added switch case, removed admin bar CSS
     * @return    mixed   null/string    Return early if no settings page is registered.
     */
     public function udtbp_enqueue_inline_public_styles() {
+      $text_hex_blue = '009EE1';
+      $text_hex_white = 'FFF';
+
       $options = ( get_option( 'udtbp_footer_options' ) ? get_option( 'udtbp_footer_options' ) : FALSE );
       if ( isset( $options ) && !empty( $options ) ) :
         $option = $options['color-footer'];
-        $custom_social_css = "";
+        $custom_social_css = '';
+        switch ($option) {
+          case "white":
+            $option = $text_hex_white;
+          break;
+          case "blue":
+            $option = $text_hex_blue;
+          break;
+          default:
+            // added for brevity
+        }
         ?>
         <style id="<?php echo esc_html( $this->udtbp.'-theme-social-css' ) ?>">
         <?php
+        $custom_social_css .= ".ud-footer--social .icon {color: #".( $option )." !important;}"."\n";
 
-        $custom_social_css .= "
-        span[data-icon='twitter']::after,
-        span[data-icon='facebook']::after,
-        span[data-icon='instagram']::after,
-        span[data-icon='youtube']::after,
-        span[data-icon='pintrest']::after,
-        span[data-icon='linkedin']::after{
-          background: url('".UDTBP_PUBLIC_IMG_URL."/icons/icons_social_footer_".strtolower( $option ).".png') no-repeat
-        }"."\n";
-
-        if ( is_admin_bar_showing() ) :
-          $custom_social_css .=
-          "@media screen and (max-width:600px) {#wpadminbar {position: fixed !important;}}"."\n";
-          "@media only screen and (max-width:48em) {#wpadminbar {position:fixed !important;}}"."\n";
-        endif;
+        // if ( is_admin_bar_showing() ) :
+        //   $custom_social_css .=
+        //   "@media screen and (max-width:600px) {#wpadminbar {position: fixed !important;}}"."\n";
+        //   "@media only screen and (max-width:48em) {#wpadminbar {position:fixed !important;}}"."\n";
+        // endif;
         echo stripslashes( $custom_social_css );
         ?>
       </style>
@@ -281,227 +279,103 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
      * @link   https://github.com/DevinVinson/no-sidebar-twentyfifteen/tree/master/nosidebar-twentyfifteen
      */
     public function udtbp_enqueue_inline_theme_styles() {
-      $strcss_pos_rel = 'position:relative !important;';
-      $strcss_top_0 = 'top:0px !important;';
+      $strcss_pos_rel = "position:relative !important;";
+      $strcss_top_0 = "top:0px !important;";
       if (in_array($this->current_theme, json_decode($this->json_theme_list) )) :
         ?>
         <style id="udtbp-theme-override-css">
         <?php
         switch ( $this->current_theme ) {
-          case "Aaron" :
-            echo "#site-navigation{
-              '. $strcss_pos_rel . '
-            }
-            .main-navigation{
-              '. $strcss_top_0 . '
-            }";
+          case 'Aaron' :
+            echo '#site-navigation, .main-navigation{'. $strcss_pos_rel.' }';
           break;
 
-          case "Anjirai" :
-            echo "admin-bar.masthead-fixed .site-header {
-              '. $strcss_top_0 . '
-            }
-            .masthead-fixed .site-header {
-             '. $strcss_pos_rel . ' ' . $strcss_top_0 . '
-            }";
+          case 'Anjirai' :
+            echo 'admin-bar.masthead-fixed .site-header {'. $strcss_top_0 . '}, .masthead-fixed .site-header {'. $strcss_pos_rel . ' ' . $strcss_top_0 . '}';
           break;
 
-          case "Boardwalk" :
-            echo "archive .site-footer,
-            .blog .site-footer,
-            .site-header,
-            .admin-bar .site-header{
-            '. $strcss_pos_rel . ' ' . $strcss_top_0 . '
-            }";
+          case 'Boardwalk' :
+            echo '.site-footer,.blog .site-footer,.site-header,.admin-bar .site-header{'. $strcss_pos_rel . ' ' . $strcss_top_0 . '}';
           break;
 
-          case "Cubic" :
-            echo "body.unfixed-header > .site-header{
-              '. $strcss_pos_rel . '
-            }
-            body.unfixed-header > .sidebar {
-              '. $strcss_pos_rel . '
-            }
-            archive .site-footer,
-            .blog .site-footer,
-            .site-header,
-            .admin-bar .site-header{
-              '. $strcss_pos_rel . ' ' . $strcss_top_0 . '
-            }";
+          case 'Cubic' :
+            echo 'body.unfixed-header > .site-header{'. $strcss_pos_rel . '}
+            body.unfixed-header > .sidebar {'. $strcss_pos_rel . '}
+            .site-footer,.blog .site-footer,.site-header,.admin-bar .site-header{'. $strcss_pos_rel . ' ' . $strcss_top_0 . '}';
           break;
 
-          case "Divi" :
-            echo "#udtbp_ftlogo > a{
-              z-index:99999
-            }
-            #top-header{
-              z-index:4999 !important
-            }
-            body.admin-bar.et_fixed_nav #main-header,
-            body.admin-bar.et_fixed_nav #top-header{
-              ' . $strcss_top_0 . '
-            }
-            .et_fixed_nav #main-header,
-            .et_fixed_nav #top-header{
-              '. $strcss_pos_rel . '
-            }
-            .et_fixed_nav.et_show_nav.et_secondary_nav_enabled.et_header_style_centered #page-container{
-              margin-top:0 !important;
-              padding-top:0 !important;
-            }
-            #udtbp_footer{
-              display: -webkit-flex;
-              display: flex;
-              -webkit-flex-wrap: wrap;
-              flex-wrap: wrap;
-              list-style: none;
-              margin: 0;
-              padding: 0;
-            }
-            .ud_grid.ud_grid--gutters.ud_grid--full.large-ud_grid--fit{
-              width:100%
-            }";
+          case 'Divi' :
+            echo '.ud-footer--logo a{cursor:pointer;}
+            #top-header{z-index:4999 !important}
+            body.admin-bar.et_fixed_nav #main-header,body.admin-bar.et_fixed_nav #top-header{' . $strcss_top_0 . '}
+            .et_fixed_nav #main-header,.et_fixed_nav #top-header{'. $strcss_pos_rel . '}
+            .et_fixed_nav.et_show_nav.et_secondary_nav_enabled.et_header_style_centered #page-container{margin-top:0 !important;
+              padding-top:0 !important;}
+
+            // #udtbp_footer{display: -webkit-flex;display: flex;-webkit-flex-wrap: wrap;flex-wrap: wrap;list-style: none;margin: 0;padding: 0;}
+            // .ud_grid.ud_grid--gutters.ud_grid--full.large-ud_grid--fit{width:100%}';
           break;
 
-          case "Matheson" :
-            echo ".image-anchor {
-             display: inline;
-            }";
+          case 'Matheson' :
+            echo '#footer{z-index:1 !important}.ud-norm--footer{z-index:11}.image-anchor {display: inline;}';
           break;
 
-          case "Radiate" :
-            echo "body.admin-bar .header-wrap {
-              ' . $strcss_top_0 . '
-            }
-            .header-wrap {
-              '. $strcss_pos_rel . ' ' . $strcss_top_0 . '
-              width: 100%;
-              z-index: 9998 !important;
-            }
-            #udtbp_header{
-              z-index:9999 !important
-            }
-            #parallax-bg {
-              margin-top:182px;
-            }";
+          case 'Radiate' :
+            echo '#page {z-index:1 !important}body.admin-bar .header-wrap {' . $strcss_top_0 . '}.header-wrap {'. $strcss_pos_rel . ' ' . $strcss_top_0 . 'width: 100%;z-index: 9998 !important;}#parallax-bg {margin-top:182px;}';
           break;
 
-          case "Star" :
-            echo ".main-navigation {
-              '. $strcss_pos_rel . ' ' . $strcss_top_0 . '
-            }";
+          case 'Star' :
+            echo '#site-navigation,.main-navigation {'. $strcss_pos_rel . ' ' . $strcss_top_0 . '}.ud-footer--social li a[href]::before {content: "" !important;}.ud-footer--social li a::before{display:none !important;margin:0 !important;line-height:inherit !important';
           break;
 
-          case "Swell Lite" :
-            echo ".admin-bar #navigation.fixed-nav{
-              margin-top: 0 !important
-            }
-            #navigation.fixed-nav {
-            '. $strcss_pos_rel . '
-            }";
+          case 'Swell Lite' :
+            echo 'ul li {list-style: none !important;padding:inherit !important}.admin-bar #navigation.fixed-nav{margin-top: 0 !important}
+            #navigation.fixed-nav {'. $strcss_pos_rel . '}';
           break;
 
-          case "Temptation" :
-            echo "#parallax-bg{
-              display:none !important;
-              visibility:hidden !important
-            }";
+          case 'Temptation' :
+            echo '#parallax-bg{display:none !important;visibility:hidden !important}';
           break;
 
-          case "Tracks" :
-            echo "#udtbp_footer{
-              z-index:-1;
-              background:#FFF
-            }";
+          case 'Tracks' :
+            echo '#udtbp_footer{z-index:-1;background:#FFF}';
           break;
 
-          case "Twenty Twelve" :
-            echo "#udtbp_footer {
-              line-height: inherit !important;
-              margin: 0 !important;
-              max-width: 100% !important;
-              padding: 1.125em 0 0 !important;
-              font-size:10px !important;
-              border-top: none !important;
-              background:#FFF !important
-            }
-            #yellowbar {
-              margin: 8px 0 0 !important
-            }";
+          case 'Twenty Twelve' :
+            echo '#udtbp_footer {line-height: inherit !important;margin: 0 !important;max-width: 100% !important;padding: 1.125em 0 0 !important;font-size:10px !important;border-top: none !important;background:#FFF !important}
+
+            #yellowbar {margin: 8px 0 0 !important}';
           break;
 
-          case "Twenty Fourteen" :
-            echo ".masthead-fixed .site-header {
-              '. $strcss_pos_rel . ' ' . $strcss_top_0 . '
-            }";
+          case 'Twenty Fourteen' :
+            echo '.masthead-fixed .site-header {'. $strcss_pos_rel . ' ' . $strcss_top_0 . '}';
           break;
 
-          case "Twenty Fifteen" :
-            echo "body::before{
-              display: none !important;
-              visibility:hidden !important
-            }
-            #page {
-              overflow-y:hidden;
-            }
-            #sidebar{
-              '. $strcss_pos_rel . '
-              z-index:1 !important
-            }
-            #udtbp_footer {
-              '. $strcss_pos_rel . '
-              z-index:99 !important
-            }
+          case 'Twenty Fifteen' :
+            echo 'body::before{display: none !important;visibility:hidden !important}
+            #page {overflow-y:hidden;}
+            #sidebar{'. $strcss_pos_rel . 'z-index:1 !important}
+
+            #udtbp_footer {'. $strcss_pos_rel . ' z-index:99 !important}
+
             @media only screen and ( min-width: 46.25em ){
-              body::before{
-                display: none !important;
-                visibility:hidden !important
-              }
-              .sidebar {
-                '. $strcss_pos_rel . '
-                z-index:1 !important
-              }
-              .site-header {
-                margin: 0 !important;
-                padding: 7.6923% !important;
-              }
-              .main-navigation {
-                margin-bottom: 11.1111% !important;
-              }
-              .site-footer  {
-                display: block;
-              }
-              .secondary {
-                 background-color: #FFF !important;
-                 margin: 7.6923% 7.6923% 0 !important;
-                 padding: 7.6923% 7.6923% 0 !important;
-              }
-            }";
+              body::before{display: none !important;visibility:hidden !important}
+              .sidebar {'. $strcss_pos_rel . 'z-index:1 !important}
+              .site-header {margin: 0 !important;padding: 7.6923% !important;}
+              .main-navigation {margin-bottom: 11.1111% !important;}
+              .site-footer  {display: block;}
+              .secondary {background-color: #FFF !important;margin: 7.6923% 7.6923% 0 !important;padding: 7.6923% 7.6923% 0 !important;}
+            }';
           break;
 
-          case "Twenty Sixteen" :
-            echo "body.admin-bar:not(.custom-background-image)::before,
-              body:not(.custom-background-image)::before{
-                '. $strcss_pos_rel . ' ' . $strcss_top_0 . '
-                height:0 !important
-              }";
+          case 'Twenty Sixteen' :
+            echo 'body.admin-bar:not(.custom-background-image)::before,body:not(.custom-background-image)::before{'. $strcss_pos_rel . ' ' . $strcss_top_0 . 'height:0 !important}';
           break;
 
-          case "Twenty Seventeen" :
-            echo ".custom-header,
-              #wp-custom-header {
-                z-index:0;
-              }
-              .ud-norm--header,
-              .ud-header--title {
-                z-index:99
-              }
-              .site-navigation-fixed.navigation-top,
-              .has-header-image .custom-header-media img,
-              .has-header-video .custom-header-media video,
-              .has-header-video .custom-header-media iframe{
-                '. $strcss_pos_rel . '
-            }";
+          case 'Twenty Seventeen' :
+            echo '.custom-header,#wp-custom-header {z-index:0;}
+              .ud-norm--header,.ud-header--title {z-index:99}
+              .site-navigation-fixed.navigation-top,.has-header-image .custom-header-media img,.has-header-video .custom-header-media video,.has-header-video .custom-header-media iframe{'. $strcss_pos_rel . '}';
           break;
 
           default :
@@ -569,30 +443,25 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
 
         if ( isset( $options['header-title'] ) && ! empty( $options['header-title'] ) ) :
           $header_title = $options["header-title"];
-          //$udt_custom_header_text = get_option( 'udt_custom_header_text' );//, $custom_header_text);
-          /**
-            * Hide custom text <span> if no college is chosen in settings.
-          */
 
           if( $header_title != NULL ) {
             $show_custom_text = <<<HTML
 <div class="ud-header--title item item--full">
-<div id='$header_title' class="ud-display--db ud-align--asstretch cell">
+<div id="ud-id-site--title" class="ud-display--db ud-align--asstretch cell">
 <a href="{$homeUrl}" aria-label="Go to the {$header_title} home page.">$header_title</a>
 </div>
 </div>
-<!--<span id='$header_title'><a href='//www.$header_title.udel.edu/' aria-label='$udt_custom_header_text'>$udt_custom_header_text</a></span>-->
 HTML;
           } // end $header_title != NULL
         endif; // isset header-title
 
         if( isset( $options["view-header"] ) && !empty( $options["view-header"] ) ) :
           $inject = <<<HTML
-<div class="ud-wrapper--grid ud-gtr-head">
-<header role="banner" class="ud-norm--header ud-header--logo item item--full">
+<div id="ud-id-head" class="ud-wrapper--grid ud-gtr-head">
+<header class="ud-norm--header ud-header--logo item item--full">
 <div class="ud-display--db ud-align--asstretch cell">
-<a href="https://www1.udel.edu/" aria-labeledby="ud_primary_logo">
-<img alt="Go to the University of Delaware home page." id="ud_primary_logo" src="{$this->udtbp_public_img_url}/logos/img-udlogo.svg" role="img" width="218" height="91">
+<a href="https://www1.udel.edu/">
+<img alt="Go to the University of Delaware home page." id="ud_primary_logo" src="{$this->udtbp_public_img_url}/logos/img-udlogo.svg" role="img" width="170" height="70">
 </a>
 </div>
 </header>

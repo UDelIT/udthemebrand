@@ -25,13 +25,10 @@ $udtbp_assets_img_url = UDTBP_ASSETS_IMG_URL;
 <div id="udt_wrap" class="wrap">
   <h1 id="icon-themes" class="udt_dash_icon">
     <img alt="" id="ud_primary_logo" src="<?php echo UDTBP_ASSETS_IMG_URL; ?>/logos/img-udlogo.svg" role="img" width="170" height="70">
-    <!-- <svg class="color-svg">
-      <use xlink:href="<?php //echo UDTBP_ASSETS_IMG_URL; ?>/ud-icons-footer--defs.svg#ud-img-circleud"></use>
-    </svg> -->
-    <div class="ud-header--title">
+  </h1>
+  <div class="ud-header--title">
       <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
   </div>
-  </h1>
 </div>
 <?php
   $tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'header';
@@ -60,7 +57,7 @@ $udtbp_assets_img_url = UDTBP_ASSETS_IMG_URL;
           <div class="clear"></div>
         </div>
         <div class="u-ta--center">
-          <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-header-tab-save' );?>"><?php echo esc_html( 'Save Changes' ); ?></button>
+         <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-footer-tab-save' );?>"><?php _e( 'Save Changes' ); ?><svg id="ud-icon--arrow" role="presentation" aria-label="arrow icon" focusable="false" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10"><circle class="arrow-icon--circle" cx="16" cy="16" r="15.12"></circle><path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g></svg></button>
         </div>
       </div>
       <?php
@@ -84,49 +81,77 @@ $udtbp_assets_img_url = UDTBP_ASSETS_IMG_URL;
       ?>
       <div id="udt_support_settings" class="postbox tabPanel" role="tabpanel" aria-labelledby="label_udt_support_settings">
         <div class="inside">
-        <h2>Support and help information.</h2>
-        <p>If you are experiencing problems with this plugin, contact the Support Center at (302) 831-6000 or <a href="mailto:consult@udel.edu">consult@udel.edu</a>.</p>
-        <p>See the plugin <a href="https://github.com/UDelIT/udthemebrand/wiki/FAQs">FAQs</a> for more information.</p>
-        <ul class="ud-grid--4 ud-align--jcc ud-norm--cards">
-            <li class="drop ud-div--info">
-              <div class="img"></div>
-              <div class="text">
+          <h2>Support and help information.</h2>
+          <p>If you are experiencing problems with this plugin, contact the Support Center at (302) 831-6000 or <a href="mailto:consult@udel.edu">consult@udel.edu</a>.</p>
+          <p>See the plugin <a href="https://github.com/UDelIT/udthemebrand/wiki/FAQs">FAQs</a> for more information.</p>
+
+
+          <div class="container">
+            <div class="column">
+              <div class="ud-card--cell rowspan ud-div--info">
                 <h3>Known Incompatible Themes</h3>
-                <p><?php echo esc_html( UDTBP_NAME ); ?>  is designed to display a University branded header and footer at the top of each page. Some themes contain features that may cause the UD header to 'hide' beneath the menu or cause the branding to display incorrectly. ( <a href="<?php echo UDTBP_ADMIN_IMG_URL; ?>/incompatible_example.png" class="dialogify" aria-label="Example image of broken layout from incompatible theme." type="button" data-width="500" data-height="300">See example</a> ).</p>
+                <p><?php echo UDTBP_NAME; ?> is designed to display a University branded header and footer at the top of each page. Some themes contain features that may cause the UD header to 'hide' beneath the menu or cause the branding to display incorrectly ( <a href="<?php echo UDTBP_ADMIN_IMG_URL; ?>/incompatible_example.png" class="dialogify" aria-label="Example image of broken layout from incompatible theme." type="button" data-width="500" data-height="300">See example</a> ).</p>
 
                 <ul id="support_list">
-                <?php
-                $json_theme_list = json_decode( JSON_THEME_LIST );
-                   foreach ( $json_theme_list as $json ){
-                     echo '<li>'.$json.'</li>';
-                   }
-                   ?>
+                 <?php
+                 $json_theme_list = json_decode( JSON_THEME_LIST );
+                    foreach ( $json_theme_list as $json ){
+                      echo '<li>'.$json.'</li>';
+                    }
+                    ?>
                 </ul>
               </div>
-            </li>
-            <li class="drop ud-div--email">
-              <div class="img">
-                <img alt="" id="" src="<?php echo UDTBP_ASSETS_IMG_URL; ?>/ud-icon--mail.svg" role="img" width="128" height="128">
-              </div>
-              <div class="text">
-                <h2>
-                  <a href="mailto:consult@udel.edu">Email consult@udel.edu</a>
-                </h2>
-                <p>Create an incident by email.</p>
-              </div>
-            </li>
-            <li class="drop ud-div--phone">
-              <div class="img">
-                <img alt="" id="" src="<?php echo UDTBP_ASSETS_IMG_URL; ?>/ud-icon--phone.svg" role="img" width="110" height="110">
-              </div>
-              <div class="text">
-                <h2>
-                  <a href="tel:3028316000">Call the IT Support Center</a>
-                </h2>
-                <p>Speak directly with a support specialist.</p>
-              </div>
-            </li>
-          </ul>
+            </div>
+          <div class="column">
+            <a class="ud-card--cell ud-card ud-div--mail" href="mailto:consult@udel.edu">
+              <span class="card-header">
+                <img alt="" id="" src="<?php echo UDTBP_ADMIN_IMG_URL; ?>/ud-icon--mail.svg" role="img" height="75">
+                  <span class="card-title">
+                    <h3>Email consult@udel.edu</h3>
+                  </span>
+                </span>
+                <span class="card-summary">
+                  Create incident by email.
+                </span>
+            </a>
+
+             <a class="ud-card--cell ud-card ud-div--text" href="sms:3027226820">
+               <span class="card-header">
+                 <img alt="" id="" src="<?php echo UDTBP_ADMIN_IMG_URL; ?>/ud-icon--text.svg" role="img" height="75">
+                 <span class="card-title">
+                   <h3>Text [302] 722-6820</h3>
+                 </span>
+               </span>
+               <span class="card-summary">
+                 Send text message to IT Support.
+               </span>
+             </a>
+
+             <a class="ud-card--cell ud-card ud-div--phone" href="tel:3028316000">
+               <span class="card-header">
+                 <img alt="" id="" src="<?php echo UDTBP_ADMIN_IMG_URL; ?>/ud-icon--phone.svg" role="img" height="75">
+                 <span class="card-title">
+                   <h3>Call [302] 831-6000</h3>
+                 </span>
+               </span>
+               <span class="card-summary">
+                 Speak with IT Support.
+               </span>
+             </a>
+
+             <a class="ud-card--cell ud-card ud-div--text" href="https://www.udel.edu/it/help/request/">
+               <span class="card-header">
+                 <img alt="" id="" src="<?php echo UDTBP_ADMIN_IMG_URL; ?>/ud-icon--form.svg" role="img" height="75">
+                 <span class="card-title">
+                   <h3>Text [302] 722-6820</h3>
+                 </span>
+               </span>
+               <span class="card-summary">
+                 Send text message to IT Support.
+               </span>
+             </a>
+           </div>
+         </div>
        </div>
       </div>
 
@@ -144,7 +169,7 @@ $udtbp_assets_img_url = UDTBP_ASSETS_IMG_URL;
           <div class="clear"></div>
         </div>
         <div class="u-ta--center">
-          <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-header-tab-save' );?>"><?php _e( 'Save Changes' ); ?></button>
+          <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-header-tab-save' );?>"><?php _e( 'Save Changes' ); ?><svg id="ud-icon--arrow" role="presentation" aria-label="arrow icon" focusable="false" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10"><circle class="arrow-icon--circle" cx="16" cy="16" r="15.12"></circle><path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g></svg></button>
         </div>
       </div>
       <?php

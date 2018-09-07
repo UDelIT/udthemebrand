@@ -1,0 +1,133 @@
+/**
+  * UDTHEME BRANDING ADMIN TABS CSS
+  *
+  * Defines all of the tabs related  styles used for ADMIN
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/assets/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
+*/
+#udt_panel_mainmenu {
+  background-color: #777;
+  display: block;
+  float: left;
+  position: relative;
+  margin: 0;
+  padding: 0 12px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+}
+
+#udt_panel_mainmenu li,
+#udt_panel_mainmenu li a,
+#udtbp_form .button {
+  font-family: "Open Sans",sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#udt_panel_mainmenu li::after,
+#udt_panel_mainmenu li:hover::after,
+#udt_panel_mainmenu li.nav-tab-active:focus::after,
+#udt_panel_mainmenu li.nav-tab-active:focus:active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#udt_panel_mainmenu li::after {
+  transition: -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+  opacity: 0;
+}
+
+#udt_panel_mainmenu li:hover::after {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(.25,.8,.25,1), -webkit-transform 0.3s cubic-bezier(.25,.8,.25,1);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  opacity: 1;
+}
+
+/*
+  SUPPORT TAB
+*/
+/* #udt_panel_mainmenu li:nth-of-type(4) {
+  float: right;
+} */
+
+#udt_support_settings .ud-grid--4 > div {
+  display: -webkit-flex;
+  display:  flex;
+}
+
+#udt_support_settings .ud-grid--4 > div:nth-child(2),
+#udt_support_settings .ud-grid--4 > div:last-child {
+  justify-content: center;
+}
+
+#udtbp-header-tab-save,
+#udtbp-footer-tab-save {
+
+}
+
+#udtbp-header-tab-save:active,
+#udtbp-footer-tab-save:active {
+
+}
+
+#udtbp-header-tab-save:hover,
+#udtbp-footer-tab-save:hover {
+
+}
+
+#udtbp-header-tab-save:focus,
+#udtbp-footer-tab-save:focus {
+  /* outline: none;
+  box-shadow: 0 0 0 3px #080, 0 0 0 3px #080; */
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+  margin-left: 20px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  box-shadow: 0px 2px 4px #0000001a, 0px 2px 3px #0003;
+}
+button::after {
+  content: "";
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px #0000004d;
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+button:hover::after {
+  opacity: 1;
+}
+button:hover {
+   box-shadow: 0px 8px 16px #0003, 0px 6px 6px #0003;
+  -webkit-transform: translateY(-8px);
+  transform: translateY(8px);
+}

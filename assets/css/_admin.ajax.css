@@ -1,0 +1,80 @@
+/**
+  * UDTHEME BRANDING ADMIN AJAX CSS
+  *
+  * Defines all of the ajax related  styles used for ADMIN
+  *
+  * The Table of contents conforms to W3C HTML Elements organization.
+  * {@link https://www.w3.org/TR/2012/WD-html-markup-20121025/elements-by-function.html}
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/assets/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
+*/
+
+#udtbp-ajax-message p {
+  color: white;
+  font-size: 24px;
+}
+
+#udtbp-ajax-message {
+  background-color: #090;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;
+  left: 0px;
+  line-height: 2;
+  padding: 14px;
+  position: fixed;
+  text-align: center;
+  top: 32px;
+  width: 100%;
+  z-index:9999;
+  -webkit-transition: all 0.3s ease 0.3s;
+  transition: all 0.3s ease 0.3s;
+}
+
+#udtbp-ajax-saving {
+  display: none;
+  -webkit-transition: background, box-shadow 0.3s;
+  transition: background, box-shadow 0.3s;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  background: transparent;
+  z-index: 999999;
+}
+
+#udtbp-ajax-saving.success-animation {
+  background-color: #090;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;
+  opacity: 1;
+}
+
+#udtbp-ajax-saving.success-animation:before {
+  background: none;
+  font-family: 'dashicons';
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\f147";
+  color: white;
+  font-size: 22px;
+  line-height: 50px;
+}
+
+#udtbp-ajax-saving.et_loading:before,
+#udtbp-ajax-saving.success-animation img,
+#udtbp-ajax-message {
+  display: none;
+}
+
+#udtbp-ajax-message.show {
+  display: inline-block;
+}

@@ -72,18 +72,6 @@ html {
   -ms-word-wrap: break-word; /* e */
 }
 
-
-
-
-
-
-
-
-
-html {
-  -ms-overflow-style: scrollbar;
-  -ms-word-wrap: break-word;
-}
 .ud-wrapper--grid,
 .grid {
   display: -ms-grid;
@@ -139,17 +127,12 @@ html {
 .ud-grid--2 {
   -ms-grid-columns: (1fr 10px)[2];
 }
-
-/* .ud-content--container{
-  display: -ms-flex;
+/*------------------------------------------------------------------------------
+a. IE 11 hack because alignment is whack height (50px) + margin-bottom (24px)
+------------------------------------------------------------------------------*/
+body.is_ms .ud-footer--social ul {
+  top: calc(100% - 74px); /* a */
 }
-.ud-norm--header {
-  display: -ms-inline-grid;
-}
-[role="banner"] a {
-  display: -ms-inline-grid;
-} */
-
 
 
 

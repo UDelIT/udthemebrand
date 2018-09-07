@@ -1,5 +1,5 @@
 /**
-  * UDTB NORMALIZE CSS
+  * UDTHEME BRANDING NORMALIZE CSS
   *
   * Defines all of the reset styles used for ADMIN and PUBLIC facing pages.
   * normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css
@@ -13,11 +13,11 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @version     3.1.0
 */
 /**
   * @since          1.4.2
-  * @version        2.0.0          Completely re-written to latest CSS standards.
+  * @version        3.1.0          Completely re-written to latest CSS standards.
 */
 /*------------------------------------------------------------------------------
 [Table of contents]
@@ -39,6 +39,11 @@
   box-sizing: border-box;
 }
 
+html, body, button, p, ol, ul, li, fieldset, legend, input, select, textarea, hr, h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
 html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,42 +52,70 @@ html{
   -ms-text-size-adjust:100%;
 }
 
-[id^="ud-id-"] ~ p,
-[id^="ud-id-"] ~ ul,
-[id^="ud-id-"] ~ li,
-[id^="ud-id-"] ~ h1,
-[id^="ud-id-"] ~ h2,
-[id^="ud-id-"] ~ h3 {
-  margin: 0;
-  padding: 0;
-}
+
 
 /*------------------------------------------------------------------------------
-  3. @GROUPING CONTENT
+  2. @GROUPING CONTENT
+    a. Add the correct box sizing in Firefox.
+    b. Show the overflow in Edge and IE.
 ------------------------------------------------------------------------------*/
-[id^="ud-id-"] ~ ul {
+hr {
+  box-sizing: content-box; /* a */
+  height: 0; /* a */
+  overflow: visible; /* b */
+}
+
+main:not(.main) {
+  position: relative;
+  margin: 0 auto;
+}
+
+ol,
+ul {
   list-style:none;
   list-style-image:none;
   list-style-position: outside;
   margin-bottom: 10px
 }
+
 /*------------------------------------------------------------------------------
-  4. @TEXT-LEVEL SEMANTICS
+  3. @TEXT-LEVEL SEMANTICS
+    a. Remove gaps in links underline in iOS 8+ and Safari 8+.
+    b. Add the correct font weight in Chrome, Edge, and Safari.
+    c. Add the correct font size in all browsers.
+    d. Prevent `sub` and `sup` elements from affecting the line height in
+       all browsers.
+    e. The browser defaults for these utilize superscript- and subscript-specific
+       vertical-align rules, ex unit (width of x character or 1/2 of 1 em) can be used
+       for more granular control <https://webdesign.tutsplus.com/articles/7-css-units-you-might-not-know-about--cms-22573>
+    f. Improves readability when focused and also mouse hovered in all browsers
+       people.opera.com/patrickl/experiments/keyboard/test
+    g. Disables double-tap gesture which avoids any click delay by the browser.
+       Leaves scrolling and pinch-zoom up to the browser. Prevent default double
+       tap in IE10+
 ------------------------------------------------------------------------------*/
 a,
-[tabindex] {
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] { /* g */
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-  -webkit-text-decoration-skip: none;
 }
 
-[id^="ud-id-"] ~ a:active,
-[id^="ud-id-"] ~ a:hover {
-  /* outline-width: 0;
-  outline: 0; */
-  color: #000;
-  outline: #6DA031 1px solid;
-  background: #fdf6e7;
+a {
+  -webkit-text-decoration-skip: objects; /* a */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: color .12s ease-in-out;
+  transition: color .12s ease-in-out;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+  outline: 0; /* f */
 }
 
 ::-moz-focus-inner {
@@ -90,30 +123,105 @@ a,
  padding:0
 }
 
-[id^="ud-id-"] ~ a:active,
-[id^="ud-id-"] ~ a:hover,
-[id^="ud-id-"] ~ a:link,
-[id^="ud-id-"] ~ a:visited {
+a:active,
+a:hover,
+a:link,
+a:visited {
   text-decoration: none;
+}
+
+a,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-text-decoration-skip: none;
+}
+
+::-moz-focus-inner {
+ border:0;
+ padding:0
+}
+
+:-moz-focusring {
+  color: #000;
+  outline: #6DA031 1px solid;
+}
+
+/*-------------------------------------------
+  1. https://github.com/necolas/normalize.css/pull/738
+  2. Add the correct text decoration in Chrome,
+     Edge, IE, Opera, and Safari.
+ -------------------------------------------*/
+abbr[title] {
+  border-bottom: 1px dotted currentColor; /* 1 */
+  text-decoration: none;
+  cursor: help;
+}
+
+@supports (text-decoration: underline dotted) { /* 2 */
+  abbr[title] {
+    border-bottom: 0;
+    text-decoration: underline dotted;
+  }
 }
 
 b,
 strong {
-  font-weight: bolder
+  font-weight: bolder /* b */
 }
+
 small {
-  font-size: 80% !important
+  font-size: 80% !important /* c */
 }
-[id^="ud-id-"] ~ a img {
-  border:none;
+
+/*-------------------------------------------
+  1. Prevent `sub` and `sup` elements from
+     affecting the line height in all browsers.
+ -------------------------------------------*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0; /* 1 */
+  position: relative;
+  /* vertical-align: baseline; */
+
 }
+/*-------------------------------------------
+  1. The browser defaults for these utilize superscript- and subscript-specific
+     vertical-align rules, ex unit (width of x character or 1/2 of 1 em) can be
+     used for more granular control
+     <https://webdesign.tutsplus.com/articles/7-css-units-you-might-not-know-about--cms-22573>
+ -------------------------------------------*/
+sub {
+  bottom: .5ex; /* 1 */
+}
+
+sup {
+  bottom: 1ex;
+}
+/*
+  nasty bug on iOS
+  https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+ */
+[role="button"] {
+  cursor: pointer;
+}
+/*-------------------------------------------------------------------
+  4. @EMBEDDED CONTENT
+    a. Hide the overflow in IE.
+    b. Make svg image fluid in IE
+       {@link  https://tympanus.net/Tutorials/ResponsiveSVGs/index.html}
+-------------------------------------------------------------------*/
 img {
   max-width:100%;
 }
-.svg {
-  max-height: 100%;
-}
+
 svg:not (:root) {
   width:100%;
   height: auto;
+  overflow: hidden; /* a */
+}
+
+img:not(.png) {
+  width: 100%; /* b */
 }

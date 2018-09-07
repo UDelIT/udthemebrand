@@ -14,11 +14,11 @@
   *
   * @package     udtheme-brand
   * @subpackage  udtheme-brand/include
-  * @author      Christopher Leonard - University of Delaware | IT CS&S
-  * @license     GPL-3.0
-  * @link        https://bitbucket.org/UDwebbranding/udtheme-branding-plugin
-  * @copyright   Copyright (c) 2012-2017 University of Delaware
-  * @version     3.0.0
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
   *
 */
 if ( ! class_exists( 'udtbp' ) ) :
@@ -36,11 +36,18 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * The ID of this plugin.
 		 *
 		 * @since    1.4.2
-	   * @version  1.0.0                           New name introduced.
 		 * @access   protected
 		 * @var      string         $udtbp           The ID of this plugin.
 		*/
 		 protected $udtbp;
+		 /**
+		 * The current version.
+		 *
+		 * @since    3.0.0
+		 * @access   protected
+		 * @var      string    			$current_version    The current version.
+		 */
+		protected $current_version;
 		/**
 		 * The current theme.
 		 *
@@ -90,9 +97,9 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * - udtbp_i18n 							Defines internationalization functionality.
 		 * - udtbp_Admin 							Defines all hooks for the dashboard.
 		 * - udtbp_Admin_Notices 		  Defines all hooks for dashboard notices.
-		 * - udtbp_Admin_Pointers 		Defines all hooks for dashboard pointers.
 		 * - udtbp_Header_Settings 		Defines all header sections, settings and options.
 		 * - udtbp_Footer_Settings 		Defines all footer sections, settings and options.
+		 * - udtbp_Support_Settings 	Defines all support sections, settings and options.
 		 * - udtbp_Public 						Defines all hooks for the public side of the site.
 		 * - udtbp_Social 						Defines all social content via array for the public side display in footer.
 		 *
@@ -100,6 +107,7 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * with WordPress.
 		 *
 		 * @since    3.0.0
+		 * @version  1.5.0   added udtbp_Support_Settings
 		 * @access   private
 		 * @see 		 udtbp-autoloader.php
 		 */
@@ -110,37 +118,42 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * REGISTER ADMIN RELATED HOOKS.
 		 *
 		 * @since    	2.0.0
+		 * @version   1.5.0      Added: [$settings_init_support]. Removed: [Admin Pointer Class]
 		 * @access   	private
 		 * @var				string     $plugin_admin								Variable that creates udtbp_Admin class instance.
 		 * @var				string     $plugin_admin_notices				Variable that creates udtbp_Admin_Notices class instance.
-		 * @var				string     $plugin_admin_pointers				Variable that creates plugin_admin_pointers class instance.
 		 * @var				string     $settings_init_header				Variable that creates udtbp_Header_Settings class instance.
 		 * @var				string     $settings_init_footer				Variable that creates udtbp_Footer_Settings class instance.
+		 * @var				string     $settings_init_support				Variable that creates udtbp_Support_Settings class instance.
 		 * @var				string     $plugin_basename							Variable that defines plugin basename e.g., udtheme-brand/udtbp.php.
 		 */
 		private function udtbp_define_admin_hooks() {
-			$plugin_admin = new udtbp_Admin( $this->get_udtbp(), $this->get_version(), $this->get_current_theme() );
-			$plugin_admin_notices = new udtbp_Admin_Notices( $this->get_udtbp(), $this->get_current_theme() );
-			//$plugin_admin_pointers = new udtbp_Admin_Pointers( $this->get_udtbp() );
-			$settings_init_header = new udtbp_Header_Settings( $this->get_udtbp(), $this->get_version() );
+			//$plugin_activation = new udtbp_Activation( $this->get_udtbp(), UDTBP_VERSION );
+
+			$plugin_admin = new udtbp_Admin( $this->get_udtbp(), UDTBP_VERSION, $this->wp_get_theme() );
+			$plugin_admin_notices = new udtbp_Admin_Notices( $this->get_udtbp(), $this->wp_get_theme() );
+			$settings_init_header = new udtbp_Header_Settings( $this->get_udtbp(), UDTBP_VERSION );
 			$settings_init_footer = new udtbp_Footer_Settings( $this->get_udtbp() );
+			$settings_init_support = new udtbp_Support_Settings( $this->get_udtbp() );
 			$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->udtbp . '.php' );
 
 			$this->loader->add_action( 'load-'.$this->udtbp, $plugin_admin, 'udtbp_on_load_page' );
+
+			//$this->loader->add_action( 'admin_init', $plugin_activation, 'udtbp_start_activation' );
+
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles', 10 );
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'udtbp_enqueue_inline_admin_styles', 999 );
-			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles_ie', 999 );
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-			$this->loader->add_action( 'admin_notices', $plugin_admin_notices, 'udtbp_theme_override_notices' );
+			$this->loader->add_action( 'admin_notices', $plugin_admin_notices, 'udtbp_theme_override_notices', 999 );
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'udtbp_admin_menu' );
 			$this->loader->add_action( 'admin_init', $settings_init_header, 'settings_api_init' );
 			$this->loader->add_action( 'admin_init', $settings_init_footer, 'settings_api_init' );
-			//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin_pointers, 'udtbp_pointer_scripts', 12 );
+			// $this->loader->add_action( 'plugins_loaded', $plugin_admin, 'udtbp_check_current_user' );
 			$this->loader->add_action( 'wp_ajax_udtbp_save_ajax', $plugin_admin, 'udtbp_save_ajax' );
 			$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_settings_link', 10, 2 );
 		} // end udtbp_define_admin_hooks()
 		/**
-		* ADD PLUGIN SCRIPTS AND STYLE TO PLUGIN OPTIONS PAGE ONLY
+		* ADD PLUGIN SCRIPTS AND STYLES TO PLUGIN OPTIONS PAGE ONLY
 		*
 		* @since    3.0.0
 		* @access   private
@@ -153,21 +166,23 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * REGISTER PUBLIC RELATED HOOKS.
 		 *
 		 * @since    3.0.0
+		 * @version  1.1.0			Added Customize Register hook for removing site icon functionality
 		 * @access   private
 		 * @var			 string     $plugin_public							Variable that creates udtbp_Public class instance.
 		 */
 		private function udtbp_define_public_hooks() {
-			$plugin_public = new udtbp_Public( $this->get_udtbp(), $this->get_version(), $this->get_current_theme() );
+			$plugin_public = new udtbp_Public( $this->get_udtbp(), UDTBP_VERSION, $this->wp_get_theme() );
 
-			$this->loader->add_filter('wp_head', $plugin_public, 'udt_add_favicon' );
+			$this->loader->add_filter( 'wp_head', $plugin_public, 'udt_add_favicon' );
+			$this->loader->add_action( 'customize_register', $plugin_public, 'udt_remove_styles_sections', 20 );
 			$this->loader->add_action( 'wp_footer', $plugin_public, 'front_end_footer' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 999 );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'udtbp_enqueue_inline_public_styles', 998 );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'udtbp_enqueue_inline_theme_styles', 999 );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts', 999 );
 			$this->loader->add_action( 'init', $plugin_public, 'udtbp_show_admin_bar' );
-			$this->loader->add_filter( 'template_include', $plugin_public, 'custom_include',1 );
-			$this->loader->add_filter( 'shutdown', $plugin_public, 'body_inject',0 );
+			$this->loader->add_filter( 'template_include', $plugin_public, 'custom_include', 1 );
+			$this->loader->add_filter( 'shutdown', $plugin_public, 'body_inject', 0 );
 		}
 		/**
 		 * EXECUTE HOOKS
@@ -216,7 +231,7 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * @since    	3.0.0
 		 * @return    string    The current theme.
 		 */
-		public function get_current_theme() {
+		public function wp_get_theme() {
 			return $this->current_theme;
 		}
 	} // end class udtbp

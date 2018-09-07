@@ -1,0 +1,263 @@
+/**
+  * UDTHEME BRANDING ADMIN BUTTONS CSS
+  *
+  * Defines all of the button related  styles used for ADMIN
+  * Includes enable/disable switch styles
+  * Includes footer color switch styles
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/assets/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
+*/
+.udt_yes_no_button {
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1), -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  width: 220px;
+  height: 50px;
+  background: #fdfdfd;
+  box-shadow: inset 0px 1px 10px 6px rgba(120,120,120,.12), inset 0px 1px 10px 6px rgba(120,120,120,.12);
+}
+
+.udt_yes_no_button span.udt_button_slider {
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px #0003, 0 6px 6px #0003;
+  height: 40px;
+  width: 40px;
+  margin: 5px 0;
+  position: absolute;
+  -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.udt_yes_no_button.udt_on_state {
+  background: -webkit-radial-gradient(ellipse, #51d827 0%, #2da50e 64%);
+  background: radial-gradient(ellipse, #51d827 0%, #2da50e 64%);
+}
+
+.udt_yes_no_button.udt_off_state {
+  background-color: #f1f5f9;
+}
+.udt_yes_no_button.udt_on_state span.udt_button_slider {
+  left: 180px;
+  margin-left: -5px;
+}
+
+.udt_yes_no_button.udt_off_state span.udt_button_slider {
+  left: 5px;
+}
+
+/*-----------------------
+  Toggle Text CSS
+  Styles 'Enabled' and 'Disabled'
+-----------------------*/
+span.udt_value_text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  box-sizing: border-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  font-size: 21px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-font-smoothing: subpixel-antialiased; /* a */
+  -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+span.udt_value_text.udt_on_value,
+span.udt_value_text.udt_off_value {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+span.udt_value_text.udt_on_value {
+  color: white;
+}
+
+span.udt_value_text.udt_off_value {
+  color: #8e969e;
+}
+
+.udt_on_state .udt_on_value,
+.udt_off_state .udt_on_value {
+  border-radius: 0 50px 50px 0 !important;
+  position: relative;
+}
+
+.udt_on_state .udt_off_value,
+.udt_off_state .udt_off_value {
+  border-radius: 0 50px 50px 0;
+  position: relative;
+  opacity: 1;
+}
+
+.udt_off_state .udt_on_value,
+.udt_on_state .udt_off_value {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
+/*-----------------------
+  FOOTER COLOR SWITCH CSS
+-----------------------*/
+.switch {
+  width: auto;
+  height: 50px;
+  position: relative;
+  border: 1px solid #DDD;
+  border-radius: 50px;
+}
+
+.switch input {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.switch input:checked {
+  z-index: 1;
+}
+
+.switch input:checked + label {
+  cursor: default;
+  -webkit-transition: background-color 2s ease;
+  transition: background-color 2s ease;
+}
+
+.switch input:not(:checked) + label,
+#rad_blue_footer + label::after,
+#rad_white_footer + label::before {
+  color: #CCC;
+  webkit-transition: color .3s ease;
+  transition: color .3s ease;
+}
+
+.switch label {
+  color: #333;
+  cursor: pointer;
+}
+.switch #rad_blue_footer:checked + label {
+  background:#00539F;
+  border-radius: 50px 0 0 50px;
+  color: white;
+}
+
+.switch #rad_white_footer:checked + label {
+  background:ghostwhite;
+  border-radius: 0 50px 50px 0;
+  color: #333;
+}
+
+.switch #rad_white_footer:checked + label::before {
+  background:ghostwhite;
+  border-radius: 0 50px 50px 0;
+  box-shadow: none;
+}
+.switch .toggle-outside {
+  height: 100%;
+  border-radius: 50px;
+  overflow: hidden;
+  -webkit-transition: 0.25s ease all;
+  transition: 0.25s ease all;
+}
+
+.switch--horizontal {
+  margin: 0 auto;
+  font-size: 0;
+}
+
+.switch--horizontal input {
+  height: inherit;
+  width: 100px;
+  left: 100px;
+  margin: 0;
+}
+
+.switch--horizontal label {
+  font-size: 23px;
+  line-height: 1.9;
+  display: inline-block;
+  width: 126px;
+  height: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.switch--horizontal label:last-of-type {
+  margin-left: 3rem;
+}
+
+.switch--horizontal .toggle-outside {
+  background: #fdfdfd;
+  position: absolute;
+  width: 100px;
+  left: 100px;
+  box-shadow: inset -1px 1px 2px rgba(0,0,0,.23), inset 1px 0px 2px rgba(0,0,0,.23);
+}
+
+.switch--horizontal .toggle-inside {
+  height: 40px;
+  width: 40px;
+  margin: 5px 5px 0 0;
+  position: absolute;
+  cursor: pointer !important;
+  -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.switch--horizontal input:checked,
+.switch--horizontal input ~ input:checked {
+  transition: -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1), -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  box-shadow: 0 0 0 2px transparent,0 3px 3px #0000004d;
+}
+
+.switch--horizontal input  ~ .toggle-outside .toggle-inside::after,
+.switch--horizontal input ~ input  ~ .toggle-outside .toggle-inside::after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  top: 0px;
+  left: 0px;
+  right: auto;
+  background: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.switch--horizontal input:checked ~ .toggle-outside .toggle-inside {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+.switch--horizontal input ~ input:checked ~ .toggle-outside .toggle-inside {
+  -webkit-transform: translateX(55px);
+  transform: translateX(55px);
+
+}

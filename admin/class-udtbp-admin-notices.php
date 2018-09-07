@@ -14,31 +14,30 @@
   *
   * @package     udtheme-brand
   * @subpackage  udtheme-brand/admin
-  * @author      Christopher Leonard - University of Delaware | IT CS&S
+  * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
-  * @link        https://bitbucket.org/UDwebbranding/udtheme-brand
-  * @copyright   Copyright (c) 2012-2017 University of Delaware
-  * @version     3.0.4
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
 */
 if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
   class udtbp_Admin_Notices extends udtbp_Admin {
-    /**
-     * The ID of this plugin.
-     *
-     * @since    1.4.2
-     * @version  1.0.0                           New name introduced.
-     * @access   private
-     * @var      string         $udtbp           The ID of this plugin.
-    */
-     private $udtbp;
-    /**
-    * The active theme.
-    *
-    * @since    3.0.0
-    * @access   private
-    * @var      string          $current_theme    The active theme.
-    */
-    private $current_theme;
+  /**
+   * The ID of this plugin.
+   *
+   * @since    1.4.2
+   * @access   private
+   * @var      string         $udtbp           The ID of this plugin.
+  */
+   private $udtbp;
+   /**
+   * The current active theme.
+   *
+   * @since    3.0.0
+   * @access   private
+   * @var      string          $current_theme    The current theme.
+  */
+   private $current_theme;
     /**
     * Slug of the plugin screen.
     *
@@ -55,23 +54,7 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
     * @var      array          $plugin_settings_tabs[]    Individual admin tabs settings.
     */
     public $plugin_settings_tabs = array();
-    /**
-    * Current Theme and Current Theme CSS Override Arrays (DEPRECATED)
-    *
-    * @since    3.0.0
-    * @deprecated 3.0.4       Replaced with $json_theme_list
-    * @access   public
-    * @var      array          $issues_theme_name[]      Incompatible theme name and CSS overrides in array.
-    */
-     public $issues_theme_name = array();
-    /**
-      * Incompatible themes list array.
-      *
-      * @since    3.0.1
-      * @access   public
-      * @var      constant            $json_theme_list       Defined in udtbp-defined-constants.
-    */
-    //public $json_theme_list;
+
     /**
     * Initialize the class and set its properties.
     *
@@ -85,12 +68,12 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
       $this->plugin_settings_tabs['footer']  = 'Footer';
       $this->plugin_settings_tabs['about']   = 'About';
       $this->plugin_settings_tabs['support'] = 'Support';
-      $this->json_theme_list = JSON_THEME_LIST;
+      $this->json_theme_list = json_decode( JSON_THEME_LIST );
     }
     /**
     * ADMIN NOTICES
     *
-    * Display notices in admin area.
+    * Display notices in admin area. {@link https://gist.github.com/JeffreyWay/3194444} {@linkhttps://github.com/collizo4sky/persist-admin-notices-dismissal}
     *
     * This function is used to:
     * Verify current theme.
@@ -107,12 +90,10 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
     * @var       string      $theme_name          The active theme.
     * @var       string      $button              Dismiss div button text.
     * @var       string      $current_tab         The current tab (Header, Footer, About, Support)
-    * @var       array       $issues_theme_name[]   Array that contains incompatible themes by name.
-    * @link   https://gist.github.com/JeffreyWay/3194444
-    * @link   https://github.com/collizo4sky/persist-admin-notices-dismissal
     */
 
     public function udtbp_theme_override_notices( $screen ) {
+      $json_theme_list = json_decode( JSON_THEME_LIST );
       $div_id = $this->udtbp.'_theme_override';
       $div_class = 'notice notice-warning is-dismissible hide';
       $p_class = 'dashicons-before dashicons-warning';
@@ -127,32 +108,12 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
 
       if ( 'header' === $current_tab ) {
         $options = ( get_option( 'udtbp_header_options' ) ? get_option( 'udtbp_header_options' ) : FALSE );
-        $issues_theme_name =
-          [
-            "Aaron",
-            "Anjirai",
-            "Boardwalk",
-            "Cubic",
-            "Divi",
-            "Highwind",
-            "Matheson",
-            "Radiate",
-            "Star",
-            "Swell Lite",
-            "Temptation",
-            "Tracks",
-            "Twenty Twelve",
-            "Twenty Fourteen",
-            "Twenty Fifteen",
-            "Twenty Sixteen",
-            "Twenty Seventeen"
-          ]; // end $issues_theme_name
 
         $notice_div = '<div id="%1$s" class="%2$s"><p class="%3$s">The <span class="theme_name">%4$s Theme</span> %5$s</p><button type="button" class="aria_pressed notice-dismiss" aria-pressed="false"><span class="screen-reader-text">%6$s</span></button></div>';
 
-        if ( in_array( $this->current_theme, $issues_theme_name ) && 1 == $options['view-header']  )  :
+        if ( in_array( $this->current_theme, $this->json_theme_list ) && 1 == $options['view-header']  )  :
           if ( function_exists( 'et_get_option' ) && 'on' === et_get_option( 'divi_fixed_nav', 'on' ) ) {
-            $message = __( " has fixed navigation enabled. To ensure full compatibility with the UDTheme Branding Plugin, this setting MUST be disabled in your Theme Options.", $this->udtbp );
+            $message = __( " has fixed navigation enabled. To ensure full plugin compatibility, this setting MUST be disabled in your Theme Options.", $this->udtbp );
             echo sprintf( $notice_div, $div_id, $div_class, $p_class, $theme_name, $message, $button );
           }
           elseif ( function_exists( 'et_get_option' ) && 'false' === et_get_option( 'divi_fixed_nav', 'false' ) ) {
@@ -161,11 +122,11 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
             return false;
           }
           else {
-            $message = __( ' is not fully compatible with the UDTheme Branding Plugin and may display incorrectly.', $this->udtbp );
+            $message = __( ' is not fully compatible with the branding plugin.', $this->udtbp );
             echo sprintf( $notice_div, $div_id, $div_class, $p_class, $theme_name, $message, $button );
           }
         endif; //end in_array check
-        echo "MOO" . $this->json_theme_list;
+        //echo "MOO" . $this->json_theme_list;
       } // end if current_tab()
       //endif;
     } // end udtbp_theme_override_notices()

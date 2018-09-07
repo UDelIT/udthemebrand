@@ -4,11 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-**Note that references to the Font-Awesome-Pro repository refer to a GitHub
-repository that is by invitation only. You will get a 404 - Not Found if you do
-not have access**
-
-## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - TBD
+## [3.1.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.1.0)  - 9/7/2018
 * Footer accessibility compliance via attributes ([#22](https://github.com/UDelIT/udthemebrand/issues/22))
 * Header accessibility compliance via attributes ([#21](https://github.com/UDelIT/udthemebrand/issues/21))
 

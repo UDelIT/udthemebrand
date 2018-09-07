@@ -1,20 +1,20 @@
 <?php
 /**
-* UNINSTALLER
+  * UNINSTALLER
   *
   * Fired when the plugin is uninstalled.
   *
   * @package     udtheme-brand
-  * @author      Christopher Leonard - University of Delaware | IT CS&S
+  * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
-  * @copyright   Copyright (c) 2012-2017 University of Delaware
-  * @version     3.0.4
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
   */
-
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-  die( "I'm afraid I can't do that Dave." );
 }
-
+/**
+ * @todo         Add functionality to remove DB tables and all plugin related files.
+ */
 // If uninstall, not called from WordPress, then exit
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
   die( "I'm afraid I can't do that Dave.");

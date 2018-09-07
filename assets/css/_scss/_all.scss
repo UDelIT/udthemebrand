@@ -1,0 +1,521 @@
+// http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments
+// @VARIABLES
+// iOS Human Interface Guidelines: The recommended font sizes on an iOS device are between 11 and 17 points. A website has an average range of 60 to 75 characters per line, compared to 35 to 50 for apps on mobile devices.
+
+// %TYPOGRAPHY
+$base-font-reg: "ABeeZee";
+$base-font-lato: "Lato";
+$base-font-bold: "Noto Sans Bold";
+$base-font-title-reg: "Montserrat";
+$base-font-title-semibold: "Montserrat Semibold";
+$base-font-disp-reg: "Noto Sans Disp";
+$base-font-disp-semibold: "Noto Sans Disp SemBd";
+$base-font-size-headline: 4rem;
+$base-font-size-subheadline: 2.5rem;
+$base-font-size-body: 16px;
+$base-font-root:
+                  -apple-system,
+                  BlinkMacSystemFont,
+                  "Segoe UI",
+                  Roboto,
+                  Oxygen,
+                  Ubuntu,
+                  Cantarell,
+                  "Fira Sans",
+                  "Helvetica Neue",
+                  sans-serif;
+
+$font-size-1: .500rem;
+$font-size-2: $font-size-1 * 1.5; // .750
+$font-size-3: $font-size-1 * 1.75; // .875
+$font-size-root: 1rem;
+$font-size-root-1: $font-size-root * 1.25; // 1.25
+$font-size-root-2: $font-size-root * 1.5; // 1.5
+$font-size-root-3: $font-size-root * 1.75; // 1.75
+$font-size-root-4: $font-size-root * 2; // 2
+$font-size-root-5: $font-size-root * 2.5; // 2.5
+
+
+$font-weight-3: 300;
+$font-weight-4: 400;
+$font-weight-5: 500;
+$font-weight-6: 600;
+$font-weight-7: 700;
+
+$letter-spacing-tight:-.015em;
+$letter-spacing-1:.1em;
+$letter-spacing-2:.25em;
+
+$line-height-solid: 1;
+$line-height-title: $line-height-solid * 1.25;
+$line-height-copy: $line-height-solid * 1.5;
+$line-height-gr: $line-height-solid * 1.618;
+
+$span-1: span 1;
+$span-2: span 2;
+$span-3: span 3;
+$span-4: span 4;
+
+$zero: 0;
+
+// SPACING
+$gap-px-sm: 5px;
+$gap-px-md: $gap-px-sm * 2;
+$gap-px-lg: $gap-px-sm * 3.2;
+$gap-em-sm: 0.313em;
+$gap-em-md: $gap-em-sm * 2;
+$gap-em-lg: $gap-em-sm * 3.2;
+
+// DIMENSIONS WIDTH / HEIGHT
+$ud-dim-25: 25;
+$ud-dim-33: 33;
+$ud-dim-50: 50;
+$ud-dim-67: 67;
+$ud-dim-75: 75;
+$px25: $ud-dim-25 * 1px;
+$px33: $ud-dim-33 * 1px;
+$px50: $ud-dim-50 * 1px;
+$px67: $ud-dim-67 * 1px;
+$px75: $ud-dim-75 * 1px;
+// %UD COLORS
+$ud-colors-blue: #00539F;
+$ud-colors-current:currentColor;
+$ud-colors-yellow: hsl(50, 100%, 50%);
+$ud-colors-dk-blue: darken( $ud-colors-blue, 20% );
+$ud-colors-md-blue: darken( $ud-colors-blue, 10% );
+// $ud-colors-yellow: hsl(50, 100%, 50%);
+// $ud-colors-dk-blue: hsl(214, 100%, 21%);
+// $ud-colors-md-blue: hsl(209, 100%, 26%);
+// $ud-colors-blue: hsl(209, 100%, 31%);
+$ud-colors-lt-blue: lighten( $ud-colors-blue, 10% );
+$ud-colors-form--red: hsl(348, 83%, 38%);
+
+// OPACITY COLORS
+$colors-black-op025: rgba(0, 0, 0, 0.025);
+$colors-black-op075: rgba(0, 0, 0, 0.075);
+$colors-black-op25: rgba(0, 0, 0, 0.25);
+$colors-black-op5: rgba(0, 0, 0, 0.5);
+$colors-white-op025: rgba(255, 255, 255, 0.025);
+$colors-white-op075: rgba(255, 255, 255, 0.075);
+$colors-white-op25: rgba(255, 255, 255, 0.25);
+$colors-white-op5: rgba(255, 255, 255, 0.5);
+
+// GENERAL COLORS
+$colors-black: #000;
+$colors-near-black: lighten( $colors-black, 7% );
+$colors-dk-gray: lighten( $colors-black, 20% ); // #333
+$colors-md-gray: lighten( $colors-black, 40% ); // #666
+$colors-gray: lighten( $colors-black, 60% ); // #999
+$colors-lt-gray: lighten( $colors-black, 80% ); // CCC
+$colors-md-white: lighten( $colors-black, 93% ); // EEE
+$colors-lt-white: lighten( $colors-black, 96% ); // F5F5F5
+$colors-white: lighten( $colors-black, 100% );
+$colors-orange: hsl(33, 100%, 62%); // FFA83D
+$colors-transparent:transparent;
+
+// %BOX-SHADOW MATERIAL DESIGN BOX SHADOW SPECS https://codepen.io/pixelasticity/pen/WrrWmV
+$bs-rgba1: rgba(0, 0, 0, .14);
+$bs-rgba2: rgba(0, 0, 0, .12);
+$bs-rgba3: rgba(0, 0, 0, .2);
+$bs-rgba4: rgba(0, 0, 0, .4);
+$box-shadow-2dp: 0 2px 2px 0 $bs-rgba1, 0 3px 1px -2px $bs-rgba3, 0 1px 5px 0 $bs-rgba2;
+$box-shadow-3dp: 0 3px 4px 0 $bs-rgba1, 0 3px 3px -2px $bs-rgba3, 0 1px 8px 0 $bs-rgba2;
+$box-shadow-4dp: 0 4px 5px 0 $bs-rgba1, 0 1px 10px 0 $bs-rgba2, 0 2px 4px -1px $bs-rgba3;
+$box-shadow-6dp: 0 6px 10px 0 $bs-rgba1, 0 1px 18px 0 $bs-rgba2, 0 3px 5px -1px $bs-rgba3;
+$box-shadow-8dp: 0 8px 10px 1px $bs-rgba1, 0 3px 14px 2px $bs-rgba2, 0 5px 5px -3px $bs-rgba3;
+$box-shadow-16dp:  0 16px 24px 2px $bs-rgba1, 0 6px 30px 5px $bs-rgba2, 0 8px 10px -5px $bs-rgba3;
+
+$box-shadow-3dp-inset: 0 3px 4px 0 $bs-rgba1, inset 0 -2px 0 0 $bs-rgba4;
+
+// %EASING
+//  Thanks to Robert Penner for his sterling work on easing,
+//  and to Matthew Lein for converting these functions into
+//  approximated cubic-bezier functions. Respect.
+//  @see http://robertpenner.com/
+//  @see http://matthewlein.com/ceaser/
+
+$cubic-bezier-fast: cubic-bezier(0.68, 1.55, 0.265, .3s);
+$cubic-bezier-med: cubic-bezier(0.68, 1.55, 0.265, .6s);
+$cubic-bezier-norm: cubic-bezier(0.68, 1.55, 0.265, 1);
+$transition-bezier-smooth: cubic-bezier(0.55, 0, 0.1, 1);
+
+// Cubic
+$easeInCubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$easeOutCubic: cubic-bezier(0.215, 0.610, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+// Circ
+$easeInCirc: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$easeOutCirc: cubic-bezier(0.075, 0.820, 0.165, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+// Expo
+$easeInExpo:  cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeOutExpo:  cubic-bezier(0.190, 1, 0.220, 1);
+$easeInOutExpo:  cubic-bezier(1, 0, 0, 1);
+
+// Quad
+$easeInQuad:  cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$easeOutQuad:  cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$easeInOutQuad:  cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+// Quart
+$easeInQuart:  cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$easeOutQuart:  cubic-bezier(0.165, 0.840, 0.440, 1);
+$easeInOutQuart:  cubic-bezier(0.770, 0, 0.175, 1);
+
+// Quint
+$easeInQuint:  cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$easeOutQuint:  cubic-bezier(0.230, 1, 0.320, 1);
+$easeInOutQuint:  cubic-bezier(0.860, 0, 0.070, 1);
+
+// Sine
+$easeInSine:  cubic-bezier(0.470, 0, 0.745, 0.715);
+$easeOutSine:  cubic-bezier(0.390, 0.575, 0.565, 1);
+$easeInOutSine:  cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+// Back
+$easeInBack:  cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$easeOutBack:  cubic-bezier(0.175,  0.885, 0.320, 1.275);
+$easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+
+
+// @ALIGNMENT MIXINS
+// %JUSTIFY ITEMS
+@mixin justify-items($value: center) {
+  -webkit-justify-items: $value;
+  justify-items: $value;
+}
+// %JUSTIFY SELF
+@mixin justify-self($value: center) {
+  -webkit-justify-self: $value;
+  justify-self: $value;
+}
+// %CONTENT
+@mixin justify-content($value: center) {
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+
+// %ALIGN  ITEMS
+@mixin align-items($value: center) {
+  -webkit-align-items: $value;
+  align-items: $value;
+}
+// %ALIGN SELF
+@mixin align-self($value: center) {
+  -webkit-align-self: $value;
+  align-self: $value;
+}
+// %ALIGN CONTENT
+@mixin align-content($value: center) {
+  -webkit-align-content: $value;
+  align-content: $value;
+}
+
+// @SPACING MIXINS
+// %MARGIN
+@mixin margin($t:null, $r:null, $b:null, $l:null) {
+  margin: $t $r $b $l;
+}
+// PADDING
+@mixin padding($t:null, $r:null, $b:null, $l:null) {
+  padding: $t $r $b $l;
+}
+
+// @DIMENSIONS MIXINS
+// WIDTH(std, min, max), HEIGHT(std, min, max)
+@mixin w_mnw_mxw_h_mnh_mxh ($w: null, $h: null, $mnw: null, $mnh: null, $mxw: null, $mxh: null) {
+  width: $w;
+  height: $h;
+  min-width: $mnw;
+  max-width: $mxw;
+  min-height: $mnh;
+  max-height: $mxh;
+}
+
+// POSITION
+@mixin position($p: absolute, $t: null, $r: null, $b: null, $l: null) {
+  position:$p;
+  top: $t;
+  right:$r;
+  bottom:$b;
+  left: $l;
+}
+@mixin pos-abs-trbl-0() {
+  position:absolute;
+  top: 0;
+  right:0;
+  bottom:0;
+  left: 0;
+}
+// @FILTER MIXINS
+  // @see https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+
+  // grayscale      ex: filter: grayscale(100%);
+  // sepia          ex: filter: sepia(100%);
+  // saturate       ex: filter: saturate(0%);
+  // hue-rotate     ex: filter: hue-rotate(45deg);
+  // invert         ex: filter: invert(100%);
+  // brightness     ex: filter: brightness(15%);
+  // contrast       ex: filter: contrast(200%);
+  // blur           ex: filter: blur(2px);
+
+@mixin filter($filter-type,$filter-amount) {
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+// @GRID MIXINS
+@mixin grid {
+  display:-ms-grid;
+  display: grid;
+}
+%grid { @include grid; }
+
+// INLINE GRID
+@mixin inline-grid {
+  display:-ms-inline-grid;
+  display: inline-grid;
+}
+%inline-grid { @include inline-grid; }
+
+// GRID TEMPLATE COLUMNS
+@mixin grid-template-columns($columns...) {
+  -ms-grid-columns: $columns;
+  grid-template-columns: $columns;
+}
+@mixin gtc($columns: false) { @include grid-template-columns($columns); }
+
+// GRID TEMPLATE ROWS
+@mixin grid-template-rows($rows...) {
+  -ms-grid-rows: $rows;
+  grid-template-rows: $rows;
+}
+@mixin gtr($rows: false) { @include grid-template-rows($rows); }
+
+// @FLEXBOX MIXINS
+
+@mixin flexbox {
+  display: -webkit-flex;
+  display: flex;
+}
+%flexbox { @include flexbox; }
+
+// INLINE FLEX
+@mixin inline-flex {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+%inline-flex { @include inline-flex; }
+
+// FLEX DIRECTION
+@mixin flex-direction($value) {
+  -webkit-flex-direction: $value;
+  flex-direction: $value;
+}
+// Shorter version:
+@mixin flex-dir($value: false) { @include flex-direction($value); }
+
+// FLEX FLOW
+@mixin flex-flow($values: (row nowrap)) {
+  -webkit-flex-flow: $values;
+  flex-flow: $values;
+}
+%flex-flow { @include flex-flow; }
+// FLEX WRAP
+@mixin flex-wrap($value: wrap) {
+  -webkit-flex-wrap: $value;
+  flex-wrap: $value;
+}
+%flex-wrap { @include flex-wrap; }
+// FLEX BASIS
+// @mixin flex-basis($x) {
+//   -webkit-flex-basis: #{$x}#{"%"};
+//   flex-basis: #{$x}#{"%"};
+// }
+// %flex-basis { @include flex-basis; }
+
+@mixin flex-basis($value: 100%) {
+  -webkit-flex-basis: $value;
+  flex-basis: $value;
+}
+%flex-basis { @include flex-basis; }
+
+// FLEX
+@mixin flex($grow: 1, $shrink: null, $basis: null) {
+  -webkit-flex: $grow $shrink $basis;
+  flex: $grow $shrink $basis;
+}
+%flex { @include flex; }
+
+//  @FONTFACE MIXINS
+
+  // @see https://jakearchibald.com/2017/combining-fonts/
+  // @see https://www.google.com/get/noto/help/guidelines/
+  // @see https://www.google.com/get/noto/help/cjk/
+
+  // Asian fonts: Use "Noto Sans CJK {JP, KR, SC, TC}" instead of
+  //              "Noto Sans {JP, KR, SC, TC}"
+
+  // @example     font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+
+  // Hindi/Tamil fonts:
+  // @example     font-family: "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans", sans-serif;
+
+  // Arabic fonts: When using an UI font for buttons and tabs that have more strict vertical space:
+  // @example    font-family: "Noto Naskh Arabic UI", "Noto Sans UI", sans-serif;
+
+@mixin font-face($fam1, $path, $fam2: null, $weight: normal, $style: normal, $source: false, $unicode: false ) {
+  @font-face {
+    font-family: $fam1;
+    font-weight: $weight;
+    font-style: $style;
+    unicode-range: $unicode;
+
+    @if $source == true {
+      src: local('#{$fam1}'), local('#{$fam2}'),
+           url('#{$path}.woff2')              format('woff2'),
+           url('#{$path}.woff')               format('woff');
+      @if $unicode == true {
+        unicode-range: U+0020-007D;
+      }
+    }
+  }
+}
+
+// @TRANSFORM MIXINS
+// TRANSFORM
+@mixin transform($values...) {
+  -webkit-transform: $values;
+  transform: $values;
+}
+
+// OPACITY
+@mixin opacity($values) {
+  @include transform(opacity($values));
+}
+// ROTATE
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// SCALE
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+// TRANSLATE
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+// ORIGIN
+@mixin transform-origin($values...) {
+  @each $var in $values {
+    -webkit-transform-origin: #{$var};
+    transform-origin: #{$var};
+  }
+}
+
+// WILL-CHANGE
+@mixin will-change($wc: will-change, $tz: translateZ(0)){
+  will-change: $wc;
+  transform: $tz;
+}
+
+// @TRANSITIONS / GPU MIXINS
+// TRANSITION
+
+// @mixin transition ($prop: all, $dur: .4s, $time: cubic-bezier(0.68, 1.55, 0.265, 1), $lag: .3s) {
+//   -webkit-transition: $prop $dur $time $lag;
+//   transition: $prop $dur $time $lag;
+// }
+@mixin transition ($values...) {
+  -webkit-transition: $values;
+  transition: $values;
+}
+
+// PROPERTY
+@mixin transition-property($values) {
+  -webkit-transition-property: $values;
+  transition-property: $values;
+}
+
+// DURATION
+@mixin transition-duration($values) {
+  -webkit-transition-duration: $values;
+  transition-duration: $values;
+}
+
+// TIMING
+@mixin transition-timing-function($values) {
+  -webkit-transition-timing-function: $values;
+  transition-timing-function: $values;
+}
+
+// DELAY
+@mixin transition-delay($values) {
+  -webkit-transition-delay: $values;
+  transition-delay: $values;
+}
+
+// GPU ACCELERATION
+@mixin hardware($backface: true, $perspective: 1000) {
+  @if $backface {
+    backface-visibility: hidden;
+  }
+  perspective: $perspective;
+}
+
+// @TYPOGRAPHY MIXINS
+// FONT FEATURE SETTINGS
+
+// @mixin font-feature-settings($l: ("liga", 1), $k: ("kern", 1)) {
+// -webkit-font-feature-settings: $l $k;
+//   font-feature-settings: $l $k;
+// }
+@mixin font-feature-settings($values...) {
+  @each $var in $values {
+    -webkit-font-feature-settings: #{$var};
+    font-feature-settings: #{$var};
+  }
+}
+
+// FONT LIGATURES
+@mixin font-ligatures() {
+  -ms-font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: common-ligatures;
+  font-variant-ligatures: common-ligatures;
+
+  @supports not ((-webkit-font-variant-ligatures: common-ligatures) or (font-variant-ligatures: common-ligatures)) {
+      -webkit-font-feature-settings: "liga", "liga", "clig";
+      font-feature-settings: "liga", "liga", "clig";
+  }
+}
+
+// FONT SMOOTHING
+// @see https://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+// usage:
+// .dark-on-light {
+//   @include font-smoothing(off);
+// }
+// .light-on-dark {
+//   @include font-smoothing(on);
+// }
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+// WORD WRAP
+@mixin word-wrap($value: break-word) {
+  -ms-word-wrap: $value;
+  word-wrap: $value;
+}

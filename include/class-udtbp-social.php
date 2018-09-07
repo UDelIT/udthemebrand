@@ -8,38 +8,22 @@
  *
  * @package     udtheme-brand
  * @subpackage  udtheme-brand/include
- * @author      Christopher Leonard - University of Delaware | IT CS&S
+ * @author      Christopher Leonard - University of Delaware
  * @license     GPLv3
- * @link        https://bitbucket.org/UDwebbranding/udtheme-brand
- * @copyright   Copyright (c) 2012-2017 University of Delaware
- * @version     3.0.4
+ * @link        https://bitbucket.org/itcssdev/udtheme-brand
+ * @copyright   Copyright (c) 2012-2018 University of Delaware
+ * @version     3.1.0
  */
 if ( ! class_exists( 'udtbp_Social' ) ) :
 	class udtbp_Social {
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.4.2
-   * @version  1.0.0                           New name introduced.
-	 * @access   private
-	 * @var      string         $udtbp           The ID of this plugin.
-	*/
 	 private $udtbp;
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.4.6
-	 * @access   private
-	 * @var      string    			$version    		The current version of this plugin.
-	 */
-	 private $version;
 	 /**
 	  * FOOTER SOCIAL ITEMS
 	  *
-	  * @since    3.0.0
-		* @access   private
-		* @var      array 				$items[]					Array that contains name, url and icon class
+	  * @since    		3.0.0
+		* @access   		private
+		* @var      		array    $items[]    Array that contains name, url and icon class
 	  */
 		public static function social_footer() {
 	    $items = [
@@ -56,25 +40,35 @@ if ( ! class_exists( 'udtbp_Social' ) ) :
 	        "icon"    => "instagram"
 	      ],
 	     "youtube"    => [
-	       	"url"     => "https://www.youtube.com/univdelaware",
+	       	"url"     => "https://www.youtube.com/udelaware",
 	       	"icon"    => "youtube"
 	       ],
 	     "pintrest"   => [
 	        "url"     => "https://www.pinterest.com/udelaware/",
-	        "icon"    => "pintrest"
+	        "icon"    => "pinterest"
 	      ],
 	     "linkedin"   => [
 	        "url"     => "https://www.linkedin.com/edu/school?id=18070",
 	        "icon"    => "linkedin"
 	      ]
 	    ]; // end $items
-		  	foreach( $items as $key => $value ) :
+?>
+<ul>
+	<?php
+		  foreach( $items as $key => $value ) :
 		?>
-		    <li><a aria-label="<?php echo esc_attr( $key ) ?>" href="<?php echo esc_attr( $value['url'] ) ?>"><span data-icon="<?php echo esc_attr( $value['icon'] ) ?>"></span></a></li>
+		    <li>
+		    	<a aria-label=" Go to the UD <?php echo esc_attr( $key ) ?> page (external link)" href="<?php echo esc_attr( $value['url'] ) ?>">
+		    		 <svg class="icon">
+               <use xlink:href="#ud-icon-<?php echo esc_attr( $value['icon'] ) ?>"></use>
+             </svg>
+		    	</a>
+		    </li>
 		<?php
-		    endforeach; // end foreach
-
-		} // end function social_footer
-
-	} // end class udtbp_Social
+		  endforeach; // end foreach
+		 ?>
+		</ul>
+	<?php
+		} // end social_footer()
+	} // end udtbp_Social
 endif;

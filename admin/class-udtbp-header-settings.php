@@ -8,69 +8,66 @@
   *
   * @package     udtheme-brand
   * @subpackage  udtheme-brand/admin
-  * @author      Christopher Leonard - University of Delaware | IT CS&S
+  * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
-  * @link        https://bitbucket.org/UDwebbranding/udtheme-brand
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @version     3.1.0
 */
+
 if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
   class udtbp_Header_Settings extends udtbp_Admin {
-  /**
-   * The ID of this plugin.
-   *
-   * @since    1.4.2
-   * @version  1.0.0                           New name introduced.
-   * @access   private
-   * @var      string         $udtbp           The ID of this plugin.
-  */
-   private $udtbp;
+    private $udtbp;
+
   /**
    * CLASS INITIALIZATION class and set its properties.
    * Initiates the class and set its properties.
    *
-   * @since    3.0.0
+   * @since      3.0.0
+   * @param      string           $custom_header_text     The site title field value.
    */
 
-   public function __construct( $udtbp ) {
-    /**
-     * CLASS INITIALIZATION class and set its properties.
-     * Initiates the class and set its properties.
-     *
-     * @since    3.0.0
-     */
+   public function __construct( $udtbp, $custom_header_text ) {
     $this->id    = 'header';
     $this->label = __( 'Header', $this->udtbp );
     $this->udtbp = $udtbp.'_header';
     $this->plugin_settings_tabs[$this->udtbp] = $this->label;
+    $this->custom_header_text = get_option( $custom_header_text );
   }
 
+  /**
+   * SETTINGS INIT
+   * Creates HEADER settings sections with following fields.
+   *
+   * @see https://codex.wordpress.org/Function_Reference/register_setting
+   *
+   * register_setting( $option_group, $option_name, $sanitize_callback );
+   * $option_name is used with functions like get_option() and update_option()
+   *
+   * @since     3.0.0
+   * @var       string       $option_group        Header Settings group name
+   * @var       string       $option_name         The name of an option to sanitize and save
+   * @param     callable     $sanitize_callback   Callback function for sanitization
+   */
   public function settings_api_init( $items ){
-    /**
-     * SETTINGS INIT
-     * Creates HEADER settings sections with following fields.
-     *
-     * @since    3.0.0
-     * @var      string           $option_group                   Header Settings group name
-     * @var      string           $option_name                    The name of an option to sanitize and save
-     * @param    callable         $settings_sanitize_callback     Callback function for sanitization
-     * @param    array            $items[]                        Array used for the social icons displayed in header
-     * @return   mixed                                            The header state and college header text
-     */
     register_setting(
       $this->udtbp . '_options',
       $this->udtbp . '_options',
       array( $this, 'settings_sanitize' )
     );
+
     /**
      * SETTINGS SECTION
      * Creates and Registers HEADER settings section on plugin options page.
      *
+     * @see https://codex.wordpress.org/Function_Reference/add_settings_section
+     * {@link add_settings_section( $id, $title, $callback, $page )}
+     *
      * @since     3.0.0
-     * @var       string            $id                          ID used to identify this section to register options
-     * @var       string            $title                       Title that's displayed on the admin page
-     * @var       string            $page                        Page to add this section of options
-     * @param     callable          $callback                    Callback function used to render the section description
+     * @var       string       $id           ID used to identify this section to register options
+     * @var       string       $title        Section title that's displayed on the admin page
+     * @var       string       $page         Page to add this section of options
+     * @param     callable     $callback     Function used to render the section description
     */
     add_settings_section(
       $this->udtbp . '-options',
@@ -78,15 +75,19 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
       array( $this, 'display_options_section' ),
       $this->udtbp . '-header'
     );
+
     /**
      * DISPLAY HEADER SETTINGS FIELD
      * Creates HEADER View Header field.
      *
-     * @since    3.0.0
-     * @var      string           $id                  ID used to identify the field. Used in the 'id' attribute of tags
-     * @var      string           $title               Formatted field title. Used in the field label during output
-     * @var      callable         $callback            Function that fills the field with the desired form inputs
-     * @var      string           $page                Page where this option will be displayed
+     * @see http://codex.wordpress.org/Function_Reference/add_settings_field
+     * {@link add_settings_field( $id, $title, $callback, $page, $section, $args )}
+     *
+     * @since     3.0.0
+     * @var       string       $id           ID used to identify the field. Used in the 'id' attribute
+     * @var       string       $title        Field title that's displayed in the field label
+     * @var       callable     $callback     Function that fills the field with the desired form inputs
+     * @var       string       $page         Page where this option will be displayed
     */
     add_settings_field(
       'view-header',
@@ -95,160 +96,142 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
       $this->udtbp . '-header',
       $this->udtbp . '-options'
     );
+
     /**
      * CUSTOM LOGO SETTINGS FIELD
      * Creates HEADER Custom Logo selection field.
      *
-     * @since    3.0.0
-     * @var      string           $id                  ID used to identify the field. Used in the 'id' attribute of tags
-     * @var      string           $title               Formatted field title. Used in the field label during output
-     * @var      callable         $callback            Function that fills the field with the desired form inputs
-     * @var      string           $page                Page where this option will be displayed
-     * @param    array            $items[]             Array of parameters passed to $callback
+     * {@link public function custom_logo()} {@link bkup/deprecated_functions}
+     *
+     * @since         3.0.0
+     * @deprecated deprecated since version    3.1.0      No longer used.
+    */
+
+    /**
+     * CUSTOM SITE TITLE / DEPARTMENT UNIT TITLE SETTINGS FIELD
+     * Creates HEADER TITLE text field.
+     *
+     * @since         3.1.0
     */
     add_settings_field(
-      'custom-logo',
-      apply_filters( $this->udtbp . '-custom-logo', __( 'Primary Logo', $this->udtbp ) ),
-      array( $this, 'custom_logo' ),
+      'header-title',
+      apply_filters( $this->udtbp . '-header-title', __( 'Site Title', $this->udtbp ) ),
+      array( $this, 'header_title' ),
       $this->udtbp.'-header',
-      $this->udtbp . '-options',
-      [
-        'options' => $items
-      ]
+      $this->udtbp .  '-options'
     );
-  }
+  } // settings_api_init()
 
+  /**
+   * HEADER SECTION CALLBACK FUNCTION
+   * Display paragraph at the top of the header fields.
+   *
+   * @since     3.0.0
+   * @version   1.5.1    Removed logo related text. Added custom related text.
+   * @todo               Create single helper function and update text based on active tab
+   * @see                https://www.smashingmagazine.com/2016/04/three-approaches-to-adding-configurable-fields-to-your-plugin/
+   */
   public function display_options_section() {
-    /**
-     * HEADER SECTION CALLBACK FUNCTION
-     * Display paragraph at the top of the header fields.
-     *
-     * @since     3.0.0
-     * @version   1.5.0    Separated html from php
-     */
+
   ?>
-  <h3 class=""><?php echo esc_html( 'Configure header branding options' ); ?></h3>
-  <p><?php echo esc_html( 'Display header with UD or college labeled logo.' ); ?></p>
+  <h2 class=""><?php echo esc_html( 'Configure options' ); ?></h2>
+  <p><?php echo esc_html( 'Display header with web site title or department text.' ); ?></p>
   <?php
   } // display_options_section()
 
+  /**
+   * TOGGLE HEADER VISIBILITY
+   *
+   * @since     1.4.2
+   * @version   3.1.0
+   */
   public function view_header() {
-    /**
-     * TOGGLE HEADER VISIBILITY
-     *
-     * @since     1.4.2
-     * @version   1.0.0         Updated code to more robust OOP styles.
-     */
     $options  = get_option( $this->udtbp . '_options' );
     $option   = 0;
 
-    if ( ! empty( $options['view-header'] ) ) {
+    if ( isset( $options['view-header'] ) && ! empty( $options['view-header'] ) ) {
       $option = $options['view-header'];
     }
     else {
       $options['view-header'] = NULL;
     }
 ?>
-<!-- <div class="large-3">
-  <label for="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" class="switch-light switch-candy" onclick="">
-    <input type="checkbox" id="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" value="1" <?php checked( $option, 1 , TRUE ) ?> >
 
-    <strong>
-      Wireless
-    </strong>
-
-    <span>
-      <span>Off</span>
-      <span>On</span>
-      <a></a>
-    </span>
-  </label>
-</div> -->
     <div class="box-content">
       <input type="hidden" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" value="0">
-       <label for="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" class="switch-light switch-candy" onclick="">
-    <input type="checkbox" id="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" value="1" <?php checked( $option, 1 , TRUE ) ?> >
 
-    <strong>
-      Wireless
-    </strong>
-
-    <span>
-      <span>Off</span>
-      <span>On</span>
-      <a></a>
-    </span>
-  </label>
-      <!-- <label for="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>">
-        <input class="checkbox yes_no_button" style="display: none;" type="checkbox" id="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" value="1" <?php checked( $option, 1 , TRUE ) ?> >
+       <label for="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>">
+        <input class="checkbox yes_no_button" type="checkbox" id="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" value="1" <?php checked( $option, 1 , TRUE ) ?> >
           <div class="udt_yes_no_button <?php echo esc_attr( (  ! empty( $options['view-header'] ) ) ? 'udt_on_state' : 'udt_off_state' )?>">
-            <span class="udt_value_text udt_on_value"><?php _e( 'Enable', $this->udtbp ) ?></span>
+            <span class="udt_value_text udt_on_value"><?php _e( 'Enabled', $this->udtbp ) ?></span>
             <span class="udt_button_slider"></span>
-            <span class="udt_value_text udt_off_value"><?php _e( 'Disable', $this->udtbp ) ?></span>
+            <span class="udt_value_text udt_off_value"><?php _e( 'Disabled', $this->udtbp ) ?></span>
           </div>
-      </label> -->
+      </label>
     </div>
 <?php
   } // view_header()
 
-  public function custom_logo( $items ) {
-    /**
-   * HEADER PRIMARY LOGO
+  /**
+   * HEADER TITLE BAR
    *
-   * @since     1.4.2
-   * @version   1.0.0                     Updated code to more robust OOP styles
-   * @var       string    $options        Footer color checkbox
-   * @param     array     $items[]        List of options in array
-   */
+   * @since       3.1.0
+  */
+  public function header_title( $items ) {
 
-    $options    = get_option( $this->udtbp . '_options', $items );
-    $items =
-      [
-        NULL => 'Default (No College)',
-        'lerner'  => 'Alfred Lerner College of Business &amp; Economics',
-        'canr'    => 'College of Agriculture &amp; Natural Resources',
-        'cas'     => 'College of Arts &amp; Sciences',
-        'ceoe'    => 'College of Earth, Ocean, &amp; Environment',
-        'cehd'    => 'College of Education &amp; Human Development',
-        'engr'    => 'College of Engineering',
-        'chs'     => 'College of Health Sciences'
-      ];
-    $option   = '';
-
-    if ( isset( $options['custom-logo'] ) && ! empty( $options['custom-logo'] ) ) {
-      $option = $options['custom-logo'];
-      $custom_header_text = $items[$option];
+    $options    = get_option( $this->udtbp . '_options' );
+    $option   = 0;
+    $wp_site_title = get_bloginfo( 'name' );
+    if ( !isset( $options['header-title'] ) &&  $options['header-title'] == $wp_site_title  ) {
+      $option = $options['header-title'];
+      $custom_header_text = $option;
     }
     else {
-      $option = NULL;
+      $option = get_bloginfo( 'name' );
       $custom_header_text = NULL;
     }
+
     ?>
     <div class="box-content">
-      <label for="<?php echo esc_attr( $this->udtbp.'_options[custom-logo]' ) ?>">
-        <select id="<?php echo esc_attr( $this->udtbp.'_options[custom-logo]' ) ?>" name="<?php echo esc_attr( $this->udtbp.'_options[custom-logo]' ) ?>" >
-          <option style="color:#767676;" value="" disabled aria-disabled="true"><?php _e( 'Choose one...', $this->udtbp ); ?></option>
-          <?php
-          foreach ( $items as $key=>$value ) :
-          ?>
-          <option value="<?php echo esc_attr( $key ) ?>" <?php selected( $option, $key ) ?> ><?php echo esc_attr( $value ); ?></option>
-          <?php
-          endforeach;
-          ?>
-        </select>
+      <ul id="previous"></ul>
+      <label for="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>">
+        <input id="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>" name="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>" type="text" value="<?php echo esc_attr( $option ); ?>"><span></span>
       </label>
-      <input type="hidden" id="udt_custom_header_text" name="udt_custom_header_text" value="<?php echo esc_attr( $custom_header_text ); ?>">
-      <div class="field_prompt"><?php _e( 'Displays UD logo with college title or UD logo only.', $this->udtbp ); ?></div>
+      <input type="hidden" id="udt_custom_header_text" name="udt_custom_header_text" value="<?php echo esc_attr( $option ); ?>"><span></span>
+      <div class="field_prompt"><?php _e( 'Displays web site Title if no departmental text is provided.', $this->udtbp ); ?></div>
     </div>
+
       <?php
       /**
-      * UPDATE PRIMARY LOGO
-      * Added to pass college text value to public view.
+      * UPDATE HEADER TITLE BAR TEXT
+      * Added to pass header title text value to public view.
       * TODO: Is this sufficient
-      * @since     3.0.0
-      * @var       string         $custom_header_text            Hidden field that contains text value from selected option.
+      * @since     3.1.0
+      * @version   2.0.0   Replaced $option with $custom_header_text for granularity
+      * @var       string  $custom_header_text    Input field that contains option value
       */
-      update_option( 'udt_custom_header_text', $custom_header_text );
-    } // custom_logo()
+
+
+      update_option( '$this->udtbp' . '_options', $custom_header_text );
+    } // header_title()
   } // end class udtbp_Header_Settings
 endif;
+
+
+// https://wordpress.stackexchange.com/questions/141102/how-can-i-detect-that-option-value-has-changed
+// function myplugin_update_field_foo( $new_value, $old_value ) {
+//   $new_value = intval( $new_value );
+//   $new_value ++;
+//   return $new_value;
+// }
+
+// function myplugin_init() {
+//   add_filter( 'pre_update_option_foo', 'myplugin_update_field_foo', 10, 2 );
+// }
+
+// add_action( 'init', 'myplugin_init' );
+//
+// https://wordpress.stackexchange.com/questions/71420/add-option-if-not-exists
+// if(!get_option('speccc_nameee')){
+ // update_option('speccc_nameee', 'first_default_value');
+//}

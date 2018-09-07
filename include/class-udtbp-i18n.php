@@ -1,31 +1,23 @@
 <?php
 /**
- * Class: UDTheme Branding Localization i18n
- *
- * Defines the internationalization functionality
- *
- * The purpose of this class is to:
- * Load and define internationalization files
- * for plugin translation
- *
- * @package     udtheme-brand
- * @subpackage  udtheme-brand/include
- * @author      Christopher Leonard - University of Delaware | IT CS&S
- * @license     GPLv3
- * @link        https://bitbucket.org/UDwebbranding/udtheme-brand
- * @copyright   Copyright (c) 2012-2017 University of Delaware
- * @version     3.0.4
+  * Class: UDTheme Branding Localization i18n
+  *
+  * Defines the internationalization functionality
+  *
+  * The purpose of this class is to:
+  * Load and define internationalization files
+  * for plugin translation
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/include
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
  */
 if ( ! class_exists( 'udtbp_i18n' ) ) :
-class udtbp_i18n {
-  /**
-   * The ID of this plugin.
-   *
-   * @since    1.4.2
-   * @version  1.0.0                           New name introduced.
-   * @access   private
-   * @var      string         $udtbp           The ID of this plugin.
-  */
+  class udtbp_i18n {
    private $udtbp;
   /**
    * Initialize the class and set its properties.

@@ -1,14 +1,15 @@
 /**
-  * UDTB FONTS CSS
+  * UDTHEME BRANDING FONTS CSS
   *
   * Defines all of the branding typefaces
   *
   * @package     udtheme-brand
+  * @subpackage  udtheme-brand/assets/css
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @version     3.1.0
 */
 /*
     Font:     Greycliff CF
@@ -53,4 +54,34 @@
        url('../fonts/vanguard-cf-regular.woff2') format('woff2'),
        url('../fonts/vanguard-cf-regular.woff') format('woff');
        unicode-range: U+0020-007D, U+00A9, U+00AB, U+00BB, U+00B7;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+    src: local('Open Sans'), local('OpenSans'),
+        url('../fonts/OpenSans.woff2') format('woff2'),
+        url('../fonts/OpenSans.woff') format('woff');
+  unicode-range: U+0020-007D;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: normal;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'),
+      url('../fonts/OpenSans-Italic.woff2') format('woff2'),
+      url('../fonts/OpenSans-Italic.woff') format('woff');
+  unicode-range: U+0020-007D;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-style: normal;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+      url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+      url('../fonts/OpenSans-Bold.woff') format('woff');
+  unicode-range: U+0020-007D;
 }

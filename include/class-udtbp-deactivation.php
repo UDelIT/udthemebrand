@@ -1,24 +1,28 @@
 <?php
-<?php
 /**
- * Class: UDTheme Branding Deactivation
- *
- * The purpose of this class is to:
- * Register deactivation hook
- * Fire deactivation hook
- *
- * This class defines all code necessary to run during the plugin's deactivation.
- *
- * @package     udtheme-brand
- * @subpackage  udtheme-brand/include
- * @author      Christopher Leonard - University of Delaware | IT CS&S
- * @license     GPLv3
- * @link        https://bitbucket.org/UDwebbranding/udtheme-brand
- * @copyright   Copyright (c) 2012-2017 University of Delaware
- * @version     3.0.4
+	* Class: UDTheme Branding Deactivation
+	*
+	* The purpose of this class is to:
+	* Register deactivation hook
+	* Fire deactivation hook
+	*
+	* This class defines all code necessary to run during the plugin's deactivation.
+	*
+	* @package     udtheme-brand
+	* @subpackage  udtheme-brand/include
+	* @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.1.0
  */
+require_once plugin_dir_path( __FILE__ ) . 'interface-udtbp-current-user-check.php';
 if ( ! class_exists( 'udtbp_Dectivation' ) ) :
-  class udtbp_Dectivation {
+  class udtbp_Dectivation implements udtbp_Current_User_Check {
+    function udtbp_check_current_user($current_user) {
+      if ( ! current_user_can( 'activate_plugins' ) )
+      return;
+    }
   /**
    * PLUGIN DEACTIVATION
    *
@@ -26,7 +30,8 @@ if ( ! class_exists( 'udtbp_Dectivation' ) ) :
    *
    * @since    3.0.0
    */
- 	public function udtbp_deactivation_hook() {
+ 	public static function udtbp_deactivation_hook() {
+ 		echo "HELLO";
 	}
-} // end class udtbp_Dectivation()
+} // end class udtbp_Dectivation
 endif;
