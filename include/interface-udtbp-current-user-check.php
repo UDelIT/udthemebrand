@@ -11,7 +11,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 
 interface udtbp_Current_User_Check{

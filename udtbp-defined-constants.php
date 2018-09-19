@@ -14,7 +14,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 /**
   * Defines named constants that return the complete
@@ -38,7 +38,7 @@
   * @version  1.1.0    Removed Highwind (deprecated) from $json_theme_list array
 */
 const UDTBP_NAME             = 'UDTheme Branding';
-const UDTBP_VERSION          = '3.1.0';
+const UDTBP_VERSION          = '3.5.0';
 const UDTBP_REQ_PHP_VERSION  = '5.6.30';
 const UDTBP_REQ_WP_VERSION   = '4.7';
 
@@ -77,7 +77,7 @@ if ( !defined( 'UDTBP_URL' ) )              define( 'UDTBP_URL',     plugin_dir_
 /**
   * ASSETS Related CONSTANTS
   *
-  * @since  3.1.0
+  * @since  3.5.0
   * @var    string      UDTBP_ASSETS_URL            Defines plugin assets directory path "name.com/wp-content/plugins/udtheme-brand/assets".
   * @var    string      UDTBP_ASSETS_CSS_URL        Defines plugin assets CSS directory path "name.com/wp-content/plugins/udtheme-brand/assets/css".
   * @var    string      UDTBP_ASSETS_IMG_URL        Defines plugin assets IMG directory path "name.com/wp-content/plugins/udtheme-brand/assets/img".

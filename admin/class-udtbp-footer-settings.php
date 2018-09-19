@@ -12,7 +12,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
  */
 if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
   class udtbp_Footer_Settings extends udtbp_Admin {
@@ -65,7 +65,8 @@ if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
       */
       add_settings_section(
         $this->udtbp . '-options',
-        apply_filters( $this->udtbp . '-display-section-title', __( 'Configure options', $this->udtbp ) ),
+        //apply_filters( $this->udtbp . '-display-section-title', __( 'Configure options', $this->udtbp ) ),
+         apply_filters( $this->udtbp . '-display-section-title', __( '', $this->udtbp ) ),
         array( $this, 'display_options_section' ),
         $this->udtbp . '-footer'
       );
@@ -120,7 +121,7 @@ if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
      */
     public function display_options_section() {
   ?>
-      <!-- <h2 class=""><?php //echo esc_html( 'Configure options' ); ?></h2> -->
+      <h2 class="subheadline"><?php echo esc_html( 'Configure options' ); ?></h2>
       <p><?php echo esc_html( 'Blue works best with light backgrounds, white works best with dark backgrounds.' ); ?></p>
     <?php
     } // display_options_section()
@@ -129,7 +130,7 @@ if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
      * TOGGLE FOOTER VISIBILITY
      *
      * @since     1.4.2
-     * @version   3.1.0
+     * @version   3.5.0
      */
     public function view_footer() {
       $options  = get_option( $this->udtbp . '_options' );
@@ -142,10 +143,31 @@ if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
         $options['view-footer'] = NULL;
       }
       ?>
-      <div class="box-content">
-        <input type="hidden" name="<?php echo esc_attr( $this->udtbp ) ?>_options[view-footer]" value="0">
+      <!-- <div role="checkbox" aria-checked="false" tabindex="0" onkeydown="toggleCheckbox(event)" onclick="toggleCheckbox(event)" onfocus="focusCheckbox(event)" onblur="blurCheckbox(event)">
+    <img src="https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/checkbox/images/checkbox-unchecked-black.png" alt="">
+     Label 1
+  </div> -->
+      <div id="ud-id-vf" class="switch switch--horizontal" tabindex="0">
+        <label for="<?php echo esc_attr( $this->udtbp ) ?>_options[view-footer]" class="check-switch ">
+          <input type="checkbox" aria-checked="" tabindex="-1" aria-labeledby="title" id="<?php echo esc_attr( $this->udtbp )?>_options[view-footer]" name="<?php echo esc_attr( $this->udtbp ) ?>_options[view-footer]" value="1" <?php checked( $option, 1 , TRUE ); ?>>
+          <span aria-hidden="true"></span>
+        </label>
+      </div>
+ <!--  <div id="ud-id-vf">
+    <label for="<?php echo esc_attr( $this->udtbp.'_options[view-footer]' )?>" class="ud-label--switch">
+       <button role="switch" type="button" aria-checked="true" id="<?php echo esc_attr( $this->udtbp.'_options[view-footer]' )?>" class="switch" value="1" <?php checked( $option, 1 , TRUE ); ?> >
+         <div class="ud-norm--toggle">
+           <span class="on">on</span>
+           <span class="knob"></span>
+           <span class="off">off</span>
+         </div>
+       </button>
+      </label>
+</div> -->
+      <!-- <div id="ud-id-vf" class="box-content">
+
         <label for="<?php echo esc_attr( $this->udtbp.'_options[view-footer]' )?>">
-          <input class="checkbox yes_no_button" type="checkbox" id="<?php echo esc_attr( $this->udtbp )?>_options[view-footer]" name="<?php echo esc_attr( $this->udtbp ) ?>_options[view-footer]" value="1" <?php checked( $option, 1 , TRUE ); ?> >
+          <input class="checkbox yes_no_button" type="checkbox" id="<?php echo esc_attr( $this->udtbp )?>_options[view-footer]" name="<?php echo esc_attr( $this->udtbp ) ?>_options[view-footer]" value="1" <?php checked( $option, 1 , TRUE ); ?> aria-checked="true" tabindex="0">
           <div class="udt_yes_no_button <?php echo (  ! empty( $options['view-footer'] ) ) ? 'udt_on_state' : 'udt_off_state' ?>">
 
             <span class="udt_value_text udt_on_value"><?php _e( 'Enabled', $this->udtbp ) ?></span>
@@ -153,7 +175,7 @@ if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
             <span class="udt_value_text udt_off_value"><?php _e( 'Disabled', $this->udtbp ) ?></span>
           </div>
         </label>
-      </div>
+      </div> -->
     <?php
     } // view_footer()
 
@@ -189,11 +211,11 @@ if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
 
     ?>
 
-    <div class="switch switch--horizontal">
+    <div id="ud-id-cf" class="switch switch--horizontal">
     <?php
       foreach ( $items as $key=>$value ) :
     ?>
-      <input type="radio" name="<?php echo esc_attr( $this->udtbp ) ?>_options[color-footer]" id="rad_<?php echo esc_attr( $key ) ?>_footer" value="<?php echo $key; ?>" <?php checked( $option, $key ) ?> >
+      <input type="radio" aria-checked="false" tabindex="" class="" name="<?php echo esc_attr( $this->udtbp ) ?>_options[color-footer]" id="rad_<?php echo esc_attr( $key ) ?>_footer" value="<?php echo $key; ?>" <?php checked( $option, $key ) ?>>
       <label for="rad_<?php echo esc_attr( $key ) ?>_footer">
         <?php echo esc_attr( $key ) ?>
       </label>

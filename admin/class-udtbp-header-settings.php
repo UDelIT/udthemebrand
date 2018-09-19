@@ -12,12 +12,13 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 
 if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
   class udtbp_Header_Settings extends udtbp_Admin {
     private $udtbp;
+    private $blog_name;
 
   /**
    * CLASS INITIALIZATION class and set its properties.
@@ -33,6 +34,7 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
     $this->udtbp = $udtbp.'_header';
     $this->plugin_settings_tabs[$this->udtbp] = $this->label;
     $this->custom_header_text = get_option( $custom_header_text );
+    // $this->$blog_name = get_bloginfo( 'name' );
   }
 
   /**
@@ -104,14 +106,14 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
      * {@link public function custom_logo()} {@link bkup/deprecated_functions}
      *
      * @since         3.0.0
-     * @deprecated deprecated since version    3.1.0      No longer used.
+     * @deprecated deprecated since version    3.5.0      No longer used.
     */
 
     /**
      * CUSTOM SITE TITLE / DEPARTMENT UNIT TITLE SETTINGS FIELD
      * Creates HEADER TITLE text field.
      *
-     * @since         3.1.0
+     * @since         3.5.0
     */
     add_settings_field(
       'header-title',
@@ -134,7 +136,7 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
   public function display_options_section() {
 
   ?>
-  <h2 class=""><?php echo esc_html( 'Configure options' ); ?></h2>
+  <h2 class="subheadline"><?php echo esc_html( 'Configure options' ); ?></h2>
   <p><?php echo esc_html( 'Display header with web site title or department text.' ); ?></p>
   <?php
   } // display_options_section()
@@ -143,7 +145,7 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
    * TOGGLE HEADER VISIBILITY
    *
    * @since     1.4.2
-   * @version   3.1.0
+   * @version   3.5.0
    */
   public function view_header() {
     $options  = get_option( $this->udtbp . '_options' );
@@ -157,16 +159,20 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
     }
 ?>
 
-    <div class="box-content">
+
+    <div id="ud-id-vh" class="box-content switch">
       <input type="hidden" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" value="0">
 
-       <label for="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>">
-        <input class="checkbox yes_no_button" type="checkbox" id="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>" value="1" <?php checked( $option, 1 , TRUE ) ?> >
-          <div class="udt_yes_no_button <?php echo esc_attr( (  ! empty( $options['view-header'] ) ) ? 'udt_on_state' : 'udt_off_state' )?>">
-            <span class="udt_value_text udt_on_value"><?php _e( 'Enabled', $this->udtbp ) ?></span>
+      <label for="<?php echo esc_attr( $this->udtbp.'_options[view-header]' )?>">
+        <input class="checkbox yes_no_button" type="checkbox" id="<?php echo esc_attr( $this->udtbp.'_options[view-header]', UDTBP_NAME )?>" name="<?php echo esc_attr( $this->udtbp.'_options[view-header]', UDTBP_NAME )?>" value="1" <?php checked( $option, 1 , TRUE ) ?> >
+        <div class="udt_yes_no_button <?php echo esc_attr( (  ! empty( $options['view-header'] ) ) ? 'udt_on_state' : 'udt_off_state' ) ?>">
+
+          <span class="udt_value_text udt_on_value"><?php _e( 'Enabled', $this->udtbp ) ?></span>
+          <span id="tem" aria-hidden="true">
             <span class="udt_button_slider"></span>
-            <span class="udt_value_text udt_off_value"><?php _e( 'Disabled', $this->udtbp ) ?></span>
-          </div>
+          </span>
+          <span class="udt_value_text udt_off_value"><?php _e( 'Disabled', $this->udtbp ) ?></span>
+        </div>
       </label>
     </div>
 <?php
@@ -175,13 +181,17 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
   /**
    * HEADER TITLE BAR
    *
-   * @since       3.1.0
+   * @since       3.5.0
   */
   public function header_title( $items ) {
 
     $options    = get_option( $this->udtbp . '_options' );
     $option   = 0;
+
     $wp_site_title = get_bloginfo( 'name' );
+
+
+
     if ( !isset( $options['header-title'] ) &&  $options['header-title'] == $wp_site_title  ) {
       $option = $options['header-title'];
       $custom_header_text = $option;
@@ -193,7 +203,6 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
 
     ?>
     <div class="box-content">
-      <ul id="previous"></ul>
       <label for="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>">
         <input id="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>" name="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>" type="text" value="<?php echo esc_attr( $option ); ?>"><span></span>
       </label>
@@ -206,13 +215,13 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
       * UPDATE HEADER TITLE BAR TEXT
       * Added to pass header title text value to public view.
       * TODO: Is this sufficient
-      * @since     3.1.0
+      * @since     3.5.0
       * @version   2.0.0   Replaced $option with $custom_header_text for granularity
       * @var       string  $custom_header_text    Input field that contains option value
       */
 
 
-      update_option( '$this->udtbp' . '_options', $custom_header_text );
+      //update_option( '$this->udtbp' . '_options', $custom_header_text );
     } // header_title()
   } // end class udtbp_Header_Settings
 endif;

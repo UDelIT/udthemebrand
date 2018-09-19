@@ -18,7 +18,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 if ( ! class_exists( 'udtbp_Admin' ) ) :
   class udtbp_Admin {
@@ -66,14 +66,13 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
      $this->plugin_settings_tabs['header']  = 'Header';
      $this->plugin_settings_tabs['footer']  = 'Footer';
      $this->plugin_settings_tabs['about']   = 'About';
-     $this->plugin_settings_tabs['support'] = 'Support';
     }
     /**
      * ENQUEUE GOOGLE FONTS ADMIN (DEPRECATED)
      * Replaced by OCM specific fonts. {@link public function udtbp_add_google_fonts()} {@link bkup/deprecated_functions}
      *
      * @since       3.0.0
-     * @deprecated deprecated since version  3.1.0
+     * @deprecated deprecated since version  3.5.0
      */
     /**
      * ENQUEUE ADMIN CSS
@@ -211,7 +210,7 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
       wp_enqueue_script( $this->udtbp . '-admin-script' );
 
       $args_localize_script = [
-        'plugin_name' => $this->udtbp,
+        'plugin_name' => UDTBP_NAME,
         'udtbp_nonce' => wp_create_nonce( $this->udtbp.'_nonce' ),
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'view_header' => $this->udtbp.'_options[view-header]',
@@ -305,14 +304,18 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
   public function udtbp_render_tabs() {
     $current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'header';
     ?>
-    <ul id="udt_panel_mainmenu" class="tabsList" role="tablist">
+
+
+    <ul id="udt_panel_mainmenu" class="tablist tabsList" role="tablist">
       <?php
       foreach ( $this->plugin_settings_tabs as $tab_key => $tab_caption ) {
         $active = $current_tab == $tab_key ? 'nav-tab-active' : '';
         $aria_selected = $current_tab == $tab_key ? 'true' : 'false';
         $tab_index = $current_tab == $tab_key ? '0' : '-1';
         ?>
-        <li class="ui-state-default <?php echo esc_html( $active ); ?>" role="presentation"><a class="aria_selected ui-tabs-anchor" role="tab" aria-selected="<?php echo esc_html( $aria_selected ); ?>" id="udt_<?php echo esc_html( $tab_key ); ?>_settings" tabindex="<?php echo esc_html($tab_index ); ?>" href="?page=<?php echo esc_html($this->udtbp );?>&tab=<?php echo esc_html($tab_key ); ?>"> <?php echo esc_html( $tab_caption ); ?></a></li>
+        <li class="ui-state-default <?php echo esc_html( $active ); ?>" role="presentation">
+          <a class="aria_selected ui-tabs-anchor" role="tab" aria-selected="<?php echo esc_html( $aria_selected ); ?>" aria-controls="<?php echo esc_html($tab_key ); ?>" id="udt_<?php echo esc_html( $tab_key ); ?>_settings" tabindex="<?php echo esc_html($tab_index ); ?>" href="?page=<?php echo esc_html($this->udtbp );?>&tab=<?php echo esc_html($tab_key ); ?>"> <?php echo esc_html( $tab_caption ); ?></a>
+        </li>
         <?php
       }
       ?>
@@ -331,7 +334,7 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
   public function add_settings_link( $actions, $plugin_file ) {
     static $plugin;
     $settings = array( 'settings' => '<a class="'.$this->udtbp.'-settings-link" href="options-general.php?page='.$this->udtbp.'">' . __( 'Settings' ) . '</a>' );
-    $site_link = array( 'support' => '<a title="Having problems? Submit a trouble ticket." target="_blank" href="//www.udel.edu/it/help/request/">' . __( 'Support', $this->udtbp ) . '</a>' );
+    $site_link = array( 'support' => '<a title="Having problems? Submit a trouble ticket." target="_blank" href="//www.udel.edu/it/help/request/">' . __( 'Support', UDTBP_NAMEp ) . '</a>' );
     $actions = array_merge( $settings, $actions );
     $actions = array_merge( $site_link, $actions );
     return $actions;

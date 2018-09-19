@@ -18,7 +18,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
   *
 */
 if ( ! class_exists( 'udtbp' ) ) :
@@ -43,9 +43,9 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 /**
 		 * The current version.
 		 *
-		 * @since    3.0.0
+		 * @since    NA
 		 * @access   protected
-		 * @var      string    			$current_version    The current version.
+		 * @var      string    			$current_version    The current version used in Activation class.
 		 */
 		protected $current_version;
 		/**
@@ -99,9 +99,7 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * - udtbp_Admin_Notices 		  Defines all hooks for dashboard notices.
 		 * - udtbp_Header_Settings 		Defines all header sections, settings and options.
 		 * - udtbp_Footer_Settings 		Defines all footer sections, settings and options.
-		 * - udtbp_Support_Settings 	Defines all support sections, settings and options.
 		 * - udtbp_Public 						Defines all hooks for the public side of the site.
-		 * - udtbp_Social 						Defines all social content via array for the public side display in footer.
 		 *
 		 * Create an instance of the loader which will be used to register the hooks
 		 * with WordPress.
@@ -124,7 +122,6 @@ if ( ! class_exists( 'udtbp' ) ) :
 		 * @var				string     $plugin_admin_notices				Variable that creates udtbp_Admin_Notices class instance.
 		 * @var				string     $settings_init_header				Variable that creates udtbp_Header_Settings class instance.
 		 * @var				string     $settings_init_footer				Variable that creates udtbp_Footer_Settings class instance.
-		 * @var				string     $settings_init_support				Variable that creates udtbp_Support_Settings class instance.
 		 * @var				string     $plugin_basename							Variable that defines plugin basename e.g., udtheme-brand/udtbp.php.
 		 */
 		private function udtbp_define_admin_hooks() {
@@ -134,7 +131,6 @@ if ( ! class_exists( 'udtbp' ) ) :
 			$plugin_admin_notices = new udtbp_Admin_Notices( $this->get_udtbp(), $this->wp_get_theme() );
 			$settings_init_header = new udtbp_Header_Settings( $this->get_udtbp(), UDTBP_VERSION );
 			$settings_init_footer = new udtbp_Footer_Settings( $this->get_udtbp() );
-			$settings_init_support = new udtbp_Support_Settings( $this->get_udtbp() );
 			$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->udtbp . '.php' );
 
 			$this->loader->add_action( 'load-'.$this->udtbp, $plugin_admin, 'udtbp_on_load_page' );

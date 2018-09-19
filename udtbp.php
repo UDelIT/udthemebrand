@@ -5,7 +5,7 @@
   * Description:       The UDTheme Branding plugin allows a University department
   *                    or college to display the official University of Delaware
   *                    branded header and footer on a WordPress website.
-  * Version:           3.1.0
+  * Version:           3.5.0
   * Author:            Christopher Leonard - University of Delaware
   * Author URI:        https://sites.udel.edu/cleonard
   * License:           GPLv3
@@ -24,7 +24,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 
 /**

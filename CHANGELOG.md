@@ -4,17 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.1.0)  - 9-7-2018
+## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 9-19-2018
 
 ### Added
 * All images replaced with svg accessible images.
 * Adjust text size and content in Legal footer when browser is resized.
 * Added hover events on all plugin links for accessibility.
 * Add new Site Title bar.
+* Accessibility features added: keyboard navigation, dynamic aria settings.
+* Migrated JS events, storage, events, feature detection from jQuery to plain JS.
 * Performance and documentation improvements.
 
 
-### Fixed 
+### Fixed
+* Ask CampusPress to use AddHandler in htacccess for php css files ([#29](https://github.com/UDelIT/udthemebrand/issues/29))
+* add ud class to body when plugin is activated, remove class when deactivated ([#27](https://github.com/UDelIT/udthemebrand/issues/27))
+* Footer color not clearing when footer is disabled ([#24](https://github.com/UDelIT/udthemebrand/issues/24))
 * Footer accessibility compliance via attributes ([#22](https://github.com/UDelIT/udthemebrand/issues/22))
 * Header accessibility compliance via attributes ([#21](https://github.com/UDelIT/udthemebrand/issues/21))
 * Create FAQ's under Support tab ([#19](https://github.com/UDelIT/udthemebrand/issues/19))

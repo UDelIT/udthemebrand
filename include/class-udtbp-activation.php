@@ -15,7 +15,7 @@ require_once plugin_dir_path( __FILE__ ) . 'error-scrape.php';
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
  */
 if ( ! class_exists( 'udtbp_Activation' ) ) :
   class udtbp_Activation {
@@ -141,7 +141,7 @@ if ( ! class_exists( 'udtbp_Activation' ) ) :
    * Never used {@link public function udtbp_initialize()} {@link bkup/deprecated_functions}
      *
      * @since       3.0.0
-     * @deprecated  deprecated   3.1.0
+     * @deprecated  deprecated   3.5.0
     */
 
 
@@ -154,7 +154,7 @@ if ( ! class_exists( 'udtbp_Activation' ) ) :
    * Never used {@link public function udtbp_admin_notice_activate()} {@link bkup/deprecated_functions}
      *
      * @since       3.0.0
-     * @deprecated  deprecated   3.1.0
+     * @deprecated  deprecated   3.5.0
    */
   } // end class udtbp_Activation
 endif;

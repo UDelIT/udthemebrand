@@ -15,7 +15,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
  */
   wp_reset_query();
   if( isset( $options["color-footer"] ) && $options["color-footer"] != '' ) {
@@ -27,7 +27,7 @@
    * Code printed in page footer that displays branded styles and content.
    *
    * @since         1.4.2
-   * @version       3.1.0    Updated: [css grid/flexbox layout, accessibility, svg images]
+   * @version       3.5.0    Updated: [css grid/flexbox layout, accessibility, svg images]
    */
 ?>
 <div id="ud-id-foot" class="ud-wrapper--grid ud-gtr-foot">
@@ -36,9 +36,6 @@
       <div class="ud-footer--logo">
         <a href="https://www.udel.edu" aria-labeledby="ud_circle_logo">
          <img alt="Go to the University of Delaware home page." id="ud_circle_logo" src="<?php echo esc_url( UDTBP_PUBLIC_IMG_URL ); ?>/logos/img-ud-circle-logo.svg" role="img" width="130" height="130">
-        <!--  <svg class="color-svg">
-            <use xlink:href="#ud-img-circleud"></use>
-          </svg> -->
           <span class="screen-reader-text">Go to the University of Delaware home page.</span>
         </a>
       </div>
@@ -92,12 +89,14 @@
       <path id="D" class="fill--current fill--white" fill="currentColor" d="M74.2 72.5h38.4c28.1 0 42.5 16.9 42.5 45s-17.1 50.4-45.8 50.4H74.2v-3.5c10.4-1.5 9.9-.9 9.9-13.5V89.5c0-12.7.5-12-9.9-13.5zm21.2 76c0 14.9 2.9 15 13.9 15 18.3 0 32.5-11.4 32.5-45.8 0-25.9-11.8-40.9-34-40.9H95.4z"></path>
       <path id="U" class="fill--current fill--white" fill="currentColor" d="M69.6 83.4c0 16.7 3.9 29.4 19.5 29.4s21.8-11 21.8-30v-33a53.8 53.8 0 0 0-.6-6.4c-.5-4.3-4.1-5.9-9-6.5v-3.1H126v3.1c-5 .6-8.5 2.2-9 6.5a53.8 53.8 0 0 0-.6 6.4v33.5c0 25.5-14.3 35-27.8 35-22.3 0-29.2-12.8-29.2-34.3V48.6c0-11 .4-10.4-9-11.7v-3.1h28.1v3.1c-9.4 1.3-8.9.7-8.9 11.7z"></path>
     </symbol>
+    <symbol id="ud-icon-apply" role="img" aria-label="apply icon" viewBox="0 0 256 256">
+      <path d="M239.7 90L136.6 58.3a29.6 29.6 0 0 0-17.2 0L16.3 90a8.7 8.7 0 0 0 0 16.9l17.9 5.5a29.8 29.8 0 0 0-6.6 17.3 11.4 11.4 0 0 0-.9 19.6l-9.4 42.5a5.8 5.8 0 0 0 5.7 7.1h20.8a5.8 5.8 0 0 0 5.7-7.1l-9.4-42.5c7.2-5.1 6.7-14.9-.7-19.4a17.6 17.6 0 0 1 7.7-13.6c76.5 22.9 76.7 26.2 89.5 22.2l103.1-31.6a8.7 8.7 0 0 0 0-16.9zm-99.6 59.8c-17.4 5.4-24.2-.7-77.8-16.4l-5.2 41.9c0 13.1 31.7 23.6 70.9 23.6s70.9-10.5 70.9-23.6l-5.2-41.9z"></path>
+    </symbol>
+    <symbol id="ud-icon-visit" role="img" aria-label="visit icon" viewBox="0 0 256 256">
+      <path d="M121.1,214.4C70,140.3,60.5,132.7,60.5,105.5a67.5,67.5,0,0,1,135,0c0,27.2-9.5,34.8-60.6,108.9a8.3,8.3,0,0,1-13.8,0Zm6.9-80.8a28.2,28.2,0,1,0-28.1-28.1A28.1,28.1,0,0,0,128,133.6Z"></path>
+    </symbol>
+    <symbol id="ud-icon-give" role="img" aria-label="give icon" viewBox="0 0 256 256">
+      <path d="M207.5 94.4h-15c11.1-21.5-5-45.4-27.6-45.4-14.8 0-24.3 7.6-36.5 24.3C116.1 56.6 106.6 49 91.8 49c-22.9 0-38.6 24.3-27.6 45.4H48.5a11.4 11.4 0 0 0-11.3 11.4v28.4a5.7 5.7 0 0 0 5.7 5.7h4.3v55.7a11.3 11.3 0 0 0 11.3 11.3l137.6.2a11.4 11.4 0 0 0 11.4-11.4v-55.8h5.6a5.7 5.7 0 0 0 5.7-5.7v-28.4a11.4 11.4 0 0 0-11.3-11.4zm-115.7 0a14.2 14.2 0 1 1 0-28.3c7 0 12.3 1.1 30.5 28.3zm46.4 85.3a4 4 0 0 1-4 4h-14a4 4 0 0 1-4-4V119a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4zm26.7-85.3h-30.6c18.3-27.1 23.4-28.3 30.6-28.3a14.2 14.2 0 1 1 0 28.3z"></path>
+    </symbol>
   </defs>
 </svg>
-
-<!-- <ul>
-<?php
-//$this->path = new udtbp_Social();
-//$this->social_data = udtbp_Social::social_footer();
-?>
-</ul> -->

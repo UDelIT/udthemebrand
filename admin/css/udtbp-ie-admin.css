@@ -1,0 +1,21 @@
+/**
+  * $ADMIN IE CSS
+  *
+  * Defines all of the IE styles used in
+  * the plugin's ADMIN dashboard.
+  *
+  * The Table of contents conforms to W3C HTML Elements organization.
+  * {@link https://www.w3.org/TR/2012/WD-html-markup-20121025/elements-by-function.html}
+  * @since   1.4.2
+  * @version 3.5.0 Removed all deprecated element styles and IE version support prior to IE Edge.
+*/
+.is_ms #ud-id-vh:not(.disabled):hover,
+.is_ms #ud-id-vf:not(.disabled):hover,
+.is_ms #ud-id-cf:not(.disabled):hover  {
+  -webkit-transform: none;
+  transform: none;
+}
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+  display: none;
+}

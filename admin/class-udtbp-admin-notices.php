@@ -18,7 +18,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
   class udtbp_Admin_Notices extends udtbp_Admin {
@@ -69,6 +69,8 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
       $this->plugin_settings_tabs['about']   = 'About';
       $this->plugin_settings_tabs['support'] = 'Support';
       $this->json_theme_list = json_decode( JSON_THEME_LIST );
+      $this->view_header = get_option( $this->udtbp . '_options' );
+      $option   = 0;
     }
     /**
     * ADMIN NOTICES
@@ -93,7 +95,6 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
     */
 
     public function udtbp_theme_override_notices( $screen ) {
-      $json_theme_list = json_decode( JSON_THEME_LIST );
       $div_id = $this->udtbp.'_theme_override';
       $div_class = 'notice notice-warning is-dismissible hide';
       $p_class = 'dashicons-before dashicons-warning';
@@ -106,8 +107,15 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
         return;
       }
 
+
+
       if ( 'header' === $current_tab ) {
-        $options = ( get_option( 'udtbp_header_options' ) ? get_option( 'udtbp_header_options' ) : FALSE );
+         $options = ( get_option( 'udtbp_header_options' ) ? get_option( 'udtbp_header_options' ) : FALSE );
+        $option = $options['view-header'];
+      }
+      else {
+        $options['view-header'] = NULL;
+      }
 
         $notice_div = '<div id="%1$s" class="%2$s"><p class="%3$s">The <span class="theme_name">%4$s Theme</span> %5$s</p><button type="button" class="aria_pressed notice-dismiss" aria-pressed="false"><span class="screen-reader-text">%6$s</span></button></div>';
 
@@ -127,8 +135,6 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
           }
         endif; //end in_array check
         //echo "MOO" . $this->json_theme_list;
-      } // end if current_tab()
-      //endif;
     } // end udtbp_theme_override_notices()
   } // end class udtbp_Admin_Notices
 endif;

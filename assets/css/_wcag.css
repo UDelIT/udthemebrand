@@ -1,5 +1,5 @@
 /**
-  * UDTHEME BRANDING SCREEN READERS CSS
+  * UDTHEME BRANDING ACCESSIBILITY CSS
   *
   * Defines all of the screen reader styles used in plugin dashboard and public facing pages.
   * Based off webAIM specification.
@@ -10,7 +10,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 /*------------------------------------------------------------------------------
     a. Hide visually and from screen readers.
@@ -35,9 +35,7 @@
     j. Make sure both the inset and outset shadow are present
 ------------------------------------------------------------------------------*/
 .hidden,
-[hidden],
-[aria-hidden="true"],
-div[aria-hidden="true"] {
+[hidden] {
   display: none; /* a */
 }
 
@@ -116,30 +114,6 @@ a:not([href]):not([tabindex]):focus {
   outline: 0;
 }
 
-/* i */
-/* [aria-pressed]:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem yellow;
-} */
-
-/* j */
-/* [aria-pressed="true"]:focus {
-  box-shadow: 0 0 0 0.25rem yellow,
-              inset 0 0 0 0.15rem #000,
-              inset 0.25em 0.25em 0 #fff;
-} */
-
-[aria-required="true"] {
-  /* border: red thin solid; */
-}
-
-/*
-  FOCUS-VISIBLE HACK
-https://github.com/WICG/focus-visible
-*/
-/*
-  Provide basic, default focus styles.
-*/
 button:focus {
   …
 }
@@ -161,32 +135,9 @@ button:focus-visible {
   …
 }
 
-
-/* button:hover {
-  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-  -webkit-transform: scale(1.02) translateY(-2px);
-  transform: scale(1.01) translateY(-2px);
-} */
-
 #utb_wrap .button:focus:not(.focus-visible) {
   box-shadow: none;
 }
-
-/* .btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px #ff69b480, 0 0 0 1.5px #ff69b480;
-}
-
-.btn:active {
-  -webkit-transform: translateY(1px);
-          transform: translateY(1px);
-  -webkit-filter: saturate(150%);
-          filter: saturate(150%);
-} */
-
-
-
-
 
 /**
  * ARIA RADIO GROUP
@@ -215,14 +166,14 @@ button:focus-visible {
   left: 0;
   width: 14px;
   height: 14px;
-  border: 1px solid #000;
+  border: 1px solid black;
   background: #fff;
 }
 
 [role=radio][aria-checked=true]::after {
   top: 3px;
   left: 3px;
-  border: 5px solid #000;
+  border: 5px solid black;
   content: '';
 }
 @media only screen and (inverted-colors) {
@@ -246,16 +197,6 @@ button:focus-visible {
   #wob-on { display: block; }
   #wob-off { display: none; }
 }
-
-/*   border: 1px solid transparent;
-  box-shadow: 0px 6px 28px 0px rgba(51,51,51,0.5);
-  https://css-tricks.com/accessible-svgs-high-contrast-mode/
-    Text is mapped to windowText
-    Link color is applied to <&#x200b;a> tags
-    Selected text is mapped to highlightText and highlight
-    Button Text is mapped to buttonFace
-    Background is mapped to window
-*/
 
 @media (light-level: normal) {
   body {

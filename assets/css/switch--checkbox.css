@@ -1,0 +1,100 @@
+.check-switch span::after,
+button.ud-switch,
+.knob, .knob::after,
+[role="switch"][aria-checked="true"] {
+  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.check-switch {
+/*   border: 1px solid #565656; */
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+}
+
+
+
+/* using the before/after pseudo elements of the span to create the "switch" */
+.check-switch span::before,
+.check-switch span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+/*----------------------------------
+	KNOB CIRCLE CSS
+----------------------------------*/
+.check-switch span::after {
+  background: #fff;
+  border-radius: 100%;
+  width: 36px;
+  height: 36px;
+  right: 1.5em;
+  -webkit-transform: translate(-11px, -17px);
+  transform: translate(-11px, -17px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2), 0 3px 3px rgba(0, 0, 0, .2);
+}
+
+/*----------------------------------
+	PILL CONTAINER CSS
+----------------------------------*/
+.check-switch input + span::before {
+  width: 80px;
+}
+
+.check-switch span::before {
+  background: #F7F7F7;
+  border-radius: 50px;
+  right: .25em;
+  height: 44px;
+  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 44px;
+  box-shadow: inset -1px 1px 2px rgba(0,0,0,.23), inset 1px 0px 2px rgba(0,0,0,.23);
+}
+
+/* hide the actual checkbox from view, but not from keyboards or ATs.
+   Instead of standard visually hidden styling, instead set opacity to
+   almost 0 (not zero for ChomeVox legacy bug), pointer-events none, and
+   then set to full height/width of container element so that VO focus
+   ring outlines the component, instead of a tiny box within the component
+*/
+.check-switch input,
+.switch input {
+  height: 100%;
+  left: 0;
+  opacity: .0001;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#ud-id-vh label:focus,
+.check-switch.focus-within,
+.switch.focus-within,
+button.focus-within,
+#ud-id-cf label:focus {
+  outline: hsl(216, 80%, 50%) !important;
+  background: hsl(217, 95%, 68%) !important;
+}
+.check-switch input:not([role="button"]) {
+  pointer-events: none;
+}
+.check-switch input:focus + span::before {
+/*   outline: 2px solid; */
+}
+.check-switch input:checked + span::after,
+.switch input:checked + span::after {
+  -webkit-transform: translate(25px, -19px);
+  transform: translate(25px, -19px);
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .check-switch span::after {
+    background-color: windowText;
+  }
+}

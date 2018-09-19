@@ -11,7 +11,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 header( 'Content-type: text/css; charset: UTF-8' );
 ob_start( "compress" );
@@ -36,13 +36,8 @@ function compress( $buffer ) {
     * @todo replace this process and file with JS build of scss files.
     * Assets/css is newer than public/css for below files. UPDATE!
   */
-  // include( 'normalize.css' );
-  // include( 'wcag.css' );
-  // include( 'header.css' );
-  // include( 'footer.css' );
-
   include( '../../assets/css/_fonts.css' );
-  include( '../../assets/css/_normalize.css' );
+  include( '../../assets/css/_normalize-udtbp.css' );
   include( '_branding.css' );
   include( '_grid.css' );
   include( '_flexbox.css' );

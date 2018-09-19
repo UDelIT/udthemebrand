@@ -12,7 +12,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 if ( ! class_exists( 'udtbp_Public' ) ) :
   class udtbp_Public extends udtbp_Admin {
@@ -23,7 +23,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
     * Public image URL Constant
     *
     * @since        3.0.0
-    * @deprecated   deprecated since version 3.1.0
+    * @deprecated   deprecated since version 3.5.0
     * @var          string    $const_public_image    Used in place of defined CONST limitation in heredoc
     */
 
@@ -31,7 +31,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
     * Public views URL Constant
     *
     * @since        3.0.4
-    * @deprecated   deprecated since version 3.1.0
+    * @deprecated   deprecated since version 3.5.0
     * @var          string    $const_public_views    Used in place of defined CONST limitation in heredoc
     */
 
@@ -39,7 +39,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
     * Current Theme and Current Theme CSS Override Arrays
     *
     * @since        3.0.0
-    * @deprecated   deprecated since version 3.1.0
+    * @deprecated   deprecated since version 3.5.0
     * @var          array    $issues_theme_name    Replaced by JSON_THEME_LIST
     */
 
@@ -47,7 +47,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
     * Incompatible themes list array.
     *
     * @since        3.0.1
-    * @deprecated   deprecated since version 3.1.0
+    * @deprecated   deprecated since version 3.5.0
     * @var          array    $json_theme_list    Replaced by JSON_THEME_LIST
     */
 
@@ -98,7 +98,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
      * Removes the ability to edit the site icon by users. Instead default OCM
      * approved site icons are dynamically added when plugin is activated.
      *
-     * @since       3.1.0
+     * @since       3.5.0
      * @link        https://stackoverflow.com/questions/37953058/how-do-i-remove-the-ability-to-change-the-site-icon-in-wordpress
     */
     function udt_remove_styles_sections( $wp_customize ) {
@@ -386,17 +386,6 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
         </style>
         <?php
       endif; // end in_array()
-
-
-
-
-
-
-
-
-
-
-
     } // end udtbp_enqueue_inline_theme_styles
 
     /**
@@ -434,10 +423,14 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
      */
     public function body_inject() {
       global $pagenow;
-     $homeUrl = get_home_url();
+      $quicklinks = new udtbp_QuickLinks();
+      $this->quicklinks = udtbp_QuickLinks::quicklinks_header();
+      $blow = $this->quicklinks;
+      $homeUrl = get_home_url();
 
       if ( $pagenow !== 'wp-login.php' && ! isset ( $_GET['action'] ) ) {
         $show_custom_text = '';
+        $quicklinks = '';
         wp_reset_query();
         $options = ( get_option('udtbp_header_options' ) ? get_option( 'udtbp_header_options' ) : FALSE);
 
@@ -459,16 +452,43 @@ HTML;
           $inject = <<<HTML
 <div id="ud-id-head" class="ud-wrapper--grid ud-gtr-head">
 <header class="ud-norm--header ud-header--logo item item--full">
-<div class="ud-display--db ud-align--asstretch cell">
+<div class="ud-flex--df ud-align--asstretch cell">
 <a href="https://www1.udel.edu/">
 <img alt="Go to the University of Delaware home page." id="ud_primary_logo" src="{$this->udtbp_public_img_url}/logos/img-udlogo.svg" role="img" width="170" height="70">
 </a>
+<div class="ud-flex--df ud-align--jcfe ud-header--quicklinks">
+<ul>
+<li>
+<a aria-label="Visit the University of Delaware (external link)" href="https://www.udel.edu/about/visit/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_visit">
+<svg class="icon">
+<use xlink:href="#ud-icon-visit"></use>
+</svg>
+ <p>Visit</p>
+</a>
+</li>
+<li>
+<a aria-label="Apply to the University of Delaware (external link)" href="https://www.udel.edu/apply/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_apply">
+<svg class="icon">
+<use xlink:href="#ud-icon-apply"></use>
+</svg>
+ <p>Apply</p>
+</a>
+</li>
+<li>
+<a aria-label="Give a gift to the University of Delaware (external link)" href="https://www.udel.edu/alumni-friends/give/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_give">
+<svg class="icon">
+<use xlink:href="#ud-icon-give"></use>
+</svg>
+ <p>Give</p>
+</a>
+</li>
+</ul>
+</div>
 </div>
 </header>
 $show_custom_text
 </div>
 HTML;
-
           $content = ob_get_clean();
           $content = preg_replace( '#<body([^>]*)>#i',"<body$1>{$inject}",$content );
           echo $content;
@@ -484,7 +504,7 @@ HTML;
     public function front_end_footer() {
       $options = ( get_option( 'udtbp_footer_options' ) ? get_option( 'udtbp_footer_options' ) : FALSE );
       if( isset( $options['view-footer'] ) && $options['view-footer'] != 0  ):
-        include_once ( plugin_dir_path( dirname( __FILE__ ) ) . 'public/views/udtbp-public-footer-display.php' );
+        include_once ( UDTBP_DIR . '/public/views/udtbp-public-footer-display.php' );
       endif;
     }
   } // end class udtbp_Public
