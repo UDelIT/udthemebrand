@@ -4,15 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 9-19-2018
+## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 10-8-2018
 
 ### Added
 * All images replaced with svg accessible images.
 * Adjust text size and content in Legal footer when browser is resized.
 * Added hover events on all plugin links for accessibility.
-* Add new Site Title bar.
+* Added new Site Title bar.
 * Accessibility features added: keyboard navigation, dynamic aria settings.
 * Migrated JS events, storage, events, feature detection from jQuery to plain JS.
+* Added new Quick Links menu (Apply, Visit, Give).
 * Performance and documentation improvements.
 
 

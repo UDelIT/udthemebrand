@@ -50,6 +50,7 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
      * @var      array            $plugin_settings_tabs    Array used for each tab in dashboard
     */
     public $plugin_settings_tabs = array();
+    public $current_tab;
     /**
      * CLASS INITIALIZATION
      * Initiates the class and set its properties.

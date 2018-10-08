@@ -174,7 +174,7 @@ if ( ! class_exists( 'udtbp' ) ) :
 			$this->loader->add_action( 'wp_footer', $plugin_public, 'front_end_footer' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 999 );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'udtbp_enqueue_inline_public_styles', 998 );
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'udtbp_enqueue_inline_theme_styles', 999 );
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'udtbp_enqueue_inline_theme_styles', 99999999 );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts', 999 );
 			$this->loader->add_action( 'init', $plugin_public, 'udtbp_show_admin_bar' );
 			$this->loader->add_filter( 'template_include', $plugin_public, 'custom_include', 1 );

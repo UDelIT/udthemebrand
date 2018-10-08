@@ -5,7 +5,7 @@
  * It contains all of the js code necessary to run / display the branding.
  *
  * @since   1.4.2
- * @version 3.5.0  added accessibility scripts.
+ * @version 3.1.0  added accessibility scripts.
  *
  */
 /**
@@ -106,7 +106,7 @@ var pujs = udtheme_public_js_vars.pujs;
  *
  * Cross browser reliable and fast way of checking viewport widths.
  *
- * @since 3.5.0
+ * @since 3.1.0
  * @link http://ryanve.com/lab/dimensions/
  * @param  {[int]} decWidth [viewport width, no scrollbar]
  * @param  {[int]} wiwWidth [viewport width, scrollbar]
@@ -149,7 +149,6 @@ window.onresize = function() {
  * MS BROWSERS ADD CLASS JS
  *
  * Adds MS specific class to body to assist with MS browser specific styles.
- * Creates a link tag with ie.css
  *
  * @since 3.5.0
  * @param  {[int]} decWidth [viewport width, no scrollbar]
@@ -160,7 +159,21 @@ function addClassMS() {
   document.body.classList.add( 'is_ms' );
 } // end addClassMS()
 
+/**
+ * ALL OTHER BROWSERS ADD CLASS JS
+ *
+ * Adds specific class to body to assist with plugin specific styles.
+ *
+ * @since 3.5.0
+ * @param  {[int]} decWidth [viewport width, no scrollbar]
+ * @param  {[int]} wiwWidth [viewport width, scrollbar]
+ * @return {[string]}        [Adds MS specific classes to body tag.]
+ */
+function addClassActive() {
+  document.body.classList.add( 'udtbp_active' );
+} // end addClassActive()
 
+ready(addClassActive);
 /**
  * iOS RESIZE BUG FIX
  *
@@ -184,12 +197,12 @@ function addClassMS() {
 
   /**
   * INTERNET EXPLORER 6-11 FEATURE CHECK
-  * @deprecated   3.5.0
+  * @deprecated   3.1.0
   * @link bkup/deprecated_js/IE6-11.feature.check.js
   */
   /**
   * MICROSOFT EDGE FEATURE CHECK
-  * @deprecated   3.5.0
+  * @deprecated   3.1.0
   * @link bkup/deprecated_js/IE6-11.feature.check.js
   */
 

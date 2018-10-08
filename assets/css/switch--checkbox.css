@@ -30,14 +30,14 @@ button.ud-switch,
 	KNOB CIRCLE CSS
 ----------------------------------*/
 .check-switch span::after {
-  background: #fff;
-  border-radius: 100%;
-  width: 36px;
-  height: 36px;
+  background: white;
+  border-radius: 50px;
+  width: 35px;
+  height: 35px;
   right: 1.5em;
-  -webkit-transform: translate(-11px, -17px);
-  transform: translate(-11px, -17px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2), 0 3px 3px rgba(0, 0, 0, .2);
+  -webkit-transform: translate(-15px, -17px);
+  transform: translate(-15px, -17px);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, .2) inset;
 }
 
 /*----------------------------------
@@ -48,13 +48,13 @@ button.ud-switch,
 }
 
 .check-switch span::before {
-  background: #F7F7F7;
+  background: #CBCBCB;
   border-radius: 50px;
   right: .25em;
-  height: 44px;
+  height: 35px;
   -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  width: 44px;
+  width: 80px;
   box-shadow: inset -1px 1px 2px rgba(0,0,0,.23), inset 1px 0px 2px rgba(0,0,0,.23);
 }
 
@@ -73,13 +73,12 @@ button.ud-switch,
   top: 0;
   width: 100%;
 }
-#ud-id-vh label:focus,
+.form-table .switch:focus label,
 .check-switch.focus-within,
 .switch.focus-within,
 button.focus-within,
 #ud-id-cf label:focus {
-  outline: hsl(216, 80%, 50%) !important;
-  background: hsl(217, 95%, 68%) !important;
+  background: #609bfb !important;
 }
 .check-switch input:not([role="button"]) {
   pointer-events: none;
@@ -88,9 +87,10 @@ button.focus-within,
 /*   outline: 2px solid; */
 }
 .check-switch input:checked + span::after,
+.check-switch input:checked + div span::after,
 .switch input:checked + span::after {
-  -webkit-transform: translate(25px, -19px);
-  transform: translate(25px, -19px);
+  -webkit-transform: translate(25px, -17px);
+  transform: translate(25px, -17px);
 }
 
 @media screen and (-ms-high-contrast: active) {

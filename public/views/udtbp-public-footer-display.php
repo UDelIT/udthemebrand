@@ -36,6 +36,9 @@
       <div class="ud-footer--logo">
         <a href="https://www.udel.edu" aria-labeledby="ud_circle_logo">
          <img alt="Go to the University of Delaware home page." id="ud_circle_logo" src="<?php echo esc_url( UDTBP_PUBLIC_IMG_URL ); ?>/logos/img-ud-circle-logo.svg" role="img" width="130" height="130">
+        <!--  <svg class="color-svg">
+            <use xlink:href="#ud-img-circleud"></use>
+          </svg> -->
           <span class="screen-reader-text">Go to the University of Delaware home page.</span>
         </a>
       </div>
@@ -49,7 +52,7 @@
   </footer>
   <div class="item item--full ud-footer--legal">
     <ul>
-      <li>©<?php echo Date('Y'); ?> <span id="udid_cr" class="ud_copyright">University of Delaware</span></li>
+      <li>© <?php echo Date('Y'); ?> <span id="udid_cr" class="ud_copyright">University of Delaware</span></li>
       <li><a href="https://www.udel.edu/home/comments">Comments</a></li>
       <li><a href="https://www.udel.edu/home/legal-notices"><span id="udid_ln" class="ud_copyright">Legal Notices</span></a></li>
       <li><a href="https://www.udel.edu/home/legal-notices/accessibility/"><span id="udid_an" class="ud_copyright">Accessibility Notice</span></a></li>

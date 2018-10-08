@@ -12,34 +12,37 @@
   * @copyright   Copyright (c) 2012-2018 University of Delaware
   * @version     3.5.0
 */
-#wpbody-content {
+body.udtbp_active #wpbody-content {
   padding-bottom: 0;
 }
-#wpcontent {
+body.udtbp_active #wpcontent {
   font-size: 16px;
-  padding-left: 0;
+  padding: 0;
 }
 
-#wpcontent p {
+body.udtbp_active #wpcontent p {
   font-size: 13px;
 }
-#wpfooter {
+body.udtbp_active #wpfooter {
   position: relative;
 }
-#wp-content a {
+body.udtbp_active #wp-content a {
   -webkit-transition: color .12s ease-in-out;
   transition: color .12s ease-in-out;
 }
 
-#wp-content a:focus {
+body.udtbp_active #wp-content a:focus {
   box-shadow: none !important
 }
 
+body.udtbp_active #poststuff #post-body.columns-2 {
+  margin-right: 280px;
+}
 .postbox, .stuffbox {
   margin-bottom: 0;
 }
 
-#poststuff .inside {
+body.udtbp_active #poststuff .inside {
   margin: 0;
   height: calc(100% - 150px);
   display: -webkit-flex;
@@ -69,26 +72,26 @@
   text-decoration:none;
 }
 
-h1#icon-themes #ud_primary_logo {
+/* h1#icon-themes */ #ud_primary_logo {
   box-sizing: border-box;
   max-width: 210px;
   width: 100%;
   height: auto;
 }
-.is_ms h1#icon-themes #ud_primary_logo {
+.is_ms /* h1#icon-themes */ #ud_primary_logo {
   height: 76px;
 }
 
 h1#icon-themes {
-  display: -webkit-flex;
+/*   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow:  row wrap;
   flex-flow:  row wrap;
   padding-bottom: 0;
   -webkit-align-items: center;
   align-items: center;
-  height: 112px;
-  padding: 0 12px;
+  height: 112px;*/
+  padding: 0;
 }
 
 .inside a:active,
@@ -232,11 +235,11 @@ h1#icon-themes {
   transition: all 0.2s;
   box-sizing: border-box;
   border: 0;
+  background: transparent;
   padding: 0;
   line-height: 16px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), inset 0 -2px 0 0 rgba(0, 0, 0, 0.4);
-  background: transparent;
-  border: 1px solid #FFFFFF9D;
+  border: 1px solid rgba(255, 255, 255, 0.616);
   width: 200px;
   height: 50px;
   padding: 10px;
@@ -247,6 +250,18 @@ h1#icon-themes {
   font-size: 18px;
 }
 
+.wp-core-ui .button.save-button:hover {
+  background: #06A;
+  box-shadow: 0 8px 16px #0003, 0px 6px 6px #0003;
+  transition: opacity 0.3s, -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+  will-change: opacity, transform;
+}
 .wp-core-ui .button.save-button::after {
   content: "";
   border-radius: 5px;
@@ -259,7 +274,6 @@ h1#icon-themes {
   opacity: 0;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  background: #06A;
   -webkit-transform: scale(1.02);
   transform: scale(1.01) translateY(-2px);
   -webkit-transform-origin: center;
@@ -313,6 +327,7 @@ p.dashicons-before.dashicons-warning::before {
 
 .wp-core-ui .notice.is-dismissible {
   margin-bottom: 0;
+  margin-top: 0;
 }
 .notice.notice-warning.is-dismissible p {
   color:#9F6000 !important;

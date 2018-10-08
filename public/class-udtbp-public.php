@@ -189,7 +189,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
     */
     public function enqueue_scripts() {
       wp_deregister_script( $this->udtbp . '-public-script' );
-      wp_register_script( $this->udtbp . '-public-script', UDTBP_PUBLIC_JS_URL . '/udtbp-public.js', array( 'jquery' ), UDTBP_VERSION, TRUE );
+      wp_register_script( $this->udtbp . '-public-script', UDTBP_PUBLIC_JS_URL . '/udtbp-public.min.js', array( 'jquery' ), UDTBP_VERSION, TRUE );
       wp_enqueue_script( $this->udtbp . '-public-script' );
 
       $args_localize_script = [
@@ -281,7 +281,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
     public function udtbp_enqueue_inline_theme_styles() {
       $strcss_pos_rel = "position:relative !important;";
       $strcss_top_0 = "top:0px !important;";
-      if (in_array($this->current_theme, json_decode($this->json_theme_list) )) :
+      if ( in_array( $this->current_theme, json_decode( $this->json_theme_list ) )) :
         ?>
         <style id="udtbp-theme-override-css">
         <?php
@@ -386,6 +386,17 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
         </style>
         <?php
       endif; // end in_array()
+
+
+
+
+
+
+
+
+
+
+
     } // end udtbp_enqueue_inline_theme_styles
 
     /**
@@ -400,6 +411,35 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
         add_filter( 'show_admin_bar', '__return_TRUE' , 1000 );
       }
     }
+
+
+
+
+
+
+
+    /**
+     * Get nav menu items by location
+     *
+     * @param $location The menu location id
+     */
+    public function get_nav_menu_items_by_location( $location, $args = [] ) {
+
+        // Get all locations
+        $locations = get_nav_menu_locations();
+
+        // Get object id by location
+        $object = wp_get_nav_menu_object( $locations[$location] );
+
+        // Get menu items by menu name
+        $menu_items = wp_get_nav_menu_items( $object->name, $args );
+
+        // Return menu post objects
+        return $menu_items;
+    }
+
+
+
     /**
      * Including Header Front End
      * Hack to load content directly after opening <body> tag.
@@ -423,10 +463,13 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
      */
     public function body_inject() {
       global $pagenow;
-      $quicklinks = new udtbp_QuickLinks();
-      $this->quicklinks = udtbp_QuickLinks::quicklinks_header();
-      $blow = $this->quicklinks;
+      // $quicklinks = new udtbp_QuickLinks();
+      // $this->quicklinks = udtbp_QuickLinks::quicklinks_header();
+     // $blow = $this->quicklinks;
       $homeUrl = get_home_url();
+
+
+
 
       if ( $pagenow !== 'wp-login.php' && ! isset ( $_GET['action'] ) ) {
         $show_custom_text = '';
@@ -456,39 +499,41 @@ HTML;
 <a href="https://www1.udel.edu/">
 <img alt="Go to the University of Delaware home page." id="ud_primary_logo" src="{$this->udtbp_public_img_url}/logos/img-udlogo.svg" role="img" width="170" height="70">
 </a>
-<div class="ud-flex--df ud-align--jcfe ud-header--quicklinks">
-<ul>
-<li>
-<a aria-label="Visit the University of Delaware (external link)" href="https://www.udel.edu/about/visit/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_visit">
-<svg class="icon">
-<use xlink:href="#ud-icon-visit"></use>
-</svg>
- <p>Visit</p>
-</a>
-</li>
-<li>
-<a aria-label="Apply to the University of Delaware (external link)" href="https://www.udel.edu/apply/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_apply">
-<svg class="icon">
-<use xlink:href="#ud-icon-apply"></use>
-</svg>
- <p>Apply</p>
-</a>
-</li>
-<li>
-<a aria-label="Give a gift to the University of Delaware (external link)" href="https://www.udel.edu/alumni-friends/give/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_give">
-<svg class="icon">
-<use xlink:href="#ud-icon-give"></use>
-</svg>
- <p>Give</p>
-</a>
-</li>
-</ul>
-</div>
+
 </div>
 </header>
 $show_custom_text
 </div>
 HTML;
+
+// <div class="ud-flex--df ud-align--jcfe ud-header--quicklinks">
+// <ul>
+// <li>
+// <a aria-label="Visit the University of Delaware (external link)" href="https://www.udel.edu/about/visit/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_visit">
+// <svg class="icon">
+// <use xlink:href="#ud-icon-visit"></use>
+// </svg>
+//  <p>Visit</p>
+// </a>
+// </li>
+// <li>
+// <a aria-label="Apply to the University of Delaware (external link)" href="https://www.udel.edu/apply/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_apply">
+// <svg class="icon">
+// <use xlink:href="#ud-icon-apply"></use>
+// </svg>
+//  <p>Apply</p>
+// </a>
+// </li>
+// <li>
+// <a aria-label="Give a gift to the University of Delaware (external link)" href="https://www.udel.edu/alumni-friends/give/?utm_source=homepage&amp;utm_medium=icon&amp;utm_campaign=header_give">
+// <svg class="icon">
+// <use xlink:href="#ud-icon-give"></use>
+// </svg>
+//  <p>Give</p>
+// </a>
+// </li>
+// </ul>
+// </div>
           $content = ob_get_clean();
           $content = preg_replace( '#<body([^>]*)>#i',"<body$1>{$inject}",$content );
           echo $content;

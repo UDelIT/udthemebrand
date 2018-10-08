@@ -19,7 +19,7 @@
 require_once plugin_dir_path( __FILE__ ) . 'interface-udtbp-current-user-check.php';
 if ( ! class_exists( 'udtbp_Dectivation' ) ) :
   class udtbp_Dectivation implements udtbp_Current_User_Check {
-    function udtbp_check_current_user( $current_user ) {
+    function udtbp_check_current_user($current_user) {
       if ( ! current_user_can( 'activate_plugins' ) )
       return;
     }

@@ -36,6 +36,11 @@ function compress( $buffer ) {
     * @todo replace this process and file with JS build of scss files.
     * Assets/css is newer than public/css for below files. UPDATE!
   */
+  // include( 'normalize.css' );
+  // include( 'wcag.css' );
+  // include( 'header.css' );
+  // include( 'footer.css' );
+
   include( '../../assets/css/_fonts.css' );
   include( '../../assets/css/_normalize-udtbp.css' );
   include( '_branding.css' );

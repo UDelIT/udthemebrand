@@ -67,9 +67,7 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
       $this->plugin_settings_tabs['header']  = 'Header';
       $this->plugin_settings_tabs['footer']  = 'Footer';
       $this->plugin_settings_tabs['about']   = 'About';
-      $this->plugin_settings_tabs['support'] = 'Support';
-      $this->json_theme_list = json_decode( JSON_THEME_LIST );
-      $this->view_header = get_option( $this->udtbp . '_options' );
+      $this->json_theme_list = JSON_THEME_LIST;
       $option   = 0;
     }
     /**
@@ -98,7 +96,6 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
       $div_id = $this->udtbp.'_theme_override';
       $div_class = 'notice notice-warning is-dismissible hide';
       $p_class = 'dashicons-before dashicons-warning';
-      $theme_name = $this->current_theme;
       $button = __( 'Dismiss this notice.' );
 
       $screen = get_current_screen();
@@ -107,22 +104,22 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
         return;
       }
 
-
-
       if ( 'header' === $current_tab ) {
          $options = ( get_option( 'udtbp_header_options' ) ? get_option( 'udtbp_header_options' ) : FALSE );
         $option = $options['view-header'];
       }
       else {
         $options['view-header'] = NULL;
+        $option = 0;
       }
 
-        $notice_div = '<div id="%1$s" class="%2$s"><p class="%3$s">The <span class="theme_name">%4$s Theme</span> %5$s</p><button type="button" class="aria_pressed notice-dismiss" aria-pressed="false"><span class="screen-reader-text">%6$s</span></button></div>';
+      $notice_div = '<div id="%1$s" class="%2$s"><p class="%3$s">The <span class="theme_name">%4$s Theme</span> %5$s</p><button type="button" class="aria_pressed notice-dismiss" aria-pressed="false"><span class="screen-reader-text">%6$s</span></button></div>';
 
-        if ( in_array( $this->current_theme, $this->json_theme_list ) && 1 == $options['view-header']  )  :
+        if ( in_array( $this->current_theme, json_decode( $this->json_theme_list ) ) && $option == 1 ) :
+
           if ( function_exists( 'et_get_option' ) && 'on' === et_get_option( 'divi_fixed_nav', 'on' ) ) {
-            $message = __( " has fixed navigation enabled. To ensure full plugin compatibility, this setting MUST be disabled in your Theme Options.", $this->udtbp );
-            echo sprintf( $notice_div, $div_id, $div_class, $p_class, $theme_name, $message, $button );
+            $message = __( " has fixed navigation enabled. To ensure full plugin compatibility, this setting MUST be disabled in your Theme Options.", UDTBP_NAME );
+            echo sprintf( $notice_div, $div_id, $div_class, $p_class, $this->current_theme, $message, $button );
           }
           elseif ( function_exists( 'et_get_option' ) && 'false' === et_get_option( 'divi_fixed_nav', 'false' ) ) {
             $message = '';
@@ -130,8 +127,8 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
             return false;
           }
           else {
-            $message = __( ' is not fully compatible with the branding plugin.', $this->udtbp );
-            echo sprintf( $notice_div, $div_id, $div_class, $p_class, $theme_name, $message, $button );
+            $message = __( ' is not fully compatible with the branding plugin.', UDTBP_NAME );
+            echo sprintf( $notice_div, $div_id, $div_class, $p_class, $this->current_theme, $message, $button );
           }
         endif; //end in_array check
         //echo "MOO" . $this->json_theme_list;

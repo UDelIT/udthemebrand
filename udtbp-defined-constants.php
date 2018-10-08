@@ -10,7 +10,7 @@
   * PHP version
   *
   * @package     udtheme-brand
-  * @author      Christopher Leonard - University of Delaware
+  * @author      Christopher Leonard
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
@@ -39,7 +39,7 @@
 */
 const UDTBP_NAME             = 'UDTheme Branding';
 const UDTBP_VERSION          = '3.5.0';
-const UDTBP_REQ_PHP_VERSION  = '5.6.30';
+const UDTBP_REQ_PHP_VERSION  = '7.0';
 const UDTBP_REQ_WP_VERSION   = '4.7';
 
 /**
@@ -64,7 +64,24 @@ const UDTBP_REQ_WP_VERSION   = '4.7';
  * Twenty Seventeen..........................1.7
  * @var array
  */
-$json_theme_list = array( "Aaron", "Anjirai", "Boardwalk", "Cubic", "Divi (with fixed navigation)", "Matheson", "Radiate", "Star", "Swell Lite", "Temptation", "Tracks", "Twenty Twelve", "Twenty Fourteen", "Twenty Fifteen", "Twenty Sixteen", "Twenty Seventeen" );
+$json_theme_list = array(
+  "Aaron",
+  "Anjirai",
+  "Boardwalk",
+  "Cubic",
+  "Divi (with fixed navigation)",
+  "Matheson",
+  "Radiate",
+  "Star",
+  "Swell Lite",
+  "Temptation",
+  "Tracks",
+  "Twenty Twelve",
+  "Twenty Fourteen",
+  "Twenty Fifteen",
+  "Twenty Sixteen",
+  "Twenty Seventeen"
+);
 
 if ( !defined( 'JSON_THEME_LIST' ) )              define( 'JSON_THEME_LIST',     json_encode( $json_theme_list ) );
 

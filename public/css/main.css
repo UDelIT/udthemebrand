@@ -337,10 +337,6 @@ img:not(.png) {
   text-decoration: none;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
   width: 130px;
   height: 130px;
 }

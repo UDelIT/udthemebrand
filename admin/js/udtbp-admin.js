@@ -11,109 +11,21 @@
  *
  * 1. jQuery      ( http://jquery.com/ )
  *
- * @since   1.4.2
- * @version 3.5.0  added accessibility scripts.
- * @todo
- *         - this file should be the base from which all other JS components are added.
- *         - Right now it's bloated with duplicate JS and PHP aria functionality
- *         - Mix of jQuery, vanilla JS, ES5-6. jQuery needs to go.
+ * @todo    separate into individual JS components.
+ * @todo    migrate remaining jQuery to ES5-6.
+ * @todo    Remove IE 11 support by 12/2018.
+ * https://www.sitepoint.com/essential-sublime-text-javascript-plugins/
+ * @since   [1.4.2]
+ * @version [3.5.0]
  */
 
 (function( $ ) {
   'use strict';
 
-/**
- * ARIA Dialog Example (Modal)
- *
- * @link
- */
-// $(document.body).on('click', '.label', function (e) {
-//   var assocInput = $('[aria-labelledby="' + this.id + '"]')[0];
-
-//   if (assocInput) {
-//     assocInput.click();
-//   }
-// });
-
-// $(document.body).on('keydown', '.checkbox', function (e) {
-//   var which = e.which;
-
-//   if (which === 13 || which === 32) {
-//     e.preventDefault(); // don't scroll
-//     e.target.click();
-//   }
-// });
-
-// var $radios = $('.radio');
-
-// $(document.body).on('click', '.radio', function (e) {
-//   var $target = $(this);
-//   var $icon = $target.find('i.fa');
-
-//   $icon
-//     .removeClass('fa-circle-o')
-//     .addClass('fa-dot-circle-o');
-//   $target
-//     .attr('aria-checked', 'true')
-//     .prop('tabindex', '0');
-
-//   $radios.each(function () {
-//     if (this !== $target[0]) {
-//       $(this)
-//         .attr('aria-checked', 'false')
-//         .prop('tabindex', '-1')
-//         .find('i')
-//           .removeClass('fa-dot-circle-o')
-//           .addClass('fa-circle-o');
-//     }
-//   });
-// });
-
-// $(document.body).on('keydown', '.radio', function (keyVent) {
-//   var which = keyVent.which;
-//   var target = keyVent.target;
-
-//   if (which === 37 || which === 38) { // LEFT |or| UP
-//     selectAdjacentRadio(target, 'prev');
-//   keyVent.preventDefault();
-//   } else if (which === 39 || which === 40) { // RIGHT |or| DOWN
-//     selectAdjacentRadio(target, 'next');
-//   keyVent.preventDefault();
-//   }
-// });
-
-// // iOS support for clicking on these 'non-natively clickable' elements
-// //
-// $(document.body).on('touchstart', '.radio, .checkbox', function () {
-//   this.click();
-// });
-
-
-// function selectAdjacentRadio(radio, dir) {
-//   var currentIndex = $.inArray(radio, $radios);
-//   var adjacentIndex = (dir === 'next') ? currentIndex + 1 : currentIndex - 1;
-//   var adjacentRadio = $radios[adjacentIndex];
-
-//   if (!adjacentRadio) {
-//     // go from last to first and vice versa
-//     adjacentRadio = (dir === 'next') ? $radios[0] : $radios[$radios.length - 1];
-//   }
-
-//   adjacentRadio.click();
-//   adjacentRadio.focus();
-// }
-
-
 $(function() {
-  // previous JS that controls radio sliders, localStorage etc.
-
-  // var groupInput = $('.grey-main input[type="radio"]');
-  // var hdstateinput = $('#header-state input[type="radio"]');
   var notify = $('p.notify');
-
   var adcss = udtheme_admin_js_vars.adcss;
   var adjs = udtheme_admin_js_vars.adjs;
-
   var plugin_name = udtheme_admin_js_vars.plugin_name;
   var Header = udtheme_admin_js_vars.Header;
   var header_id = udtheme_admin_js_vars.header_id;
@@ -121,28 +33,10 @@ $(function() {
   var Footer = udtheme_admin_js_vars.Footer;
   var footer_id = udtheme_admin_js_vars.footer_id;
   var footer_color = udtheme_admin_js_vars.footer_color;
-  var block = udtheme_admin_js_vars.block;
-  var blank = udtheme_admin_js_vars.blank;
-  var hdblank = $( header_id ).add( blank, Header );
-  var hdblock = $('#' + header_id + block + 'Header');
-  var switch_selection = $('.switch-selection');
-  var footerText = 'Footer';
-  var ftblank = $('#' + plugin_name + '-blankFooter');
-  var ftblock = $('#' + plugin_name + '-blockFooter');
-  var ftcolorh3 = $('#footer-color h3 ');
-  var ftcolorsmall = $('#footer-color small');
-  var ftcolor = $('#footer-color');
-  var ftstateinput = $('#footer-state > input');
-  var ftcolorinput =$('#footer-color > input');//input[name="sb_bar_footer_options[color-footer]"]');
-  var ftError ='';
 
   var button = $('#udtbp_form input[type="submit"]');
   var Off = 'off';
   var On = 'on';
-  // var rad_blue_footer = $('#rad_blue_footer');
-  // var rad_white_footer = $('#rad_white_footer');
-  // var siteTitle = $('#udtbp_header_options[header-title]');
-  // var view_footer = $('#udtbp_footer_options[view-footer]');
   var appendNotify = $('#ud-id-ht');
   var vHead = document.getElementById('#udtbp_options[view-header]');
 
@@ -152,23 +46,6 @@ $(function() {
   var rad_blue_footer = document.getElementById('rad_blue_footer');
   var rad_white_footer = document.getElementById('rad_white_footer');
 
-
-  // http://stackoverflow.com/questions/3357553/how-to-store-an-array-in-localstorage
-  // var setClass = JSON.parse(localStorage.getItem('setClass')) || {};
-  // $.each(setClass, function () {
-  //     $(this.selector).addClass(this.className);
-  // });
-  // var addClassToLocalStorage = function(selector, className) {
-  //     setClass[selector + ':' + className] = {
-  //         selector: selector,
-  //         className: className
-  //     };
-  //     localStorage.setItem('setClass', JSON.stringify(setClass));
-  // };
-  // var removeClassFromLocalStorage = function(selector, className) {
-  //     delete setClass[selector + ':' + className];
-  //     localStorage.setItem('setClass', JSON.stringify(setClass));
-  // };
 
   // @todo this is so hacky, needs to be cleaned up.
   $('.box-content').on( 'click', '.udt_yes_no_button', function(e){
@@ -219,7 +96,7 @@ $(function() {
       resizable: false,
       title: 'link of fixed navigation',
       width: 'auto',
-      'closeOnEscape' : true,
+      closeOnEscape : true,
       show: {
         effect: 'fade',
         duration: 1000
@@ -243,7 +120,7 @@ $(function() {
         $('#dialog').dialog('open');
       }
     });
-  }) // end $(function)
+  }); // end $(function)
 
 
 $(function() {
@@ -292,7 +169,7 @@ $(function() {
           var i;
           var text = "";
 
-          for (i = 0; i < b.length; i++) {
+          for (i = 0; i < b.length; i+= 1) {
               text += b[i];
           }
             console.log(text + "\n");
@@ -302,12 +179,24 @@ $(function() {
     }); // end submit()
   } // end save_main_options_ajax()
   save_main_options_ajax();
-}) // end $(function)
+}); // end $(function)
 
 })( jQuery ); // end top function
 
 
     /**********************************************/
+/**
+ * GLOBAL VARIABLES
+ */
+// ASSETS
+var ascss = udtheme_admin_js_vars.ascss;
+var asjs = udtheme_admin_js_vars.asjs;
+// ADMIN
+var adcss = udtheme_admin_js_vars.adcss;
+var adjs = udtheme_admin_js_vars.adjs;
+// PUBLIC
+var pucss = udtheme_admin_js_vars.pucss;
+var pujs = udtheme_admin_js_vars.pujs;
 
 // function getStorage() {
 //   var data = localStorage.getItem("radios");
@@ -322,34 +211,80 @@ $(function() {
 
 
 
+////////////// HELPER FUNCTIONS //////////////
 
-
-
-// http://youmightnotneedjquery.com/#ready
+/**
+ * DOCUMENT READY
+ *
+ * Helper function that mimics jQuery document.load
+ *
+ * @since         3.5.0
+ * @usage         ready(func());
+ *
+ * {@link         http://youmightnotneedjquery.com/#ready}
+ */
 function ready(fn) {
   if (document.readyState != 'loading'){
     fn();
-  } else if (document.addEventListener) {
+  } else  {
     document.addEventListener('DOMContentLoaded', fn);
-  } else {
-    document.attachEvent('onreadystatechange', function() {
-      if (document.readyState != 'loading')
-        fn();
-    });
   }
 }
 
+/**
+ * QUERYSELECTOR ALL
+ *
+ * Helper function for selecting a list of matching elements, context is optional
+ *
+ * @since         3.5.0
+ * @usage:        var matches = help_qsa('.foo .bar');
+ *                var container = help_qs('.foo');
+ *                var matches = help_qsa('.bar', container);
+ *
+ * {@link         https://plainjs.com/javascript/selecting/select-dom-elements-by-css-selector-4/}
+ */
+function help_qsa(selector, context) {
+  return (context || document).querySelectorAll(selector);
+}
 
-// ready(getStorage());
+/**
+ * QUERYSELECTOR
+ *
+ * Helper function for selecting the first matching element only, context is optional
+ *
+ * @since         3.5.0
+ * {@link         https://plainjs.com/javascript/selecting/select-dom-elements-by-css-selector-4/}
+ */
+function help_qs(selector, context) {
+  return (context || document).querySelector(selector);
+}
+
+/**
+ * HASATTRIBUTE POLYFILL
+ *
+ * Helper function for element has attribute check. Polyfill
+ *
+ * @since         3.5.0
+ * {@link         https://developer.mozilla.org/en-US/docs/Web/API/Element/hasAttribute#Polyfill}
+ */
+;(function(prototype) {
+    prototype.hasAttribute = prototype.hasAttribute || function(name) {
+        return !!(this.attributes[name] &&
+                  this.attributes[name].specified);
+    }
+})(Element.prototype);
+////////////// END HELPER FUNCTIONS //////////////
 
 
 /**
-    * JAVASCRIPT FEATURE DETECTION
-    * Checks for IE11 and Edge browsers
-    * IntersectionObserver detection for Edge version >= 15
-    * Loads MS browser based polyfills due to limited API support.
-    * @return   mixed
-  */
+  * JAVASCRIPT FEATURE DETECTION
+  * Checks for IE11 and Edge browsers
+  * IntersectionObserver detection for Edge version >= 15
+  * Loads MS browser based polyfills due to limited API support.
+  *
+  * @since         [3.0.4]
+  * @version       [3.5.0]
+*/
 (function detectIE() {
   var isIE = ( ( /*@cc_on!@*/false ) || ( document.documentMode ) );
   var isEdge = ( !isIE ) && ( ( !!window.StyleMedia ) && ( window.IntersectionObserver ) );
@@ -412,18 +347,30 @@ function ready(fn) {
 })();
 
 /**
- * MS BROWSERS ADD CLASS JS
+ * BODY ADD CLASS - MS BROWSERS JS
  *
- * Cross browser reliable and fast way of checking viewport widths.
+ * Checks if clients are using  Microsoft browsers, if true then a class is added
+ * to the body.
  *
- * @since 3.5.0
- * @param  {[int]} decWidth [viewport width, no scrollbar]
- * @param  {[int]} wiwWidth [viewport width, scrollbar]
- * @return {[string]}        [Adds MS specific classes to body tag.]
+ * @since         3.5.0
  */
 function addClassMS() {
   document.body.classList.add( 'is_ms' );
 } // end addClassMS()
+
+/**
+ * BODY ADD CLASS - BRANDING PLUGIN JS
+ *
+ * If plugin is active then a plugin specific class is added
+ * to the body. This reduces the risk of specificity issues.
+ *
+ * @since         3.5.0
+ */
+function addClassPlugin() {
+  document.body.classList.add( 'udtbp_active' );
+} // end addClassPlugin()
+
+ready(addClassPlugin());
 
 
 
@@ -437,77 +384,171 @@ function addClassMS() {
 /**
  * VISIBILITY CHECKBOX TOGGLE SWITCH
  * Assigns related display text and ARIA checked attributes
+ * IE 11 doesn't support .forEach so we borrow the method from Array.prototype as a polyfill.
  */
-
-// "use strict";
-
-document.querySelectorAll(".switch").forEach(function (theSwitch) {
-  theSwitch.addEventListener("click", handleClickEvent, false);
-  theSwitch.addEventListener("change", handleChangeEvent, false);
+var udARIA = {};//udtbp_theme_override
+var s = document.querySelectorAll(".ud-switch, .switch, .save-button");
+Array.prototype.forEach.call(s, function(elem) {
+  elem.addEventListener("click", handleClickEvent, false);
+  elem.addEventListener("change", handleChangeEvent, false);
+  elem.addEventListener('keypress', udARIA.keyEvents, false);
 });
 
 function handleClickEvent(evt) {
-  var el = evt.target;
+  var clsb     = document.querySelector('.save-button');
+var pressed = clsb.getAttribute('aria-pressed') === 'true';
+    clsb.setAttribute('aria-pressed', String(!pressed));
+// console.log('s' + s);
+//   var el = evt.target;
 
-  if (el.getAttribute("aria-checked") == "true") {
-    el.setAttribute("aria-checked", "false");
-    localStorage.setItem('achkd', 'true');
-  } else {
-    el.setAttribute("aria-checked", "true");
-    localStorage.setItem('achkd', 'true');
-  }
+Array.prototype.forEach.call(s, function(item, i){
+  // if (  (item.hasAttribute('aria-pressed'))  && (item.type = "button") ) {
+  //   item.setAttribute('aria-pressed', 'true');
+  // }
+  // if (item.type = "button"){
+  //   item.setAttribute('aria-pressed', true);
+  // }
+  // if (!item.type = "button"){
+  //   item.setAttribute('aria-pressed', false);
+  // }
+  //item.setAttribute('id', array[i]);
+});
+
 }
+
+// var matches = help_qsa('.color-on svg');
+// var container = help_qs('.foo');
+//var matches = help_qsa('.bar', container);
 
 function handleChangeEvent() {
+  // global elements
+  var clAxOn   = help_qs('.color-on');
+  var clSvgOn  = document.getElementById('svg_on');
+  var clAxOff  = help_qs('.color-off');
+  var clSvgOff = document.getElementById('svg_off');
+
   // header elements
-  var vh = document.getElementById("udtbp_header_options[view-header]");
-  var vhBox = document.getElementById("ud-id-vh");
-  var hInput = document.getElementById("udtbp_header_options[header-title]");
+  var idVhcb   = document.getElementById('udtbp_header_options[view-header]');
+  var idVh     = document.getElementById('ud-id-vh');
+  var idHt = document.getElementById('udtbp_header_options[header-title]');
 
   // footer elements
-  var vf = document.getElementById("udtbp_footer_options[view-footer]");
-  var sibling = vf.nextElementSibling;
-  var vfBox = document.getElementById("ud-id-vf");
-  var cfBox = document.getElementById("ud-id-cf");
+  var idVfcb    = document.getElementById('udtbp_footer_options[view-footer]');
+  var idVf     = document.getElementById('ud-id-vf');
+  var idCf = document.getElementById('ud-id-cf');
 
-  let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-  localStorage.setItem('items', JSON.stringify(itemsArray));
-  const data = JSON.parse(localStorage.getItem('items'));
+  // let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+  // localStorage.setItem('items', JSON.stringify(itemsArray));
+  // var data = JSON.parse(localStorage.getItem('items'));
 
-  if (vf.checked) {
-    vf.setAttribute("aria-checked", "true");
-    vfBox.classList.remove('color-off');
-    vfBox.classList.add('color-on');
-    sibling.textContent = 'ON';
-    cfBox.classList.remove('disabled');
-    localStorage.setItem('vf_ls', vf.checked);
-    localStorage.setItem('cf', 'on');
-  } else {
-    vfBox.classList.toggle('color-off');
-    vfBox.classList.remove('color-on');
-    sibling.textContent = 'OFF';
-    cfBox.classList.add('disabled');
-    var radios = document.querySelectorAll('udtbp_footer_options[color-footer] input'), i = radios.length;
-    while (i--) {
-      radios[i].disabled = true;
+  if (idVfcb) {
+    if (idVfcb.checked) {
+      idVfcb.setAttribute("aria-checked", "true");
+      idVf.classList.remove('color-off');
+      idVf.classList.add('color-on');
+      clSvgOn.classList.add('visible');
+      clSvgOff.classList.remove('visible');
+      // sibling.textContent = 'ON';
+      idCf.classList.remove('disabled');
+      localStorage.setItem('vf_ls', idVfcb.checked);
+      localStorage.setItem('cf', 'on');
     }
-    localStorage.removeItem('cf', 'on');
+    else {
+      idVf.classList.add('color-off');
+      idVf.classList.remove('color-on');
+      clSvgOn.classList.remove('visible');
+      clSvgOff.classList.add('visible');
+      // sibling.textContent = 'OFF';
+      idCf.classList.add('disabled');
 
-    localStorage.setItem("radios", JSON.stringify(radios));
+      localStorage.removeItem('cf', 'on');
+      localStorage.setItem("radios", JSON.stringify(radios));
+    }
+  }
+
+  if (idVhcb) {
+    if (idVhcb.checked) {
+
+      idVhcb.setAttribute("aria-checked", "true");
+      idVh.classList.remove('color-off');
+      idVh.classList.add('color-on');
+      clSvgOn.classList.add('visible');
+      clSvgOff.classList.remove('visible');
+      // sibling.textContent = 'ON';
+      idHt.classList.remove('disabled');
+      //localStorage.setItem('vh_ls', idVhcb.checked);
+      //localStorage.setItem('ht', 'on');
+    }
+    else {
+      idVhcb.setAttribute("aria-checked", "false");
+      idVh.classList.add('color-off');
+      idVh.classList.remove('color-on');
+      clSvgOn.classList.remove('visible');
+      clSvgOff.classList.add('visible');
+      // sibling.textContent = 'OFF';
+      idHt.classList.add('disabled');
+
+      var radios = document.querySelectorAll('udtbp_footer_options[color-footer] input'), i = radios.length;
+      while (i--) {
+        radios[i].disabled = true;
+      }
+
+      localStorage.removeItem('ht', 'on');
+      localStorage.setItem("radios", JSON.stringify(radios));
+    }
   }
 }
 
 
 
-// function load(){
-//     var vf = JSON.parse(localStorage.getItem('vf'));
-//     vf.checked = vf;
-//     document.getElementById("udtbp_footer_options[view-footer]").setAttribute("aria-checked", "true");
-//     console.log('asdf ' + vf);
+// function ariaPressed() {
+//   var toggle = document.querySelector('.save-button');
+
+//   toggle.addEventListener('click', function (e) {
+//     e.stopPropagation();
+//     e.preventDefault();
+//     var pressed = e.target.getAttribute('aria-pressed') === 'true';
+//     e.target.setAttribute('aria-pressed', String(!pressed));
+//   });
 // }
 
-ready(handleChangeEvent());
-//ready(load());
+/**
+ * Attach keyEvents to toggle buttons
+*/
+udARIA.keyEvents = function (el) {
+  var keyCode = el.keyCode || el.which;
+
+/**
+  * Map appropriate key commands to non button elements acting like buttons.
+  * 9  = tab
+  * 13  = enter
+  * 32  = spacebar
+  * 37  = arrow left
+  * 38  = arrow up
+  * 39  = arrow right
+  * 40  = arrow down
+
+  *
+*/
+  if (el.target.tagName !== 'BUTTON') {
+    alert("udARIA");
+    switch (keyCode) {
+      case 32:
+      case 13:
+        el.stopPropagation();
+        el.preventDefault();
+        el.target.click();
+        break;
+
+      default:
+        break;
+    }
+  }
+};
+
+
+ready(handleChangeEvent);
+//ready(udARIA.keyEvents);
 /**
   * FOCUS WITHIN POLYFILL
   *
@@ -515,7 +556,71 @@ ready(handleChangeEvent());
   * @link https://gist.github.com/aFarkas/a7e0d85450f323d5e164
   */
 
-!function(t,e){"use strict";var i,n,s,c=[].slice,a=function(t){t.classList.remove("focus-within")},o=(s=function(){var t=e.activeElement;if(i=!1,n!==t)for(n=t,c.call(e.getElementsByClassName("focus-within")).forEach(a);t&&t.classList;)t.classList.add("focus-within"),t=t.parentNode},function(){i||(requestAnimationFrame(s),i=!0)});e.addEventListener("focus",o,!0),e.addEventListener("blur",o,!0),o()}(window,document);
+// !function(t,e){"use strict";var i,n,s,c=[].slice,a=function(t){t.classList.remove("focus-within")},o=(s=function(){var t=e.activeElement;if(i=!1,n!==t)for(n=t,c.call(e.getElementsByClassName("focus-within")).forEach(a);t&&t.classList;)t.classList.add("focus-within"),t=t.parentNode},function(){i||(requestAnimationFrame(s),i=!0)});e.addEventListener("focus",o,!0),e.addEventListener("blur",o,!0),o()}(window,document);
+
+(function ( w, doc, undefined ) {
+  'use strict';
+  var A11YswitchCheck;
+
+  A11YswitchCheck = function ( ) {
+    /**
+     * Author: Scott O'Hara
+     * Version: 0.1.0
+     * License: https://github.com/scottaohara/a11y_styled_form_controls/blob/master/LICENSE
+     */
+    var el;
+
+    /**
+     * Initialize the instance, run all setup functions
+     * and attach the necessary events.
+     */
+    this.init = function ( elm ) {
+      el = elm;
+      setRole ( el );
+      attachEvents ( el );
+    };
+
+    /**
+     * Check default state of element:
+     * A toggle button is not particularly useful without JavaScript,
+     * so ideally such a button would be set to hidden or disabled, if JS wasn't
+     * around to make it function.
+     */
+    var setRole = function ( el ) {
+      if ( el.getAttribute('type') === 'checkbox' ) {
+        el.setAttribute('role', 'switch');
+      }
+      else {
+        console.error(el.id + ' is not a checkbox...')
+      }
+    };
+
+    /**
+     * Attach keyEvents to toggle buttons
+     */
+    var keyEvents = function ( e ) {
+      var keyCode = e.keyCode || e.which;
+
+      switch ( keyCode ) {
+        case 13:
+          e.preventDefault();
+          e.target.click();
+        break;
+      }
+    };
+
+    /**
+     * Events for toggle buttons
+     */
+    var attachEvents = function ( el ) {
+      el.addEventListener('keypress', keyEvents, false);
+    };
+
+    return this;
+  }; // A11YswitchCheck()
+
+  w.A11YswitchCheck = A11YswitchCheck;
+})( window, document );
 
 /**
   * SWITCH CHECKBOX
@@ -535,187 +640,187 @@ ready(handleChangeEvent());
   * Version: 0.1.0
   * License: https://github.com/scottaohara/a11y_styled_form_controls/blob/master/LICENSE
 */
-!function(t,e,i){"use strict";var s;s=function(){var t;this.init=function(e){i(t=e),s(t),a(t),n(t),r(t),o(t)};var i=function(t){"disabled"!==t.getAttribute("data-toggle-btn")&&t.removeAttribute("disabled"),t.removeAttribute("hidden")},s=function(t){t.hasAttribute("aria-pressed")||t.setAttribute("aria-pressed",t.hasAttribute("data-toggle-btn-pressed"))},a=function(t){"BUTTON"!==t.tagName&&(t.setAttribute("role","button"),t.hasAttribute("href")||t.hasAttribute("disabled")||(t.tabIndex=0))},r=function(t){var i=t.querySelector("[data-toggle-btn-ui]")||t.querySelector(".toggle-switch__ui");if(!i){var s=e.createElement("span");t.appendChild(s),i=t.querySelector("span")}i.classList.contains("toggle-switch__ui")||i.classList.add("toggle-switch__ui"),i.setAttribute("aria-hidden","true")},n=function(t){t.classList.contains("toggle-switch")||t.classList.add("toggle-switch"),(t.hasAttribute("data-switch-btn-labels")||t.classList.contains("toggle-switch--labels"))&&t.classList.add("toggle-switch--labels")},c=function(t){this.setAttribute("aria-pressed","true"===this.getAttribute("aria-pressed")?"false":"true")},u=function(t){var e=t.keyCode||t.which;if("BUTTON"!==t.target.tagName)switch(e){case 32:case 13:t.stopPropagation(),t.preventDefault(),t.target.click()}},o=function(t){t.addEventListener("click",c,!1),t.addEventListener("keypress",u,!1)};return this},t.A11yToggleButton=s}(window,document);
-(function ( w, doc, undefined ) {
-  'use strict';
-  var A11yToggleButton;
+// !function(t,e,i){"use strict";var s;s=function(){var t;this.init=function(e){i(t=e),s(t),a(t),n(t),r(t),o(t)};var i=function(t){"disabled"!==t.getAttribute("data-toggle-btn")&&t.removeAttribute("disabled"),t.removeAttribute("hidden")},s=function(t){t.hasAttribute("aria-pressed")||t.setAttribute("aria-pressed",t.hasAttribute("data-toggle-btn-pressed"))},a=function(t){"BUTTON"!==t.tagName&&(t.setAttribute("role","button"),t.hasAttribute("href")||t.hasAttribute("disabled")||(t.tabIndex=0))},r=function(t){var i=t.querySelector("[data-toggle-btn-ui]")||t.querySelector(".toggle-switch__ui");if(!i){var s=e.createElement("span");t.appendChild(s),i=t.querySelector("span")}i.classList.contains("toggle-switch__ui")||i.classList.add("toggle-switch__ui"),i.setAttribute("aria-hidden","true")},n=function(t){t.classList.contains("toggle-switch")||t.classList.add("toggle-switch"),(t.hasAttribute("data-switch-btn-labels")||t.classList.contains("toggle-switch--labels"))&&t.classList.add("toggle-switch--labels")},c=function(t){this.setAttribute("aria-pressed","true"===this.getAttribute("aria-pressed")?"false":"true")},u=function(t){var e=t.keyCode||t.which;if("BUTTON"!==t.target.tagName)switch(e){case 32:case 13:t.stopPropagation(),t.preventDefault(),t.target.click()}},o=function(t){t.addEventListener("click",c,!1),t.addEventListener("keypress",u,!1)};return this},t.A11yToggleButton=s}(window,document);
+// (function ( w, doc, undefined ) {
+//   'use strict';
+//   var A11yToggleButton;
 
-  A11yToggleButton = function ( ) {
-    /**
-     * Author: Scott O'Hara
-     * Version: 0.1.0
-     * License: https://github.com/scottaohara/a11y_styled_form_controls/blob/master/LICENSE
-     */
-    var el;
+//   A11yToggleButton = function ( ) {
+//     /**
+//      * Author: Scott O'Hara
+//      * Version: 0.1.0
+//      * License: https://github.com/scottaohara/a11y_styled_form_controls/blob/master/LICENSE
+//      */
+//     var el;
 
-    /**
-     * Initialize the instance, run all setup functions
-     * and attach the necessary events.
-     */
-    this.init = function ( elm ) {
-      el = elm;
-      checkState ( el );
-      setPressed ( el );
-      setButton ( el );
-      setClasses ( el );
-      setSwitchUI ( el );
-      attachEvents ( el );
-    };
+//     /**
+//      * Initialize the instance, run all setup functions
+//      * and attach the necessary events.
+//      */
+//     this.init = function ( elm ) {
+//       el = elm;
+//       checkState ( el );
+//       setPressed ( el );
+//       setButton ( el );
+//       setClasses ( el );
+//       setSwitchUI ( el );
+//       attachEvents ( el );
+//     };
 
-    /**
-     * Check default state of element:
-     * A toggle button is not particularly useful without JavaScript,
-     * so ideally such a button would be set to hidden or disabled, if JS wasn't
-     * around to make it function.
-     */
-    var checkState = function ( el ) {
-      // Unless a toggle button is specifically meant to be disabled,
-      // when JS is available, remove the disabled attribute so these
-      // buttons can be used.
-      if ( el.getAttribute('data-toggle-btn') !== "disabled" ) {
-        el.removeAttribute('disabled');
-      }
+//     /**
+//      * Check default state of element:
+//      * A toggle button is not particularly useful without JavaScript,
+//      * so ideally such a button would be set to hidden or disabled, if JS wasn't
+//      * around to make it function.
+//      */
+//     var checkState = function ( el ) {
+//       // Unless a toggle button is specifically meant to be disabled,
+//       // when JS is available, remove the disabled attribute so these
+//       // buttons can be used.
+//       if ( el.getAttribute('data-toggle-btn') !== "disabled" ) {
+//         el.removeAttribute('disabled');
+//       }
 
-      // reveal any hidden instances
-      el.removeAttribute('hidden');
-    };
+//       // reveal any hidden instances
+//       el.removeAttribute('hidden');
+//     };
 
-    /**
-     * A toggle button won't register as a toggle button if an aria-pressed
-     * isn't present prior to user interaction.
-     *
-     * e.g. a button that is pressed, and then acquires an aria-pressed='true'
-     * attribute will NOT always be announced as a toggle button.
-     *
-     * Check for the presence of aria-pressed and if not there, run additional
-     * checks to determine if this button should be set to true or false by default.
-     */
-    var setPressed = function ( el ) {
-      if ( !el.hasAttribute('aria-pressed') ) {
-        el.setAttribute('aria-pressed', el.hasAttribute('data-toggle-btn-pressed'))
-      }
-    }
+//     /**
+//      * A toggle button won't register as a toggle button if an aria-pressed
+//      * isn't present prior to user interaction.
+//      *
+//      * e.g. a button that is pressed, and then acquires an aria-pressed='true'
+//      * attribute will NOT always be announced as a toggle button.
+//      *
+//      * Check for the presence of aria-pressed and if not there, run additional
+//      * checks to determine if this button should be set to true or false by default.
+//      */
+//     var setPressed = function ( el ) {
+//       if ( !el.hasAttribute('aria-pressed') ) {
+//         el.setAttribute('aria-pressed', el.hasAttribute('data-toggle-btn-pressed'))
+//       }
+//     }
 
-    /**
-     * Enhance elements to buttons
-     * If the element is not a button, then add a role button.
-     * If it is not an a[href], or already have a tabindex, then
-     * provide a tabindex=0 so it can be keyboard focusable.
-     */
-    var setButton = function ( el ) {
-      if ( el.tagName !== 'BUTTON' ) {
-        el.setAttribute('role', 'button');
+//     /**
+//      * Enhance elements to buttons
+//      * If the element is not a button, then add a role button.
+//      * If it is not an a[href], or already have a tabindex, then
+//      * provide a tabindex=0 so it can be keyboard focusable.
+//      */
+//     var setButton = function ( el ) {
+//       if ( el.tagName !== 'BUTTON' ) {
+//         el.setAttribute('role', 'button');
 
-        if ( !el.hasAttribute('href') && !el.hasAttribute('disabled') ) {
-          el.tabIndex = 0;
-        }
-      }
-    }
+//         if ( !el.hasAttribute('href') && !el.hasAttribute('disabled') ) {
+//           el.tabIndex = 0;
+//         }
+//       }
+//     }
 
-    /**
-     * Create Switch UI
-     * If a button is missing an inner element to
-     * wrap the accessible name and serve as the
-     * basis for the switch UI, then create a span
-     * and append it to the button element.
-     */
-    var setSwitchUI = function ( el ) {
-      var switchUI = el.querySelector('[data-toggle-btn-ui]') || el.querySelector('.toggle-switch__ui');
+//     /**
+//      * Create Switch UI
+//      * If a button is missing an inner element to
+//      * wrap the accessible name and serve as the
+//      * basis for the switch UI, then create a span
+//      * and append it to the button element.
+//      */
+//     var setSwitchUI = function ( el ) {
+//       var switchUI = el.querySelector('[data-toggle-btn-ui]') || el.querySelector('.toggle-switch__ui');
 
-      if ( !switchUI ) {
-        var newUI = doc.createElement('span');
-        el.appendChild(newUI);
-        switchUI = el.querySelector('span');
-      }
+//       if ( !switchUI ) {
+//         var newUI = doc.createElement('span');
+//         el.appendChild(newUI);
+//         switchUI = el.querySelector('span');
+//       }
 
-      if ( !switchUI.classList.contains('toggle-switch__ui') ) {
-        switchUI.classList.add('toggle-switch__ui');
-      }
+//       if ( !switchUI.classList.contains('toggle-switch__ui') ) {
+//         switchUI.classList.add('toggle-switch__ui');
+//       }
 
-      // after confirming a switchUI element exists:
-      switchUI.setAttribute('aria-hidden', 'true');
-    };
+//       // after confirming a switchUI element exists:
+//       switchUI.setAttribute('aria-hidden', 'true');
+//     };
 
-    /**
-     * Setup the classes for the toggle buttons
-     */
-    var setClasses = function ( el ) {
-      // if the default class for this component doesn't exist, add it
-      if ( !el.classList.contains('toggle-switch') ) {
-        el.classList.add('toggle-switch');
-      }
+//     /**
+//      * Setup the classes for the toggle buttons
+//      */
+//     var setClasses = function ( el ) {
+//       // if the default class for this component doesn't exist, add it
+//       if ( !el.classList.contains('toggle-switch') ) {
+//         el.classList.add('toggle-switch');
+//       }
 
-      // if a switch ui should display the text 'on' and 'off'
-      if ( el.hasAttribute('data-switch-btn-labels') || el.classList.contains('toggle-switch--labels') ) {
-        el.classList.add('toggle-switch--labels');
-      };
-    }
+//       // if a switch ui should display the text 'on' and 'off'
+//       if ( el.hasAttribute('data-switch-btn-labels') || el.classList.contains('toggle-switch--labels') ) {
+//         el.classList.add('toggle-switch--labels');
+//       };
+//     }
 
-    /**
-     * Toggle the Button's state (aria-pressed=t/f)
-     */
-    var toggleState = function ( e ) {
-      this.setAttribute('aria-pressed', this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
-    };
+//     /**
+//      * Toggle the Button's state (aria-pressed=t/f)
+//      */
+//     var toggleState = function ( e ) {
+//       this.setAttribute('aria-pressed', this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+//     };
 
-    /**
-     * Attach keyEvents to toggle buttons
-     */
-    var keyEvents = function ( e ) {
-      var keyCode = e.keyCode || e.which;
+//     /**
+//      * Attach keyEvents to toggle buttons
+//      */
+//     var keyEvents = function ( e ) {
+//       var keyCode = e.keyCode || e.which;
 
-      /**
-       * If the element is not a real button, then
-       * map the appropriate key commands.  If it is,
-       * well buttons' already know how to do this then :)
-       */
-      if ( e.target.tagName !== 'BUTTON' ) {
-        switch ( keyCode ) {
-          case 32:
-          case 13:
-            e.stopPropagation();
-            e.preventDefault();
-            e.target.click();
-            break;
+//       /**
+//        * If the element is not a real button, then
+//        * map the appropriate key commands.  If it is,
+//        * well buttons' already know how to do this then :)
+//        */
+//       if ( e.target.tagName !== 'BUTTON' ) {
+//         switch ( keyCode ) {
+//           case 32:
+//           case 13:
+//             e.stopPropagation();
+//             e.preventDefault();
+//             e.target.click();
+//             break;
 
-          default:
-            break;
-        }
-      }
-    };
+//           default:
+//             break;
+//         }
+//       }
+//     };
 
-    /**
-     * Events for toggle buttons
-     */
-    var attachEvents = function ( el ) {
-      el.addEventListener('click', toggleState, false);
-      el.addEventListener('keypress', keyEvents, false);
-    };
+//     /**
+//      * Events for toggle buttons
+//      */
+//     var attachEvents = function ( el ) {
+//       el.addEventListener('click', toggleState, false);
+//       el.addEventListener('keypress', keyEvents, false);
+//     };
 
-    return this;
-  }; // A11yToggleButton()
+//     return this;
+//   }; // A11yToggleButton()
 
-  w.A11yToggleButton = A11yToggleButton;
-})( window, document );
+//   w.A11yToggleButton = A11yToggleButton;
+// })( window, document );
 
 // some other file.js
-var selector = '[data-switch-btn]';
-var elList = document.querySelectorAll(selector);
-var i;
-for ( i = 0; i < elList.length; i++ ) {
-  var a11ybtn = new A11yToggleButton();
-  a11ybtn.init( elList[i] );
-};
+// var selector = '[data-switch-btn]';
+// var elList = document.querySelectorAll(selector);
+// var i;
+// for ( i = 0; i < elList.length; i++ ) {
+//   var a11ybtn = new A11yToggleButton();
+//   a11ybtn.init( elList[i] );
+// };
 
 
 // checkbox
-var selector = '[data-check-switch]';
-var elList = document.querySelectorAll(selector);
-var i;
-for ( i = 0; i < elList.length; i++ ) {
-  var a11ySwitch = new A11YswitchCheck();
-  a11ySwitch.init( elList[i] );
-};
+// var selector = '[data-check-switch]';
+// var elList = document.querySelectorAll(selector);
+// var i;
+// for ( i = 0; i < elList.length; i++ ) {
+//   var a11ySwitch = new A11YswitchCheck();
+//   a11ySwitch.init( elList[i] );
+// };
 
 
 
@@ -742,30 +847,30 @@ for ( i = 0; i < elList.length; i++ ) {
 *
 */
 
-function toggleCheckbox(event) {
+// function toggleCheckbox(event) {
 
-  var node = event.currentTarget
-  var image = node.getElementsByTagName('img')[0]
+//   var node = event.currentTarget
+//   var image = node.getElementsByTagName('img')[0]
 
-  var state = node.getAttribute('aria-checked').toLowerCase()
+//   var state = node.getAttribute('aria-checked').toLowerCase()
 
-  if (event.type === 'click' ||
-      (event.type === 'keydown' && event.keyCode === 32)
-      ) {
-          if (state === 'true') {
-            node.setAttribute('aria-checked', 'false')
-            image.src = 'https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/checkbox/images/checkbox-unchecked-black.png'
-          }
-          else {
-            node.setAttribute('aria-checked', 'true')
-            image.src = 'https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/checkbox/images/checkbox-checked-black.png'
-          }
+//   if (event.type === 'click' ||
+//       (event.type === 'keydown' && event.keyCode === 32)
+//       ) {
+//           if (state === 'true') {
+//             node.setAttribute('aria-checked', 'false')
+//             image.src = 'https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/checkbox/images/checkbox-unchecked-black.png'
+//           }
+//           else {
+//             node.setAttribute('aria-checked', 'true')
+//             image.src = 'https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/checkbox/images/checkbox-checked-black.png'
+//           }
 
-    event.preventDefault()
-    event.stopPropagation()
-  }
+//     event.preventDefault()
+//     event.stopPropagation()
+//   }
 
-}
+// }
 
 /*
 * @function focusCheckBox
@@ -775,9 +880,9 @@ function toggleCheckbox(event) {
 * @param   {Object}  event  -  Standard W3C event object
 */
 
-function focusCheckbox(event) {
-  event.currentTarget.className += ' focus'
-}
+// function focusCheckbox(event) {
+//   event.currentTarget.className += ' focus'
+// }
 
 /*
 * @function blurCheckBox
@@ -794,7 +899,7 @@ function blurCheckbox(event) {
 /**
  * ACCESSIBILITY SCRIPTS
  * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_switch_role
- * @todo migrate if statement into helper function.
+ * {@todo migrate if statement into helper function.}
  * IE 11 doesn't support .forEach so we borrow the method from Array.prototype as a polyfill.
  */
 

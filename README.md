@@ -13,13 +13,13 @@ Custom plugin that applies UD branding.
 
 ## Latest Update ##
 
-9/19/2018
+10/8/2018
 
 ## Description ##
 
-The UDTheme Branding plugin allows a University department or college to display the official University of Delaware branded header and footer on a WordPress website.
+A WCAG compliant plugin allows a University department or college to display the official University of Delaware branded header and footer on a WordPress website.
 
-Site admins may choose to use a college or department-specific title in addition to the official University header and footer.
+Site administrators may choose to use a college or department-specific title in addition to the official University header and footer.
 
 ### Restrictions ###
 This plugin is ONLY to be used on official University of Delaware department web pages and websites in accordance with UD OCM guidelines.

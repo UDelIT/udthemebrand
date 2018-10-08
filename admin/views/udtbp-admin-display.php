@@ -24,13 +24,20 @@ $udtbp_admin_img_url = esc_url( UDTBP_ADMIN_IMG_URL, UDTBP_NAME );
 $udtbp_assets_img_url = esc_url( UDTBP_ASSETS_IMG_URL, UDTBP_NAME );
 ?>
 <div id="saveResult"></div>
-<div id="udt_wrap" class="wrap">
-  <h1 id="icon-themes" class="udt_dash_icon">
-    <img alt="" id="ud_primary_logo" src="<?php echo $udtbp_assets_img_url; ?>/logos/img-udlogo.svg" role="img" width="170" height="70"><span class="screen-reader-text"><?php echo esc_html( 'University of Delaware logo image', UDTBP_NAME ); ?></span>
-  </h1>
-  <div id="ud-id-ht" class="ud-header--title">
+<div id="ud-id-head" class="ud-wrapper--grid ud-gtr-head">
+  <header class="ud-norm--header ud-header--logo item item--full">
+    <div class="ud-flex--df ud-align--asstretch cell">
+      <img alt="" id="ud_primary_logo" src="<?php echo $udtbp_assets_img_url; ?>/logos/img-udlogo.svg" role="img" width="170" height="70"><span class="screen-reader-text"><?php echo esc_html( 'University of Delaware logo image', UDTBP_NAME ); ?></span>
+    </div>
+  </header>
+  <div class="ud-header--title item item--full">
+    <div id="ud-id-ht" class="ud-header--title ud-display--db ud-align--asstretch cell">
       <h1><?php echo esc_html( get_admin_page_title(), UDTBP_NAME ); ?></h1>
+    </div>
   </div>
+</div>
+<div id="udt_wrap" class="wrap">
+  <h1 id="icon-themes" class="udt_dash_icon"></h1>
 </div>
 
 <?php

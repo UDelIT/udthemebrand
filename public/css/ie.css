@@ -1,126 +1,24 @@
-/*---------------------------------------------------------------
-  $IE BASED CSS
-
-  Defines all of the CSS styles / fixes for
-  Internet Explorer 11 and Edge.
-
-  @version 3.5.0
-    1. @IE11 HACKS
-      a. Hide native select list button in IE11
-    2. @EDGE HACKS
----------------------------------------------------------------*/
-/*---------------------------------------------------------------
-  1. @IE11 HACKS
-      a. Hide native select list button in IE11
-      b. Show the overflow in IE, Edge.
-      c. Correct the text wrapping in Edge and IE.
-      d. Correct the color inheritance from `fieldset` elements in IE.
-      e. Remove the default vertical scrollbar in IE.
-      f. Support for IE.
-      g. Show the overflow in Edge and IE.
-      h. disable ALL viewport zooming for a webpage accessed via IE11 on WinRT
-         https://stackoverflow.com/questions/23757403/disable-all-page-zooming-in-ie11-on-windows8-arm
-      i. IE 11 uses old css grid syntax
-      j. IE 11 doesn't support <main>. Define main as a block-level element.
-      k. IE 11 shows horz. scrollbar when using 100vw.
----------------------------------------------------------------*/
-html { /* h */
-  -ms-content-zooming: none; /* Disables zooming */
-  touch-action: none;   /* Disable any special actions on tap/touch */
-  -ms-overflow-style: scrollbar;
-  -ms-word-wrap: break-word; /* e */
-}
-select::-ms-expand {
-  display: none /* a */
-}
-select {
-  padding-right: 1em !important;
-}
-button,
-input { /* c */
-  overflow: visible;
-}
-legend {
-  box-sizing: border-box; /* c */
-  color: #4680DC; /* d  inherit for IE */
-  display: table; /* c */
-  max-width: 100%; /* c */
-  white-space: normal; /* c */
-}
-textarea {
-  overflow: auto; /* e */
-}
-.material-icons,
-[data-icon-after]::after {
-   -webkit-font-feature-settings: 'liga'; /* f */
-  font-feature-settings: 'liga';
-}
-hr {
-  overflow: visible; /* g */
-}
+/**
+  * UDTHEME BRANDING IE CSS
+  *
+  * @package     udtheme-brand
+  * @subpackage  udtheme-brand/public/css
+  * @author      Christopher Leonard - University of Delaware
+  * @license     GPLv3
+  * @link        https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright   Copyright (c) 2012-2018 University of Delaware
+  * @version     3.5.0
+*/
 @-ms-viewport {
   width: device-width;
 }
-main {
-  display: block;  /* j */
-  width: 100%;
-}
 
-/*** 7/18 */
-html {
-  -ms-overflow-style: scrollbar;
-  -ms-word-wrap: break-word; /* e */
-}
 
-.ud-wrapper--grid,
-.grid {
-  display: -ms-grid;
-  -ms-grid-columns:
-  [viewport-start] minmax(1em, 1fr)
-  [container-start] minmax(0, 1140px) [container-end]
-  minmax(1em, 1fr) [viewport-end];
-}
-.item--contained,
-.ud-section--main,
-.ud-section--submain,
-.item--full > div,
-.item--full > a,
-.item--full > p,
-.item--full > h1,
-.item--full > h2,
-.item--full > h3,
-.item--full > h4,
-.item--full > img,
-.ud-grid--6,
-.ud-grid--2 {
-  -ms-grid-column: container;
-}
-.item--full {
-  -ms-grid-column: viewport;
-  -ms-grid-columns: inherit;
-}
-
-.ud-grid--6,
-.ud-grid--2 {
+body.is_ms .ud-wrapper--grid,
+body.is_ms .ud-grid--6,
+body.is_ms .ud-grid--2 {
   display: -ms-grid;
 }
-.ud-grid--6 {
-  -ms-grid-columns: (1fr 10px)[6];
-}
-.ud-grid--2 {
-  -ms-grid-columns: (1fr 10px)[2];
-}
-
-.ud-norm--header,
-.ud-header--title,
-.ud-section--hero,
-.ud-norm--navbar,
-.ud-norm--footer,
-.ud-footer--legal {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-}
-
 body.is_ms .ud-grid--6 {
   -ms-grid-columns: (1fr 10px)[6];
 }
@@ -129,32 +27,169 @@ body.is_ms .ud-grid--2 {
 }
 body.is_ms .ud-footer--social {
   -ms-grid-row-align: center;
-  -ms-grid-column-span:  6;
 }
-/*------------------------------------------------------------------------------
-a. IE 11 hack because alignment is whack height (50px) + margin-bottom (24px)
-------------------------------------------------------------------------------*/
-body.is_ms .ud-footer--social ul {
-  top: calc(100% - 74px); /* a */
-}
-
-/*-------------------------------------------------------------------
-  4. @EMBEDDED CONTENT
-    a. Hide the overflow in IE.
-    b. Make svg image fluid in IE
-       {@link  https://tympanus.net/Tutorials/ResponsiveSVGs/index.html}
--------------------------------------------------------------------*/
-body.is_ms svg:not (:root) {
-  overflow: hidden; /* a */
-}
-
 body.is_ms .ud-footer--logo,
 body.is_ms .ud-footer--social{
   -ms-grid-column-span: 6;
 }
 
+body.is_ms .ud-header--title,
+body.is_ms .ud-footer--legal {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+body.is_ms .ud-norm--header,
+body.is_ms .ud-norm--footer {
+   -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+body.is_ms .ud-footer--legal ul {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+/*------------------------------------------------------------------------------
+  1.. IE 11 hack because alignment is whack height (50px) + margin-bottom (24px)
+------------------------------------------------------------------------------*/
+body.is_ms .ud-footer--social ul {
+  top: calc(100% - 74px); /* 1 */
+}
+
+body.is_ms span#tem {
+  top: 4px;
+  border-radius: 50px;
+  background: #CBCBCB;
+}
+
+body.is_ms .udt_on_state.udt_yes_no_button span.udt_button_slider {
+  transform: translateX(29px);
+}
+body.is_ms .switch--horizontal .toggle-outside {
+  top: 3px;
+}
+
+body.is_ms #ud-id-vh:not(.disabled):hover,
+body.is_ms #ud-id-vf:not(.disabled):hover,
+body.is_ms #ud-id-cf:not(.disabled):hover  {
+  transform: none;
+}
+main {
+  display: block;  /* j */
+  width: 100%;
+}
+
+body.is_ms .ud-wrapper--grid,
+.grid {
+  -ms-grid-columns:
+    minmax(1em, 1fr)
+    minmax(0, 992px)
+    minmax(1em, 1fr);
+}
+body.is_ms .item--contained,
+body.is_ms .item--full > div,
+body.is_ms .item--full > a,
+body.is_ms .item--full > p,
+body.is_ms .item--full > h1,
+body.is_ms .item--full > h2,
+body.is_ms .item--full > h3,
+body.is_ms .item--full > h4,
+body.is_ms .item--full > img,
+body.is_ms .ud-grid--6,
+body.is_ms .ud-grid--2 {
+  -ms-grid-column: 2;
+}
+
+body.is_ms .item--full {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  -ms-grid-columns: inherit;
+}
+
+body.is_ms .ud-grid--6 {
+  -ms-grid-columns: (1fr 10px)[6];
+}
+body.is_ms .ud-grid--2 {
+  -ms-grid-columns: (1fr 10px)[2];
+}
+
+body.is_ms .ud-norm--header,
+body.is_ms .ud-header--title,
+body.is_ms .ud-section--hero,
+body.is_ms .ud-norm--navbar,
+body.is_ms .ud-norm--footer,
+body.is_ms .ud-footer--legal {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+}
+
+/*------------------------------------------------------------------------------
+  1. Hide the overflow in IE.
+  2. Make svg image fluid in IE
+     [https://tympanus.net/Tutorials/ResponsiveSVGs/index.html]
+------------------------------------------------------------------------------*/
+body.is_ms svg:not (:root) {
+  overflow: hidden; /* 1 */
+}
+
 @media only screen and (max-width: 719px) { /* 979 */
   body.is_ms img:not(.png) {
-    width: 100%; /* b */
+    width: 100%; /* 2 */
+  }
+
+  body.is_ms .ud-grid--2,
+  body.is_ms .ud-grid--6 {
+    -ms-grid-columns: 1fr;
+  }
+
+  body.is_ms .ud-gtr-head {
+    -ms-grid-rows: 70px 50px;
+  }
+
+  body.is_ms .ud-gtr-foot {
+    -ms-grid-rows: 150px 50px;
+  }
+
+  body.is_ms .ud-footer--logo,
+  body.is_ms .ud-footer--social {
+    -ms-grid-column-span: 1;
   }
 }
+
+@media only screen and (min-width: 720px) {
+  body.is_ms .ud-gtr-head {
+    -ms-grid-rows: 112px 50px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** BRANDING HACKS
+    a. align-items: center on a flex container in the column direction, the contents of flex item, if too
+    big, will overflow their container in IE 10-11.
+    https://github.com/philipwalton/flexbugs#2-column-flex-items-set-to-align-itemscenter-overflow-their-container
+    b. auto needed by IE 11
+*/
+/* .ud-norm--header > *,
+.ud-norm--footer > *,
+section > * {
+  box-sizing: border-box;
+  max-width: 100%
+} */
+
