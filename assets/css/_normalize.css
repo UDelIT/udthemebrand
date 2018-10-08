@@ -39,7 +39,7 @@
   box-sizing: border-box;
 }
 
-html, body, button, p, ol, ul, li, fieldset, legend, input, select, textarea, hr, h1, h2, h3, h4 {
+html, body, button, ol, ul, li, fieldset, legend, input, select, textarea, hr, h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
 }

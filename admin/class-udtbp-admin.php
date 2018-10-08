@@ -334,7 +334,7 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
   public function add_settings_link( $actions, $plugin_file ) {
     static $plugin;
     $settings = array( 'settings' => '<a class="'.$this->udtbp.'-settings-link" href="options-general.php?page='.$this->udtbp.'">' . __( 'Settings' ) . '</a>' );
-    $site_link = array( 'support' => '<a title="Having problems? Submit a trouble ticket." target="_blank" href="//www.udel.edu/it/help/request/">' . __( 'Support', UDTBP_NAMEp ) . '</a>' );
+    $site_link = array( 'support' => '<a title="Having problems? Submit a trouble ticket." target="_blank" href="//www.udel.edu/it/help/request/">' . __( 'Support', UDTBP_NAME ) . '</a>' );
     $actions = array_merge( $settings, $actions );
     $actions = array_merge( $site_link, $actions );
     return $actions;
