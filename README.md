@@ -13,7 +13,7 @@ Custom plugin that applies UD branding.
 
 ## Latest Update ##
 
-10/8/2018
+10/19/2018
 
 ## Description ##
 
