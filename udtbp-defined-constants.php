@@ -69,7 +69,7 @@ $json_theme_list = array(
   "Anjirai",
   "Boardwalk",
   "Cubic",
-  "Divi (with fixed navigation)",
+  "Divi",
   "Matheson",
   "Radiate",
   "Star",

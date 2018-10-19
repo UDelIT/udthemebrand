@@ -5,7 +5,7 @@
  * It contains all of the js code necessary to run / display the branding.
  *
  * @since   1.4.2
- * @version 3.1.0  added accessibility scripts.
+ * @version 3.5.0  added accessibility scripts.
  *
  */
 /**

@@ -9,10 +9,10 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.1.0
+  * @version     3.5.0
 */
 #udt_panel_mainmenu {
-  background-color: #599ec9;
+  background-color: #317098;
   position: relative;
   margin: 0;
   padding: 0;
@@ -24,9 +24,39 @@
 #udt_panel_mainmenu li,
 #udt_panel_mainmenu li a,
 #udtbp_form .button {
-  font-family: "Open Sans",sans-serif;
-  font-weight: bold;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
+  -webkit-align-items:  center;
+  align-items: center;
+}
+
+#udt_panel_mainmenu li.ui-tabs-active,
+#udtbp-ajax-message  {
+  box-shadow:  inset 0 0 30px rgba(0,0,0, 0.25);
+}
+
+#udt_panel_mainmenu li:hover  {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+}
+#udt_panel_mainmenu li,
+#udt_panel_mainmenu li a {
+  display: inline-block;
+  float: left;
+  color: white;
+  width: 130px;
+  height: 100%;
+  margin-bottom: 0;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+#udt_panel_mainmenu li a {
+  box-sizing: border-box;
+  padding: 1.250em;
+  text-align: center;
+  text-decoration:none;
 }
 
 #udt_panel_mainmenu li::after,
@@ -40,12 +70,28 @@
   right: 0;
 }
 
+#udt_panel_mainmenu li a:active,
+#udt_panel_mainmenu li a[aria-selected="true"],
+#udt_panel_mainmenu li.nav-tab-active > a[aria-selected="true"] {
+  color:black;
+}
+
+#udt_panel_mainmenu li.nav-tab-active,
+#udt_panel_mainmenu li.nav-tab-active:focus,
+#udt_panel_mainmenu li.nav-tab-active:focus:active {
+  background: white;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  overflow: hidden;
+}
+
 #udt_panel_mainmenu li::after {
-  transition: -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
-  transition: transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
-  transition: transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), -webkit-transform 0.3s cubic-bezier(0.68, 1.55, 0.265, 1), opacity 1s ease-in-out;
+  transition: -webkit-transform 0.3s ease, opacity 1s ease-in-out;
+  transition: transform 0.3s ease, opacity 1s ease-in-out;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease, opacity 1s ease-in-out;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 #udt_panel_mainmenu li:hover::after {
@@ -59,20 +105,11 @@
   opacity: 1;
 }
 
-/*
-  SUPPORT TAB
-*/
-/* #udt_panel_mainmenu li:nth-of-type(4) {
-  float: right;
-} */
-
-#udt_support_settings .ud-grid--4 > div {
-  display: -webkit-flex;
-  display:  flex;
+#udt_panel_mainmenu li:not(.nav-tab-active):hover{
+  background-color: #0078BD;
+  border: 1px solid white;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
 }
-
-#udt_support_settings .ud-grid--4 > div:nth-child(2),
-#udt_support_settings .ud-grid--4 > div:last-child {
-  justify-content: center;
-}
-

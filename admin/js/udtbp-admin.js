@@ -183,8 +183,7 @@ $(function() {
 
 })( jQuery ); // end top function
 
-
-    /**********************************************/
+/**********************************************/
 /**
  * GLOBAL VARIABLES
  */
@@ -220,14 +219,13 @@ var pujs = udtheme_admin_js_vars.pujs;
  *
  * @since         3.5.0
  * @usage         ready(func());
- *
- * {@link         http://youmightnotneedjquery.com/#ready}
+ * @see       {@link https://youmightnotneedjquery.com/#ready}
  */
 function ready(fn) {
-  if (document.readyState != 'loading'){
+  if (document.readyState != "loading"){
     fn();
   } else  {
-    document.addEventListener('DOMContentLoaded', fn);
+    document.addEventListener("DOMContentLoaded", fn);
   }
 }
 
@@ -237,9 +235,9 @@ function ready(fn) {
  * Helper function for selecting a list of matching elements, context is optional
  *
  * @since         3.5.0
- * @usage:        var matches = help_qsa('.foo .bar');
- *                var container = help_qs('.foo');
- *                var matches = help_qsa('.bar', container);
+ * @usage:        var matches = help_qsa(".foo .bar");
+ *                var container = help_qs(".foo");
+ *                var matches = help_qsa(".bar", container);
  *
  * {@link         https://plainjs.com/javascript/selecting/select-dom-elements-by-css-selector-4/}
  */
@@ -301,14 +299,14 @@ function help_qs(selector, context) {
   var el;
   var i = 0;
   var fragment = document.createDocumentFragment();
-  var polyIE = ["_core.js.shim.min", "_classList-polyfill", "svgxuse.min"];
+  var polyIE = ["_core.js.shim.min", "_classList-polyfill", "svgxuse.min", "_fetch-polyfill", "_promise-polyfill"];
   var arrayLength = polyIE.length;
 
   try {
     isIE;
   }
   catch( err ){
-    console.log( 'Copy and paste this text in trouble ticket: ' + err );
+    console.log( "Copy and paste this text in trouble ticket: " + err );
   }
 
   if ( isIE && !isEdge ) {
@@ -318,10 +316,10 @@ function help_qs(selector, context) {
     ready( addClassMS() );
 
     var head = document.head
-        , link = document.createElement('link')
-        link.type = 'text/css'
-        link.rel = 'stylesheet'
-        link.href = pucss + '/ie.css';
+        , link = document.createElement("link")
+        link.type = "text/css"
+        link.rel = "stylesheet"
+        link.href = pucss + "/ie.css";
     head.appendChild( link )
   }
   else return false;
@@ -329,21 +327,22 @@ function help_qs(selector, context) {
 
   if ( isIE ) {
     while ( i < arrayLength ) {
-      el = document.createElement( 'script' );
+      el = document.createElement( "script" );
       el.async = true
       el.defer = true
-      el.src = asjs + '/' + polyIE[i] + '.js';
+      el.src = asjs + "/" + polyIE[i] + ".js";
         fragment.appendChild( el );
     i++; }
   }
   else return false;
-  if ( !isIE ) {
-    var jsPromise = document.createElement('script')
-        jsPromise.async = true
-        jsPromise.src = asjs + '/_loader.js'
-        fragment.appendChild( jsPromise );
-  }
-  else return false;
+  // if ( !isIE && !isEdge ) {
+  //   alert();
+  //   var jsPromise = document.createElement("script")
+  //       jsPromise.async = true
+  //       jsPromise.src = asjs + "/_loader.js"
+  //       fragment.appendChild( jsPromise );
+  // }
+  // else return false;
 })();
 
 /**
@@ -355,7 +354,7 @@ function help_qs(selector, context) {
  * @since         3.5.0
  */
 function addClassMS() {
-  document.body.classList.add( 'is_ms' );
+  document.body.classList.add( "is_ms" );
 } // end addClassMS()
 
 /**
@@ -367,16 +366,16 @@ function addClassMS() {
  * @since         3.5.0
  */
 function addClassPlugin() {
-  document.body.classList.add( 'udtbp_active' );
+  document.body.classList.add( "udtbp_active" );
 } // end addClassPlugin()
 
 ready(addClassPlugin());
 
 
 
-// var cfls = localStorage.getItem('cf');
+// var cfls = localStorage.getItem("cf");
 //   if(!cfls) {return false;}
-//   if(cfls !=''){
+//   if(cfls !="){
 //       document.getElementById("ud-id-cf").classList.add(cfls);
 //   } else {
 //       document.getElementById("ud-id-cf").classList.remove(cfls);
@@ -386,32 +385,34 @@ ready(addClassPlugin());
  * Assigns related display text and ARIA checked attributes
  * IE 11 doesn't support .forEach so we borrow the method from Array.prototype as a polyfill.
  */
+
 var udARIA = {};//udtbp_theme_override
 var s = document.querySelectorAll(".ud-switch, .switch, .save-button");
 Array.prototype.forEach.call(s, function(elem) {
   elem.addEventListener("click", handleClickEvent, false);
   elem.addEventListener("change", handleChangeEvent, false);
-  elem.addEventListener('keypress', udARIA.keyEvents, false);
+  elem.addEventListener("keypress", udARIA.keyEvents, false);
 });
 
 function handleClickEvent(evt) {
-  var clsb     = document.querySelector('.save-button');
-var pressed = clsb.getAttribute('aria-pressed') === 'true';
-    clsb.setAttribute('aria-pressed', String(!pressed));
-// console.log('s' + s);
+
+  var clsb     = document.querySelector(".save-button");
+  var pressed = clsb.getAttribute("aria-pressed") === "true";
+  clsb.setAttribute("aria-pressed", String(!pressed));
+// console.log("s" + s);
 //   var el = evt.target;
 
 Array.prototype.forEach.call(s, function(item, i){
-  // if (  (item.hasAttribute('aria-pressed'))  && (item.type = "button") ) {
-  //   item.setAttribute('aria-pressed', 'true');
+  // if (  (item.hasAttribute("aria-pressed"))  && (item.type = "button") ) {
+  //   item.setAttribute("aria-pressed", "true");
   // }
   // if (item.type = "button"){
-  //   item.setAttribute('aria-pressed', true);
+  //   item.setAttribute("aria-pressed", true);
   // }
   // if (!item.type = "button"){
-  //   item.setAttribute('aria-pressed', false);
+  //   item.setAttribute("aria-pressed", false);
   // }
-  //item.setAttribute('id', array[i]);
+  //item.setAttribute("id", array[i]);
 });
 
 }
@@ -422,20 +423,22 @@ Array.prototype.forEach.call(s, function(item, i){
 
 function handleChangeEvent() {
   // global elements
-  var clAxOn   = help_qs('.color-on');
-  var clSvgOn  = document.getElementById('svg_on');
-  var clAxOff  = help_qs('.color-off');
-  var clSvgOff = document.getElementById('svg_off');
+  var clAxOn   = help_qs(".color-on");
+  var clSvgOn  = document.getElementById("svg_on");
+  var clAxOff  = help_qs(".color-off");
+  var clSvgOff = document.getElementById("svg_off");
 
   // header elements
-  var idVhcb   = document.getElementById('udtbp_header_options[view-header]');
-  var idVh     = document.getElementById('ud-id-vh');
-  var idHt = document.getElementById('udtbp_header_options[header-title]');
+  var idVhcb   = document.getElementById("udtbp_header_options[view-header]");
+  var idVh     = document.getElementById("ud-id-vh");
+  var idHt     = document.getElementById("udtbp_header_options[header-title]");
 
   // footer elements
-  var idVfcb    = document.getElementById('udtbp_footer_options[view-footer]');
-  var idVf     = document.getElementById('ud-id-vf');
-  var idCf = document.getElementById('ud-id-cf');
+  var idVfcb   = document.getElementById("udtbp_footer_options[view-footer]");
+  var idVf     = document.getElementById("ud-id-vf");
+  var idCf     = document.getElementById("ud-id-cf");
+  var idCf     = document.getElementById("ud-id-cf");
+  var radios   = help_qsa("udtbp_footer_options[color-footer] input"), i = radios.length;
 
   // let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
   // localStorage.setItem('items', JSON.stringify(itemsArray));
@@ -444,56 +447,76 @@ function handleChangeEvent() {
   if (idVfcb) {
     if (idVfcb.checked) {
       idVfcb.setAttribute("aria-checked", "true");
-      idVf.classList.remove('color-off');
-      idVf.classList.add('color-on');
-      clSvgOn.classList.add('visible');
-      clSvgOff.classList.remove('visible');
-      // sibling.textContent = 'ON';
-      idCf.classList.remove('disabled');
-      localStorage.setItem('vf_ls', idVfcb.checked);
-      localStorage.setItem('cf', 'on');
+      idVf.classList.remove("color-off");
+      idVf.classList.add("color-on");
+      clSvgOn.classList.add("visible");
+      clSvgOff.classList.remove("visible");
+      // sibling.textContent = "ON";
+      idCf.classList.remove("disabled");
+      localStorage.setItem("vf_ls", idVfcb.checked);
+      localStorage.setItem("cf", "on");
     }
     else {
-      idVf.classList.add('color-off');
-      idVf.classList.remove('color-on');
-      clSvgOn.classList.remove('visible');
-      clSvgOff.classList.add('visible');
-      // sibling.textContent = 'OFF';
-      idCf.classList.add('disabled');
+      idVf.classList.add("color-off");
+      idVf.classList.remove("color-on");
+      clSvgOn.classList.remove("visible");
+      clSvgOff.classList.add("visible");
+      // sibling.textContent = "OFF";
+      idCf.classList.add("disabled");
 
-      localStorage.removeItem('cf', 'on');
+      localStorage.removeItem("cf", "on");
       localStorage.setItem("radios", JSON.stringify(radios));
     }
+
+    if (document.getElementById("rad_blue_footer").checked) {
+      idCf.classList.add("blue");
+      idCf.classList.remove("white");
+    }
+    else if (document.getElementById("rad_white_footer").checked) {
+      idCf.classList.remove("blue");
+      idCf.classList.add("white");
+    }
+    else {
+      idCf.classList.add("disabled");
+
+    }
+
+
+
+      while (i--) {
+        radios[i].disabled = true;
+      }
   }
 
   if (idVhcb) {
     if (idVhcb.checked) {
-
       idVhcb.setAttribute("aria-checked", "true");
-      idVh.classList.remove('color-off');
-      idVh.classList.add('color-on');
-      clSvgOn.classList.add('visible');
-      clSvgOff.classList.remove('visible');
-      // sibling.textContent = 'ON';
-      idHt.classList.remove('disabled');
-      //localStorage.setItem('vh_ls', idVhcb.checked);
-      //localStorage.setItem('ht', 'on');
+      idVh.classList.remove("color-off");
+      idVh.classList.add("color-on");
+      clSvgOn.classList.add("visible");
+      clSvgOff.classList.remove("visible");
+      // sibling.textContent = "ON";
+      idHt.classList.remove("disabled");
+      idHt.removeAttribute("disabled");
+      //localStorage.setItem("vh_ls", idVhcb.checked);
+      //localStorage.setItem("ht", "on");
     }
     else {
       idVhcb.setAttribute("aria-checked", "false");
-      idVh.classList.add('color-off');
-      idVh.classList.remove('color-on');
-      clSvgOn.classList.remove('visible');
-      clSvgOff.classList.add('visible');
-      // sibling.textContent = 'OFF';
-      idHt.classList.add('disabled');
+      idVh.classList.add("color-off");
+      idVh.classList.remove("color-on");
+      clSvgOn.classList.remove("visible");
+      clSvgOff.classList.add("visible");
+      // sibling.textContent = "OFF";
+      idHt.classList.add("disabled");
+      idHt.setAttribute("disabled", "true");
 
-      var radios = document.querySelectorAll('udtbp_footer_options[color-footer] input'), i = radios.length;
-      while (i--) {
-        radios[i].disabled = true;
-      }
+      // var radios = document.querySelectorAll("udtbp_footer_options[color-footer] input"), i = radios.length;
+      // while (i--) {
+      //   radios[i].disabled = true;
+      // }
 
-      localStorage.removeItem('ht', 'on');
+      localStorage.removeItem("ht", "on");
       localStorage.setItem("radios", JSON.stringify(radios));
     }
   }
@@ -517,7 +540,6 @@ function handleChangeEvent() {
 */
 udARIA.keyEvents = function (el) {
   var keyCode = el.keyCode || el.which;
-
 /**
   * Map appropriate key commands to non button elements acting like buttons.
   * 9  = tab
@@ -531,7 +553,6 @@ udARIA.keyEvents = function (el) {
   *
 */
   if (el.target.tagName !== 'BUTTON') {
-    alert("udARIA");
     switch (keyCode) {
       case 32:
       case 13:
@@ -548,7 +569,7 @@ udARIA.keyEvents = function (el) {
 
 
 ready(handleChangeEvent);
-//ready(udARIA.keyEvents);
+ready(udARIA.keyEvents);
 /**
   * FOCUS WITHIN POLYFILL
   *
@@ -556,7 +577,7 @@ ready(handleChangeEvent);
   * @link https://gist.github.com/aFarkas/a7e0d85450f323d5e164
   */
 
-// !function(t,e){"use strict";var i,n,s,c=[].slice,a=function(t){t.classList.remove("focus-within")},o=(s=function(){var t=e.activeElement;if(i=!1,n!==t)for(n=t,c.call(e.getElementsByClassName("focus-within")).forEach(a);t&&t.classList;)t.classList.add("focus-within"),t=t.parentNode},function(){i||(requestAnimationFrame(s),i=!0)});e.addEventListener("focus",o,!0),e.addEventListener("blur",o,!0),o()}(window,document);
+ !function(t,e){"use strict";var i,n,s,c=[].slice,a=function(t){t.classList.remove("focus-within")},o=(s=function(){var t=e.activeElement;if(i=!1,n!==t)for(n=t,c.call(e.getElementsByClassName("focus-within")).forEach(a);t&&t.classList;)t.classList.add("focus-within"),t=t.parentNode},function(){i||(requestAnimationFrame(s),i=!0)});e.addEventListener("focus",o,!0),e.addEventListener("blur",o,!0),o()}(window,document);
 
 (function ( w, doc, undefined ) {
   'use strict';
@@ -597,6 +618,7 @@ ready(handleChangeEvent);
 
     /**
      * Attach keyEvents to toggle buttons
+     *
      */
     var keyEvents = function ( e ) {
       var keyCode = e.keyCode || e.which;

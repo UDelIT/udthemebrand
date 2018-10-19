@@ -209,6 +209,7 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
       wp_deregister_script( $this->udtbp . '-admin-script' );
       wp_register_script( $this->udtbp .'-admin-script', UDTBP_ADMIN_JS_URL.'/udtbp-admin.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-dialog', 'jquery-form' ), UDTBP_VERSION, TRUE );
       wp_enqueue_script( $this->udtbp . '-admin-script' );
+      // wp_enqueue_script( $this->udtbp . '-admin-js-script', UDTBP_ADMIN_JS_URL.'/udtbp-admin-js.js', UDTBP_VERSION, TRUE );
 
       $args_localize_script = [
         'plugin_name' => UDTBP_NAME,

@@ -278,6 +278,7 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
      * @return    null    Return early if no settings page is registered.
      * @link   https://github.com/DevinVinson/no-sidebar-twentyfifteen/tree/master/nosidebar-twentyfifteen
      */
+
     public function udtbp_enqueue_inline_theme_styles() {
       $strcss_pos_rel = "position:relative !important;";
       $strcss_top_0 = "top:0px !important;";
@@ -305,15 +306,27 @@ if ( ! class_exists( 'udtbp_Public' ) ) :
           break;
 
           case 'Divi' :
-            echo '.ud-footer--logo a{cursor:pointer;}
-            #top-header{z-index:4999 !important}
-            body.admin-bar.et_fixed_nav #main-header,body.admin-bar.et_fixed_nav #top-header{' . $strcss_top_0 . '}
-            .et_fixed_nav #main-header,.et_fixed_nav #top-header{'. $strcss_pos_rel . '}
-            .et_fixed_nav.et_show_nav.et_secondary_nav_enabled.et_header_style_centered #page-container{margin-top:0 !important;
-              padding-top:0 !important;}
+            echo '.ud-footer--logo a{
+              cursor:pointer;
+            }
+            #top-header{
+              z-index:4999 !important
+            }
+            body.admin-bar.et_fixed_nav #main-header,
+            body.admin-bar.et_fixed_nav #top-header{
+              ' . $strcss_top_0 . '
+            }
+            .et_fixed_nav #main-header,
+            .et_fixed_nav #top-header{
+              '. $strcss_pos_rel . '
+            }
+            .et_fixed_nav.et_show_nav.et_secondary_nav_enabled.et_header_style_centered #page-container{margin-top:0 !important;padding-top:0 !important;
+            }
 
-            // #udtbp_footer{display: -webkit-flex;display: flex;-webkit-flex-wrap: wrap;flex-wrap: wrap;list-style: none;margin: 0;padding: 0;}
-            // .ud_grid.ud_grid--gutters.ud_grid--full.large-ud_grid--fit{width:100%}';
+            .et_fixed_nav.et_show_nav.et_secondary_nav_enabled #page-container,
+            .et_non_fixed_nav.et_transparent_nav.et_show_nav.et_secondary_nav_enabled #page-container {
+              padding-top: 0 !important;
+            }';
           break;
 
           case 'Matheson' :

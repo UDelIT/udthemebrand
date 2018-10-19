@@ -27,12 +27,12 @@ $udtbp_assets_img_url = esc_url( UDTBP_ASSETS_IMG_URL, UDTBP_NAME );
 <div id="ud-id-head" class="ud-wrapper--grid ud-gtr-head">
   <header class="ud-norm--header ud-header--logo item item--full">
     <div class="ud-flex--df ud-align--asstretch cell">
-      <img alt="" id="ud_primary_logo" src="<?php echo $udtbp_assets_img_url; ?>/logos/img-udlogo.svg" role="img" width="170" height="70"><span class="screen-reader-text"><?php echo esc_html( 'University of Delaware logo image', UDTBP_NAME ); ?></span>
+      <img alt="" id="ud_primary_logo" src="<?php echo $udtbp_assets_img_url; ?>/logos/img-udlogo.svg" role="img" width="170" height="70"><span class="screen-reader-text"><?php echo _e( 'University of Delaware logo image', UDTBP_NAME ); ?></span>
     </div>
   </header>
   <div class="ud-header--title item item--full">
     <div id="ud-id-ht" class="ud-header--title ud-display--db ud-align--asstretch cell">
-      <h1><?php echo esc_html( get_admin_page_title(), UDTBP_NAME ); ?></h1>
+      <h1><?php echo _e( get_admin_page_title(), UDTBP_NAME ); ?></h1>
     </div>
   </div>
 </div>
@@ -49,7 +49,7 @@ $udtbp_assets_img_url = esc_url( UDTBP_ASSETS_IMG_URL, UDTBP_NAME );
   <div id="post-body" class="metabox-holder columns-2">
 
       <div id="postbox-container-2" class="postbox-container">
-        <form id="<?php echo esc_attr( $this->udtbp.'_form' )?>" method="post" action="options.php"><?php
+        <form class="ud-class--form" id="<?php echo esc_attr( $this->udtbp.'_form' )?>" method="post" action="options.php"><?php
           wp_nonce_field( $this->udtbp.'_nonce' );
 
           $options = ( get_option( 'udtbp_header_options' ) ? get_option( 'udtbp_header_options' ) : FALSE );
@@ -67,7 +67,7 @@ $udtbp_assets_img_url = esc_url( UDTBP_ASSETS_IMG_URL, UDTBP_NAME );
           ?>
           <div class="clear"></div>
         </div>
-        <div class="u-ta--center">
+        <div class="ud-cont--button">
           <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-footer-tab-save' );?>"><?php _e( 'Save Changes' ); ?>
             <svg id="ud-icon--arrow" role="presentation" aria-label="arrow icon" focusable="false" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
               <g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
@@ -123,7 +123,7 @@ $udtbp_assets_img_url = esc_url( UDTBP_ASSETS_IMG_URL, UDTBP_NAME );
               ?>
               <div class="clear"></div>
             </div>
-            <div class="u-ta--center">
+            <div class="ud-cont--button">
               <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-header-tab-save' );?>"><?php _e( 'Save Changes' ); ?><svg id="ud-icon--arrow" role="presentation" aria-label="arrow icon" focusable="false" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10"><circle class="arrow-icon--circle" cx="16" cy="16" r="15.12"></circle><path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g></svg></button>
             </div>
           </div>
@@ -141,7 +141,7 @@ $udtbp_assets_img_url = esc_url( UDTBP_ASSETS_IMG_URL, UDTBP_NAME );
             <p>If you are experiencing problems with this plugin, contact the Support Center at (302) 831-6000 or <a href="mailto:consult@udel.edu">consult@udel.edu</a>.</p>
             <p>See the plugin <a href="https://github.com/UDelIT/udthemebrand/wiki/FAQs">FAQs</a> for more information.</p>
             <h2>Known Incompatible Themes</h2>
-            <p>Some themes contain features that may cause the branding to display incorrectly ( <a href="<?php echo $udtbp_admin_img_url; ?>/incompatible_example.png" class="dialogify" aria-label="<?php echo esc_html( 'Example image of broken layout from incompatible theme.', UDTBP_NAME ); ?>" type="button" data-width="500" data-height="300">See example</a> ).</p>
+            <p>Themes with fixed navigation enabled may cause the branding to display incorrectly.</p>
 
             <ul id="support_list">
              <?php

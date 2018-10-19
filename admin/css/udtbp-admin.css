@@ -10,19 +10,18 @@
 @import url("../../assets/css/_wcag.css");
 @import url("../../assets/css/_admin.tabs.css");
 @import url("../../public/css/ie.css");
-/* @import url("../../assets/css/switch--toggle-button.css");
-@import url("../../assets/css/switch--radio-buttons.css");
+ @import url("../../assets/css/_forms.css");
+/* @import url("../../assets/css/switch--radio-buttons.css");
 @import url("../../assets/css/switch--checkbox--alt.css"); */
 @import url("../../assets/css/switch--checkbox.css");
 /* @import url("../../assets/css/_aria-switch.css"); */
 /**
   * $ADMIN CSS
   *
-  * Defines all of the styles used in
-  * the plugin's ADMIN dashboard.
+  * Defines all of the styles used in the plugin's ADMIN dashboard.
   *
   * The Table of contents conforms to W3C HTML Elements organization.
-  * {@link https://www.w3.org/TR/2012/WD-html-markup-20121025/elements-by-function.html}
+  * @see {@link https://www.w3.org/TR/2012/WD-html-markup-20121025/elements-by-function.html}
   * @since   1.4.2
   * @version 3.5.0
 */
@@ -44,66 +43,8 @@ html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering:auto;
-  -webkit-text-size-adjust:100%; /* 1 */
-  touch-action: none;   /* 3 */
-}
-.udtbp_active #wp-body a {
-  -webkit-text-decoration-skip: objects; /* a */
-  -webkit-tap-highlight-color: transparent;
-  -webkit-transition: color .12s ease-in-out;
-  transition: color .12s ease-in-out;
-}
-
-.udtbp_active #wp-body a:active,
-.udtbp_active #wp-body a:hover {
-  outline-width: 0;
-  outline: 0; /* f */
-}
-
-/*------------------------------------------------------------------------------
-  1. Remove the padding so developers are not caught out when they zero out
-     'fieldset' elements in all browsers.
- -----------------------------------------------------------------------------*/
-legend {
-  padding: 0; /* 3 */
-}
-
-/*------------------------------------------------------------------------------
-  1. nasty bug on iOS
-     [https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile]
- -----------------------------------------------------------------------------*/
-[role="button"] {
-  cursor: pointer; /* 1 */
-}
-
-/*------------------------------------------------------------------------------
-  1. Correct the inability to style clickable types in iOS and Safari.
- -----------------------------------------------------------------------------*/
-button,
-[type="button"],
-[type="submit"] {
-  -webkit-appearance: button; /* 1 */
-}
-
-/*------------------------------------------------------------------------------
-  1. Remove the inner border and padding in Firefox.
- -----------------------------------------------------------------------------*/
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none; /* 1 */
-  padding: 0;
-}
-
-/*------------------------------------------------------------------------------
-  1. Restore the focus styles unset by the previous rule.
-------------------------------------------------------------------------------*/
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText; /* 1 */
+  -webkit-text-size-adjust:100%;
+  touch-action: none;
 }
 /*-------------------------------------------------------------------
   4. @EMBEDDED CONTENT
@@ -112,10 +53,12 @@ img {
   max-width:100%;
 }
 
-svg:not (:root) {
+svg:not(:root) {
   width:100%;
   height: auto;
+  overflow: hidden;
 }
+
 a,
 button,
 input,
@@ -129,12 +72,6 @@ textarea,
 /*------------------------------------------------------------------------------
  4. @TEXT-LEVEL SEMANTICS
 ------------------------------------------------------------------------------*/
-
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
 #udtbp_form,
 #udt_header_settings,
 #udt_footer_settings,
@@ -143,7 +80,7 @@ svg:not(:root) {
 }
 
 
-.u-ta--center {
+.ud-cont--button {
   text-align: center !important;
   height: 150px;
   background: #373737;
@@ -168,19 +105,13 @@ svg:not(:root) {
 /*------------------------------------------------------------------------------
   * 3. $TYPE
 ------------------------------------------------------------------------------*/
-#postbox-container-2 .inside p {
-  margin-top: -10px;
-}
+
 #udel_message {
-  background-color:#FDD;
+  background: #FDD;
   padding:.313em;
   font-weight:bold
 }
 
-p.submit {
-  float: none !important;
-  text-align:center;
-}
 
 #udtbp-ajax-message p {
   color: white;
@@ -290,7 +221,12 @@ p.submit {
   height: 50px;
   padding: 0 12px;
 }
-
+input:disabled,
+input.disabled {
+  cursor: not-allowed;
+  cursor: no-drop;
+  background: #EEE;
+}
 .ud-header--title h1 {
   display: -webkit-inline-flex;
   display: inline-flex;
@@ -298,6 +234,7 @@ p.submit {
   align-items: center;
   font-family: "greycliff-bold", Arial;
   font-size: 17px !important;
+  font-weight: normal;
   letter-spacing: 0.15px;
   height: 100%;
   margin: 0;
@@ -443,7 +380,8 @@ button.ud-switch .ud-norm--toggle {
 
 
 [role="switch"][aria-checked="true"],
-.color-on {
+#ud-id-vh.color-on,
+#ud-id-vf.color-on {
   background: #282;
 }
 [role="switch"][aria-checked="true"] .off svg {
@@ -582,6 +520,7 @@ input[type="checkbox"]:checked + label span {
   position: relative;
   top: 6px;
   left: 0px;
+  width: 60px !important;
   z-index: 1;
 }
 
@@ -742,45 +681,15 @@ span#tem::after {
   color: transparent !important;
 }
 
-.switch input:not(:checked) + label,
-#rad_blue_footer + label::after,
-#rad_white_footer + label::before {
-  webkit-transition: color .3s ease;
-  transition: color .3s ease;
-}
-
-.switch label {
-  color: #333;
-  cursor: pointer;
-}
-
-.switch #rad_blue_footer:checked + label,
-#udtbp_footer_options[view-footer]:checked label[for="rad_blue_footer"] {
-  background:#00539F;
-  color: white;
-}
-
-.switch #rad_white_footer:checked + label,
-#udtbp_footer_options[view-footer]:checked label[for="rad_white_footer"] {
-  background:ghostwhite;
-  color: #333;
-}
-
-.switch #rad_blue_footer + label {
-  border-radius: 4px 0 0 4px;
-}
-
-.switch #rad_white_footer + label {
-  border-radius: 0 4px 4px 0;
-}
 
 #ud-id-vh,
 #ud-id-vf,
 #ud-id-cf {
-  display: -webkit-flex;
-  display: flex;
+  display: -webkit-inline-flex;
+  display: inline-flex;
   -webkit-align-items: center;
   align-items: center;
+  background: transparent;
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0px 2px 4px #0000001a, 0px 2px 3px rgba(0, 0, 0, .2);
@@ -789,147 +698,26 @@ span#tem::after {
 #ud-id-vh:hover,
 #ud-id-vf:hover,
 #ud-id-cf:not(.disabled):hover  {
-  outline: dotted 2px #2196f3;
-/*   border:2px solid #2196f3; */
-  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  /* outline: dotted 2px #2196f3; */
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   -webkit-transform-origin: center;
   transform-origin: center;
-  -webkit-transform: translateY(-4px);
-  transform: translateY(-4px);
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, .2), 0px 6px 6px rgba(0, 0, 0, .2);
 }
 
-#ud-id-vf label {
-  width: 100%;
-  margin-left: 0;
-  border-radius: 4px;
-}
-
-#udt_header_settings label {
-  display: inline-block;
-  position:relative;
-  width: 100%;
-  max-width: 302px;
-  height: auto;
-  border-radius: 4px;
-}
-#ud-id-vh label,
-#ud-id-vf label,
-#ud-id-cf label {
-  font-size: 23px;
-  line-height: 2.2;
-  display: inline-block;
-  height: 100%;
-  text-align: center;
-  z-index: 3;
-}
-
-/* .switch {
-  width: 100%;
-  max-width: 302px;
-  height: 50px;
-  position: relative;
-  border-radius: 4px;
-} */
-.switch--horizontal {
-  font-size: 0;
-}
-
-.switch--horizontal input {
-  height: inherit;
-  width: 100px;
-  left: 100px;
-  margin: 0;
-}
 
 
-
-.color-on label {
-  color:  white;
-}
-
-.color-off label {
-  color: #333;
-}
 
 .color-off {
   background: #CCC;
 }
 
-#ud-id-cf label {
-  width: 110px;
-}
 
-.switch--horizontal input:checked,
-.switch--horizontal input ~ input:checked {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 0 0 2px transparent,0 3px 3px #0000004d;
-}
-
-.switch--horizontal label:last-of-type {
-  margin-left: 3rem;
-}
-
-#rad_white_footer + label {
-  margin-left: 82px;
-}
-
-.switch--horizontal .toggle-outside {
-  background: #CBCBCB;
-  position: absolute;
-  width: 80px;
-  height: 35px;
-  left: 109px;
-  box-shadow: inset -1px 1px 2px rgba(0,0,0,.23), inset 1px 0px 2px rgba(0,0,0,.23);
-  border-radius: 50px;
-  overflow: hidden;
-  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.switch--horizontal .toggle-inside {
-  height: 35px;
-  width: 35px;
-  margin: 0;
-  position: absolute;
-  cursor: pointer !important;
-  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-input[type="radio"].disabled, input[type="radio"].disabled:checked::before, input[type="radio"]:disabled, input[type="radio"]:disabled:checked::before, input[type="checkbox"].disabled, input[type="checkbox"].disabled:checked::before, input[type="checkbox"]:disabled, input[type="checkbox"]:disabled:checked::before {
-  opacity: 0;
-}
-
-.switch--horizontal input  ~ .toggle-outside .toggle-inside::after,
-.toggle-outside .toggle-inside::after {
-  content: '';
-  display: block;
-  z-index: 1;
-  height: 35px;
-  width: 35px;
-  border-radius: 50px;
-  background: white;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .2) inset;
-  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-input:checked ~ .toggle-outside .toggle-inside {
-
-}
-
-input ~ input:checked ~ .toggle-outside .toggle-inside {
-  -webkit-transform: translateX(42px);
-  transform: translateX(42px);
-
-}
 /*-----------------------
   Toggle Text CSS
   Styles 'Enabled' and 'Disabled'
@@ -999,71 +787,7 @@ span.udt_value_text.udt_off_value {
   opacity: 0;
 } */
 
-/*------------------------------------
-  6. $FORM FIELDS
-------------------------------------*/
 
-.box-content input[type="text"] {
-  position: relative;
-  width: 100%;
-  height: 50px;
- font-size:  18px;
-  border-radius: 4px;
-  letter-spacing: -.015em;
-  padding: 8px;
-   border: 1px solid #E0E0E0;
-  transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 1;
-}
-
-.box-content input[type="text"]:focus {
-  display: inline-block;
-  -webkit-transform: translateY(-5px);
-  transform: translateY(-5px);
-  -webkit-transform-origin: center;
-  transform-origin: center;
-  background: white;
-  outline: dotted 2px #2196f3;
-}
-
-.box-content input[type="text"] + span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 5px 15px #0000004d;
-  -webkit-transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s, -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s, -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s;
-  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s, -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  opacity: 0;
-}
-
-.box-content input[type="text"]:focus + span {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, .2), 0px 6px 6px rgba(0, 0, 0, .2);
-  -webkit-transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s, -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s, -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s;
-  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), 0s, -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  -webkit-transform-origin: center;
-  transform-origin: center;
-  -webkit-transform: translateY(-8px);
-  transform: translateY(-8px);
-  will-change: opacity, transform;
-  opacity: 1;
-}
-
-label {
-  cursor: pointer;
-}
-
-.box-content input[type="checkbox"],
-.box-content input[type="radio"] {
-  display: none
-}
 
 
 

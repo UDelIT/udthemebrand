@@ -136,8 +136,8 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
   public function display_options_section() {
 
   ?>
-  <h2 class="subheadline"><?php echo esc_html( 'Configure options' ); ?></h2>
-  <p><?php echo esc_html( 'Display header with web site title or department text.' ); ?></p>
+  <h2 class="subheadline"><?php echo _e( 'Configure options' ); ?></h2>
+  <p><?php echo _e( 'Display header with web site title or department text.' ); ?></p>
   <?php
   } // display_options_section()
 
@@ -159,25 +159,32 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
     }
 ?>
 
-<div id="ud-id-vh" class="switch switch--horizontal" tabindex="0">
+<div id="ud-id-vh" class="switch switch--horizontal">
   <label for="<?php echo esc_attr( $this->udtbp ) ?>_options[view-header]" class="check-switch">
-    <input class="ud-class--view" type="checkbox" aria-checked="" tabindex="-1" id="<?php echo esc_attr( $this->udtbp )?>_options[view-header]" name="<?php echo esc_attr( $this->udtbp ) ?>_options[view-header]" value="1" <?php checked( $option, 1 , TRUE ); ?>>
+    <input class="ud-class--view" type="checkbox" aria-checked="" id="<?php echo esc_attr( $this->udtbp )?>_options[view-header]" name="<?php echo esc_attr( $this->udtbp ) ?>_options[view-header]" value="1" <?php checked( $option, 1 , TRUE ); ?>>
     <div class="ud-img--container">
       <span class="udt_value_text udt_on_value">
         <svg id="svg_on" class="icon-svg ud-class--on" role="img" aria-labeledby="id-on" xmlns="http://www.w3.org/2000/svg" focusable="false" width="48" height="48" viewBox="0 0 128 128">
           <title id="id-on" class="screen-reader-text">Visible icon</title>
+          <defs>
+            <style>
+              .fill--current{fill:currentColor}
+              .fill--white{fill:white}
+              .fill--dark{fill:#010101}
+            </style>
+          </defs>
           <path d="M64.1,25C26.8,25,4.8,62,4.8,62s22,37,59.3,37,58.4-37,58.4-37S100.4,25,64.1,25Z" transform="translate(-4.8 -25)"></path>
-          <circle cx="59.3" cy="36" r="23.8" style="fill:#fff"></circle>
-          <path d="M64,50.4a9.3,9.3,0,0,1,.5-2.9,13.5,13.5,0,1,0-.5,27A13.4,13.4,0,0,0,77.3,58.9,9.4,9.4,0,0,1,64,50.4Z" transform="translate(-4.8 -25)" style="fill: #010101"></path>
+          <circle class="fill--white" cx="59.3" cy="36" r="23.8"></circle>
+          <path class="fill-dark" d="M64,50.4a9.3,9.3,0,0,1,.5-2.9,13.5,13.5,0,1,0-.5,27A13.4,13.4,0,0,0,77.3,58.9,9.4,9.4,0,0,1,64,50.4Z" transform="translate(-4.8 -25)"></path>
         </svg>
       </span>
       <span class="udt_value_text udt_off_value">
         <svg id="svg_off" class="icon-svg ud-class--off" role="img" aria-labeledby="id-off" xmlns="http://www.w3.org/2000/svg" focusable="false" width="48" height="48" viewBox="0 0 128 128">
           <title id="id-off" class="screen-reader-text">Invisible icon</title>
           <path class="ud-color" d="M59.3 14C22 14 0 51 0 51s22 37 59.3 37 58.4-37 58.4-37-22.1-37-58.4-37z"></path>
-          <circle cx="59.3" cy="50" r="23.8" fill="#fff"></circle>
-          <path d="M59.2 39.4a9.3 9.3 0 0 1 .5-2.9 13.502 13.502 0 1 0-.5 27 13.4 13.4 0 0 0 13.3-15.6 9.4 9.4 0 0 1-13.3-8.5z" class="ud-color" fill="#010101"></path>
-          <path class="ud-color" fill="#010101" d="M7.6 96.44L103.98.063l6.894 6.894-96.379 96.379z"></path>
+          <circle class="fill--white" cx="59.3" cy="50" r="23.8"></circle>
+          <path class="ud-color fill--dark" d="M59.2 39.4a9.3 9.3 0 0 1 .5-2.9 13.502 13.502 0 1 0-.5 27 13.4 13.4 0 0 0 13.3-15.6 9.4 9.4 0 0 1-13.3-8.5z"></path>
+          <path class="ud-color fill--dark" d="M7.6 96.44L103.98.063l6.894 6.894-96.379 96.379z"></path>
         </svg>
       </span>
     </div>
@@ -231,9 +238,7 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
 
     $wp_site_title = get_bloginfo( 'name' );
 
-
-
-    if ( !isset( $options['header-title'] ) &&  $options['header-title'] == $wp_site_title  ) {
+    if ( isset( $options['header-title'] ) && ! empty( $options['header-title'] ) ){
       $option = $options['header-title'];
       $custom_header_text = $option;
     }
@@ -242,8 +247,10 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
       $custom_header_text = NULL;
     }
 
+
+
     ?>
-    <div class="box-content">
+    <div id="ud-id-ht" class="box-content">
       <label for="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>">
         <input id="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>" name="<?php echo esc_attr( $this->udtbp.'_options[header-title]' ) ?>" type="text" value="<?php echo esc_attr( $option ); ?>"><span></span>
       </label>

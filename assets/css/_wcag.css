@@ -114,6 +114,9 @@ a:not([href]):not([tabindex]):focus {
   outline: 0;
 }
 
+/* [tabindex] {
+ border: solid red 1px;
+} */
 /* i */
 /* [aria-pressed]:focus {
   outline: none;

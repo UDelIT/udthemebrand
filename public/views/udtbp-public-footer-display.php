@@ -52,7 +52,7 @@
   </footer>
   <div class="item item--full ud-footer--legal">
     <ul>
-      <li>© <?php echo Date('Y'); ?> <span id="udid_cr" class="ud_copyright">University of Delaware</span></li>
+      <li>© <?php echo Date('Y') . '&nbsp;'; ?> <span id="udid_cr" class="ud_copyright"> University of Delaware</span></li>
       <li><a href="https://www.udel.edu/home/comments">Comments</a></li>
       <li><a href="https://www.udel.edu/home/legal-notices"><span id="udid_ln" class="ud_copyright">Legal Notices</span></a></li>
       <li><a href="https://www.udel.edu/home/legal-notices/accessibility/"><span id="udid_an" class="ud_copyright">Accessibility Notice</span></a></li>

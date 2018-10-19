@@ -6,7 +6,8 @@ button.ud-switch,
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.check-switch {
+.check-switch,
+.switch {
 /*   border: 1px solid #565656; */
   display: block;
   overflow: hidden;
@@ -14,32 +15,55 @@ button.ud-switch,
   height: 50px;
 }
 
-
+.switch {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 4px;
+  overflow: hidden;
+}
 
 /* using the before/after pseudo elements of the span to create the "switch" */
 .check-switch span::before,
 .check-switch span::after {
   content: '';
   position: absolute;
-  top: 50%;
+/*   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+          transform: translateY(-50%); */
 }
 
 /*----------------------------------
 	KNOB CIRCLE CSS
 ----------------------------------*/
 .check-switch span::after {
-  background: white;
-  border-radius: 50px;
-  width: 35px;
-  height: 35px;
   right: 1.5em;
-  -webkit-transform: translate(-15px, -17px);
-  transform: translate(-15px, -17px);
-  box-shadow: 0 3px 3px rgba(0, 0, 0, .2) inset;
+  -webkit-transform: translate(-17px, 0px);
+  transform: translate(-17px, 0px);
 }
 
+.check-switch span::after,
+.switch--horizontal input  ~ .toggle-outside .toggle-inside::after,
+.toggle-outside .toggle-inside::after {
+  content: '';
+  display: block;
+  background: honeydew;
+  border-radius: 50px;
+  will-change:  transform;
+  width: 35px;
+  height: 35px;
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
+  transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
+  transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
+  transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1), -webkit-transform 0.3s cubic-bezier(0.22, 0.38, 0, 1);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12), 0px 0px 10px 1px rgba(0, 0, 0, 0.42) inset;
+}
+
+input ~ input:checked ~ .toggle-outside .toggle-inside {
+  -webkit-transform: translateX(42px);
+  transform: translateX(42px);
+}
 /*----------------------------------
 	PILL CONTAINER CSS
 ----------------------------------*/
@@ -48,7 +72,7 @@ button.ud-switch,
 }
 
 .check-switch span::before {
-  background: #CBCBCB;
+  background: rgba(203,203,203,0.3);
   border-radius: 50px;
   right: .25em;
   height: 35px;
@@ -68,17 +92,75 @@ button.ud-switch,
 .switch input {
   height: 100%;
   left: 0;
-  opacity: .0001;
+  opacity: 0;
   position: absolute;
   top: 0;
   width: 100%;
+  cursor: pointer;
 }
-.form-table .switch:focus label,
+
+.switch label {
+  color: #333;
+  cursor: pointer;
+}
+
+.switch--horizontal {
+  font-size: 0;
+}
+
+.switch--horizontal input {
+  height: inherit;
+  width: 100px;
+  left: 100px;
+  margin: 0;
+}
+
+.switch--horizontal input:checked,
+.switch--horizontal input ~ input:checked {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 0 0 2px transparent,0 3px 3px #0000004d;
+}
+.switch--horizontal .toggle-outside,
+.check-switch span::before {
+  background: rgba(203,203,203,0.3);
+  position: absolute;
+  width: 80px;
+  height: 35px;
+  box-shadow: inset -1px 1px 2px rgba(0,0,0,.23), inset 1px 0px 2px rgba(0,0,0,.23);
+  border-radius: 50px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.switch--horizontal .toggle-outside {
+  left: 109px;
+}
+
+.check-switch span::before {
+  right: .25em;
+}
+.switch--horizontal .toggle-inside {
+  height: 35px;
+  width: 35px;
+  margin: 0;
+  position: absolute;
+  cursor: pointer !important;
+  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 .check-switch.focus-within,
 .switch.focus-within,
 button.focus-within,
-#ud-id-cf label:focus {
-  background: #609bfb !important;
+button:focus,
+#ud-id-cf label:focus,
+#ud-id-vh.color-off:focus label {
+  outline: 2px dotted #609bfb !important;
+  border-radius: 4px !important;
 }
 .check-switch input:not([role="button"]) {
   pointer-events: none;
@@ -89,8 +171,15 @@ button.focus-within,
 .check-switch input:checked + span::after,
 .check-switch input:checked + div span::after,
 .switch input:checked + span::after {
-  -webkit-transform: translate(25px, -17px);
-  transform: translate(25px, -17px);
+  will-change:  transform;
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
+  transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
+  transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
+  transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1), -webkit-transform 0.3s cubic-bezier(0.22, 0.38, 0, 1);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: translate(22px, 0px);
+  transform: translate(22px, 0px);
 }
 
 @media screen and (-ms-high-contrast: active) {

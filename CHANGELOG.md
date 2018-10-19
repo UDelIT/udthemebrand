@@ -4,20 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 10-8-2018
+## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 10-19-2018
 
 ### Added
 * All images replaced with svg accessible images.
 * Adjust text size and content in Legal footer when browser is resized.
 * Added hover events on all plugin links for accessibility.
 * Added new Site Title bar.
-* Accessibility features added: keyboard navigation, dynamic aria settings.
-* Migrated JS events, storage, events, feature detection from jQuery to plain JS.
-* Added new Quick Links menu (Apply, Visit, Give).
+* Accessibility features added: keyboard and tab navigation, dynamic aria settings.
+* Migrated JS events, storage, feature detection from jQuery to plain JS.
+* ~~Added new Quick Links menu (Apply, Visit, Give).~~
 * Performance and documentation improvements.
 
 
 ### Fixed
+* Divi Logo Container alignment bug ([#36](https://github.com/UDelIT/udthemebrand/issues/36))
+* Header link text color and hover color not applying ([#35](https://github.com/UDelIT/udthemebrand/issues/35))
+* Footer icons ([#32](https://github.com/UDelIT/udthemebrand/issues/32))
+* Header - site title option ([#31](https://github.com/UDelIT/udthemebrand/issues/31))
+* Header - Links have large outlines ([#30](https://github.com/UDelIT/udthemebrand/issues/30))
 * Ask CampusPress to use AddHandler in htacccess for php css files ([#29](https://github.com/UDelIT/udthemebrand/issues/29))
 * add ud class to body when plugin is activated, remove class when deactivated ([#27](https://github.com/UDelIT/udthemebrand/issues/27))
 * Footer color not clearing when footer is disabled ([#24](https://github.com/UDelIT/udthemebrand/issues/24))

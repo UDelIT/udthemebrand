@@ -1,9 +1,9 @@
 /**
 	* CLOSEST POLYFILL FOR IE / EDGE
   * Plain JS version of jQuery .find(). MS browsers < Edge 15 must use a polyfill.
-  * {@link https://github.com/jonathantneal/closest}
   *
-  * @since   3.1.0
+  * @see          {@link https://github.com/jonathantneal/closest}
+  * @since        3.5.0
  */
 (function (ElementProto) {
 	if (typeof ElementProto.matches !== 'function') {
