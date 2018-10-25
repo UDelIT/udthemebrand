@@ -55,6 +55,23 @@
   margin-right: 280px;
 }
 
+.ud-gtr-head {
+  display: block;
+}
+
+#contextual-help-link-wrap,
+#screen-options-link-wrap {
+  z-index: 11;
+}
+.ud-norm--header img {
+  padding-left: 12px;
+}
+
+.ud-norm--header > div:first-child {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
 body.udtbp_active.postbox,
 .stuffbox {
   margin-bottom: 0;

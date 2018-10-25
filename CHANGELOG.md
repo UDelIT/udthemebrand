@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 10-19-2018
+## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 10-25-2018
 
 ### Added
 * All images replaced with svg accessible images.
@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 
 ### Fixed
+* Main content needs spacing above footer ([#38](https://github.com/UDelIT/udthemebrand/issues/38))
+* Footer legal links have underlines on hover ([#37](https://github.com/UDelIT/udthemebrand/issues/37))
 * Divi Logo Container alignment bug ([#36](https://github.com/UDelIT/udthemebrand/issues/36))
 * Header link text color and hover color not applying ([#35](https://github.com/UDelIT/udthemebrand/issues/35))
 * Footer icons ([#32](https://github.com/UDelIT/udthemebrand/issues/32))
