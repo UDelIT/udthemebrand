@@ -5,7 +5,7 @@
   * Description:       A WCAG compliant plugin that allows a University department
   *                    or college to display the official University of Delaware
   *                    branded header and footer on a WordPress website.
-  * Version:           3.5.0
+  * Version:           3.5.2
   * Author:            Christopher Leonard - University of Delaware
   * Author URI:        https://sites.udel.edu/cleonard
   * License:           GPLv3
@@ -14,7 +14,7 @@
   * Domain Path:       /languages
 */
 /**
-  Copyright (c) 2012-2018 University of Delaware
+  Copyright (c) 2012-2019 University of Delaware
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
@@ -41,8 +41,8 @@
   * @author      Christopher Leonard
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 /**
  * Prevent direct access to this page.
@@ -52,51 +52,27 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * REGISTER ACTIVATION HOOK
- * The code that runs during plugin activation.
- * @todo implement this as a check for legacy plugin, options, etc. and remove them.
- */
-function activate_udtbp() {
-  //require_once plugin_dir_path( __FILE__ ) . 'include/class-udtbp-activation.php';
-  //require_once plugin_dir_path( __FILE__ ) . 'error-scrape.php';
-
-}
-//
-//require_once plugin_dir_path( __FILE__ ) . 'include/class-udtbp-activation.php';
-/**
- * REGISTER DEACTIVATION HOOK
- * The code that runs during plugin deactivation.
- * @todo implement this as a check for legacy plugin, options, etc. and remove them.
- */
-// function deactivate_udtbp() {
-//   require_once plugin_dir_path( __FILE__ ) . 'include/class-udtbp-deactivation.php';
-//   udtbp_Deactivation::udtbp_deactivation_hook();
-// }
-
-// register_activation_hook( __FILE__, 'activate_udtbp' );
-// register_deactivation_hook( __FILE__, array( 'udtbp', 'deactivate_udtbp' ) );
-
-
-
-/**
  * CLASS AUTOLOADER
+ *
  * The function responsible for auto loading classes.
  */
 require plugin_dir_path( __FILE__ ) . 'udtbp-autoloader.php';
+
 /**
  * CLASS UDTBP
+ *
  * The core plugin class that is used to define internationalization,
  * dashboard-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'include/class-udtbp.php';
+
 /**
  * DEFINED CONSTANTS
+ *
  * The class responsible for defining constants.
  */
 require plugin_dir_path(  __FILE__ ) . 'udtbp-defined-constants.php';
 
-
-// include plugin_dir_path(  __FILE__ ) . 'redux/admin-init.php';
 /**
  * RUN PLUGIN
  *

@@ -11,8 +11,8 @@
  * @author      Christopher Leonard - University of Delaware
  * @license     GPLv3
  * @link        https://bitbucket.org/itcssdev/udtheme-brand
- * @copyright   Copyright (c) 2012-2018 University of Delaware
- * @version     3.5.0
+ * @copyright   Copyright (c) 2012-2019 University of Delaware
+ * @version     3.5.2
  */
 if ( ! class_exists( 'udtbp_Social' ) ) :
   class udtbp_Social {
@@ -57,11 +57,12 @@ if ( ! class_exists( 'udtbp_Social' ) ) :
     foreach( $items as $key => $value ) :
     ?>
         <li>
-          <a aria-label=" Go to the UD <?php echo esc_attr( $key ) ?> page (external link)" href="<?php echo esc_attr( $value['url'] ) ?>">
+          <a aria-labeledby="id-<?php echo esc_attr( $key ) ?>-sm-label"  Go to the UD <?php echo esc_attr( $key ) ?> page (external link)" href="<?php echo esc_url( $value['url'] ) ?>">
             <svg class="icon">
               <use xlink:href="#ud-icon-<?php echo esc_attr( $value['icon'] ) ?>"></use>
             </svg>
           </a>
+          <span id="id-<?php echo esc_attr( $key ) ?>-sm-label" class="screen-reader-text"> Go to the UD <?php echo esc_attr( $key ) ?> page (external link)></span>
         </li>
     <?php
     endforeach; // end foreach

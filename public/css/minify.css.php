@@ -10,8 +10,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 header( 'Content-type: text/css; charset: UTF-8' );
 ob_start( "compress" );
@@ -22,7 +22,7 @@ function compress( $buffer ) {
   * @version     2.0.0              new partials CSS and files replace prev. CSS
   * @param       string             $buffer
   * @link                           https://ikreativ.com/combine-minify-css-with-php/
-  * @link                           http://stackoverflow.com/questions/9862904/css-merging-with-php
+  * @link                           https://stackoverflow.com/questions/9862904/css-merging-with-php
 */
       /* remove comments */
       $buffer = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer );
@@ -41,10 +41,12 @@ function compress( $buffer ) {
   // include( 'header.css' );
   // include( 'footer.css' );
 
+
   include( '../../assets/css/_fonts.css' );
-  include( '../../assets/css/_normalize-udtbp.css' );
+  include( '../../assets/css/_helper-classes.css' );
+  include( '../../assets/css/_wcag.css' );
   include( '_branding.css' );
   include( '_grid.css' );
   include( '_flexbox.css' );
-  include( '../../assets/css/_wcag.css' );
+
   ob_end_flush();

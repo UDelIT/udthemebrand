@@ -8,8 +8,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
   *
 */
 if ( ! function_exists( 'udtbp_server_autoloader' ) ) :
@@ -18,7 +18,7 @@ if ( ! function_exists( 'udtbp_server_autoloader' ) ) :
    *
    * @since     1.4.2
    * @version   1.5.0
-   * @todo      												Finish translation functionality
+   * @todo                              Quick Links
    * @param     string    $class_name   Name of the class to load.
    */
   function udtbp_server_autoloader( $class_name ) {

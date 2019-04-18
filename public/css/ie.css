@@ -6,11 +6,20 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 @-ms-viewport {
   width: device-width;
+}
+
+/**
+ * ClassList not working in SVG use tag in IE11
+ * https://github.com/eligrey/classList.js/issues/79
+ */
+body.is_ms svg,
+body.is_ms use {
+  pointer-events: none;
 }
 
 html,
@@ -49,12 +58,13 @@ body.is_ms .ud-footer--legal {
 
 body.is_ms .ud-norm--header,
 body.is_ms .ud-norm--footer {
-   -ms-grid-row: 1;
+  -ms-grid-row: 1;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
 }
 
-body.is_ms .ud-footer--legal ul {
+body.is_ms .ud-footer--legal ul,
+body.is_ms header.ud-norm--header img#ud_primary_logo {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
 }
@@ -136,6 +146,14 @@ body.is_ms .ud-footer--legal {
   -ms-grid-column-span: 3;
 }
 
+/*------------------------------------------------------------------------------
+  Click events are swallowed by SVG <use> elements in IE
+  https://github.com/facebook/react/issues/4963
+------------------------------------------------------------------------------*/
+body.is_ms svg,
+body.is_ms use {
+  pointer-events: none;
+}
 /*------------------------------------------------------------------------------
   1. Hide the overflow in IE.
   2. Make svg image fluid in IE

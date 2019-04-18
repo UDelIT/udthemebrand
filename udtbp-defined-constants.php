@@ -13,8 +13,8 @@
   * @author      Christopher Leonard
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 /**
   * Defines named constants that return the complete
@@ -35,48 +35,44 @@
 */
 /**
   * Plugin CONSTANTS
-  * @version  1.1.0    Removed Highwind (deprecated) from $json_theme_list array
+  * @version  1.2.0    Removed Anjirai (deprecated) from $json_theme_list array
 */
 const UDTBP_NAME             = 'UDTheme Branding';
-const UDTBP_VERSION          = '3.5.0';
+const UDTBP_VERSION          = '3.5.2';
 const UDTBP_REQ_PHP_VERSION  = '7.0';
-const UDTBP_REQ_WP_VERSION   = '4.7';
+const UDTBP_REQ_WP_VERSION   = '5.1.1';
 
 /**
  * List of incompatible themes and latest tested version
  *
- * Theme.....................................Version
- * Aaron.....................................3.1
- * Anjirai...................................0.0.1 Last udpdated 2/26/2015
- * Boardwalk.................................1.0.13
- * Cubic.....................................1.0.7
- * Divi (with fixed navigation)..............3.12.2
- * Matheson..................................1.0.7
- * Radiate...................................1.2.8
- * Star......................................1.0.7
- * Swell Lite................................1.6.5
- * Temptation................................1.1.1
- * Tracks |
- * Twenty Twelve.............................2.5
- * Twenty Fourteen...........................2.2
- * Twenty Fifteen............................2.0
- * Twenty Sixteen............................1.5
- * Twenty Seventeen..........................1.7
+ * Theme...........Latest (date)..............CP
+ * Aaron............3.5.....11/18.............3.0
+ * Anjirai..........0.0.1...2/15 DEPRECATED...
+ * Boardwalk........1.0.13..6/17..............1.0.4
+ * Cubic............1.0.7...6/17..............1.0.4
+ * Divi (fixed nav).3.17.6..11/18.............3.17.2
+ * Matheson.........1.0.7...3/16..............1.0.3
+ * Radiate..........1.2.9...9/18..............1.0.3
+ * Star.............1.12....10/18 DEPRECATED..
+ * Swell Lite.......1.6.5...8/18..............1.0.9
+ * Temptation.......1.1.1...4/18 DEPRECATED...
+ * Tracks...........1.66....11/18.............1.34
+ * Twenty Twelve....2.5.....No OR CSS 5/18....1.3
+ * Twenty Fourteen..2.2.....5/18..............1.2
+ * Twenty Fifteen...2.0.....5/18..............1.9
+ * Twenty Sixteen...1.5.....5/18..............1.4
+ * Twenty Seventeen.1.7.....8/18..............1.4
  * @var array
  */
 $json_theme_list = array(
   "Aaron",
-  "Anjirai",
   "Boardwalk",
   "Cubic",
   "Divi",
   "Matheson",
   "Radiate",
-  "Star",
   "Swell Lite",
-  "Temptation",
   "Tracks",
-  "Twenty Twelve",
   "Twenty Fourteen",
   "Twenty Fifteen",
   "Twenty Sixteen",

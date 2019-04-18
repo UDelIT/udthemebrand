@@ -2,15 +2,15 @@
   * UDTHEME BRANDING WORDPRESS OVERRIDES CSS
   *
   * Defines all of the styles used to prevent theme and core styles
-  * from overriding branding css.
+  * from overriding branding css within the dashboard.
   *
   * @package     udtheme-brand
   * @subpackage  udtheme-brand/assets/css
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 #wp-body a {
   -webkit-text-decoration-skip: objects;
@@ -80,8 +80,8 @@ body.udtbp_active.postbox,
 #postbox-container-1 .inside h2 {
   font-size: 14px;
   padding: 0;
-  margin: 1.25em 0 0.625em;
-  line-height: 1.4;
+  margin: 1em 0 0;
+  line-height: 1.3;
 }
 
 #postbox-container-1 .inside h2 + p,
@@ -166,7 +166,7 @@ h1#icon-themes {
   font-size: 24px !important;
 }
 
-#postbox-container-2 .inside p {
+#postbox-container-2 .inside p:not(.help) {
   font-size: 16px !important;
   margin-top: -10px;
   padding: 0 0.750em;
@@ -188,6 +188,7 @@ h1#icon-themes {
 .form-table input[type="checkbox"] {
   background: transparent !important;
 }
+
 input[type="radio"].disabled,
 input[type="radio"].disabled:checked::before,
 input[type="radio"]:disabled,
@@ -310,7 +311,6 @@ p.dashicons-before.dashicons-warning::before {
   font-family: "dashicons";
   content: "\f534";
   color: #9F6000 !important;
-  line-height: 1.2;
   float: left;
 }
 

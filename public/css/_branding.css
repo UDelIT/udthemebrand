@@ -6,8 +6,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 
 /*------------------------------------------------------------------------------
@@ -20,16 +20,68 @@
   6. @ANIMATION
   7. @MEDIA QUERIES
 ------------------------------------------------------------------------------*/
+[id^="ud-id-"] li:hover,
+[id^="ud-id-"] li:hover a,
+[id^="ud-id-"] li:hover svg {
+  cursor: pointer;
+}
 
+[id^="ud-id-"] a:active,
+[id^="ud-id-"] a:hover,
+[id^="ud-id-"] a:link,
+[id^="ud-id-"] a:visited {
+  text-decoration: none;
+}
+
+[id^="ud-id-"] .icon {
+  width: 1em;
+  height: 1em;
+  font-size: 28px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.ud-gtr-foot,
+.ud-gtr-head,
+.ud-header--title {
+  z-index: 10;
+}
+
+[id^="ud-id-"] ~ a img {
+  border:none;
+}
+
+[id^="ud-id-"] ~ ul {
+  list-style:none;
+  list-style-image:none;
+  list-style-position: outside;
+  margin-bottom: 10px
+}
+
+[id^="ud-id-"] ~ p,
+[id^="ud-id-"] ~ ul,
+[id^="ud-id-"] ~ li,
+[id^="ud-id-"] ~ h1,
+[id^="ud-id-"] ~ h2,
+[id^="ud-id-"] ~ h3 {
+  margin: 0;
+  padding: 0;
+}
+
+[id^="ud-id-"] p,
+[id^="ud-id-"] a,
+[id^="ud-id-"] div,
+[id^="ud-id-"] span:not('.ud_copyright') {
+  font-size: 16px;
+}
 /*------------------------------------------------------------------------------
   1. @HEADER ELEMENTS
 ------------------------------------------------------------------------------*/
-
 .ud-norm--header {
-  -webkit-align-items: stretch;
-  align-items: stretch;
+  /* -webkit-align-items: stretch;
+  align-items: stretch; */
   background-color: #00539F;
-  border-bottom: 2px solid #FFD300;
   overflow: visible;
   width:100%;
   height:130px;
@@ -50,11 +102,11 @@
 }
 
 .ud-norm--header a:active {
-  outline-width: 0;
+/*   outline-width: 0;
   outline: 1px dotted darkgrey;
-  outline-offset: 1px;
+  outline-offset: -1px;
   background: #87cefa;
-  color: darkgrey;
+  color: darkgrey; */
 }
 
 .ud-norm--header img {
@@ -70,14 +122,32 @@
   transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
 }
 
-.ud-header--title {
-  background: #003C70;
+.ud-norm--header > .cell {
+  max-height: inherit;
+  height:inherit;
 }
 
-.ud-gtr-foot,
-.ud-gtr-head,
+.ud-norm--header > .cell,
+.ud-header--title > .cell {
+  padding: 0;
+}
+
+.ud-header--title > .cell {
+  height: 50px;
+}
+
+.ud-header--title .u-span1 {
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-align-items: center;
+  align-items: center;
+  max-height: 50px;
+}
+
 .ud-header--title {
-  z-index: 10;
+  background: #003C70;
+  border-top: 2px solid #FFD200;
+  margin-bottom:  -2px;
 }
 
 #ud-id-site--title a {
@@ -104,32 +174,10 @@
 
 .ud-norm--header a:hover,
 #ud-id-site--title a:hover{
-  -webkit-filter: saturate(0%);
+/*   -webkit-filter: saturate(0%);
   filter: saturate(0%);
   box-shadow: none;
-  border: 1px dotted ghostwhite !important;
-}
-
-.ud-norm--header > .cell,
-.ud-header--title > .cell {
-  padding: 0;
-}
-
-.ud-norm--header > .cell {
-  max-height: inherit;
-  height:inherit;
-}
-
-.ud-header--title > .cell {
-  height: 50px;
-}
-
-.ud-header--title .u-span1 {
-  display: -webkit-flex !important;
-  display: flex !important;
-  -webkit-align-items: center;
-  align-items: center;
-  max-height: 50px;
+  border: 1px dotted ghostwhite !important; */
 }
 
 /*------------------------------------------------------------------------------
@@ -140,14 +188,29 @@
   content: '';
   position: absolute;
   top: 0;
-  border-top: 3px solid #FFD300;
+  border-top: 3px solid #FFD200;
   display: block;
   width: 100%;
   z-index: 0;
 }
+
 #ud-id-foot {
   margin-top: 32px;
 }
+
+#ud-id-foot + svg {
+  display: none;
+  visibility: hidden;
+}
+
+#ud-id-foot ul {
+  display: -webkit-flex;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .ud-norm--footer {
   -webkit-align-items: center;
   align-items: center;
@@ -162,7 +225,11 @@
 /*------------------------------------------------------------------------------
   3. @LOCKUP ELEMENTS
 ------------------------------------------------------------------------------*/
- .ud-footer--logo a {
+.ud-footer--logo {
+  grid-column: 1;
+}
+
+.ud-footer--logo a {
   position: relative;
   text-decoration: none;
   display: -webkit-flex;
@@ -172,9 +239,26 @@
   border: 2px dotted transparent;
 }
 
+.color-svg {
+  width: 130px;
+  height: 130px;
+  color: white;
+  fill: #0051AD;
+}
+
+#ud-circle--logo {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
+  transition: -webkit-transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
+}
 /*------------------------------------------------------------------------------
   4. @SOCIAL ELEMENTS
 ------------------------------------------------------------------------------*/
+.ud-footer--social {
+  grid-column: 2;
+}
+
 .ud-footer--social ul {
   position: relative;
   justify-content: flex-end;
@@ -182,6 +266,12 @@
 
 .ud-footer--social li {
   position: relative;
+}
+
+.ud-footer--social li:hover a svg {
+  z-index: 20;
+/*   -webkit-filter: saturate(150%);
+  filter: saturate(150%); */
 }
 
 .ud-footer--social li,
@@ -203,68 +293,12 @@
   fill:  currentColor;
 }
 
-
-[id^="ud-id-"] li:hover,
-[id^="ud-id-"] li:hover a,
-[id^="ud-id-"] li:hover svg {
-  cursor: pointer;
-}
-.ud-footer--legal li:first-child:hover {
-  cursor: default;
-}
-.ud-footer--social li:hover a svg {
-  z-index: 20;
-  /* fill: darkgrey; */
-  -webkit-filter: saturate(150%);
-  filter: saturate(150%);
-}
-
-/* .ud-footer--social li::after {
-  background: #FDF6E7;
-}
-
-.ud-footer--logo a:hover .color-svg {
-  color: white;
-}*/
-
-.color-svg {
-  width: 130px;
-  height: 130px;
-  color: white;
-  fill: #0051AD;
-}
-
-.color-svg:active {
-  color: darkgrey;
-}
-
-.color-svg:hover #ltblue {
-  fill: darkgrey;
-}
-
-[id^="ud-id-"] .icon {
-  width: 1em;
-  height: 1em;
-  font-size: 28px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-
 /*------------------------------------------------------------------------------
   5. @LEGAL ELEMENTS
 ------------------------------------------------------------------------------*/
 .ud-footer--legal{
   background-color: #EEE;
   height: 50px;
-}
-
-#ud-id-foot ul {
-  display: -webkit-flex;
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .ud-footer--legal ul {
@@ -275,16 +309,12 @@
   justify-content: center;
 }
 
-.ud-footer--legal a {
-  color: #2F6FA7;
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
-  transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
-  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
-  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s, -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
-  -webkit-transform: translateY(0px);
-  transform: translateY(0px);
-   -webkit-align-self: stretch;
-  align-self: stretch;
+.ud-footer--legal li:not(a) {
+  color: #112D3D;
+}
+
+.ud-footer--legal li:first-child:hover {
+  cursor: default;
 }
 
 .ud-footer--legal li:not(:first-child) {
@@ -298,27 +328,28 @@
   font-family: Arial, sans-serif;
   font-weight: 400;
   font-size: calc(11.5333px + 0.133333vw);
-  letter-spacing: -1px;
+  letter-spacing: 0px;
   -webkit-align-items: center;
   align-items: center;
 }
 
-
-[id^="ud-id-"] a:active,
-[id^="ud-id-"] a:hover,
-[id^="ud-id-"] a:link,
-[id^="ud-id-"] a:visited {
-  text-decoration: none;
+.ud-footer--legal a {
+  color: #2F6FA7;
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s, -webkit-transform 0.3s cubic-bezier(.17,.67,.83,.67) 0s;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+   -webkit-align-self: stretch;
+  align-items: stretch;
 }
 
-#ud-id-site--title a,
-#ud-id-site--title a:hover,
-#ud-id-site--title a:link,
-#ud-id-site--title a:visited {
-  text-decoration: none !important;
+.ud_copyright,
+.ud_copyright.sm {
+  margin-left: 0;
 }
-
-.ud-footer--legal a:hover {
+/* .ud-footer--legal a:hover {
   border-bottom: none !important;
 }
 
@@ -358,61 +389,20 @@
   -webkit-filter: none;
   filter: none;
 }
-
-[id^="ud-id-"] ~ a img {
-  border:none;
-}
-
-[id^="ud-id-"] ~ ul {
-  list-style:none;
-  list-style-image:none;
-  list-style-position: outside;
-  margin-bottom: 10px
-}
-
-[id^="ud-id-"] ~ p,
-[id^="ud-id-"] ~ ul,
-[id^="ud-id-"] ~ li,
-[id^="ud-id-"] ~ h1,
-[id^="ud-id-"] ~ h2,
-[id^="ud-id-"] ~ h3 {
-  margin: 0;
-  padding: 0;
-}
-
-[id^="ud-id-"] p,
-[id^="ud-id-"] a,
-[id^="ud-id-"] div,
-[id^="ud-id-"] span:not('.ud_copyright') {
-  font-size: 16px;
-}
-
-
+*/
 
 /*------------------------------------------------------------------------------
   6. @ANIMATION
      Animate max height
   https://stackoverflow.com/questions/16028878/animating-max-height-with-css-transitions
 ------------------------------------------------------------------------------*/
-#ud-circle--logo {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
-transition: -webkit-transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
-transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
-transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1);
-}
 
-.ud_copyright,
-.ud_copyright.sm {
-  margin-left: 0;
-}
 
-.ud-footer--logo {
-  grid-column: 1;
-}
 
-.ud-footer--social {
-  grid-column: 2;
-}
+
+
+
+
 /*------------------------------------------------------------------------------
   7. @MEDIA QUERIES
 ------------------------------------------------------------------------------*/
@@ -447,10 +437,6 @@ transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1), -webkit-transform
 }
 
 @media only screen and (min-width: 720px) {
-/*   .ud-norm--header a:hover,
-  .ud-norm--header img {
-    max-width:170px;
-  } */
   .ud-norm--header:not(#ud_primary_logo),
   .header.ud-norm--header a {
     max-height: 112px;
@@ -476,7 +462,6 @@ transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1), -webkit-transform
     transform: scale(.58, .58); /* .5540, .5586 .4358, .4396 .7600, .8188 */
     -webkit-transform-origin: left;
     transform-origin: left;
-    -ms-grid-column:2;
     grid-column:container;
   }
 
@@ -516,8 +501,9 @@ transition: transform 0.3s cubic-bezier(0.25, .8265, 0.25, 1), -webkit-transform
   }
 
   .ud-footer--logo {
-        grid-row: 1;
+    grid-row: 1;
   }
+
   .ud-footer--legal {
     margin-top: 1rem;
   }

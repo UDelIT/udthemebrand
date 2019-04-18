@@ -1,15 +1,15 @@
 /**
   * UDTHEME BRANDING FORMS CSS
   *
-  * Defines all of the styles for forms and form components.
+  * Defines all of the styles for form components within the dashboard.
   *
   * @package     udtheme-brand
   * @subpackage  udtheme-brand/assets/css
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 
 #udtbp_form input:checked {
@@ -186,11 +186,16 @@ p.submit {
   height: auto;
   border-radius: 4px;
 }
+
 #ud-id-vh label,
 #ud-id-vf label,
 #ud-id-cf label {
   font-size: 23px;
   line-height: 2.2;
+}
+
+#ud-id-vh label,
+#ud-id-vf label {
   display: inline-block;
   height: 100%;
   text-align: center;
@@ -199,6 +204,11 @@ p.submit {
 
 #ud-id-cf label {
   width: 110px;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 .color-on label {
   color:  white;

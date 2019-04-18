@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.5.2](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.2)  - 4-18-2019
+
+### Fixed 
+
+* Remove normalize default margin and padding ([#44](https://github.com/UDelIT/udthemebrand/issues/44))
+* Footer color stays disabled when view footer is enabled ([#45](https://github.com/UDelIT/udthemebrand/issues/45))
+* Footer not staying on bottom of page ([#46](https://github.com/UDelIT/udthemebrand/issues/46))
+* Focus Visible 2.4.7 - Element not highlighted on focus ([#47](https://github.com/UDelIT/udthemebrand/issues/47))
+
+## [3.5.1.3](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.1.3)  - 11-20-2018
+
+### Fixed
+* Non-text Content 1.1.1 - WAI-ARIA image is missing alternative text ([#39](https://github.com/UDelIT/udthemebrand/issues/39))
+* Non-text Content 1.1.1 - Alternative text for image is identical to link text error circle UD in footer  ([#41](https://github.com/UDelIT/udthemebrand/issues/41))
+* Focus Visible 2.4.7 - Element not highlighted on focus ([#43](https://github.com/UDelIT/udthemebrand/issues/43))
+
 ## [3.5.0](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.0)  - 10-25-2018
 
 ### Added

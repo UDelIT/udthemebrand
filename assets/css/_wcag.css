@@ -1,16 +1,16 @@
-/**
+ /**
   * UDTHEME BRANDING ACCESSIBILITY CSS
   *
-  * Defines all of the screen reader styles used in plugin dashboard and public facing pages.
-  * Based off webAIM specification.
+  * Defines all of the screen reader styles used in plugin dashboard and public
+  * facing pages. Based off webAIM specification.
   *
   * @package     udtheme-brand
   * @subpackage  udtheme-brand/assets/css
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
 */
 /*------------------------------------------------------------------------------
     a. Hide visually and from screen readers.
@@ -33,23 +33,67 @@
        https://make.wordpress.org/core/2017/10/22/changes-to-the-screen-reader-text-css-class-in-wordpress-4-9/
     i. Remove the default outline and add the outset shadow
     j. Make sure both the inset and outset shadow are present
+    k. https://jmperezperez.com/outline-focus-ring-a11y/
 ------------------------------------------------------------------------------*/
+.check-switch.focus-within {
+  cursor: default;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.ud-norm--header a,
+#ud-id-site--title a,
+.ud-footer--social li {
+  -webkit-transition: color .13s linear;
+  transition: color .13s linear;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  border: 1px dotted transparent;
+}
+.no-focus-outline .ud-norm--header a:focus,
+.no-focus-outline #ud-id-site--title a:focus,
+.no-focus-outline .ud-norm--footer a:focus,
+.no-focus-outline button:focus {
+  outline: none; /* k */
+}
+
+.ud-norm--header a:focus,
+#ud-id-site--title a:focus,
+.ud-norm--footer a:focus,
+
+.ud-norm--header a:hover,
+#ud-id-site--title a:hover,
+.ud-norm--footer a:hover,
+.ud-footer--social a:hover,
+.ud-footer--logo a:hover,
+.ud-footer--legal li:not(:first-child):hover,
+.ud-footer--legal a:hover,
+.ud-norm--header > a:active,
+#ud-id-site--title > a:active,
+.ud-norm--footer > a:active {
+  color: white;
+  background-color: hsla(200,0%,0%,.7);
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: 0;
+}
 .hidden,
 [hidden] {
   display: none; /* a */
 }
 
 .screen-reader-text { /* b */
+  position: absolute !important;
   border: 0;
   clip:rect(1px 1px 1px 1px);
   -webkit-clip-path:inset(50%);
   clip-path:inset(50%);
+  width: 1px;
   height: 1px;
   margin: -1px;
-  overflow: hidden;
   padding: 0;
-  position: absolute !important;
-  width: 1px;
+  overflow: hidden;
   word-wrap: normal !important;
   white-space: nowrap; /* c */
 }
@@ -65,24 +109,24 @@
 
 .screen-reader-text:active,
 .screen-reader-text:focus { /* e */
-  background-color: var(--light-gray);
+  position: static;
+  top: 5px;
+  left: 5px;
+  background-color: lightgray;
   clip: auto !important;
   -webkit-clip-path: none;
   clip-path: none;
   color: #444;
   display: block;
-  font-size: var(--size-root);
-  height: auto;
-  left: 5px;
+  font-size: 16px;
   line-height: normal;
+  width: auto;
+  height: auto;
+  margin: 0;
   padding: 15px 23px 14px;
   text-decoration: none;
-  top: 5px;
-  width: auto;
   z-index: 100000; /* Above WP toolbar. */
-  margin: 0;
   overflow: visible;
-  position: static;
   white-space: inherit;
 }
 
@@ -113,7 +157,12 @@ a:not([href]):not([tabindex]):focus {
 a:not([href]):not([tabindex]):focus {
   outline: 0;
 }
-
+div[contenteditable] {
+  width: 10em;
+  min-height: 2em;
+  padding: 0.2em;
+  border: 1px solid #002663;
+}
 /* [tabindex] {
  border: solid red 1px;
 } */
