@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Fixed 
 
+* Plugin should now be fully WCAG 2.0 AA compliant.
+
 * Remove normalize default margin and padding ([#44](https://github.com/UDelIT/udthemebrand/issues/44))
 * Footer color stays disabled when view footer is enabled ([#45](https://github.com/UDelIT/udthemebrand/issues/45))
 * Footer not staying on bottom of page ([#46](https://github.com/UDelIT/udthemebrand/issues/46))

@@ -34,7 +34,7 @@ This plugin is ONLY to be used on official University of Delaware department web
 
 ### From within your WordPress dashboard ###
 
-1. [Download the latest stable version](releases) to your computer.
+1. [Download the latest stable version](https://github.com/UDelIT/udthemebrand/releases) to your computer.
 2. Log in to your WordPress site.
 3. Navigate to Plugins > Add New.
 4. On the 'Add Plugins' page, click 'Upload Plugin'.
