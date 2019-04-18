@@ -44,7 +44,7 @@ This plugin is ONLY to be used on official University of Delaware department web
 7. Navigate to Settings > UDTheme Branding to enable and adjust your options.
 
 ### Frequently Asked Questions ###
-[See the wiki page for answers to commonly asked questions](/wiki/FAQs).
+[See the wiki page for answers to commonly asked questions](https://github.com/UDelIT/udthemebrand/wiki/FAQs).
 
 ### Support ###
 For questions or concerns, contact the [IT Support Center](https://www.udel.edu/it/help/request/).
