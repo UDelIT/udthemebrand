@@ -1,6 +1,6 @@
 <?php
 /**
- * Class: UDTheme Branding Quick Links
+ * Class: UDTheme Branding Quick Links (NOT IN USE)
  *
  * Provides the content for header quick links components for the plugin
  * The purpose of this class is to:
@@ -11,8 +11,8 @@
  * @author      Christopher Leonard - University of Delaware
  * @license     GPLv3
  * @link        https://bitbucket.org/itcssdev/udtheme-brand
- * @copyright   Copyright (c) 2012-2018 University of Delaware
- * @version     3.5.0
+ * @copyright   Copyright (c) 2012-2019 University of Delaware
+ * @version     3.5.2
  */
 if ( ! class_exists( 'udtbp_QuickLinks' ) ) :
   class udtbp_QuickLinks {

@@ -1,6 +1,6 @@
 <?php
 /**
-	* Class: UDTheme Branding Deactivation
+	* Class: UDTheme Branding Deactivation (NOT IN USE)
 	*
 	* The purpose of this class is to:
 	* Register deactivation hook
@@ -13,8 +13,8 @@
 	* @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
  */
 require_once plugin_dir_path( __FILE__ ) . 'interface-udtbp-current-user-check.php';
 if ( ! class_exists( 'udtbp_Dectivation' ) ) :

@@ -1,6 +1,6 @@
 <?php
 /**
-  * Class: UDTheme Branding Localization i18n
+  * Class: UDTheme Branding Localization i18n (NOT IN USE)
   *
   * Defines the internationalization functionality
   *
@@ -13,8 +13,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2018 University of Delaware
-  * @version     3.5.0
+  * @copyright   Copyright (c) 2012-2019 University of Delaware
+  * @version     3.5.2
  */
 if ( ! class_exists( 'udtbp_i18n' ) ) :
   class udtbp_i18n {
