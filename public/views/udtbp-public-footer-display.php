@@ -38,7 +38,7 @@
            <img alt="UD" id="ud_circle_logo" src="<?php echo esc_url( UDTBP_PUBLIC_IMG_URL ); ?>/logos/img-ud-circle-logo.svg" role="img" width="130" height="130">
         </a>
       </div>
-      <div role="navigation" aria-label="Social related links" class="ud-footer--social">
+      <div role="navigation" aria-label="Social related links" class="ud-footer--social" itemscope itemtype="http://schema.org/SiteNavigationElement">
         <?php
           $social = new udtbp_Social();
           echo $social->social_footer();
@@ -46,9 +46,9 @@
       </div>
     </div>
   </footer>
-  <div class="item item--full ud-footer--legal" role="navigation" aria-label="Legal related links and information">
+  <div class="item item--full ud-footer--legal" role="navigation" aria-label="Legal related links and information" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <ul>
-      <li>© 2019&nbsp; <span id="udid_cr" class="ud_copyright">University of Delaware</span></li>
+      <li>&copy; <span itemprop="copyrightYear"><?php echo Date('Y'); ?></span>&nbsp;<span itemprop="copyrightHolder" itemscope itemtype="http://schema.org/University"><span id="udid_cr" class="ud_copyright" itemprop="University of Delaware">University of Delaware</span></span></li>
       <li><a href="https://www.udel.edu/home/comments">Comments</a></li>
       <li><a href="https://www.udel.edu/home/legal-notices"><span id="udid_ln" class="ud_copyright">Legal Notices</span></a></li>
       <li><a href="https://www.udel.edu/home/legal-notices/accessibility/"><span id="udid_an" class="ud_copyright">Accessibility Notice</span></a></li>
