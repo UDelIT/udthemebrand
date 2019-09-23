@@ -2,7 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [3.5.3](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.3)  - 9-23-2019
+
+### Fixed 
+
+* General fixes and updates.
+
+* Updated core font from Open Sans to Arimo
+
+* Fixed broken Aria text in footer social icons
+
+* Minify.css is overriding OCM theme styles ([#47](https://github.com/UDelIT/udthemebrand/issues/47))
+
+* Update sidebar support email link ([#48](https://github.com/UDelIT/udthemebrand/issues/48))
+
+* YouTube link in footer incorrect ([#49](https://github.com/UDelIT/udthemebrand/issues/49))
+
 
 ## [3.5.2](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.2)  - 4-18-2019
 
@@ -13,7 +30,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 * Remove normalize default margin and padding ([#44](https://github.com/UDelIT/udthemebrand/issues/44))
 * Footer color stays disabled when view footer is enabled ([#45](https://github.com/UDelIT/udthemebrand/issues/45))
 * Footer not staying on bottom of page ([#46](https://github.com/UDelIT/udthemebrand/issues/46))
-* Focus Visible 2.4.7 - Element not highlighted on focus ([#47](https://github.com/UDelIT/udthemebrand/issues/47))
 
 ## [3.5.1.3](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.1.3)  - 11-20-2018
 

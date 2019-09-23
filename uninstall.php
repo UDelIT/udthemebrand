@@ -9,8 +9,9 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.2
+  * @version     3.5.3
   */
+}
 /**
  * @todo         Add functionality to remove DB tables and all plugin related files.
  */

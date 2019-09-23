@@ -18,7 +18,7 @@
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
   * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.2
+  * @version     3.5.3
 */
 if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
   class udtbp_Admin_Notices extends udtbp_Admin {

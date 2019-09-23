@@ -5,12 +5,12 @@
  * It contains all of the js code necessary to run / display the branding.
  *
  * @since   1.4.2
- * @version 3.5.2
+ * @version 3.5.3
  */
 /**
   * DOCUMENT READY
     * Helper function that mimics jQuery document.load
-  * @link http://youmightnotneedjquery.com/#ready
+  * @link https://youmightnotneedjquery.com/#ready
  */
 function ready(fn) {
   if (document.readyState != 'loading'){
@@ -171,9 +171,25 @@ document.body.addEventListener('keyup', function(e) {
   }
 });
 
+
+/**
+  * DISPLAY CURRENT YEAR
+ * @since          3.5.3
+*/
+function showYear() {
+  var curYr = new Date().getFullYear();
+  var it = document.getElementById('uid-date');
+  it.insertAdjacentHTML('afterend', curYr);
+  alert('me' + curYr);
+}
 /**
  * READY FUNCTIONS
  */
+ /**
+ *  SHOWYEAR FUNCTION CALL
+ *  Dynamically display year in footer
+ */
+ready( showYear() );
 /**
  *  RESIZE EVENT FUNCTION CALL
  *  Adjust copyright text when window is < 720px

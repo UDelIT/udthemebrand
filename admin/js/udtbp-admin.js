@@ -16,7 +16,7 @@
  * @todo    Remove IE 11 support by 6/2019.
  *
  * @since   1.4.2
- * @version 3.5.2
+ * @version 3.5.3
  */
 
 (function( $ ) {
