@@ -39,7 +39,7 @@ if ( ! class_exists( 'udtbp_Social' ) ) :
         "icon"    => "instagram"
       ],
      "youtube"    => [
-       	"url"     => "https://www.youtube.com/udelaware",
+       	"url"     => "https://www.youtube.com/univdelaware",
        	"icon"    => "youtube"
        ],
      "pintrest"   => [
@@ -57,7 +57,7 @@ if ( ! class_exists( 'udtbp_Social' ) ) :
     foreach( $items as $key => $value ) :
     ?>
         <li>
-          <a aria-labeledby="id-<?php echo esc_attr( $key ) ?>-sm-label"  Go to the UD <?php echo esc_attr( $key ) ?> page (external link)" href="<?php echo esc_url( $value['url'] ) ?>">
+          <a aria-labeledby="id-<?php echo esc_attr( $key ) ?>-sm-label" href="<?php echo esc_url( $value['url'] ) ?>">
             <svg class="icon">
               <use xlink:href="#ud-icon-<?php echo esc_attr( $value['icon'] ) ?>"></use>
             </svg>
