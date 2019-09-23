@@ -337,7 +337,7 @@ if ( ! class_exists( 'udtbp_Admin' ) ) :
       $str = sprintf( __('Support', UDTBP_NAME) );
       static $plugin;
       $settings = array( 'settings' => '<a class="'.$this->udtbp.'-settings-link" href="options-general.php?page='.$this->udtbp.'">' . __( 'Settings' ) . '</a>' );
-      $site_link = array( 'support' => '<a title="' .__( 'Having problems? Submit a trouble ticket.' ). '" target="_blank" href="//www.udel.edu/it/help/request/">' . $str . '</a>' );
+      $site_link = array( 'support' => '<a title="' .__( 'Having problems? Submit a trouble ticket.' ). '" target="_blank" href="https://services.udel.edu/TDClient/Home/">' . $str . '</a>' );
       $actions = array_merge( $settings, $actions );
       $actions = array_merge( $site_link, $actions );
       return $actions;

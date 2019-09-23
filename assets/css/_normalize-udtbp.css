@@ -56,8 +56,11 @@ main:not(.main) {
   margin: 0 auto;
 }
 
-ol,
-ul {
+#udt_support_settings ol,
+#udt_support_settings ul {
+  list-style:none;
+  list-style-image:none;
+  list-style-position: outside;
   margin-bottom: 10px
 }
 
@@ -78,7 +81,9 @@ ul {
        tap in IE10+
 ------------------------------------------------------------------------------*/
 
-
+#udtbp_form h2 + p {
+  margin-bottom:0
+}
 /*-------------------------------------------------------------------
   4. @EMBEDDED CONTENT
 -------------------------------------------------------------------*/

@@ -70,8 +70,7 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
             do_settings_sections( 'udtbp_footer-footer' );
           ?>
           <div class="clear"></div>
-        </div>
-        <div class="ud-cont--button">
+           <div class="ud-cont--button">
           <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-footer-tab-save' );?>"><?php echo __( 'Save Changes' ); ?>
             <svg id="ud-icon--arrow" role="presentation" aria-label="arrow icon" focusable="false" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
               <g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
@@ -81,6 +80,7 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
             </svg>
           </button>
         </div>
+        </div>
           </div> <!-- end udt_footer_settings -->
         <?php
             break;
@@ -89,8 +89,8 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
         ?>
           <div id="udt_about_settings" class="postbox tabPanel" role="tabpanel" aria-labelledby="label_udt_about_settings">
             <div class="inside">
-              <h2>About <?php echo esc_html( UDTBP_NAME ); ?> Plugin</h2>
-              <p>The <?php echo esc_html( UDTBP_NAME ); ?> plugin allows a University department or college to display the official University of Delaware branded header and footer on a WordPress website. The plugin is also WCAG Level AA Compliant.</p>
+              <h2 class="subheadline">About <?php echo __( UDTBP_NAME ); ?> Plugin</h2>
+              <p>The <?php echo __( UDTBP_NAME ); ?> plugin allows a University department or college to display the official University of Delaware branded header and footer on a WordPress website. The plugin is also WCAG Level AA Compliant.</p>
               <p>Site administrators may choose to use a college or department-specific title in addition to the official University header and footer.</p>
               <p>
                 <strong>This plugin is ONLY to be used on official University of Delaware department web pages and websites in accordance with UD OCM guidelines.</strong>
@@ -103,16 +103,6 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
 
            // case 'support':
         ?>
-          <!-- <div id="udt_support_settings" class="postbox tabPanel" role="tabpanel" aria-labelledby="label_udt_support_settings">
-            <div class="inside">
-              <h2>Support and help information.</h2>
-              <p>If you are experiencing problems with this plugin, contact the Support Center at (302) 831-6000 or <a href="mailto:consult@udel.edu">consult@udel.edu</a>.</p>
-              <p>See the plugin <a href="https://github.com/UDelIT/udthemebrand/wiki/FAQs">FAQs</a> for more information.</p>
-
-              <div class="clear"></div>
-            </div>
-          </div> -->
-
         <?php
            // break;
 
@@ -127,9 +117,9 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
               do_settings_sections( 'udtbp_header-header' );
               ?>
               <div class="clear"></div>
-            </div>
-            <div class="ud-cont--button">
-              <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-header-tab-save' );?>"><?php echo __( 'Save Changes' ); ?><svg id="ud-icon--arrow" role="presentation" aria-label="arrow icon" focusable="false" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10"><circle class="arrow-icon--circle" cx="16" cy="16" r="15.12"></circle><path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g></svg></button>
+              <div class="ud-cont--button">
+                <button type="submit" class="ud-btn button save-button" aria-pressed="false" id="<?php echo esc_attr( $this->udtbp.'-header-tab-save' );?>"><?php echo __( 'Save Changes' ); ?><svg id="ud-icon--arrow" role="presentation" aria-label="arrow icon" focusable="false" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10"><circle class="arrow-icon--circle" cx="16" cy="16" r="15.12"></circle><path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g></svg></button>
+              </div>
             </div>
           </div>
         <?php
@@ -144,7 +134,7 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
             <h2 id="id-label-support-settings" class="screen-reader-text">This tab provides support information for the branding plugin.</h2>
           <div class="inside">
             <h2>Support information</h2>
-            <p>If you are experiencing problems with this plugin, contact the Support Center at (302) 831-6000 or <a href="mailto:consult@udel.edu">consult@udel.edu</a>.</p>
+            <p>If you are experiencing problems with this plugin, contact the Support Center at <a href="tel:3028316000">(302) 831-6000</a> or <a href="mailto:ask-it@udel.edu">ask-it@udel.edu</a>.</p>
             <p>See the plugin <a href="https://github.com/UDelIT/udthemebrand/wiki/FAQs">FAQs</a> for more information.</p>
             <h2>Known Incompatible Themes</h2>
             <p>Themes with fixed navigation enabled may cause the branding to display incorrectly.</p>

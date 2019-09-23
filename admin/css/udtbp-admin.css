@@ -2,7 +2,6 @@
 @import url("../../public/css/_grid.css");
 @import url("../../public/css/_branding.css");
 @import url("../../public/css/_flexbox.css");
-@import url("../../assets/css/_aria.modal.css");
 @import url("_jqueryui.css");
 @import url("../../assets/css/_helper-classes.css");
 @import url("../../assets/css/_fonts.css");
@@ -62,7 +61,6 @@ html{
 .ud-cont--button {
   text-align: center !important;
   height: 150px;
-  background: #373737;
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
@@ -81,6 +79,7 @@ html{
   -webkit-transform: none !important;
   transform: none !important;
 }
+
 
 /*-------------------------------------------------------------------
   4. @EMBEDDED CONTENT
@@ -423,7 +422,7 @@ button.ud-switch .ud-norm--toggle {
 }
 
 label.labswitch {
-  font: 16px "Open Sans", "Arial", sans-serif;
+  font: 16px "Arimo", "Arial", sans-serif;
   line-height: 20px;
   vertical-align: middle;
   border-radius: 50px;
@@ -697,8 +696,8 @@ span#tem::after {
   -webkit-align-items: center;
   align-items: center;
   background: transparent;
-  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   box-shadow: 0px 2px 4px #0000001a, 0px 2px 3px rgba(0, 0, 0, .2);
 }
 
