@@ -47,7 +47,7 @@ This plugin is ONLY to be used on official University of Delaware department web
 [See the wiki page for answers to commonly asked questions](https://github.com/UDelIT/udthemebrand/wiki/FAQs).
 
 ### Support ###
-For questions or concerns, contact the [IT Support Center](https://www.udel.edu/it/help/request/).
+For questions or concerns, contact the [IT Support Center](https://services.udel.edu/TDClient/Home/).
 
 ### Changelog ###
 [See the latest updates, bug fixes and features](/CHANGELOG.md).
