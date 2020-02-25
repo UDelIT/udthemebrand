@@ -30,7 +30,7 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
 <div id="ud-id-head" class="ud-wrapper--grid ud-gtr-head">
   <header class="ud-norm--header ud-header--logo item item--full" role="banner" aria-label="UD branded header content" >
     <div class="uflex uflex--asstretch cell">
-      <img alt="Unviersity of Delaware" id="ud_primary_logo" src="<?php echo $udtbp_assets_img_url; ?>/logos/img-udlogo.svg" role="img" width="170" height="70">
+      <img alt="University of Delaware" id="ud_primary_logo" src="<?php echo $udtbp_assets_img_url; ?>/logos/img-udlogo.svg" role="img" width="170" height="70">
     </div>
   </header>
   <div class="ud-header--title item item--full" role="banner" aria-labelledby="u-link--title">

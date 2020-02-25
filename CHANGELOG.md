@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [3.5.3](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.3)  - 9-23-2019
+## [3.5.4](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.4)  - 2-25-2020
+
+### Fixed 
+
+* General fixes and updates.
+
+* WCAG 2.1 Compliance
+
+## [3.5.3](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.3)  - 9-25-2019
 
 ### Fixed 
 
