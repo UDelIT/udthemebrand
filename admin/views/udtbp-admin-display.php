@@ -134,7 +134,7 @@ $strAlt = sprintf( __('', UDTBP_NAME) );
             <h2 id="id-label-support-settings" class="screen-reader-text">This tab provides support information for the branding plugin.</h2>
           <div class="inside">
             <h2>Support information</h2>
-            <p>If you are experiencing problems with this plugin, contact the Support Center at <a href="tel:3028316000">(302) 831-6000</a> or <a href="mailto:ask-it@udel.edu">ask-it@udel.edu</a>.</p>
+            <p>If you are experiencing problems with this plugin, contact the Support Center at <a href="tel:3028316000">(302) 831-6000</a> or <a href="mailto:askit@udel.edu">askit@udel.edu</a>.</p>
             <p>See the plugin <a href="https://github.com/UDelIT/udthemebrand/wiki/FAQs">FAQs</a> for more information.</p>
             <h2>Known Incompatible Themes</h2>
             <p>Themes with fixed navigation enabled may cause the branding to display incorrectly.</p>
