@@ -8,27 +8,13 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
-.u-ta--left {
-  text-align:left !important
-}
-.u-ta--center {
-  text-align:center !important
-}
-.u-ta--right {
-  text-align:right !important
-}
-.u-mr--0 {
-  margin-right:0 !important
-}
-.u-fl--left {
-  float: left;
-}
-.u-fl--right {
-  float: right;
-}
-.ublock {
-  display: block;
-}
+.u-ta--left {text-align:left !important}
+.u-ta--center {text-align:center !important}
+.u-ta--right {text-align:right !important}
+.u-mr--0 {margin-right:0 !important}
+.u-fl--left {float: left}
+.u-fl--right {float: right}
+.ublock {display: block}

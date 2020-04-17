@@ -13,10 +13,10 @@
  *
  * @todo    separate into individual JS components.
  * @todo    migrate remaining jQuery to ES5-6.
- * @todo    Remove IE 11 support by 6/2019.
+ * @todo    Remove IE 11 support by 6/2020.
  *
  * @since   1.4.2
- * @version 3.5.3
+ * @version 3.5.4
  */
 
 (function( $ ) {

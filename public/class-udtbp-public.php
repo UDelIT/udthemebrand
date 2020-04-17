@@ -11,8 +11,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 if ( ! class_exists( 'udtbp_Public' ) ) :
   class udtbp_Public extends udtbp_Admin {
@@ -619,12 +619,14 @@ HTML;
 
         if( isset( $options["view-header"] ) && !empty( $options["view-header"] ) ) :
           $inject = <<<HTML
+
 <div id="ud-id-head" class="ud-wrapper--grid ud-gtr-head">
 <header class="ud-norm--header ud-header--logo item item--full" role="banner" aria-label="UD branded header content">
 <div class="uflex uflex--asstretch cell">
 <a id="u-link--img_logo" href="https://www1.udel.edu/" aria-label="Go to the University of Delaware home page.">
-<img alt="Unviersity of Delaware" id="ud_primary_logo" src="{$this->udtbp_public_img_url}/logos/img-udlogo.svg" role="img" width="170" height="70">
+<img alt="University of Delaware" id="ud_primary_logo" src="{$this->udtbp_public_img_url}/logos/img-udlogo.svg" role="img" width="170" height="70">
 </a>
+</div>
 </header>
 $show_custom_text
 </div>

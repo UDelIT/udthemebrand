@@ -11,8 +11,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
  */
 if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
   class udtbp_Footer_Settings extends udtbp_Admin {
@@ -23,7 +23,7 @@ if ( ! class_exists( 'udtbp_Footer_Settings' ) ) :
      *
      * Initiates the class and set its properties.
      *
-     * @since    3.0.0
+     * @since      3.0.0
      */
     public function __construct( $udtbp ) {
       $this->id    = 'footer';

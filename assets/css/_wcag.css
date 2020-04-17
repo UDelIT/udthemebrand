@@ -9,8 +9,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 /*------------------------------------------------------------------------------
     a. Hide visually and from screen readers.
@@ -44,7 +44,6 @@
 .ud-norm--header a,
 #ud-id-site--title a,
 .ud-footer--social li {
-  -webkit-transition: color .13s linear;
   transition: color .13s linear;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
@@ -60,7 +59,6 @@
 .ud-norm--header a:focus,
 #ud-id-site--title a:focus,
 .ud-norm--footer a:focus,
-
 .ud-norm--header a:hover,
 #ud-id-site--title a:hover,
 .ud-norm--footer a:hover,
@@ -82,7 +80,6 @@
 [hidden] {
   display: none; /* a */
 }
-
 .screen-reader-text { /* b */
   position: absolute !important;
   border: 0;
@@ -97,7 +94,6 @@
   word-wrap: normal !important;
   white-space: nowrap; /* c */
 }
-
 .no-js .screen-reader-text { /* h */
   position: static;
   -webkit-clip-path: none;
@@ -106,7 +102,6 @@
   height: auto;
   margin: 0;
 }
-
 .screen-reader-text:active,
 .screen-reader-text:focus { /* e */
   position: static;
@@ -129,15 +124,8 @@
   overflow: visible;
   white-space: inherit;
 }
-
-.invisible {
-  visibility: hidden; /* e */
-}
-
-disabled {
-  opacity:  0.6;
-}
-
+.invisible {visibility: hidden; /* e */}
+disabled {opacity:  0.6}
 .screen-reader-text a,
 .screen-reader-text a:focus,
 .screen-reader-text a:hover,
@@ -146,43 +134,19 @@ disabled {
   width:auto;
   height:auto;
 }
-
 a:not([href]):not([tabindex]),
 a:not([href]):not([tabindex]):hover,
 a:not([href]):not([tabindex]):focus {
   color: inherit;
   text-decoration: none;
 }
-
-a:not([href]):not([tabindex]):focus {
-  outline: 0;
-}
+a:not([href]):not([tabindex]):focus {outline: 0}
 div[contenteditable] {
   width: 10em;
   min-height: 2em;
   padding: 0.2em;
   border: 1px solid #002663;
 }
-/* [tabindex] {
- border: solid red 1px;
-} */
-/* i */
-/* [aria-pressed]:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem yellow;
-} */
-
-/* j */
-/* [aria-pressed="true"]:focus {
-  box-shadow: 0 0 0 0.25rem yellow,
-              inset 0 0 0 0.15rem black,
-              inset 0.25em 0.25em 0 #fff;
-} */
-
-[aria-required="true"] {
-  /* border: red thin solid; */
-}
-
 /*
   FOCUS-VISIBLE HACK
 https://github.com/WICG/focus-visible
@@ -190,141 +154,19 @@ https://github.com/WICG/focus-visible
 /*
   Provide basic, default focus styles.
 */
-button:focus {
-  …
-}
-
+button:focus {…}
 /*
   Remove default focus styles for mouse users ONLY if
   :focus-visible is supported on this platform.
 */
-button:focus:not(:focus-visible) {
-  …
-}
-
+button:focus:not(:focus-visible) {…}
 /*
   Optionally: If :focus-visible is supported on this
   platform, provide enhanced focus styles for keyboard
   focus.
 */
-button:focus-visible {
-  …
-}
-
-/* a[href]:focus,
-a[href]:hover {
-  background-color:  #dae7fb;
-} */
-
-
-/*
-[role="radiogroup"] {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-[role="radiogroup"]:focus {
-  outline: none;
-}
-
-[role="radio"] {
-  border: 2px solid transparent;
-  border-radius: 5px;
-  display: inline-block;
-  position: relative;
-  padding: 0.125em;
-  padding-left: 1.5em;
-  padding-right: 0.5em;
-  cursor: default;
-  outline: none;
-}
-
-[role="radio"] + [role="radio"] {
-  margin-left: 1em;
-}
-
-[role="radio"]::before,
-[role="radio"]::after {
-  position: absolute;
-  top: 50%;
-  left: 7px;
-  transform: translate(-20%, -50%);
-  content: '';
-}
-
-[role="radio"]::before {
-  width: 14px;
-  height: 14px;
-  border: 1px solid hsl(0, 0%, 66%);
-  border-radius: 100%;
-  background-image: linear-gradient(to bottom, hsl(300, 3%, 93%), #fff 60%);
-}
-
-[role="radio"]:active::before {
-  background-image: linear-gradient(to bottom, hsl(300, 3%, 73%), hsl(300, 3%, 93%));
-}
-
-[role="radio"][aria-checked="true"]::before {
-  border-color: hsl(216, 80%, 50%);
-  background: hsl(217, 95%, 68%);
-  background-image: linear-gradient(to bottom, hsl(217, 95%, 68%), hsl(216, 80%, 57%));
-}
-
-[role="radio"][aria-checked="true"]::after {
-  display: block;
-  border: .1875em solid #fff;
-  border-radius: 100%;
-  transform: translate(25%, -50%);
-}
-
-[role="radio"][aria-checked="mixed"]:active::before,
-[role="radio"][aria-checked="true"]:active::before {
-  background-image: linear-gradient(to bottom, hsl(216, 80%, 57%), hsl(217, 95%, 68%) 60%);
-}
-
-[role="radio"]:hover::before {
-  border-color: hsl(216, 94%, 65%);
-}
-
-[role="radio"].focus,
-[href].focus {
-  border-color: hsl(216, 94%, 73%);
-  background-color: hsl(216, 80%, 97%);
-}
-
-[role="radio"]:hover,
-[href]:hover {
-  background-color: #dae7fb;
-}
- */
-
-
-/* button:hover {
-  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-  -webkit-transform: scale(1.02) translateY(-2px);
-  transform: scale(1.01) translateY(-2px);
-} */
-
-#utb_wrap .button:focus:not(.focus-visible) {
-  box-shadow: none;
-}
-
-/* .btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px #ff69b480, 0 0 0 1.5px #ff69b480;
-}
-
-.btn:active {
-  -webkit-transform: translateY(1px);
-          transform: translateY(1px);
-  -webkit-filter: saturate(150%);
-          filter: saturate(150%);
-} */
-
-
-
-
+button:focus-visible {…}
+#utb_wrap .button:focus:not(.focus-visible) {box-shadow: none}
 /**
  * ARIA RADIO GROUP
  * @param  {[type]} inverted-colors [description]
@@ -337,7 +179,6 @@ a[href]:hover {
   padding-left: 20px;
   border: thin transparent solid;
 }
-
 /* This creates the visuals for the radio buttons */
 [role=radio]::before,
 [role=radio]::after {
@@ -346,7 +187,6 @@ a[href]:hover {
   border-radius: 50%;
   content: '';
 }
-
 [role=radio]::before {
   top: 0;
   left: 0;
@@ -355,7 +195,6 @@ a[href]:hover {
   border: 1px solid black;
   background: #fff;
 }
-
 [role=radio][aria-checked=true]::after {
   top: 3px;
   left: 3px;
@@ -363,50 +202,26 @@ a[href]:hover {
   content: '';
 }
 @media only screen and (inverted-colors) {
- .no-inversion {
-  -webkit-filter:invert(1);
-  filter:invert(1)
- }
+  .no-inversion {-webkit-filter:invert(1); filter:invert(1)}
 }
-
 @media (-ms-high-contrast:active) {
-  #active-on { display: block; }
-  #active-off { display: none; }
+  #active-on {display: block}
+  #active-off {display: none}
 }
-
 @media (-ms-high-contrast:black-on-white) {
-  #bow-on { display: block; }
-  #bow-off { display: none; }
+  #bow-on {display: block}
+  #bow-off {display: none}
 }
-
 @media (-ms-high-contrast:white-on-black) {
-  #wob-on { display: block; }
-  #wob-off { display: none; }
+  #wob-on  {display: block}
+  #wob-off {display: none}
 }
-
-/*   border: 1px solid transparent;
-  box-shadow: 0px 6px 28px 0px rgba(51,51,51,0.5);
-  https://css-tricks.com/accessible-svgs-high-contrast-mode/
-    Text is mapped to windowText
-    Link color is applied to <&#x200b;a> tags
-    Selected text is mapped to highlightText and highlight
-    Button Text is mapped to buttonFace
-    Background is mapped to window
-*/
-
 @media (light-level: normal) {
-  body {
-    background: #EDEDED;
-    color: #121212;
-  }
+  body {background: #EDEDED;color: #121212}
 }
 @media (light-level: dim) {
-  body {
-    background: #666;
-  }
+  body {background: #666}
 }
 @media (light-level: washed) {
-  body {
-    background: white;
-  }
+  body {background: white}
 }

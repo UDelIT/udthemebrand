@@ -1,13 +1,14 @@
 /**
   * UDTHEME BRANDING IE CSS
   *
-  * @package     udtheme-brand
-  * @subpackage  udtheme-brand/public/css
-  * @author      Christopher Leonard - University of Delaware
-  * @license     GPLv3
-  * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @package       udtheme-brand
+  * @subpackage    udtheme-brand/public/css
+  * @author        Christopher Leonard - University of Delaware
+  * @license       GPLv3
+  * @link          https://bitbucket.org/itcssdev/udtheme-brand
+  * @copyright     Copyright (c) 2012-2020 University of Delaware
+  * @version       3.5.4
+  * @todo          DROP IE SUPPORT IN NEXT VERSION 4.17.20 CL
 */
 @-ms-viewport {
   width: device-width;

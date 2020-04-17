@@ -6,8 +6,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 /*------------------------------------------------------------------------------
   @todo Follow BEM Methodology @see https://en.bem.info/methodology/quick-start/
@@ -29,158 +29,73 @@
      BEM-The structure of the full element name follows the pattern:
     `block-name__element-name
 ------------------------------------------------------------------------------*/
-.uinflex {
-  display: -webkit-inline-flex;
-  display: inline-flex;
-}
-
-.uflex {
-  display: -webkit-flex;
-  display: flex;
-}
-
+.uinflex {display: inline-flex}
+.uflex {display: flex}
 /*------------------------------------------------------------------------------
   1. @FLEX DIRECTION
 ------------------------------------------------------------------------------*/
-.uflex--fdr {
-  -webkit-flex-direction: row;
-  flex-direction: row;
-}
-
-.uflex--fdc {
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-
+.uflex--fdr {flex-direction: row}
+.uflex--fdc {flex-direction: column}
 /*------------------------------------------------------------------------------
   2. @FLEX FLOW
 ------------------------------------------------------------------------------*/
-.uflex--ffrw {
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-
-.uflex--ffcw {
-  -webkit-flex-flow: column wrap;
-  flex-flow: column wrap;
-}
-
+.uflex--ffrw {flex-flow: row wrap}
+.uflex--ffcw {flex-flow: column wrap}
 /*------------------------------------------------------------------------------
   3. @FLEX WRAP
 ------------------------------------------------------------------------------*/
-.uflex--nwrap {
-  -webkit-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-}
-
-.uflex--wrap {
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
+.uflex--nwrap {flex-wrap: nowrap}
+.uflex--wrap {flex-wrap: wrap}
 /*------------------------------------------------------------------------------
   4. @FLEX
 ------------------------------------------------------------------------------*/
-.uflex--flex1 {
-  -webkit-flex: 1;
-  flex: 1;
-}
-
+.uflex--flex1 {flex: 1}
 /*------------------------------------------------------------------------------
   5. @FLEX BASIS
 ------------------------------------------------------------------------------*/
-.uflex--basis50 {
-  -webkit-flex-basis: 50%;
-  flex-basis: 50%;
-}
-
-.uflex--basis100 {
-  -webkit-flex-basis: 100%;
-  flex-basis: 100%;
-}
+.uflex--basis50 {flex-basis: 50%}
+.uflex--basis100 {flex-basis: 100%}
 /*------------------------------------------------------------------------------
   6. @JUSTIFY CONTENT
      distributes space between and around content items along the main horizontal
      axis of their container.
 -----------------------------------------------------------------------------*/
-.uflex--jcc{justify-content: center;}
+.uflex--jcc {justify-content: center}
 .uflex--jcsa {justify-content: space-around}
 .uflex--jcsb {justify-content: space-between}
 .uflex--jcse {justify-content: space-evenly /* NO IE 11 */}
 .uflex--jcfs {justify-content: flex-start}
 .uflex--jcfe {justify-content: flex-end}
-
 /*------------------------------------------------------------------------------
   7. @ALIGN CONTENT
      distributes space between and around content items along the cross-axis
      (vertical) of their container, which is serving as a flexbox container.
 ------------------------------------------------------------------------------*/
-.uflex--acc{
-  -webkit-align-content: center;
-  align-content: center;
-}
-
-.uflex--acsa {
-   -webkit-align-content: space-around;
-   align-content: space-around
-}
-
-.uflex--acsb {
-   -webkit-align-content: space-between;
-   align-content: space-between
-}
-
-.uflex--acse {
-   -webkit-align-content: space-evenly; /* NO IE 11 */
-   align-content: space-evenly
-}
-
-.uflex--acfs {
-   -webkit-align-content: flex-start;
-   align-content: flex-start
-}
-
-.uflex--acfe {
-   -webkit-align-content: flex-end;
-   align-content: flex-end
-}
-
+.uflex--acc {align-content: center}
+.uflex--acsa {align-content: space-around}
+.uflex--acsb {align-content: space-between}
+.uflex--acse {align-content: space-evenly}
+.uflex--acfs {align-content: flex-start}
+.uflex--acfe {align-content: flex-end}
 /*------------------------------------------------------------------------------
   8. @ALIGN ITEMS
      works like justify-conten along the cross-axis
      (vertical) of their container.
 ------------------------------------------------------------------------------*/
-main:not(.main) {position: relative;margin: 0 auto}
-img {max-width:100%}
-svg:not (:root) {width:100%;height: auto}
-
 .uflex--aic,
-.ud-align--aic{
-  -webkit-align-items: center;
-  align-items: center;
-}
+.ud-align--aic {align-items: center}
 
-.uflex--aistretch{
-  -webkit-align-items: stretch;
-  align-items: stretch;
-}
-.uflex--aifs {
-   -webkit-align-items: flex-start;
-   align-items: flex-start
-}
-.uflex--aife {
-   -webkit-align-items: flex-end;
-   align-items: flex-end
-}
+.uflex--aistretch {align-items: stretch}
+.uflex--aifs {align-items: flex-start}
+.uflex--aife {align-items: flex-end}
 /*------------------------------------------------------------------------------
   9. @ALIGN SELF
      aligns flex items of the current flex line overriding the align-items value.
 ------------------------------------------------------------------------------*/
-.uflex--asstretch{
-  -webkit-align-self: stretch;
-  align-self: stretch;
-}
+.uflex--asstretch{align-self: stretch}
 
-
+main:not(.main) {position: relative;margin: 0 auto}
+img {max-width:100%}
+svg:not (:root) {width:100%;height: auto}
 
 

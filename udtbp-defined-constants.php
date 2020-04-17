@@ -13,8 +13,8 @@
   * @author      Christopher Leonard
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 /**
   * Defines named constants that return the complete
@@ -38,9 +38,9 @@
   * @version  1.2.0    Removed Anjirai (deprecated) from $json_theme_list array
 */
 const UDTBP_NAME             = 'UDTheme Branding';
-const UDTBP_VERSION          = '3.5.3';
+const UDTBP_VERSION          = '3.5.4';
 const UDTBP_REQ_PHP_VERSION  = '7.2';
-const UDTBP_REQ_WP_VERSION   = '5.2.3';
+const UDTBP_REQ_WP_VERSION   = '5.4';
 
 /**
  * List of incompatible themes and latest tested version

@@ -9,21 +9,19 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 
 .check-switch span::after,
 button.ud-switch,
 .knob, .knob::after,
 [role="switch"][aria-checked="true"] {
-  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .check-switch,
 .switch {
-
   overflow: hidden;
   position: relative;
   height: 50px;
@@ -41,9 +39,6 @@ button.ud-switch,
 .check-switch span::after {
   content: '';
   position: absolute;
-/*   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); */
 }
 
 /*----------------------------------
@@ -58,22 +53,18 @@ button.ud-switch,
 .switch--horizontal input  ~ .toggle-outside .toggle-inside::after,
 .toggle-outside .toggle-inside::after {
   content: '';
-  display: -webkit-flex;
   display: flex;
-  -webkit-align-self:  center;
   align-self:  center;
   background: lightslategray;
   border-radius: 50px;
   will-change:  transform;
   width: 28px;
   height: 28px;
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
   transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
   transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
   transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1), -webkit-transform 0.3s cubic-bezier(0.22, 0.38, 0, 1);
   -webkit-transform-origin: center;
   transform-origin: center;
-/*   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12), 0px 0px 10px 1px rgba(0, 0, 0, 0.42) inset; */
 }
 
 input ~ input:checked ~ .toggle-outside .toggle-inside {
@@ -127,7 +118,6 @@ input ~ input:checked ~ .toggle-outside .toggle-inside {
 
 .switch--horizontal input:checked,
 .switch--horizontal input ~ input:checked {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   transition: -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
@@ -141,7 +131,6 @@ input ~ input:checked ~ .toggle-outside .toggle-inside {
   height: 28px;
   box-shadow: inset -1px 1px 2px rgba(0,0,0,.23), inset 1px 0px 2px rgba(0,0,0,.23);
   border-radius: 50px;
-  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -158,7 +147,6 @@ input ~ input:checked ~ .toggle-outside .toggle-inside {
   margin: 0;
   position: absolute;
   cursor: pointer !important;
-  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -182,7 +170,6 @@ button:focus,
 .check-switch input:checked + div span::after,
 .switch input:checked + span::after {
   will-change:  transform;
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
   transition: -webkit-transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
   transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1);
   transition: transform 0.2s cubic-bezier(0.22, 0.38, 0, 1), -webkit-transform 0.3s cubic-bezier(0.22, 0.38, 0, 1);

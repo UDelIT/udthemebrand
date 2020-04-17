@@ -12,8 +12,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.2
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 /*------------------------------------------------------------------------------
 [Table of contents]
@@ -38,14 +38,6 @@
 *:after {
   box-sizing: border-box;
 }
-
-/* html, body, button, ol, ul, li, fieldset, legend, input, select, textarea, hr, h1, h2, h3, h4 {
-  margin: 0;
-  padding: 0;
-} */
-
-
-
 /*------------------------------------------------------------------------------
   2. @GROUPING CONTENT
     a. Add the correct box sizing in Firefox.
@@ -80,8 +72,6 @@ main:not(.main) {
        Leaves scrolling and pinch-zoom up to the browser. Prevent default double
        tap in IE10+
 ------------------------------------------------------------------------------*/
-
-
 /*-------------------------------------------------------------------
   4. @EMBEDDED CONTENT
 -------------------------------------------------------------------*/

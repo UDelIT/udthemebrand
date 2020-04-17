@@ -17,8 +17,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
   *
 */
 if ( ! class_exists( 'udtbp' ) ) :
@@ -102,6 +102,8 @@ if ( ! class_exists( 'udtbp' ) ) :
       $this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_settings_link', 10, 2 );
     } // end udtbp_define_admin_hooks()
 
+    /* SEE class-udtbp-admin for related function 4.16.20 CL */
+    //$this->loader->add_action( 'current_screen', $plugin_admin, 'udtbp_hide_on_edit' );
     /**
      * ADD PLUGIN SCRIPTS AND STYLES TO PLUGIN OPTIONS PAGE ONLY
      *

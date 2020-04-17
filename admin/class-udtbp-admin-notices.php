@@ -17,8 +17,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
   class udtbp_Admin_Notices extends udtbp_Admin {
@@ -52,16 +52,16 @@ if ( ! class_exists( 'udtbp_Admin_Notices' ) ) :
     * Checks if current theme (additional check for Divi)
     * has fixed navigation or has issues with the plugin.
     *
-    * @since     3.0.0
-    * @version   1.0.1                            Replaced static plugin text with CONSTANT.
-    * @return    boolean                          If TRUE, apply CSS overrides.
-    * @param     string      $screen              Used to get the name of the screen that the current user is on.
-    * @var       string      $div_id              ID for theme override div.
-    * @var       string      $div_class           Classes to make div dismissible and hidden.
-    * @var       string      $p_class             Adds warning icon and class to $div_id div.
-    * @var       string      $theme_name          The active theme.
-    * @var       string      $button              Dismiss div button text.
-    * @var       string      $current_tab         The current tab (Header, Footer, About, Support)
+    * @since       3.0.0
+    * @version     1.0.1                            Replaced static plugin text with CONSTANT.
+    * @return      boolean                          If TRUE, apply CSS overrides.
+    * @param       string      $screen              Used to get the name of the screen that the current user is on.
+    * @var         string      $div_id              ID for theme override div.
+    * @var         string      $div_class           Classes to make div dismissible and hidden.
+    * @var         string      $p_class             Adds warning icon and class to $div_id div.
+    * @var         string      $theme_name          The active theme.
+    * @var         string      $button              Dismiss div button text.
+    * @var         string      $current_tab         The current tab (Header, Footer, About, Support)
     */
 
     public function udtbp_theme_override_notices( $screen ) {

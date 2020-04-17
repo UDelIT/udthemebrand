@@ -6,8 +6,9 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
+  * Removed -webkit-vendor prefixes 4.17.20 CL
 */
 /*------------------------------------------------------------------------------
 [Table of contents]
@@ -20,7 +21,6 @@
   1. @GRID CONTAINERS
 ------------------------------------------------------------------------------*/
 .ud-wrapper--grid {
-  display: -webkit-grid;
   display: grid;
   grid-gap: 0 10px;
   grid-template-columns:
@@ -37,7 +37,6 @@
 
 .ud-grid--2,
 .ud-grid--6 {
-  display: -webkit-grid;
   display: grid;
   grid-gap: 10px;
 }

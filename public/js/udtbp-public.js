@@ -4,8 +4,8 @@
  * This file contains vanilla JS scripts used in relation to public viewable web pages.
  * It contains all of the js code necessary to run / display the branding.
  *
- * @since   1.4.2
- * @version 3.5.3
+ * @since          1.4.2
+ * @version        3.5.4
  */
 /**
   * DOCUMENT READY

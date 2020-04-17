@@ -11,8 +11,8 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 
 if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
@@ -107,8 +107,8 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
        *
        * Creates HEADER TITLE text field.
        *
-       * @since         3.5.0
-       * @version       1.1   Update internationalization
+       * @since    3.5.0
+       * @version  1.1   Update internationalization
       */
       $str = sprintf( __('Title', UDTBP_NAME) );
       add_settings_field(
@@ -140,8 +140,8 @@ if ( ! class_exists( 'udtbp_Header_Settings' ) ) :
     /**
      * TOGGLE HEADER VISIBILITY
      *
-     * @since     1.4.2
-     * @version   3.5.0
+     * @since      1.4.2
+     * @version    3.5.0
     */
     public function view_header() {
       $options  = get_option( $this->udtbp . '_options' );

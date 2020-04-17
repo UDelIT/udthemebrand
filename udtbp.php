@@ -5,7 +5,7 @@
   * Description:       A WCAG compliant plugin that allows a University department
   *                    or college to display the official University of Delaware
   *                    branded header and footer on a WordPress website.
-  * Version:           3.5.3
+  * Version:           3.5.4
   * Author:            Christopher Leonard - University of Delaware
   * Author URI:        https://sites.udel.edu/cleonard
   * License:           GPLv3
@@ -14,7 +14,7 @@
   * Domain Path:       /languages
 */
 /**
-  Copyright (c) 2012-2019 University of Delaware
+  Copyright (c) 2012-2020 University of Delaware
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
@@ -41,8 +41,8 @@
   * @author      Christopher Leonard
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.3
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 /**
  * Prevent direct access to this page.

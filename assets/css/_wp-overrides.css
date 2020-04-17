@@ -9,13 +9,12 @@
   * @author      Christopher Leonard - University of Delaware
   * @license     GPLv3
   * @link        https://bitbucket.org/itcssdev/udtheme-brand
-  * @copyright   Copyright (c) 2012-2019 University of Delaware
-  * @version     3.5.2
+  * @copyright   Copyright (c) 2012-2020 University of Delaware
+  * @version     3.5.4
 */
 body.udtbp_active #wp-body a {
   -webkit-text-decoration-skip: objects;
   -webkit-tap-highlight-color: transparent;
-  -webkit-transition: color .12s ease-in-out;
   transition: color .12s ease-in-out;
 }
 
@@ -39,7 +38,6 @@ body.udtbp_active #wpcontent p {
 }
 
 body.udtbp_active #wp-content a {
-  -webkit-transition: color .12s ease-in-out;
   transition: color .12s ease-in-out;
 }
 
@@ -68,7 +66,6 @@ body.udtbp_active #poststuff #post-body.columns-2 {
 }
 
 .ud-norm--header > div:first-child {
-  -webkit-align-items: center;
   align-items: center;
 }
 
@@ -94,20 +91,15 @@ body.udtbp_active .postbox, .stuffbox {
 body.udtbp_active #poststuff .inside {
   margin: 0;
   height: calc(100% - 150px);
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: normal;
   align-items: normal;
   z-index: 10;
 }
 
 body.udtbp_active #post-body {
   height: 100%;
-  display: -webkit-flex;
   display: flex;
-  -webkit-align-content: center;
   align-content: center;
 }
 
@@ -205,9 +197,7 @@ body.udtbp_active #postbox-container-2 .inside p:not(.help) {
 }
 
 #udtbp_form .button {
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-flow: row nowrap;
   flex-flow: row nowrap;
   justify-content: center;
 }
@@ -216,7 +206,6 @@ body.udtbp_active #postbox-container-2 .inside p:not(.help) {
   cursor: pointer;
   outline: 0;
   margin-left: 20px;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   box-sizing: border-box;
   box-shadow:  none !important;
@@ -256,7 +245,6 @@ body.udtbp_active #postbox-container-2 .inside p:not(.help) {
   height: 100%;
   box-shadow: 0 5px 15px #0000004d;
   opacity: 0;
-  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   -webkit-transform: scale(1.02);
   transform: scale(1.01) translateY(-2px);
@@ -286,7 +274,6 @@ body.udtbp_active #postbox-container-2 .inside p:not(.help) {
 }
 
 #udtbp_form .button.save-button .arrow-icon--circle {
-  -webkit-transition: stroke-dashoffset .3s ease;
   transition: stroke-dashoffset .3s ease;
   stroke-dasharray: 95;
   stroke-dashoffset: 95;

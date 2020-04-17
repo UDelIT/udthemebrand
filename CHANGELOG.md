@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [3.5.4](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.4)  - 2-25-2020
+## [3.5.4](https://github.com/UDelIT/udthemebrand/releases/tag/3.5.4)  - 4-16-2020
 
 ### Fixed 
+
+* Typo in support email plugin page ([#51](https://github.com/UDelIT/udthemebrand/issues/51))
+
+* Typo in brand image alt text ([#50](https://github.com/UDelIT/udthemebrand/issues/50))
 
 * General fixes and updates.
 
