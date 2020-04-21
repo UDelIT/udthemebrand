@@ -1,15 +1,13 @@
+# DB files
 *.log
-wp-config.php
-wp-content/advanced-cache.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/uploads/
-wp-content/mu-plugins/
-wp-content/wp-cache-config.php
-wp-content/plugins/hello.php
+*.sql
+*.sqlite
+
+# WordPress
+# Ignore everyting in wp-content except:
+# "udtheme-brand"
+wp-content/*
+!wp-content/plugins/udtheme-brand
 
 /.htaccess
 /license.txt
@@ -17,11 +15,21 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 /bkup/
+
+# Build tools generated files #
 /assets/css/_scss/.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# OS generated files #
+######################
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-wp-cli.local.yml
-node_modules/
-*.sql
 *.tar.gz
 *.zip

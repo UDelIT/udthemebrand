@@ -26,13 +26,24 @@
           from using the WebFonts(s) listed without a purchased license.
           All details above must always remain unaltered and visible in your CSS.
 */
+
 @font-face {
   font-family: 'greycliff-bold';
   font-style: normal;
   font-weight: normal;
   src: local('GreycliffCF-Bold'), local('greycliff-bold'),
-       url('../fonts/GreycliffCF-Bold.woff2') format('woff2'),
-       url('../fonts/GreycliffCF-Bold.woff') format('woff');
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/GreycliffCF-Bold.woff2') format('woff2'),
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/GreycliffCF-Bold.woff') format('woff');
+       unicode-range: U+0020-007D;
+}
+
+@font-face {
+  font-family: 'greycliff-demibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('GreycliffCF-DemiBold'), local('greycliff-demibold'),
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/GreycliffCF-DemiBold.woff2') format('woff2'),
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/GreycliffCF-DemiBold.woff') format('woff');
        unicode-range: U+0020-007D;
 }
 
@@ -41,8 +52,8 @@
   font-style: normal;
   font-weight: normal;
   src: local('GreycliffCF-Light'), local('greycliff-light'),
-       url('../fonts/GreycliffCF-Light.woff2') format('woff2'),
-       url('../fonts/GreycliffCF-Light.woff') format('woff');
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/GreycliffCF-Light.woff2') format('woff2'),
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/GreycliffCF-Light.woff') format('woff');
        unicode-range: U+0020-007D;
 }
 
@@ -51,8 +62,8 @@
   font-style: normal;
   font-weight: normal;
   src: local('vanguard-regular'), local('vanguard-cf-regular'),
-       url('../fonts/vanguard-cf-regular.woff2') format('woff2'),
-       url('../fonts/vanguard-cf-regular.woff') format('woff');
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/vanguard-cf-regular.woff2') format('woff2'),
+       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/vanguard-cf-regular.woff') format('woff');
        unicode-range: U+0020-007D, U+00A9, U+00AB, U+00BB, U+00B7;
 }
 
@@ -61,13 +72,13 @@
   font-style: normal;
   font-weight: normal;
     src: local('Arimo'), local('Arimo'),
-        url('../fonts/Arimo.woff2') format('woff2'),
-        url('../fonts/Arimo.woff') format('woff');
+        url('../fonts/Arimo-Regular.woff2') format('woff2'),
+        url('../fonts/Arimo-Regular.woff') format('woff');
   unicode-range: U+0020-007D;
 }
 
 @font-face {
-  font-family: 'Arimo Italic';
+  font-family: 'Arimo';
   font-style: italic;
   font-weight: normal;
   src: local('Arimo Italic'), local('Arimo-Italic'),
