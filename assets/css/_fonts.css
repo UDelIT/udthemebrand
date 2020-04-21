@@ -62,8 +62,8 @@
   font-style: normal;
   font-weight: normal;
   src: local('vanguard-regular'), local('vanguard-cf-regular'),
-       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/vanguard-cf-regular.woff2') format('woff2'),
-       url('https://www.udel.edu/content/dam/udelImages/digital-brand-assets/fonts/vanguard-cf-regular.woff') format('woff');
+       url('../fonts/vanguard-cf-regular.woff2') format('woff2'),
+       url('../fonts/vanguard-cf-regular.woff') format('woff');
        unicode-range: U+0020-007D, U+00A9, U+00AB, U+00BB, U+00B7;
 }
 

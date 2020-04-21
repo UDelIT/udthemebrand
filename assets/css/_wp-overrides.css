@@ -32,9 +32,13 @@ body.udtbp_active #wpcontent {
   font-size: 16px;
   padding: 0;
 }
-
+.uc-block--sb {
+  width: 80%;
+  margin: 0 auto;
+}
 body.udtbp_active #wpcontent p {
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 19px;
 }
 
 body.udtbp_active #wp-content a {
@@ -43,7 +47,7 @@ body.udtbp_active #wp-content a {
 
 body.udtbp_active #wp-content a:focus {
   box-shadow: none !important
-}
+}
 
 body.udtbp_active #wpfooter {
   position: relative;
@@ -73,11 +77,14 @@ body.udtbp_active.postbox,
 .stuffbox {
   margin-bottom: 0;
 }
-
+body.udtbp_active #postbox-container-1 .inside h2:first-child {
+  margin-top: 2.3em;
+}
 body.udtbp_active #postbox-container-1 .inside h2 {
   font-size: 14px;
+  font-family: "greycliff-bold", Arial, Helvetica, sans-serif;
   padding: 0;
-  margin: 1em 0 0;
+  margin-bottom: 0.5em;
   line-height: 1.3;
 }
 
@@ -90,6 +97,7 @@ body.udtbp_active .postbox, .stuffbox {
 }
 body.udtbp_active #poststuff .inside {
   margin: 0;
+  padding:  0 20px 12px;
   height: calc(100% - 150px);
   display: flex;
   flex-direction: column;
